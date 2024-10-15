@@ -70,8 +70,8 @@ def get_response(user_query, chat_history):
     chain = prompt | hub_llm | StrOutputParser()
 
     response = chain.invoke({
-        "chat_history": chat_history,
-        "user_question": user_query,
+        "chat_history": chat_history, ## From Session State
+        "user_question": user_query, ## From User Input
     })
 
     return response
