@@ -1,10 +1,10 @@
 from dotenv import load_dotenv
-from langchain_community.llms import HuggingFaceHub
+from langchain_huggingface import HuggingFaceEndpoint
 
 load_dotenv()  ## Load environment variables from .env file
 
 # Initialize the model from HuggingFace Hub
-hub_llm = HuggingFaceHub(repo_id="mistralai/Mixtral-8x7B-Instruct-v0.1")
+hub_llm = HuggingFaceEndpoint(repo_id="mistralai/Mixtral-8x7B-Instruct-v0.1")
 
 # Define the input prompt
 prompt = "Explain the main features of Langchain."
