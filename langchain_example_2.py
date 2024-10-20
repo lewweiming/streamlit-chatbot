@@ -1,3 +1,5 @@
+# This example uses the StrOutputParser from LangChain
+
 # Import the necessary module
 from langchain_core.output_parsers import StrOutputParser
 

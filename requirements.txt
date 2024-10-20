@@ -6,4 +6,7 @@ langchain-core
 langchain-community
 python-dotenv
 pypdf
-chromadb
+faiss-cpu
+sentence-transformers
+pdfkit
+markdown

@@ -1,3 +1,6 @@
+# This example uses ChatPrompt Template class from LangChain
+## ChatPromptTemplates are useful for simplifying tasks
+
 from langchain_core.prompts import ChatPromptTemplate
 
 template = ChatPromptTemplate([

@@ -1,3 +1,6 @@
+# This example creates a simple travel chatbot using HuggingFace model + Streamlit + Langchain
+# Based on https://www.analyticsvidhya.com/blog/2024/07/build-a-travel-assistant-chatbot/
+
 from dotenv import load_dotenv
 import streamlit as st
 from langchain_huggingface import ChatHuggingFace,HuggingFaceEndpoint
