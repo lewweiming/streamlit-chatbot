@@ -1,0 +1,43 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    <h2 class="ui header">Your Booking Details</h2>
+    <div class="ui segment">
+        <p><strong>Booking ID:</strong> 12345</p>
+        <p><strong>Hotel Name:</strong> Grand Hotel</p>
+        <p><strong>Room Type:</strong> Deluxe Room</p>
+        <p><strong>Check-in Date:</strong> 2024-10-01</p>
+        <p><strong>Check-out Date:</strong> 2024-10-05</p>
+        <p><strong>Total Amount:</strong> $600</p>
+        <p><strong>Status:</strong> Confirmed</p>
+    </div>
+    <div class="ui buttons">
+        <button class="ui orange button" onclick="modifyBooking()">Modify</button>
+        <button class="ui red button" onclick="cancelBooking()">Cancel</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

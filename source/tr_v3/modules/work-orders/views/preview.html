@@ -1,0 +1,79 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block head %}
+<!-- MARKDOWN -->
+<script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+<link rel="stylesheet" href="/css/markdown.css" />
+{% endblock %}
+
+{% block content %}
+<div class="ui breadcrumb">
+    <a href="/" class="section">Home</a>
+    <i class="right angle icon divider"></i>
+    <a href="/work-orders" class="section">Work Orders</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section">Work Order #{{ order.id }}</div>
+  </div>
+
+<h2 class="ui dividing header">Work Order Details</h2>
+
+<div class="ui raised segment">
+  <div class="ui two column grid">
+    <div class="column">
+      <h4 class="ui header">Requestor</h4>
+      <p>{{ order.requestor }}</p>
+    </div>
+    <div class="column">
+      <h4 class="ui header">Department</h4>
+      <p>{{ order.department }}</p>
+    </div>
+  </div>
+
+  <div class="ui grid">
+    <div class="column">
+      <h4 class="ui header">Description</h4>
+
+      <div class="markdown markdown-body text-black">{{ order.description }}</div>
+    </div>
+  </div>
+
+  <div class="ui two column grid">
+    <div class="column">
+      <h4 class="ui header">Priority</h4>
+      <p>
+        <span class="ui {{ order.priority }} label">
+          {{ order.priority }}
+        </span>
+      </p>
+    </div>
+    <div class="column">
+      <h4 class="ui header">Status</h4>
+      <p>
+        <span class="ui {{ order.status }} label">
+          {{ order.status }}
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div class="ui two column grid">
+    <div class="column">
+      <h4 class="ui header">Date Submitted</h4>
+      <p>{{ order.date_submitted }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+let collection = document.getElementsByClassName('markdown')
+let nodes = Array.from(collection)
+nodes.forEach(el => {
+    el.innerHTML = marked.parse(el.innerHTML.replace(/&gt;+/g, '>'), {
+        mangle: false,
+        headerIds: false
+    })
+})
+</script>
+{% endblock %}

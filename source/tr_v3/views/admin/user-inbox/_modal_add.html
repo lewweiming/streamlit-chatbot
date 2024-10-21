@@ -1,0 +1,36 @@
+<div class="ui modal add">
+    <i class="close icon"></i>
+    <div class="header">
+      Add New
+    </div>
+    <div class="content">
+    <!-- FORM -->
+    <form class="ui form">
+
+      <div class="field">
+        <label>Username</label>
+        <input x-model="input.username" type="text" name="message-username" placeholder="Username">
+      </div>
+
+      <div class="field">
+        <label>Message Title</label>
+        <input x-model="input.title" type="text" name="message-title" placeholder="Message Title">
+      </div>
+
+      <div class="field">
+      <label>Markdown Content</label>
+      <!-- TEXTAREA -->
+      <textarea id="simplemde-add-modal"></textarea>
+      </div>
+
+    </form>       
+    </div>
+    <div class="actions">
+      <button class="ui deny button">
+        Cancel
+      </button>
+      <button @click="submitAdd()" class="ui positive right button">
+        Submit
+      </button>
+    </div>
+  </div>

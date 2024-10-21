@@ -1,0 +1,179 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block head %}
+<!-- CLIPBOARD -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<main x-data="main()">
+
+    <div class="ui breadcrumb">
+        <a href="/framework/admin" class="section">Admin</a>
+        <i class="right angle icon divider"></i>
+        <a href="/framework/admin/amadeus/main" class="section">Amadeus Module</a>
+        <i class="right angle icon divider"></i>
+        <a href="/framework/admin/amadeus/flights/main" class="section">Flight Api</a>
+        <i class="right angle icon divider"></i>
+        <div class="active section">Flight Create Order</div>
+    </div>
+
+    <h2 class="ui header">Flight Create Order</h2>
+
+    <div class="ui message">"Submit" will submit the flight offer and traveller details to create a flight order.</div>
+
+    <div class="ui hidden divider"></div>
+
+    <h2 class="ui header">Paste Flight Offers (Array) Data (JSON)</h2>
+
+    <div class="ui form">
+        <div class="field">
+        <div class="ui fluid input">
+            <textarea x-model="input.flightOffers" placeholder="Paste here..."></textarea>
+        </div>
+        </div>
+    </div>
+
+    <div class="ui hidden divider"></div>
+
+    <h2 class="ui header">Paste Travellers (Array) Data (JSON)</h2>
+
+    <div class="ui form">
+        <div class="field">
+        <div class="ui fluid input">
+            <textarea x-model="input.travellers" placeholder="Paste here..."></textarea>
+        </div>
+        </div>
+    </div>
+
+    <div class="ui hidden divider"></div>
+
+    <div>
+    <button @click="submitFlightCreateOrder()" class="ui button">Submit</button>
+    </div>
+
+
+    <div class="ui hidden divider"></div>
+
+    <!-- JSON/RESULTS -->
+    <div class="ui code">
+        <h2 class="ui header">JSON Data</h2>
+
+        <div>
+            <button class="ui clipboard button" :data-clipboard-text="resultsJson">Copy Flight Order as JSON</button></div>
+        </div>
+
+        <pre><code x-text="resultsJson"></code></pre>
+    </div>
+
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+    var clipboard = new ClipboardJS('.clipboard');
+
+    clipboard.on('success', function(e) {
+
+        $.toast({
+            class: 'success',
+            message: 'Successfully copied to clipboard'
+        });
+        // console.info('Action:', e.action);
+        // console.info('Text:', e.text);
+        // console.info('Trigger:', e.trigger);
+
+        e.clearSelection();
+    });
+</script>
+<script>
+    const API_FETCH_AMADEUS_FLIGHT_CREATE_ORDER = '/modules/amadeus/api/flights/flight_create_order.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            rows: [],
+            resultsJson: '',
+            input: {
+                flightOffers: '',
+                travellers: `
+[
+    {
+    "id": "1",
+    "dateOfBirth": "1982-01-16",
+    "name": {
+        "firstName": "JORGE",
+        "lastName": "GONZALES"
+    },
+    "gender": "MALE",
+    "contact": {
+        "emailAddress": "jorge.gonzales833@telefonica.es",
+        "phones": [
+        {
+            "deviceType": "MOBILE",
+            "countryCallingCode": "34",
+            "number": "480080076"
+        }
+        ]
+    },
+    "documents": [
+        {
+        "documentType": "PASSPORT",
+        "birthPlace": "Madrid",
+        "issuanceLocation": "Madrid",
+        "issuanceDate": "2015-04-14",
+        "number": "00000000",
+        "expiryDate": "2025-04-14",
+        "issuanceCountry": "ES",
+        "validityCountry": "ES",
+        "nationality": "ES",
+        "holder": true
+        }
+    ]
+    },
+    {
+    "id": "2",
+    "dateOfBirth": "2012-10-11",
+    "gender": "FEMALE",
+    "contact": {
+        "emailAddress": "jorge.gonzales833@telefonica.es",
+        "phones": [
+        {
+            "deviceType": "MOBILE",
+            "countryCallingCode": "34",
+            "number": "480080076"
+        }
+        ]
+    },
+    "name": {
+        "firstName": "ADRIANA",
+        "lastName": "GONZALES"
+    }
+    }
+]        
+                `
+            },
+            init() {
+                
+            },
+            async submitFlightCreateOrder() {
+
+                $.toast({ message: 'Submitting data..' });
+
+                let fd = new FormData()
+                fd.append('flightOffers', this.input.flightOffers)
+                fd.append('travellers', this.input.travellers)
+
+                let r = await axios.post(API_FETCH_AMADEUS_FLIGHT_CREATE_ORDER, fd)
+
+                if (r.data.message == 'success') {
+                    this.resultsJson = JSON.stringify(r.data, null, 2);
+                    $.toast({ class: 'success', message: `Data fetched` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

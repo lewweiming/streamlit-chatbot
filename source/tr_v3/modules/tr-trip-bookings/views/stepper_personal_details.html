@@ -1,0 +1,83 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<main x-data="main()">
+
+  <!-- BREADCRUMBS -->
+  <div class="ui breadcrumb">
+    <a href="/" class="section">Home</a>
+    <i class="right angle icon divider"></i>
+    <a href="/modules/trip-bookings" class="section">Trip Bookings</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section">Checkout: Personal Details</div>
+  </div>
+
+  <!-- STEPPER -->
+  <div class="ui ordered fluid steps">
+
+    <div class="active step">
+      <div class="content">
+        <div class="title">Personal Details</div>
+        <div class="description">Enter your details</div>
+      </div>
+    </div>
+
+    <div class="disabled step">
+      <div class="content">
+        <div class="title">Review & Payment</div>
+        <div class="description">Review booking and complete your payment</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Customer Details -->
+  <div class="ui segment">
+
+    <form method="post" action="/modules/trip-bookings/checkout/personal-details" class="ui form">
+
+      <h4 class="ui dividing header">Customer Information</h4>
+      <div class="field">
+        <label>Full Name</label>
+        <input x-model="input.fullName" type="text" name="name" placeholder="Full Name">
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input x-model="input.email" type="email" name="email" placeholder="Email">
+      </div>
+      <div class="field">
+        <label>Phone Number</label>
+        <input x-model="input.phone" type="tel" name="phone" placeholder="Phone Number">
+      </div>
+
+      <button class="ui primary button" type="submit">Continue</button>
+    </form>
+  </div>
+</main>
+{% endblock %}
+
+
+{% block script %}
+<script>
+  $('.ui.form').form({
+    fields: {
+      name: 'empty',
+      email: 'email',
+      phone: 'empty'
+    }
+  });
+</script>
+
+<script defer>
+  document.addEventListener('alpine:init', () => {
+
+    Alpine.data('main', () => ({
+      input: {
+        fullName: 'John Smith',
+        email: 'socrates3142@gmail.com',
+        phone: '2343423'
+      }
+    }))
+  })
+</script>
+{% endblock %}

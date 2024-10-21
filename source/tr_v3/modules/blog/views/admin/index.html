@@ -1,0 +1,208 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block head %}
+<!-- SIMPLE MDE -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<main x-data="main">
+  <div class="ui container">
+    <h1>Manage Awesome Blog</h1>
+    <p>This page application is based on CRUD Paginated.</p>
+
+    <!-- TOOLBAR -->
+    <div class="ui secondary menu">
+      <div class="item">
+        <div class="ui toggle checkbox">
+          <input @click="deleteMode = !deleteMode" type="checkbox">
+          <label>Toggle delete mode</label>
+        </div>
+      </div>
+
+      <div class="item">
+        <a @click="list()" class="ui small button">
+          <i class="refresh icon"></i> Refresh
+        </a>
+      </div>
+
+      <div class="item">
+        <div class="ui input">
+          <input @keyup.enter="performSearch()" x-model="filterInput.title" type="text" placeholder="Search by title">
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="ui labeled input">
+          <div class="ui label">Find posts tagged with</div>
+          <select @change="performSearch()" x-model="filterInput.tags" class="ui selection dropdown">
+            <option value="">Any</option>
+            <option>People</option>
+            <option>Climate Change</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="item">
+        <a href="/framework/admin/blog/create" class="ui small primary button">
+          <i class="add icon"></i> Add new
+        </a>
+      </div>
+    </div>
+
+    <!-- ITEMS -->
+    <div class="ui divided items">
+      <template x-for="i in rows">
+        <div class="item">
+          <div class="image">
+            <img :src="i.thumbnail_path?i.thumbnail_path:'http://via.placeholder.com/300x300'">
+          </div>
+          <div class="content">
+            <a class="header" x-text="i.title"></a>
+            <div class="meta">
+              <div class="">Updated on <span x-text="convertDate(i.updated_at)"></span>, ID: <span x-text="i.id"></span>
+              </div>
+            </div>
+            <div class="description">
+              <template x-if="i.tags">
+                <template x-for="tag in i.tags.split(',')">
+                  <div class="ui label" x-text="tag"></div>
+                </template>
+              </template>
+            </div>
+            <div class="extra">
+              <a :href="`/framework/admin/blog/post/${i.id}`" class="ui small button">
+                <i class="edit icon"></i> Edit
+              </a>
+              <a :href="`/framework/admin/blog/post/${i.id}/images`" class="ui small button">
+                <i class="image icon"></i> Photos
+              </a>
+              <a x-show="deleteMode" @click="submitDelete(i.id)" class="ui small button">
+                <i class="delete icon"></i> Delete
+              </a>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="ui pagination menu">
+      <a @click="getPrevious()" class="icon item">
+        <i class="left chevron icon"></i>
+      </a>
+      <template x-for="i in maxPage">
+        <a @click="currentPage = i, listPaginated(currentPage)" :class="i == currentPage?'active':''" class="item"
+          x-text="i"></a>
+      </template>
+      <a @click="getNext()" class="icon item">
+        <i class="right chevron icon"></i>
+      </a>
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}
+
+{% block script %}
+
+<script defer>
+
+  const ITEMS_PER_PAGE = 12 // DEFAULT 12
+
+  const API_LIST = '/modules/blog/api/admin/list.php'
+  const API_LIST_PAGINATED = '/modules/blog/api/admin/list_paginated.php'
+  const API_UPDATE = '/modules/blog/api/admin/update.php'
+  const API_DELETE = '/modules/blog/api/admin/delete.php'
+
+  document.addEventListener('alpine:init', () => {
+
+    Alpine.data('main', () => ({
+      rows: [],
+      deleteMode: false,
+      selected: null,
+      init() {
+        this.listPaginated(this.currentPage)
+      },
+      async list() {
+        $.toast({ message: 'Fetching list..' });
+
+        let r = await axios.get(API_LIST)
+
+        if (r.data.message == 'success') {
+          this.rows = r.data.rows
+          $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+        }
+      },
+      async submitDelete(id) {
+        let fd = new FormData();
+        fd.append('id', id);
+        let r = await axios.post(API_DELETE, fd)
+
+        if (r.data.message == 'success') {
+          this.rows.splice(this.rows.findIndex((i) => i.id == id), 1)
+          $.toast({ class: 'success', message: 'Entry removed!' });
+        }
+      },
+      convertDate(mysqlTimestamp) {
+        // Assuming your MySQL timestamp is in the format 'YYYY-MM-DD HH:MM:SS'
+        const date = new Date(mysqlTimestamp);
+        const options = { day: 'numeric', month: 'short', year: '2-digit' };
+        const formattedDate = date.toLocaleDateString('en-GB', options);
+        return formattedDate;
+      },
+      /* FILTER SUPPORT */
+      filterInput: {
+        name: '',
+        tags: ''
+      },
+      /* PAGINATION SUPPORT */
+      currentPage: 1,
+      maxPage: null,
+      performSearch() {
+        $.toast({ message: 'Performig filter search..' });
+        this.resetCurrentPage()
+        this.listPaginated(this.currentPage)
+      },
+      setMaxPage(count) {
+        count = parseInt(count)
+        this.maxPage = Math.ceil(count / ITEMS_PER_PAGE)
+      },
+      async listPaginated(page) {
+
+        $.toast({ message: 'Fetching list..' });
+
+        let r = await axios.get(API_LIST_PAGINATED, {
+          params: {
+            page: page,
+            filters: JSON.stringify(this.filterInput)
+          }
+        })
+
+        if (r.data.message == 'success') {
+          this.rows = r.data.rows
+          $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+          this.setMaxPage(r.data.count)
+        }
+      },
+      getNext() {
+        if (this.currentPage < this.maxPage) {
+          this.currentPage++
+          this.listPaginated(this.currentPage)
+        }
+      },
+      getPrevious() {
+        if (this.currentPage > 1) {
+          this.currentPage--
+          this.listPaginated(this.currentPage)
+        }
+      },
+      resetCurrentPage() {
+        this.currentPage = 1
+      }
+    }))
+  })
+</script>
+{% endblock %}

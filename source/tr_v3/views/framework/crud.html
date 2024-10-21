@@ -1,0 +1,121 @@
+{% extends "_layout_admin.html" %}
+
+{% set title = 'CRUD Generator' %}
+
+{% block content %}
+<div class='content'>
+    <blockquote class="is-info">It will be really cool to be able to clone modules or build modules from a single
+        command in X2 Framework.</blockquote>
+</div>
+
+<div class="tile is-ancestor">
+    <div class="tile is-parent">
+        <article class="tile is-child box">
+            <p class="title">Database</p>
+            <p class="subtitle">This will create a new database file</p>
+            <div class="content">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+            </div>
+          </article>
+    </div>
+    <div class="tile is-parent">
+        <article class="tile is-child box">
+            <p class="title">Model</p>
+            <p class="subtitle">This will create a new database file</p>
+            <div class="content">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+            </div>
+          </article>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child box">
+        <p class="title">Controller</p>
+        <p class="subtitle">This will create a new database file</p>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+        </div>
+      </article>
+    </div>
+    <div class="tile is-parent">
+        <article class="tile is-child box">
+          <p class="title">Routes</p>
+          <p class="subtitle">This will create a new database file</p>
+          <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+          </div>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child box">
+          <p class="title">Views</p>
+          <p class="subtitle">This will create a new database file</p>
+          <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+          </div>
+        </article>
+      </div>
+  </div>
+  
+
+<div class="box">
+
+    <div>✅ Database created!</div>
+    <div>✅ Model created!</div>
+    <div>✅ Controller created!</div>
+    <div>✅ Routes created!</div>
+    <div>✅ Views created!</div>
+</div>
+
+<div class="box content">
+    <p>Please insert this into the main routes file.</p>
+    <pre>
+    <code>
+/* CRUD ADMIN EXTENSION */
+$router->group(['prefix' => '/framework/admin','middleware' => [SimpleAuthMiddleware::class]], function(Router $router) {
+    $router->get('/main', [X2FrameworkController::class, 'admin']);
+    $router->post('/item', [X2FrameworkController::class, 'insertItem']);
+    $router->get('/item/{id}', [X2FrameworkController::class, 'editItem']);
+    $router->post('/item/{id}', [X2FrameworkController::class, 'updateItem']);
+    $router->get('/item/{id}/delete', [X2FrameworkController::class, 'deleteItem']);
+});
+    </code>
+    </pre>
+</div>
+
+<div class="box">
+
+    <form method="post" action="/framework/admin/crud">
+
+    <div class="field">
+        <label class="label">DB Table Name</label>
+        <div class="control">
+            <input name="table_name" class="input" type="text" placeholder="crud_items">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Model Name</label>
+        <div class="control">
+            <input name="model_name" class="input" type="text" placeholder="CRUDItem">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Controller Name</label>
+        <div class="control">
+            <input name="controller_name" class="input" type="text" placeholder="CRUDController">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Folder Name</label>
+        <div class="control">
+            <input name="folder_name" class="input" type="text" placeholder="/admin/[folder]">
+        </div>
+    </div>
+
+    <button class="button is-link">Generate CRUD Model</button>
+
+    </form>
+</div>
+{% endblock %}

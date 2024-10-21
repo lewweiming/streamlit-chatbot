@@ -1,0 +1,49 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    <h2 class="ui dividing header">Available Cars for Rental</h2>
+    <div class="ui three stackable cards">
+        <div class="card" id="car-card-template" style="display: none;">
+            <div class="image">
+                <img src="car_image_url" alt="Car Image">
+            </div>
+            <div class="content">
+                <div class="header">Car Name</div>
+                <div class="meta">Car Model</div>
+                <div class="description">
+                    Type: <span class="car-type">Sedan</span> <br>
+                    Daily Rent: $<span class="daily-rent">50</span>
+                </div>
+            </div>
+            <div class="extra content">
+                <button class="ui primary button rent-car-btn">Rent Now</button>
+            </div>
+        </div>
+        <!-- Add additional car cards dynamically using JS -->
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    // Populate car data dynamically via JavaScript
+    $(document).ready(function() {
+        const cars = [
+            { name: 'Toyota Camry', model: '2022', type: 'Sedan', rent: 60, imageUrl: 'toyota_camry.jpg' },
+            { name: 'Ford Mustang', model: '2021', type: 'Sports', rent: 120, imageUrl: 'ford_mustang.jpg' },
+            { name: 'Honda CRV', model: '2020', type: 'SUV', rent: 80, imageUrl: 'honda_crv.jpg' },
+        ];
+        
+        cars.forEach(car => {
+            const carCard = $('#car-card-template').clone().show().removeAttr('id');
+            carCard.find('.header').text(car.name);
+            carCard.find('.meta').text(car.model);
+            carCard.find('.car-type').text(car.type);
+            carCard.find('.daily-rent').text(car.rent);
+            carCard.find('img').attr('src', car.imageUrl);
+            $('.ui.cards').append(carCard);
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+    <a href="/framework/admin" class="section">Admin Home</a>
+    <i class="right angle icon divider"></i>
+    <a href="/framework/admin/flights/bookings-dashboard" class="section">Flight Booking Dashboard</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section">Cancel Booking (Id: {{ booking.booking_id }})</div>
+</div>
+
+<h2 class="ui header">Flight Booking Cancellation</h2>
+
+<div class="ui segment">
+    <h4 class="ui dividing header">Cancel Flight Booking</h4>
+    <form class="ui form" action="/framework/admin/flights/cancel-booking/{{ booking.booking_id }}" method="POST">
+        <!-- Booking ID -->
+        <div class="field">
+            <label>Booking ID</label>
+            <input type="number" value="{{ booking.booking_id }}" name="booking_id" placeholder="Enter Booking ID" readonly>
+        </div>
+
+        <!-- Cancelled By -->
+        <div class="field">
+            <label>Cancelled By (Person Name)</label>
+            <input type="text" name="cancelled_by" placeholder="Enter your name">
+        </div>
+
+        <!-- Cancellation Reason -->
+        <div class="field">
+            <label>Cancellation Reason</label>
+            <textarea name="cancellation_reason" rows="3" placeholder="Provide the reason for cancellation"></textarea>
+        </div>
+
+        <!-- Refund Amount -->
+        <div class="field">
+            <label>Refund Amount</label>
+            <input type="number" step="0.01" name="refund_amount" placeholder="Enter refund amount" value="0.00">
+        </div>
+
+        <!-- Cancellation Date -->
+        <div class="field">
+            <label>Cancellation Date</label>
+            <div class="ui calendar">
+                <div class="ui fluid input left icon">
+                    <i class="calendar icon"></i>
+                    <input type="text" name="cancellation_date" placeholder="Cancellation Date" readonly value="{{ cancellation_date }}">
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="ui primary button">Submit Cancellation</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    // Initialize calendar
+    $('.ui.calendar')
+        .calendar({
+            onChange: (date, text) => {
+                // Where date is the JS object and text is the string representation of the date 
+                // Do something
+            },
+            // Optional formatter
+            formatter: {
+                date: 'YYYY-MM-DD'
+            },
+            type: 'date'
+        });
+
+    // Form validation
+    $('.ui.form').form({
+        fields: {
+            "cancelled_by": 'empty',
+            "cancellation_reason": 'empty',
+            "refund_amount": 'number'
+        }
+    });
+</script>
+{% endblock %}

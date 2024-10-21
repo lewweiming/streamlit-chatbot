@@ -1,0 +1,144 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<main x-data="main()" data-modules="{{ modules|json_encode|e }}" data-installed-modules="{{ installed_modules|json_encode|e }}">
+    <h2 class="ui header">Module Manager</h2>
+    <div class="ui info message">
+        The module installer automatically installs DB Tables, unpacks files into the modules folder and updates the routes and Core class.
+    </div>
+
+    <div>
+        <a href="/framework/admin/module-manager/workflow" class="ui basic button">View workflow</a>
+    </div>
+
+    <h3 class="ui header">Available Modules</h3>
+    <table class="ui table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Folder</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <template x-for="i in modules">
+                <tr>
+                    <td x-text="i.module_title"></td>
+                    <td x-text="i.module_folder"></td>
+                    <td>
+                        <div class="ui buttons">
+                            <button @click="installModule(i, $event)" class="ui button">Install</button>
+                            <button @click="uninstallModule(i, $event)" class="ui button">Remove</button>
+                        </div>
+                    </td>
+                </tr>
+            </template>
+
+        </tbody>
+    </table>
+
+    <h3 class="ui header">Installed Modules</h3>
+    <table class="ui table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Folder</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <template x-for="i in installedModules">
+                <tr>
+                    <td x-text="i.module_title"></td>
+                    <td x-text="i.module_folder"></td>
+                </tr>
+            </template>
+
+        </tbody>
+    </table>
+
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+
+    const API_INSTALL_MODULE = '/modules/module-manager/api/admin/install_module.php'
+    const API_UNINSTALL_MODULE = '/modules/module-manager/api/admin/uninstall_module.php'
+    
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            modules: [],
+            installedModules: [],
+            init() {
+                this.loadModules();
+                this.loadInstalledModules();
+            },
+            loadModules() {
+
+                let r = document.querySelector('[data-modules]');
+                this.modules = JSON.parse(r.dataset.modules)
+            },
+            loadInstalledModules() {
+
+                let r = document.querySelector('[data-installed-modules]');
+                this.installedModules = JSON.parse(r.dataset.installedModules)
+            },
+            async installModule(module, e) {
+
+                e.srcElement.classList.add('loading')
+
+                let fd = new FormData();
+                fd.append('module_title', module.module_title);
+                fd.append('module_folder', module.module_folder);
+                fd.append('download_path', module.download_path);
+                let r = await axios.post(API_INSTALL_MODULE, fd);
+
+                console.log(r);
+                e.srcElement.classList.remove('loading')
+
+                if (r.data.error) {
+                    $.toast({ class: 'error', message: r.data.message });
+                }
+
+
+                if (r.data.message == 'success') {
+                    this.installedModules.push({
+                        'module_title': module.module_title,
+                        'module_folder': module.module_folder
+                    })
+                    $.toast({ class: 'success', message: 'Module installed successfully' });
+                }
+            },
+            async uninstallModule(module, e) {
+
+                e.srcElement.classList.add('loading')
+
+                let fd = new FormData();
+                fd.append('module_title', module.module_title);
+                fd.append('module_folder', module.module_folder);
+                fd.append('download_path', module.download_path);
+                let r = await axios.post(API_UNINSTALL_MODULE, fd);
+
+                e.srcElement.classList.remove('loading')
+
+                if (r.data.error) {
+                    $.toast({ class: 'error', message: r.data.message });
+                }
+
+                if (r.data.message == 'success') {
+                    let index = this.installedModules.findIndex(i => i.module_title == module.module_title)
+                    if (index !== -1) {
+                        this.installedModules.splice(index, 1);
+                    }
+                    $.toast({ class: 'success', message: 'Module uninstalled successfully' });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

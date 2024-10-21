@@ -1,0 +1,57 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+    <a href="/" class="section">Framework Admin</a>
+    <i class="right angle icon divider"></i>
+    <a class="active section">Support Tickets</a>
+</div>
+
+<h2 class="ui header">List of Support Tickets</h2>
+
+<div class="ui message">
+We used AI to build this component.    
+</div>
+
+<!-- TOOLBAR -->
+<div>
+    <a href="/framework/admin/support-tickets/add" class="ui primary button">Add New Ticket</a>
+</div>
+
+<!-- TABLE -->
+<table class="ui table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Tags</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Created At</th>
+            <th>Action(s)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if rows|length == 0 %}
+        <tr>
+            <td colspan="7">No tickets added yet</td>
+        </tr>
+        {% endif %}
+        {% for row in rows %}
+        <tr>
+            <td>{{ row.title }}</td>
+            <td>{{ row.tags }}</td>
+            <td>{{ row.description }}</td>
+            <td>{{ row.priority }}</td>
+            <td>{{ row.status }}</td>
+            <td>{{ row.created_at }}</td>
+            <td>
+                <a href="/framework/admin/support-ticket/{{ row.id }}/edit" class="ui button">Edit</a>
+                <a href="/framework/admin/support-ticket/{{ row.id }}/delete" class="ui button">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "_layout.html" %}
+
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="stylesheet" href="/css/markdown/github-markdown-light.css" />
+{% endblock %}
+
+{% block content %}
+<section class="my-4">
+
+<div class="markdown markdown-body">
+# I'm a markdown page
+</div>
+
+</section>
+{% endblock %}
+
+{% block script %}
+<script>
+let collection = document.getElementsByClassName('markdown')
+let nodes = Array.from(collection)
+nodes.forEach(el => {
+    el.innerHTML = marked.parse(el.innerHTML.replace(/&gt;+/g, '>'))
+})
+</script>
+{% endblock %}

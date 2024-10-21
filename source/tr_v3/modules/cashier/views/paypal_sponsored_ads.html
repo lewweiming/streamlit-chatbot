@@ -1,0 +1,200 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<section x-data="main()" x-cloak data-job-id="{{ job.id }}">
+
+    <h2 class="ui header">Cashier (Checkout Sponsored Ads)</h2>
+
+    {% if(mode == 'sandbox') %}
+    <div><span class="ui red label">{{ mode }}</span></div>
+    {% else %}
+    <div><span class="ui green label">{{ mode }}</span></div>
+    {% endif %}
+
+    <div class="ui divider"></div>
+
+    <p>Here is where you can pay for and upgrade your ad to a sponsored ad.</p>
+
+    <p>Sponsored ads will always be shown first.</p>
+
+    <h3 class="ui header">Do you wish to sponsor this ad?</h3>
+
+    <table class="ui table">
+        <thead>
+            <tr>
+                <th>Ad Title</th>
+                <th>Duration</th>
+                <th>Ends On</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ job.title }}</td>
+                <td>One Month</td>
+                <td>16 May 2024</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="ui header">When you've decided, checkout with Paypal to confirm your action</h3>
+
+    <!-- PAYPAL -->
+    <div id="paypal-button-container"></div>
+
+    <!-- MODAL: PAYMENT SUCCESS -->
+    <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Payment Successful
+        </div>
+        <div class="image content">
+            <div class="ui medium image">
+                <img class="ui small image" src="/assets/icons/checked.png">
+            </div>
+            <div class="description">
+                <div class="ui header">We've upgraded your job listing to "Featured"</div>
+                <div class="ui header">{{ job.title }}</div>
+                <p>Featured ads will be shown at the top of the job listings page.</p>
+            </div>
+        </div>
+        <div class="actions">
+            <a href="/user/jobs" class="ui primary button">
+                Return to "My Job Listings"
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+{% block script %}
+<script src="https://www.paypal.com/sdk/js?client-id={{ paypal_client_id }}&currency=USD"></script>
+<script>
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            isConnecting: false,
+            init() {
+                this.$nextTick(() => {
+                    this.mountPaypal();
+
+                    $('.ui.modal').modal({
+                        closable: false
+                    });
+                });
+            },
+            /*
+            - To pass to Paypal on payment
+            */
+            getPaymentParams() {
+
+                let r = document.querySelector('[data-job-id]');
+                let jobId = JSON.parse(r.dataset.jobId)
+
+                let formData = new FormData();
+                formData.append("job_id", jobId); // The prop
+                // formData.append("customer", JSON.stringify(this.customer));
+
+                return formData;
+            },
+            mountPaypal() {
+                paypal.Buttons({
+
+                    // Order is created on the server and the order id is returned
+                    createOrder: async() => {
+
+                        $.toast({ message: 'Creating an order on paypal..' })
+
+                        this.isConnecting = true
+
+                        const r = await fetch("/modules/cashier/api/paypal/ads/create_sandbox_digital_checkout.php", {
+                            method: "POST",
+                            body: this.getPaymentParams()
+                        });
+
+                        const order = await r.json();
+
+                        return order.id;
+                    },
+                    // createOrder: (data, actions) => {
+
+                    //     $.toast({ message: 'Creating an order on paypal..' })
+
+                    //     /* Validate Amount or Paypal will throw cryptic errors */
+                    //     // if (this.cartTotal == 0) {
+                    //     //     bulmaToast.toast({ message: 'Cart cannot be empty!' })
+                    //     //     return
+                    //     // }
+
+                    //     // if (this.getAmountTotal() == 0) {
+                    //     //     bulmaToast.toast({ message: 'Total amount cannot be 0!' })
+                    //     //     return
+                    //     // }
+
+                    //     /* Validate Address or Paypal will throw cryptic errors */
+                    //     // if (this.formInput.use_new_shipping_address == false && this.formInput.selected_shipping_address == null) {
+                    //     //     bulmaToast.toast({ message: 'Please select a shipping address first!' })
+                    //     //     return
+                    //     // }
+
+                    //     // if (this.formInput.use_new_shipping_address == true && validateShippingAddressForm(this.formInput.shipping_address, true) == true) {
+                    //     //     return
+                    //     // }
+
+                    //     // return fetch("/api/paypal/ads/create_sandbox_digital_checkout.php", {
+                    //     //     method: "post",
+                    //     //     body: this.getPaymentParams()
+                    //     //     // use the "body" param to optionally pass additional order information
+                    //     //     // like product ids or amount
+                    //     // })
+                    //     //     .then((response) => response.json())
+                    //     //     .then((order) => order.id);
+                    // },
+                    // Finalize the transaction after payer approval
+                    onApprove: (data, actions) => {
+
+                        this.isConnecting = true
+                        return fetch(`/modules/cashier/api/paypal/ads/capture_sandbox_digital_checkout.php?orderId=${data.orderID}`, {
+                            method: "post",
+                            body: this.getPaymentParams()
+                        })
+                            .then((response) => response.json())
+                            .then((data) => {
+
+                                this.isConnecting = false
+
+                                // console.log(data) // The Paypal Order Object
+
+                                if (typeof data === 'string') {
+                                    alert(data)
+                                    return
+                                }
+
+                                if (data.error) {
+                                    $.toast({ class: 'error', message: data.message })
+                                    return
+                                }
+
+                                // Successful capture! For dev/demo purposes:
+                                // console.log('Capture result', data, JSON.stringify(data, null, 2));
+                                const transaction = data.purchase_units[0].payments.captures[0];
+                                console.log(transaction)
+
+                                $.toast({ class: 'success', message: `Checkout (Paypal) complete` })
+                                $('.ui.modal').modal('show');
+                                // this.currentStep = 'complete'
+                                // this.completedOrderHash = data.orderHash
+                                // this.clearCart()
+                            });
+                    },
+                    onError(err) {
+                        console.log(err);
+                        // For example, redirect to a specific error page
+                        // window.location.href = "/your-error-page-here";
+                    },
+                }).render('#paypal-button-container');
+            }
+        }))
+    })
+</script>
+{% endblock %}

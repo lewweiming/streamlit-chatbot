@@ -1,0 +1,52 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    <!-- Page Header -->
+    <div class="ui secondary menu">
+        <h2 class="ui header">Customer Car Rentals Dashboard</h2>
+    </div>
+
+    <!-- Car Rentals Tab -->
+    <div>
+        <h3 class="ui dividing header">Car Rentals</h3>
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>Booking Ref</th>
+                    <th>Car Model</th>
+                    <th>Rental Period</th>
+                    <th>Pick-up Location</th>
+                    <th>Drop-off Location</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row.booking_ref }}</td>
+                    <td>Toyota Camry</td>
+                    <td>3 days</td>
+                    <td>{{ row.pickup_location }}</td>
+                    <td>{{ row.return_location }}</td>
+                    <td><div class="ui green label">Confirmed</div></td>
+                    <td>
+                        <a href="/modules/car-rentals/booking-modification/{{ row.booking_ref }}" class="ui button">Modify</a>
+                        <a href="/modules/car-rentals/booking-cancellation/{{ row.booking_ref }}" class="ui button">Cancel</a>
+                        <a href="/modules/car-rentals/receipt" class="ui button">Receipt</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                <!-- Add more rows as needed -->
+                 {% if rows.length == 0 %}
+                 <tr>
+                    <td colspan="7">No bookings found</td>
+                 </tr>
+                 {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock %}

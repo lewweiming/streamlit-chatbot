@@ -1,0 +1,108 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<main x-data="main">
+    <h2 class="ui header">File Searcher</h2>
+
+    <!-- SEARCH BOX -->
+    <div class="ui segment">
+
+        <h5>Search file contents in public_html folder</h5>
+
+        <div class="ui labeled input">
+            <div class="ui basic label">
+                Containing
+            </div>
+            <input autofocus placeholder="I.e Some string" @keyup.enter="search()" x-model="input.search" type="text" />
+        </div>
+
+        <div class="ui labeled input">
+            <div class="ui basic label">
+                In Folder
+            </div>
+            <select x-model="input.path" class="ui search dropdown">
+            <option value=''>Select</option>
+            <option>/</option>
+            <template x-for="i in folders">
+            <option :value="'/' + i" x-text="`/${i}`"></option>
+            </template>
+            </select>
+        </div>
+
+        <div class="ui hidden divider"></div>
+
+        <div>
+            <button @click="search()" class="ui black button">Search</button>
+        </div>
+
+        <div class="ui message">Hit 'Enter' to start search</div>
+
+    </div>
+
+    <!-- RESULTS -->
+    <template x-if="rows.length > 0">
+        <table class="ui table">
+            <thead>
+                <tr>
+                    <th>File Path</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template x-for="i in rows">
+                    <tr>
+                        <td x-text="i"></td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </template>
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_FILE_SEARCHER = '/file_searcher.php'
+    const API_FILE_SEARCHER_LIST_FOLDERS = '/file_searcher.php/list'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            input: {
+                search: '',
+                path: '/'
+            },
+            folders: [],
+            rows: [],
+            init() {
+                this.getFolders();
+            },
+            async getFolders() {
+                
+                let r = await axios.get(API_FILE_SEARCHER_LIST_FOLDERS)
+
+                if (r.data.message == 'success') {
+                    this.folders = r.data.folders
+                    $.toast({ class: 'success', message: `${r.data.folders.length} folder(s) found` });
+                }
+            },
+            async search() {
+                $.toast({ message: `Searching for string containg "${this.input.search}"` });
+
+                let r = await axios.get(API_FILE_SEARCHER, {
+                    params: {
+                        query: this.input.search,
+                        path: this.input.path
+                    }
+                })
+
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

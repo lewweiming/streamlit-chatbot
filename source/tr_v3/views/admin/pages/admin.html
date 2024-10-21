@@ -1,0 +1,108 @@
+{% extends "_layout_admin.html" %}
+
+{% set title = 'Pages Admin (Paginated Articles)' %}
+
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<section x-data="main" x-cloak>
+
+    <!-- MODAL -->
+    <div class="modal" :class="showModalAdd?'is-active':''">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Add new page</p>
+                <button @click="showModalAdd = false" class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- FORM -->
+
+                <form name="addArticle" action="/framework/admin/pages/add" method="post" class="w-full">
+
+                    <div class="field">
+                        <label class="label">Page Filename</label>
+                        <div class="control">
+                            <input class="input" type="text" name="filename" placeholder="Text input">
+                        </div>
+                        <p class="help">E.g _example.html</p>
+                    </div>
+                </form>
+            </section>
+            <footer class="modal-card-foot">
+                <button onclick="submit()" type="button" class="button is-success">Submit</button>
+                <button @click="showModalAdd = false" class="button">Cancel</button>
+            </footer>
+        </div>
+    </div>
+
+
+    <div class="box">
+        <div class="title is-4">Table Data - <span x-text="rows.length"></span> page(s) found.</div>
+        <!-- TOOLBAR -->
+        <div class="field is-grouped">
+            <p class="control is-expanded">
+                <input x-model="search" type="text" class="input" placeholder="Search..." required />
+            </p>
+            <p class="control">
+                <button @click="showModalAdd = true" class="button">Add Page</button>
+            </p>
+        </div>
+
+        <!-- TABLE -->
+        <table class="table is-striped">
+            <thead>
+
+                <tr>
+                    <th>
+                        Page
+                    </th>
+                    <th>
+                        <span class="sr-only">Actions</span>
+                    </th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <template x-for="row in filteredList()">
+                    <tr>
+                        <td x-text="row">
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a :href="`/framework/admin/pages/edit?page=${ row }`" class="mr-3">Edit</a>
+                                <a :href="`/framework/admin/pages/delete?page=${ row }`" class="mr-3">Delete</a>
+                            </div>
+                        </td>
+
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+
+    </div>
+
+</section>
+{% endblock %}
+
+{% block script %}
+<script>
+    function submit() {
+        document.forms["addArticle"].submit();
+    }
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            search: '',
+            showModalAdd: false,
+            rows: {{ rows | json_encode | raw }},
+        filteredList() {
+        return(this.rows).filter((i) => i.toLowerCase().includes(this.search.toLowerCase()))
+        }
+    }))
+})
+</script>
+{% endblock %}

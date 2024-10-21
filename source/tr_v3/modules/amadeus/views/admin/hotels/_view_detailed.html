@@ -1,0 +1,393 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+
+<main x-data="main()">
+
+    <div class="ui breadcrumb">
+        <a href="/framework/admin" class="section">Admin</a>
+        <i class="right angle icon divider"></i>
+        <a href="/framework/admin/amadeus/main" class="section">Amadeus Module</a>
+        <i class="right angle icon divider"></i>
+        <a href="/framework/admin/amadeus/flights/main" class="section">Flight Api</a>
+        <i class="right angle icon divider"></i>
+        <div class="active section">Flight Offers</div>
+    </div>
+
+    <h2 class="ui header">Flight Offers</h2>
+
+    <div class="ui message">"Fetch Data" will update the local DB with the latest information.</div>
+
+    <h2 class="ui header">Search</h2>
+
+    <div>Searching for "<span x-text="input.originLocationCode"></span> -> "<span
+            x-text="input.destinationLocationCode"></span>" Deals on <span x-text="input.departureDate"></span> for
+        <span x-text="input.adults"></span> adults</div>
+
+    <div class="ui hidden divider"></div>
+
+    <div class="ui form">
+        <div class="field">
+            <label>Origin Location Code (<a
+                    href="https://www.iata.org/en/publications/directories/code-search/">IATA</a>)</label>
+            <input x-model="input.originLocationCode" type="text" name="originLocationCode" value="SIN" required>
+        </div>
+        <div class="field">
+            <label>Destination Location Code (<a
+                    href="https://www.iata.org/en/publications/directories/code-search/">IATA</a>)</label>
+            <input x-model="input.destinationLocationCode" type="text" name="destinationLocationCode" value="BKK"
+                required>
+        </div>
+        <div class="field">
+            <label>Departure Date</label>
+            <input x-model="input.departureDate" type="text" name="departureDate" value="2024-07-31" required>
+        </div>
+        <div class="field">
+            <label>Number of Adults</label>
+            <input x-model="input.adults" type="number" name="adults" value="2" required>
+        </div>
+        <div class="field">
+            <label>Maximum</label>
+            <input x-model="input.max" type="number" name="max" value="5" required>
+        </div>
+        <button @click="fetchData()" class="ui button" type="submit">Submit</button>
+    </div>
+
+    <h2 class="ui header">Friendly Results</h2>
+
+    <template x-if="rows.length > 0">
+        <div class="ui items">
+            <template x-for="offer in rows">
+                <div class="item">
+                    <div class="content">
+                        <div class="header">Flight Offer ID: <span x-text="offer.id"></span></div>
+                        <div class="meta">
+                            <div class="price"><span x-text="offer.price.currency"></span> <span x-text="offer.price.total"></span></div>
+                            <div class="date">Last Ticketing Date: <span x-text="offer.lastTicketingDate"></span></div>
+                        </div>
+                        <div class="description">
+                            <p>Number of Bookable Seats: <span x-text="offer.numberOfBookableSeats"></span></p>
+                            <p>Validating Airline Codes: <span x-text="offer.validatingAirlineCodes.join(', ')"></span></p>
+                            <p>Pricing Options: <span x-text="offer.pricingOptions.fareType.join(', ')"></span></p>
+                        </div>
+                        <div class="extra">
+                            <template x-for="itinerary in offer.itineraries" :key="itinerary.id">
+                            <div class="ui segments">
+                                <div class="ui segment">
+                                    <div class="ui grid">
+                                        <div class="four wide column">
+                                            <div class="ui small header">Itinerary</div>
+                                            <div class="ui small list">
+                                                <template x-for="segment in itinerary.segments" :key="segment.id">
+                                                <div class="item">
+                                                    From <span x-text="segment.departure.iataCode"></span> to <span x-text="segment.arrival.iataCode"></span>
+                                                </div>
+                                                </template>
+                                            </div>
+                                        </div>
+                                        <div class="four wide column">
+                                            <div class="ui small header">Duration</div>
+                                            <div class="ui small list">
+                                                <div class="item" x-text="itinerary.duration"></div>
+                                            </div>
+                                        </div>
+                                        <div class="eight wide column">
+                                            <div class="ui small header">Flight Details</div>
+                                            <div class="ui small list">
+                                                <template x-for="segment in itinerary.segments" :key="segment.id">
+                                                <div class="item">
+                                                    Flight <span x-text="segment.carrierCode"></span> <span x-text="segment.nummber"></span> 
+                                                    (<span x-text="segment.departure.iataCode"></span> - <span x-text="segment.arrival.iataCode"></span>)
+                                                </div>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </template>
+                            <div class="ui segments">
+                                <div class="ui segment">
+                                    <div class="ui small header">Price Details</div>
+                                    <div class="ui small list">
+                                        <div class="item">Base Fare: <span x-text="offer.price.currency"></span> <span x-text="offer.price.base"></span>
+                                        </div>
+                                        <div class="item">Total: <span x-text="offer.price.currency"></span> <span x-text="offer.price.total"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui segments">
+                                <div class="ui segment">
+                                    <div class="ui small header">Traveler Pricing</div>
+                                    <div class="ui list">
+                                        <template x-for="pricing in offer.travelerPricings" :key="pricing.travelerId">
+                                        <div class="item">
+                                            <span x-text="pricing.travelerType"></span><- <span x-text="offer.price.currency"></span> <span x-text="pricing.price.total"></span>
+                                        </div>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </template>
+
+
+    <h2 class="ui header">Table Results</h2>
+
+    <!-- TABLE -->
+    <!-- <template x-if="rows.length > 0">
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Duration</th>
+                    <th>Price (EUR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template x-for="offer in rows" :key="offer.id">
+                    <tr>
+                        <td>
+                            <template x-for="segment in offer.itineraries[0].segments" :key="segment.id">
+                                <span x-text="segment.departure.iataCode"></span> → <span
+                                    x-text="segment.arrival.iataCode"></span><br>
+                                <small><span x-text="segment.departure.at"></span> - <span
+                                        x-text="segment.arrival.at"></span></small>
+                                <br><br>
+                            </template>
+                        </td>
+                        <td>
+                            <span x-text="offer.itineraries[0].segments[0].arrival.iataCode"></span> → <span
+                                x-text="offer.itineraries[0].segments[1].arrival.iataCode"></span>
+                        </td>
+                        <td>
+                            <span x-text="offer.itineraries[0].duration"></span>
+                        </td>
+                        <td>
+                            <span x-text="offer.price.total"></span>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </template> -->
+
+    <div class="ui hidden divider"></div>
+
+    <!-- JSON/RESULTS -->
+    <div class="ui code">
+        <h2 class="ui header">JSON Data</h2>
+        <pre><code x-text="resultsJson"></code></pre>
+    </div>
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_FETCH_AMADEUS_FLIGHT_OFFERS = '/modules/amadeus/api/flights/flight_offers_search.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            rows: [
+                {
+                    "type": "flight-offer",
+                    "id": "1",
+                    "source": "GDS",
+                    "instantTicketingRequired": false,
+                    "nonHomogeneous": false,
+                    "oneWay": false,
+                    "isUpsellOffer": false,
+                    "lastTicketingDate": "2024-07-26",
+                    "lastTicketingDateTime": "2024-07-26",
+                    "numberOfBookableSeats": 5,
+                    "itineraries": [
+                        {
+                            "duration": "PT7H55M",
+                            "segments": [
+                                {
+                                    "departure": {
+                                        "iataCode": "SIN",
+                                        "terminal": "3",
+                                        "at": "2024-07-31T12:20:00"
+                                    },
+                                    "arrival": {
+                                        "iataCode": "KUL",
+                                        "terminal": "1",
+                                        "at": "2024-07-31T13:25:00"
+                                    },
+                                    "carrierCode": "OD",
+                                    "number": "804",
+                                    "aircraft": {
+                                        "code": "738"
+                                    },
+                                    "operating": {
+                                        "carrierCode": "OD"
+                                    },
+                                    "duration": "PT1H5M",
+                                    "id": "7",
+                                    "numberOfStops": 0,
+                                    "blacklistedInEU": false
+                                },
+                                {
+                                    "departure": {
+                                        "iataCode": "KUL",
+                                        "terminal": "1",
+                                        "at": "2024-07-31T18:05:00"
+                                    },
+                                    "arrival": {
+                                        "iataCode": "DMK",
+                                        "terminal": "0",
+                                        "at": "2024-07-31T19:15:00"
+                                    },
+                                    "carrierCode": "OD",
+                                    "number": "522",
+                                    "aircraft": {
+                                        "code": "738"
+                                    },
+                                    "operating": {
+                                        "carrierCode": "OD"
+                                    },
+                                    "duration": "PT2H10M",
+                                    "id": "8",
+                                    "numberOfStops": 0,
+                                    "blacklistedInEU": false
+                                }
+                            ]
+                        }
+                    ],
+                    "price": {
+                        "currency": "EUR",
+                        "total": "239.82",
+                        "base": "74.00",
+                        "fees": [
+                            {
+                                "amount": "0.00",
+                                "type": "SUPPLIER"
+                            },
+                            {
+                                "amount": "0.00",
+                                "type": "TICKETING"
+                            }
+                        ],
+                        "grandTotal": "239.82"
+                    },
+                    "pricingOptions": {
+                        "fareType": [
+                            "PUBLISHED"
+                        ],
+                        "includedCheckedBagsOnly": false
+                    },
+                    "validatingAirlineCodes": [
+                        "GP"
+                    ],
+                    "travelerPricings": [
+                        {
+                            "travelerId": "1",
+                            "fareOption": "STANDARD",
+                            "travelerType": "ADULT",
+                            "price": {
+                                "currency": "EUR",
+                                "total": "119.91",
+                                "base": "37.00"
+                            },
+                            "fareDetailsBySegment": [
+                                {
+                                    "segmentId": "7",
+                                    "cabin": "ECONOMY",
+                                    "fareBasis": "XOWSG",
+                                    "class": "X",
+                                    "includedCheckedBags": {
+                                        "weight": 0,
+                                        "weightUnit": "KG"
+                                    }
+                                },
+                                {
+                                    "segmentId": "8",
+                                    "cabin": "ECONOMY",
+                                    "fareBasis": "VOWMY",
+                                    "class": "V",
+                                    "includedCheckedBags": {
+                                        "weight": 0,
+                                        "weightUnit": "KG"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "travelerId": "2",
+                            "fareOption": "STANDARD",
+                            "travelerType": "ADULT",
+                            "price": {
+                                "currency": "EUR",
+                                "total": "119.91",
+                                "base": "37.00"
+                            },
+                            "fareDetailsBySegment": [
+                                {
+                                    "segmentId": "7",
+                                    "cabin": "ECONOMY",
+                                    "fareBasis": "XOWSG",
+                                    "class": "X",
+                                    "includedCheckedBags": {
+                                        "weight": 0,
+                                        "weightUnit": "KG"
+                                    }
+                                },
+                                {
+                                    "segmentId": "8",
+                                    "cabin": "ECONOMY",
+                                    "fareBasis": "VOWMY",
+                                    "class": "V",
+                                    "includedCheckedBags": {
+                                        "weight": 0,
+                                        "weightUnit": "KG"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }],
+            input: {
+                originLocationCode: 'SIN',
+                destinationLocationCode: 'BKK',
+                departureDate: '2024-07-31',
+                adults: 2,
+                max: 5
+            },
+            resultsJson: '',
+            init() {
+
+            },
+            async fetchData() {
+
+                $.toast({ message: 'Fetching list..' });
+
+                let fd = new FormData();
+
+                let keys = Object.keys(this.input);
+                keys.forEach(k => {
+                    fd.append(k, this.input[k]);
+                });
+
+                let r = await axios.post(API_FETCH_AMADEUS_FLIGHT_OFFERS, fd)
+
+                console.log(r)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.results.data;
+                    this.resultsJson = JSON.stringify(r.data.results, null, 2);
+                    $.toast({ class: 'success', message: `${r.data.results.data.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

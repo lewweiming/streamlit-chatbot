@@ -1,0 +1,59 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+    <a href="/" class="section">Home</a>
+    <i class="right angle icon divider"></i>
+    <a href="/discussion-board" class="section">Discussion Board</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section">Add Discussion</div>
+</div>
+<div class="ui hidden divider"></div>
+
+<div class="">
+    <h2 class="ui header">Add New Discussion</h2>
+    <form class="ui form" action="/discussion-board/add" method="POST">
+        <div class="field">
+            <label>Category</label>
+            <input type="text" name="category" placeholder="I.e AI & Machine Learning">
+        </div>
+        <div class="field">
+            <label>Subject</label>
+            <textarea name="subject" rows="2" placeholder="I.e How to optimize AI models for real-time applications?"></textarea>
+        </div>
+        <div class="field">
+            <label>Message</label>
+            <textarea name="message" rows="5" placeholder="I.e I'm looking for ways to optimize large AI models for real-time performance. Any ideas?"></textarea>
+        </div>
+        <div class="field">
+            <label>Name</label>
+            <input type="text" name="name" placeholder="I.e Jane">
+        </div>
+        <button class="ui primary button" type="submit">Submit</button>
+        <button class="ui button" type="reset">Reset</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+  <a href="/framework/admin" class="section">Admin</a>
+  <i class="right angle icon divider"></i>
+  <a href="/framework/admin/hotels/rooms-data/main" class="section">Room Data</a>
+  <i class="right angle icon divider"></i>
+  <div class="active section">Edit</div>
+</div>
+
+<h2 class="ui header">Edit Room Listing</h2>
+
+<!-- VALIDATION ERRORS -->
+{% if(errors) %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">
+    Validation Errors
+  </div>
+  <ul>
+    {% for key,val in errors %}
+    <li>{{ val[0] }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<form method="post" action="/hotels/{{ room.id }}/edit" class="ui form">
+  <p>Edit your room details</p>
+
+  <div class="required field">
+    <label for="room_name">Room Name</label>
+    <input value="{{ room.room_name }}" type="text" id="room_name" name="room_name">
+  </div>
+
+  <div class="required field">
+    <label for="room_price">Price</label>
+    <input value="{{ room.room_price }}" type="text" id="room_price" name="room_price" placeholder="e.g., 150.00">
+  </div>
+
+  <div class="field">
+    <label for="summary">Summary</label>
+    <textarea name="summary" placeholder="Short summary about the room">{{ room.summary }}</textarea>
+  </div>
+
+  <div class="field">
+    <label for="image_path">Image URL</label>
+    <input value="{{ room.image_path }}" type="text" id="image_path" name="image_path" placeholder="Link to room image">
+  </div>
+
+  <div class="field">
+    <label for="amenities">Amenities</label>
+    <textarea name="amenities" placeholder="List of amenities">{{ room.amenities }}</textarea>
+  </div>
+
+  <div class="field">
+    <label for="policies">Policies</label>
+    <textarea name="policies" placeholder="Room policies">{{ room.policies }}</textarea>
+  </div>
+
+  <div class="required field">
+    <label for="people_per_room">People Per Room</label>
+    <input value="{{ room.people_per_room }}" type="number" id="people_per_room" name="people_per_room" min="1">
+  </div>
+
+  <button type="submit" class="ui button">Update</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+<script>
+  /* VALIDATION */
+  $(document).ready(function () {
+    $('.ui.form').form({
+      fields: {
+        room_name: {
+          identifier: 'room_name',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the room name'
+            }
+          ]
+        },
+        room_price: {
+          identifier: 'room_price',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the price'
+            },
+            {
+              type: 'decimal',
+              prompt: 'Please enter a valid decimal price'
+            }
+          ]
+        },
+        summary: {
+          identifier: 'summary',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter a short summary'
+            }
+          ]
+        },
+        image_path: {
+          identifier: 'image_path',
+          rules: [
+            {
+              type: 'url',
+              prompt: 'Please enter a valid image URL'
+            }
+          ]
+        },
+        amenities: {
+          identifier: 'amenities',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please list the amenities'
+            }
+          ]
+        },
+        policies: {
+          identifier: 'policies',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the room policies'
+            }
+          ]
+        },
+        people_per_room: {
+          identifier: 'people_per_room',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the maximum number of people per room'
+            }
+          ]
+        }
+      }
+    });
+  });
+</script>
+{% endblock %}

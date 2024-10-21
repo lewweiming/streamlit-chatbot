@@ -1,0 +1,44 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    <!-- Page Header -->
+    <div class="ui secondary menu">
+        <h2 class="ui header">Customer Flight Bookings Dashboard</h2>
+    </div>
+
+    <!-- Flight Bookings -->
+    <div>
+        <h3 class="ui dividing header">Flight Bookings</h3>
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Flight Number</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#FB001</td>
+                    <td>AA1234</td>
+                    <td>New York (JFK)</td>
+                    <td>London (LHR)</td>
+                    <td>2024-11-01</td>
+                    <td><div class="ui red label">Cancelled</div></td>
+                    <td>
+                        <a href="/modules/flight-bookings/booking-modification" class="ui button">Modify</a>
+                        <a href="/modules/flight-bookings/booking-cancellation" class="ui button">Cancel</a>
+                    </td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock %}

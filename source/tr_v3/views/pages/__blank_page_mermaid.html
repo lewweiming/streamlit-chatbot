@@ -1,0 +1,20 @@
+{% extends "framework/_layout.html" %}
+
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<section class="my-4">
+<div class="text-2xl font-bold mb-4">Research</div>
+<p>Powered by <a class="text-blue-600 hover:underline" target=blank href="https://mermaid-js.github.io/mermaid/#/">Mermaid</a></p>
+<div class="mermaid">
+    flowchart TD
+    B["X2 Framework"]
+    B-->C["Modular Marketplace for X2 Framework"]
+    B-->D("Donation Extension");
+    B-->E("Module B")
+</div>
+
+</section>
+{% endblock %}

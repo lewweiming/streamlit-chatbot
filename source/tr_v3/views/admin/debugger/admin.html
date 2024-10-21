@@ -1,0 +1,135 @@
+{% extends "_layout_admin.html" %}
+
+{% set title = 'Debugger Messages' %}
+
+{% block content %}
+<section x-data="main" data-rows="{{ rows | json_encode | e }}" x-cloak>
+
+
+    <!-- THE MODAL -->
+    <template x-if="selectedItem">
+        <div x-show="showModal" x-transition :class="showModal?'is-active':''" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card" style="width: 70vw; height: 70vh;">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Debug Info</p>
+                    <button @click="showModal = false" class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <!-- Content ... -->
+                    <code>
+<pre x-text="JSON.stringify(JSON.parse(selectedItem.debug_info),null, 2)"></pre>
+</code>
+                </section>
+                <footer class="modal-card-foot">
+                    <button @click="showModal = false" class="button">Close</button>
+                </footer>
+            </div>
+        </div>
+    </template>
+
+    <!-- TOOLBAR -->
+    <div class="field is-grouped">
+        <p class="control is-expanded">
+            <input x-model="search" type="text" class="input" placeholder="Search..." required />
+        </p>
+    </div>
+
+    <!-- TABLE -->
+    <table class="table">
+        <thead>
+
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Source
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Is read?
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    <span class="sr-only">Actions</span>
+                </th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <template x-for="row in filteredList()">
+                <tr>
+                    <td x-text="row.id">
+                    </td>
+                    <td x-text="row.source">
+                    </td>
+                    <td x-text="row.title">
+                    </td>
+                    <td>
+                        <span x-show="row.is_read == 1" class="tag is-light">Is read</span>
+                        <span x-show="row.is_read == null || row.is_read == '0'" class="tag is-danger">Is unread</span>
+                    </td>
+                    <td x-text="row.created_at"></td>
+                    <td>
+                        <div class="btn-group" role="group">
+
+                            <a @click="selectedItem = row, showModal = true" class="is-clickable mr-3">View debug
+                                info</a>
+                            <a :href="`/framework/admin/debugger/message/${ row.id }/delete`" class="mr-3">Delete</a>
+                        </div>
+                    </td>
+
+                </tr>
+            </template>
+        </tbody>
+    </table>
+
+</section>
+{% endblock %}
+
+{% block script %}
+<script>
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            search: '',
+            selectedItem: null,
+            showModal: false,
+            rows: [],
+            filteredList() {
+                return (this.rows).filter((i) => i.title.toLowerCase().includes(this.search.toLowerCase()))
+            },
+            loadRows() {
+                let r = document.querySelector('[data-rows]');
+                this.rows = JSON.parse(r.dataset.rows)
+            },
+            async markMessageAsRead(m) {
+
+                let r = await axios.get(`/framework/admin/debugger/message/${m.id}/read`)
+                bulmaToast.toast({ message: 'Marked as read!' })
+
+                // Update state
+                m.is_read = '1';
+
+            },
+            init() {
+                this.$nextTick(() => {
+                    this.loadRows()
+                });
+
+                this.$watch('selectedItem', (val) => {
+                    if (val.is_read == '0' || val.is_read == null) {
+                        // then mark as read
+                        this.markMessageAsRead(val)
+                    }
+                })
+            }
+        }))
+    })
+</script>
+{% endblock %}

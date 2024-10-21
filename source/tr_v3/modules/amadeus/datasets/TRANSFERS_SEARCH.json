@@ -1,0 +1,5057 @@
+[
+    {
+        "id": "0078535315",
+        "type": "transfer-offer",
+        "language": "EN",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        }
+        },
+        "vehicle": {
+        "code": "CAR",
+        "category": "BU",
+        "description": "Mercedes E Class, BMW 5 Series, Cadillac XTS or similar",
+        "imageURL": "blob:https://drivania.sharepoint.com/aa976c97-ba97-4b36-a7d2-bd0d5fc3332c",
+        "seats": [
+            {
+            "count": 2
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "DRV",
+        "name": "Drivania",
+        "termsUrl": "https://drivania.com/terms-and-conditions-drivania.html",
+        "logoUrl": "https://media.drivania.com/images/logo_2024/drivania_logo_2024.svg"
+        },
+        "quotation": {
+        "monetaryAmount": "157.57",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "base": {
+            "monetaryAmount": "157.57"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMax": "2",
+            "ruleDescription": "Non-refundable within 2 hours of pick-up time"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "2",
+            "ruleDescription": "Free cancellation up to 2 hours prior to ride"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "157.57",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "base": {
+            "monetaryAmount": "157.57"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "distance": {
+        "value": 32,
+        "unit": "KM"
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "INVOICE"
+        ]
+    },
+    {
+        "id": "0078536458",
+        "type": "transfer-offer",
+        "language": "EN",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        }
+        },
+        "vehicle": {
+        "code": "CAR",
+        "category": "FC",
+        "description": "Mercedes S Class, BMW 7 Series or similar",
+        "imageURL": "blob:https://drivania.sharepoint.com/aa976c97-ba97-4b36-a7d2-bd0d5fc3332c",
+        "seats": [
+            {
+            "count": 2
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "DRV",
+        "name": "Drivania",
+        "termsUrl": "https://drivania.com/terms-and-conditions-drivania.html",
+        "logoUrl": "https://media.drivania.com/images/logo_2024/drivania_logo_2024.svg"
+        },
+        "quotation": {
+        "monetaryAmount": "193.82",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "base": {
+            "monetaryAmount": "193.82"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMax": "2",
+            "ruleDescription": "Non-refundable within 2 hours of pick-up time"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "2",
+            "ruleDescription": "Free cancellation up to 2 hours prior to ride"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "193.82",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "base": {
+            "monetaryAmount": "193.82"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "distance": {
+        "value": 32,
+        "unit": "KM"
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "INVOICE"
+        ]
+    },
+    {
+        "id": "0078537094",
+        "type": "transfer-offer",
+        "language": "EN",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        }
+        },
+        "vehicle": {
+        "code": "VAN",
+        "category": "BU",
+        "description": "Mercedes V Class or similar",
+        "imageURL": "blob:https://drivania.sharepoint.com/aa976c97-ba97-4b36-a7d2-bd0d5fc3332c",
+        "seats": [
+            {
+            "count": 6
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "DRV",
+        "name": "Drivania",
+        "termsUrl": "https://drivania.com/terms-and-conditions-drivania.html",
+        "logoUrl": "https://media.drivania.com/images/logo_2024/drivania_logo_2024.svg"
+        },
+        "quotation": {
+        "monetaryAmount": "193.82",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "base": {
+            "monetaryAmount": "193.82"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMax": "2",
+            "ruleDescription": "Non-refundable within 2 hours of pick-up time"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "2",
+            "ruleDescription": "Free cancellation up to 2 hours prior to ride"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "193.82",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "base": {
+            "monetaryAmount": "193.82"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "distance": {
+        "value": 32,
+        "unit": "KM"
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "INVOICE"
+        ]
+    },
+    {
+        "id": "0078537658",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "countryCode": "FR"
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "cancellationRules": [
+        {
+            "ruleDescription": "Test cancel policy"
+        }
+        ],
+        "stopOvers": [
+        {
+            "duration": "PT2H30M",
+            "sequenceNumber": 1,
+            "location": {
+            "address": {
+                "line": "Avenue de la Bourdonnais, 19",
+                "zip": "75007",
+                "countryCode": "FR",
+                "cityName": "Paris",
+                "stateCode": "FR",
+                "latitude": 48.859477,
+                "longitude": 2.2976985
+            },
+            "name": "De La Tours"
+            }
+        }
+        ],
+        "duration": "PT38M",
+        "vehicle": {
+        "code": "CAR",
+        "category": "ST",
+        "description": "Ankit Test - Sedan",
+        "imageURL": "https://qa20.groundspan.com/ImageProcessor/Images/AmadeusVehicle/NnpoMlJ2QWh6eThxOEc5dVhUMm1DZHRvQzg0OXdFWXFuYTVNQWtZWGNiTXh1LzNnVGJESFFFeTN2WVdPb21aRFFvYStkbVMrdjUxMnBlZnluT3V0VlJsSDJ2azNDRjlscUt6Z2tpNXFYTHN3Qno2dkdEdWk3NkJSRGVQZHdESThybkpYd3gwOGtNRVJFMi83Q1B1eGU1TVJJTEpiamFLeExXbXlvckNIaTJnPQ==.png",
+        "baggages": [
+            {
+            "count": 1
+            }
+        ],
+        "seats": [
+            {
+            "count": 3
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "GSN",
+        "name": "GroundSpan",
+        "logoUrl": "https://qa20.groundspan.com/Amadeus/Images/GroundSpan.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED",
+            "CORPORATION_INFO_REQUIRED"
+        ]
+        },
+        "partnerInfo": {
+        "serviceProvider": {
+            "code": "abc",
+            "name": "Ankit Test",
+            "termsUrl": "https://qa20.groundspan.com/Amadeus/Terms/THdURzJzQUtwQTBZUGtjaG0rRDFKbEZPQ3hIUTJKb2FHZjBRZnUvQXRUUkhmVk1OUmFvcVF0bjczd2NsZ3lMbkR2RG9UR241ZjlEVVRRblNxdkphZGNuTC9SVGxRQkhCcUFHUHMrRjQyd3Z0V2huSGtjcmxIU0l0ZE1QTVkzYXM5VlBJZ3IwNmcyOW94U1dJSWR6TzRYVnh1SHMwS3cvTHBHOWZiSjRjOENJPQ%3d%3d",
+            "isPreferred": true,
+            "logoUrl": "https://qa20.groundspan.com/ImageProcessor/Images/AmadeusProvider/bktGVGRDYUV0RW5mc0NUN25zWFBIeFVOcEtUZTFkZUk0MDV0S3I1VnNZQzJtRERsSk5tMThsR0JJSFlVZ2x6MEN0cEZFSllkeXg2WnpDWkJ2ajVMSFdIbzlhSEI0L0VPcm1heEV2K0piOEF1WjFsSTZSSnVYMlY0bXVjT1BwOG0=.png"
+        }
+        },
+        "quotation": {
+        "monetaryAmount": "100.00",
+        "currencyCode": "USD",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "100.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "converted": {
+        "monetaryAmount": "89.58",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "base": {
+            "monetaryAmount": "89.58"
+        },
+        "isEstimated": false,
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD"
+        ],
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "distance": {
+        "value": 19,
+        "unit": "MI"
+        },
+        "startConnectedSegment": {
+        "transportationType": "FLIGHT",
+        "transportationNumber": "AF380",
+        "departure": {
+            "localDateTime": "2024-04-10T09:00:00",
+            "iataCode": "NCE"
+        },
+        "arrival": {
+            "localDateTime": "2024-04-10T10:00:00",
+            "iataCode": "CDG"
+        }
+        },
+        "conditionSummary": [
+        {
+            "descriptions": [
+            {
+                "descriptionType": "PRICING",
+                "text": "HOURLY RATE All hourly rides are billed from garage to garage. The final charges are determined at the completion of the trip. Other charges apply."
+            }
+            ]
+        }
+        ]
+    },
+    {
+        "id": "0078538190",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "countryCode": "FR"
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "cancellationRules": [
+        {
+            "ruleDescription": "Cancellations must be made at least 2 hours before the scheduled pick up time to avoid cancellation charges equal to the rate quoted."
+        }
+        ],
+        "stopOvers": [
+        {
+            "duration": "PT2H30M",
+            "sequenceNumber": 1,
+            "location": {
+            "address": {
+                "line": "Avenue de la Bourdonnais, 19",
+                "zip": "75007",
+                "countryCode": "FR",
+                "cityName": "Paris",
+                "stateCode": "FR",
+                "latitude": 48.859477,
+                "longitude": 2.2976985
+            },
+            "name": "De La Tours"
+            }
+        }
+        ],
+        "duration": "PT38M",
+        "vehicle": {
+        "code": "VAN",
+        "category": "ST",
+        "description": "Amadeus Cars - VAN",
+        "imageURL": "https://io.groundspan.com/ImageProcessor/Images/AmadeusVehicle/RVlrR0czdWVDLzg3bzZRU3dLbWY5UUdkOEZwZWYvRjJUQmV4TUUwRlZMOTFvdDgxZnRzaGkxb0EyK09LMlg3YjhKWHQrdk9zZHpKR2dIcVN4SmpzaE02WUFjekRxUjBORnVzTEtUUmN6RnhrU0NKRmc0UlNVS2g3ZmNLOW9FWkdEbFVleVdlK3I5NklwRVUvcitsTUJ6NjdFaysweDcrVW5GYkp0bUJjaFJVPQ==.png",
+        "baggages": [
+            {
+            "count": 5
+            }
+        ],
+        "seats": [
+            {
+            "count": 7
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "GSN",
+        "name": "GroundSpan",
+        "logoUrl": "https://qa20.groundspan.com/Amadeus/Images/GroundSpan.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED",
+            "CORPORATION_INFO_REQUIRED"
+        ]
+        },
+        "partnerInfo": {
+        "serviceProvider": {
+            "code": "AMA",
+            "name": "Amadeus Cars",
+            "termsUrl": "https://qa20.groundspan.com/Amadeus/Terms/VmNlV3VZQkcvdjRsd0l1eExSMWZJYk5aRjhuVWNTMVZXKzNEZkpOWDBTbStoUXIxMGJwdGN2bS9LTitONHVlR2ZXZzZVL2p3Vkd5MTZ4UzFYNVBBU2Z0dEZaVFpkeWxxTTlVWHhla3ZzMjZtR0tIVURoR1VLaElGTFk0aHBCK0VrTld0STZramt6OGdZeERMMG8xTGQ3WjRBUy9tdFRlTCtqcGRsbDMxUEE0PQ%3d%3d",
+            "isPreferred": true,
+            "logoUrl": "https://qa20.groundspan.com/ImageProcessor/Images/AmadeusProvider/aGJRalQyYzVuR0dHN045d0VJN0Q5YU92elpIZUpwWGdYZGYrSHJIbUk5eWlOT3ZHVjc0bG5xVlRGSXYrMEZob1JFRGhocG5mblFQbGFVZGU4R0xnbExXUXhZSVVkcHRhbFBvN2tSSE5lYmpyNFdVVEloY0JpRDk3TTd5OC83TzM=.png"
+        }
+        },
+        "quotation": {
+        "monetaryAmount": "270.00",
+        "currencyCode": "USD",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "270.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "converted": {
+        "monetaryAmount": "241.88",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "base": {
+            "monetaryAmount": "241.88"
+        },
+        "isEstimated": false,
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD",
+        "INVOICE"
+        ],
+        "distance": {
+        "value": 19,
+        "unit": "MI"
+        },
+        "startConnectedSegment": {
+        "transportationType": "FLIGHT",
+        "transportationNumber": "AF380",
+        "departure": {
+            "localDateTime": "2024-04-10T09:00:00",
+            "iataCode": "NCE"
+        },
+        "arrival": {
+            "localDateTime": "2024-04-10T10:00:00",
+            "iataCode": "CDG"
+        }
+        },
+        "conditionSummary": [
+        {
+            "descriptions": [
+            {
+                "descriptionType": "PRICING",
+                "text": "Pricing includes base rate, tax, airport fees and tolls. Additional parking, tolls, wait time or stop fees will be added only if applicable. Cancellations must be made at least 2 hours before the scheduled pick up time to avoid cancellation charges equal to the rate quoted."
+            }
+            ]
+        }
+        ]
+    },
+    {
+        "id": "0078538772",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "countryCode": "FR"
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "cancellationRules": [
+        {
+            "ruleDescription": "Cancellations must be made at least 2 hours before the scheduled pick up time to avoid cancellation charges equal to the rate quoted."
+        }
+        ],
+        "stopOvers": [
+        {
+            "duration": "PT2H30M",
+            "sequenceNumber": 1,
+            "location": {
+            "address": {
+                "line": "Avenue de la Bourdonnais, 19",
+                "zip": "75007",
+                "countryCode": "FR",
+                "cityName": "Paris",
+                "stateCode": "FR",
+                "latitude": 48.859477,
+                "longitude": 2.2976985
+            },
+            "name": "De La Tours"
+            }
+        }
+        ],
+        "duration": "PT38M",
+        "vehicle": {
+        "code": "SUV",
+        "category": "ST",
+        "description": "Amadeus Cars - SUV",
+        "imageURL": "https://io.groundspan.com/ImageProcessor/Images/AmadeusVehicle/TDYvaC9USS9lYURWQk8zT0cyRWllVmdJSnJ6MW9WYWxGTllZSkNzNDkxMk83WFBOZFJGQ2krdlM3ZXdjeW9TZDRzYmZ6TllxOFByRlUwNXllY0hwamUvRTVpNXJpZFlIQUJJODdmK0xNMFpRR2s1NG1WWXdCa3ZxTS91L2tYSEI2cHBnVncxNTdoMmpjYVB2MmhvQXFIeDhzS3dzNFdLb21adktQZWN1S3k4PQ==.png",
+        "baggages": [
+            {
+            "count": 4
+            }
+        ],
+        "seats": [
+            {
+            "count": 5
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "GSN",
+        "name": "GroundSpan",
+        "logoUrl": "https://qa20.groundspan.com/Amadeus/Images/GroundSpan.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED",
+            "CORPORATION_INFO_REQUIRED"
+        ]
+        },
+        "partnerInfo": {
+        "serviceProvider": {
+            "code": "AMA",
+            "name": "Amadeus Cars",
+            "termsUrl": "https://qa20.groundspan.com/Amadeus/Terms/NjVuV0lNZGtRYVcvbGZ5ZTlyQlpyaVhkd09lSmFNeVo3eVVaOGZ2QXp3N3NGaVBhUkk1V0t5Ni81NGdYNngvdExkVTNoMXF6K0Z5RHVqRG0xNTNGU2NWN1Rza0ZZL1JlaXJxRE9meEJNbkU3cG56U29ISFUrWWdlN3YvZjVBWmltMndXTENQaHdaZWN5Tk83aDRrcUhVaENkQjR4LzdNdy9QdW5sTHdKd3FjPQ%3d%3d",
+            "isPreferred": true,
+            "logoUrl": "https://qa20.groundspan.com/ImageProcessor/Images/AmadeusProvider/U010Tk56SUhoZ0M1R3h6UGM1WDJuSmZNVjlFVDdUZC9MeXdrejQwc1AySU1TYWxPc1lIMkhvL2VneHZYL25OYUVGbk41eDkvZ1Npa0E0emtDVzlCRjQ3YnQ5ZE41WWhYa2c0c2pXdk9QZmdHdjhqVk5tTWpZbmR3WkhESXRidzg=.png"
+        }
+        },
+        "quotation": {
+        "monetaryAmount": "210.00",
+        "currencyCode": "USD",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "210.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "converted": {
+        "monetaryAmount": "188.13",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "base": {
+            "monetaryAmount": "188.13"
+        },
+        "isEstimated": false,
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD",
+        "INVOICE"
+        ],
+        "distance": {
+        "value": 19,
+        "unit": "MI"
+        },
+        "startConnectedSegment": {
+        "transportationType": "FLIGHT",
+        "transportationNumber": "AF380",
+        "departure": {
+            "localDateTime": "2024-04-10T09:00:00",
+            "iataCode": "NCE"
+        },
+        "arrival": {
+            "localDateTime": "2024-04-10T10:00:00",
+            "iataCode": "CDG"
+        }
+        },
+        "conditionSummary": [
+        {
+            "descriptions": [
+            {
+                "descriptionType": "PRICING",
+                "text": "Pricing includes base rate, tax, airport fees and tolls. Additional parking, tolls, wait time or stop fees will be added only if applicable. Cancellations must be made at least 2 hours before the scheduled pick up time to avoid cancellation charges equal to the rate quoted."
+            }
+            ]
+        }
+        ]
+    },
+    {
+        "id": "0078539304",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "countryCode": "FR"
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "cancellationRules": [
+        {
+            "ruleDescription": "Cancellations must be made at least 2 hours before the scheduled pick up time to avoid cancellation charges equal to the rate quoted."
+        }
+        ],
+        "stopOvers": [
+        {
+            "duration": "PT2H30M",
+            "sequenceNumber": 1,
+            "location": {
+            "address": {
+                "line": "Avenue de la Bourdonnais, 19",
+                "zip": "75007",
+                "countryCode": "FR",
+                "cityName": "Paris",
+                "stateCode": "FR",
+                "latitude": 48.859477,
+                "longitude": 2.2976985
+            },
+            "name": "De La Tours"
+            }
+        }
+        ],
+        "duration": "PT38M",
+        "vehicle": {
+        "code": "CAR",
+        "category": "ST",
+        "description": "Amadeus Cars - Sedan",
+        "baggages": [
+            {
+            "count": 2,
+            "size": "S"
+            },
+            {
+            "count": 2
+            }
+        ],
+        "imageURL": "https://io.groundspan.com/ImageProcessor/Images/AmadeusVehicle/dHFpYmswN1k5R1dEdytLNkRPRXU5K0lxdGhMei9MU0FuUnVPUXhCbXdwNHp6NmZ3Z05xaC9SdURVUS84Tkd4QlJvamQ0a1JHQ3B6a2lwaGtQUXpjNG5Sc2RaelpMWUtudXEvRU9PY1RBM3JyYjFvYWFjRFJpMmNveklRdjh0cDBlTTJTeGNiRFFnZmJpUG9jang0b2oybE55UUlmblJiK01YbkozOFo1eXZ3PQ==.png",
+        "seats": [
+            {
+            "count": 3
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "GSN",
+        "name": "GroundSpan",
+        "logoUrl": "https://qa20.groundspan.com/Amadeus/Images/GroundSpan.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED",
+            "CORPORATION_INFO_REQUIRED"
+        ]
+        },
+        "partnerInfo": {
+        "serviceProvider": {
+            "code": "AMA",
+            "name": "Amadeus Cars",
+            "termsUrl": "https://qa20.groundspan.com/Amadeus/Terms/OHF1bkFxRVdrcEc1eHkzalhZRjNtdWdQNitIT3FJR2VlVU8rR0NTbDdMVUhmNDRJR01aU2VycldWSkxPOG1KdHhJcHh4SlM2amptczlCZmF0MDdqQmE0c0V2dGdMa1ViKzRHQzFCODM2c2JZZlhOaFA2KzA0T05NdkpRYWtkOFpEcWZ1TjJUYU93M0hiM01RaGVHNTJTM25OMEo1ckNjQkZqRmxhY09tTFZRPQ%3d%3d",
+            "isPreferred": true,
+            "logoUrl": "https://qa20.groundspan.com/ImageProcessor/Images/AmadeusProvider/dWthcWVtdGhJUHBLbUl2eDBydlZNYVA2RHF4M1RpQnB0eVV6dlU0ZloyajlkWk9ha3FDSVBsWHNhZnQzemVzS3k5YldvcmdoTG96TTlhVE4wMW8wRW5odlI5MGRPbE83TXE3OVJ2bXg1cnZDSGJ3aWlwYmRXcHpjZEZEQUtCNEw=.png"
+        }
+        },
+        "quotation": {
+        "monetaryAmount": "142.87",
+        "currencyCode": "USD",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "142.87"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "converted": {
+        "monetaryAmount": "127.99",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "base": {
+            "monetaryAmount": "127.99"
+        },
+        "isEstimated": false,
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD",
+        "INVOICE"
+        ],
+        "distance": {
+        "value": 19,
+        "unit": "MI"
+        },
+        "startConnectedSegment": {
+        "transportationType": "FLIGHT",
+        "transportationNumber": "AF380",
+        "departure": {
+            "localDateTime": "2024-04-10T09:00:00",
+            "iataCode": "NCE"
+        },
+        "arrival": {
+            "localDateTime": "2024-04-10T10:00:00",
+            "iataCode": "CDG"
+        }
+        },
+        "conditionSummary": [
+        {
+            "descriptions": [
+            {
+                "descriptionType": "PRICING",
+                "text": "Pricing includes base rate, tax, airport fees and tolls. Additional parking, tolls, wait time or stop fees will be added only if applicable. Cancellations must be made at least 2 hours before the scheduled pick up time to avoid cancellation charges equal to the rate quoted."
+            }
+            ]
+        }
+        ]
+    },
+    {
+        "id": "0078539827",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "CAR",
+        "category": "BU",
+        "description": "e.g. Audi A6, BMW 5 Series, MB E Class",
+        "imageURL": "https://img.mydriver.com/image/upload/v1550760307/cms_images/ullamj1fq3rihir9yhh4.png",
+        "baggages": [
+            {
+            "count": 2,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 3
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SMD",
+        "name": "Sixt Ride",
+        "termsUrl": "https://sixt.staging.mydriver-international.com/ride/terms#/home",
+        "logoUrl": "https://img.mydriver.com/image/upload/v1549011723/logos/ride/Sixt_ride_2d_4c_pos.png"
+        },
+        "quotation": {
+        "monetaryAmount": "74.71",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "6.79"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "6.79"
+        },
+        "base": {
+            "monetaryAmount": "74.71"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "ruleDescription": "In the event of a passenger No-Show",
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "MINUTES",
+            "metricMin": "0",
+            "metricMax": "1"
+        },
+        {
+            "ruleDescription": "Cancellations made between 2 and 30 min before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "75",
+            "metricType": "MINUTES",
+            "metricMin": "2",
+            "metricMax": "30"
+        },
+        {
+            "ruleDescription": "Cancellations made between 31 and 60 min before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "50",
+            "metricType": "MINUTES",
+            "metricMin": "31",
+            "metricMax": "60"
+        },
+        {
+            "ruleDescription": "Cancellations made until 61 minutes before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "MINUTES",
+            "metricMin": "61"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "74.71",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "6.79"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "6.79"
+        },
+        "base": {
+            "monetaryAmount": "74.71"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "INVOICE"
+        ]
+    },
+    {
+        "id": "0078540342",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "CAR",
+        "category": "ST",
+        "description": "SIXT ride experience for little money",
+        "imageURL": "https://img.mydriver.com/image/upload/v1627556561/cms_images/l8z3dggx7nnmfs38iew4.png",
+        "baggages": [
+            {
+            "count": 2,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 3
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SMD",
+        "name": "Sixt Ride",
+        "termsUrl": "https://sixt.staging.mydriver-international.com/ride/terms#/home",
+        "logoUrl": "https://img.mydriver.com/image/upload/v1549011723/logos/ride/Sixt_ride_2d_4c_pos.png"
+        },
+        "quotation": {
+        "monetaryAmount": "74.71",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "6.79"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "6.79"
+        },
+        "base": {
+            "monetaryAmount": "74.71"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "ruleDescription": "In the event of a passenger No-Show",
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "MINUTES",
+            "metricMin": "0",
+            "metricMax": "1"
+        },
+        {
+            "ruleDescription": "Cancellations made between 2 and 30 min before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "75",
+            "metricType": "MINUTES",
+            "metricMin": "2",
+            "metricMax": "30"
+        },
+        {
+            "ruleDescription": "Cancellations made between 31 and 60 min before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "50",
+            "metricType": "MINUTES",
+            "metricMin": "31",
+            "metricMax": "60"
+        },
+        {
+            "ruleDescription": "Cancellations made until 61 minutes before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "MINUTES",
+            "metricMin": "61"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "74.71",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "6.79"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "6.79"
+        },
+        "base": {
+            "monetaryAmount": "74.71"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "INVOICE"
+        ]
+    },
+    {
+        "id": "0078540870",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "CAR",
+        "category": "FC",
+        "description": "Arrive in style with premium vehicles",
+        "imageURL": "https://img.mydriver.com/image/upload/v1550760354/cms_images/fv9rovkrnf7rhqgvc83k.png",
+        "baggages": [
+            {
+            "count": 2,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 3
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SMD",
+        "name": "Sixt Ride",
+        "termsUrl": "https://sixt.staging.mydriver-international.com/ride/terms#/home",
+        "logoUrl": "https://img.mydriver.com/image/upload/v1549011723/logos/ride/Sixt_ride_2d_4c_pos.png"
+        },
+        "quotation": {
+        "monetaryAmount": "70.50",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "6.41"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "6.41"
+        },
+        "base": {
+            "monetaryAmount": "70.50"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "ruleDescription": "In the event of a passenger No-Show",
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "MINUTES",
+            "metricMin": "0",
+            "metricMax": "1"
+        },
+        {
+            "ruleDescription": "Cancellations made between 2 and 30 min before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "75",
+            "metricType": "MINUTES",
+            "metricMin": "2",
+            "metricMax": "30"
+        },
+        {
+            "ruleDescription": "Cancellations made between 31 and 60 min before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "50",
+            "metricType": "MINUTES",
+            "metricMin": "31",
+            "metricMax": "60"
+        },
+        {
+            "ruleDescription": "Cancellations made until 61 minutes before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "MINUTES",
+            "metricMin": "61"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "70.50",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "6.41"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "6.41"
+        },
+        "base": {
+            "monetaryAmount": "70.50"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "INVOICE"
+        ]
+    },
+    {
+        "id": "0078541374",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "VAN",
+        "category": "FC",
+        "description": "Flexible group transfers + more comfort",
+        "imageURL": "https://img.mydriver.com/image/upload/v1550760336/cms_images/krxpjafwe9mrsgz1i63y.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 7
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SMD",
+        "name": "Sixt Ride",
+        "termsUrl": "https://sixt.staging.mydriver-international.com/ride/terms#/home",
+        "logoUrl": "https://img.mydriver.com/image/upload/v1549011723/logos/ride/Sixt_ride_2d_4c_pos.png"
+        },
+        "quotation": {
+        "monetaryAmount": "82.50",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "7.50"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "7.50"
+        },
+        "base": {
+            "monetaryAmount": "82.50"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "ruleDescription": "In the event of a passenger No-Show",
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "MINUTES",
+            "metricMin": "0",
+            "metricMax": "1"
+        },
+        {
+            "ruleDescription": "Cancellations made between 2 and 30 min before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "75",
+            "metricType": "MINUTES",
+            "metricMin": "2",
+            "metricMax": "30"
+        },
+        {
+            "ruleDescription": "Cancellations made between 31 and 60 min before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "50",
+            "metricType": "MINUTES",
+            "metricMin": "31",
+            "metricMax": "60"
+        },
+        {
+            "ruleDescription": "Cancellations made until 61 minutes before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "MINUTES",
+            "metricMin": "61"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "82.50",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "7.50"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "7.50"
+        },
+        "base": {
+            "monetaryAmount": "82.50"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "INVOICE"
+        ]
+    },
+    {
+        "id": "0078541883",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "CAR",
+        "category": "FC",
+        "description": "Luxury rides with maximum comfort",
+        "imageURL": "https://img.mydriver.com/image/upload/v1550760370/cms_images/g3sgdn0iczw0vnwlny6o.png",
+        "baggages": [
+            {
+            "count": 2,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 3
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SMD",
+        "name": "Sixt Ride",
+        "termsUrl": "https://sixt.staging.mydriver-international.com/ride/terms#/home",
+        "logoUrl": "https://img.mydriver.com/image/upload/v1549011723/logos/ride/Sixt_ride_2d_4c_pos.png"
+        },
+        "quotation": {
+        "monetaryAmount": "110.51",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "10.05"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "10.05"
+        },
+        "base": {
+            "monetaryAmount": "110.51"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "ruleDescription": "In the event of a passenger No-Show",
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "MINUTES",
+            "metricMin": "0",
+            "metricMax": "1"
+        },
+        {
+            "ruleDescription": "Cancellations made between 2 and 30 min before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "75",
+            "metricType": "MINUTES",
+            "metricMin": "2",
+            "metricMax": "30"
+        },
+        {
+            "ruleDescription": "Cancellations made between 31 and 60 min before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "50",
+            "metricType": "MINUTES",
+            "metricMin": "31",
+            "metricMax": "60"
+        },
+        {
+            "ruleDescription": "Cancellations made until 61 minutes before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "MINUTES",
+            "metricMin": "61"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "110.51",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "10.05"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "10.05"
+        },
+        "base": {
+            "monetaryAmount": "110.51"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "INVOICE"
+        ]
+    },
+    {
+        "id": "0078542368",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "VAN",
+        "category": "BU",
+        "description": "Flexible group transfers to affordable prices",
+        "imageURL": "https://img.mydriver.com/image/upload/v1550760322/cms_images/o3bxeps12swxu8bd3dam.png",
+        "baggages": [
+            {
+            "count": 4,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 5
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SMD",
+        "name": "Sixt Ride",
+        "termsUrl": "https://sixt.staging.mydriver-international.com/ride/terms#/home",
+        "logoUrl": "https://img.mydriver.com/image/upload/v1549011723/logos/ride/Sixt_ride_2d_4c_pos.png"
+        },
+        "quotation": {
+        "monetaryAmount": "129.77",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "11.80"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "11.80"
+        },
+        "base": {
+            "monetaryAmount": "129.77"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "ruleDescription": "In the event of a passenger No-Show",
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "MINUTES",
+            "metricMin": "0",
+            "metricMax": "1"
+        },
+        {
+            "ruleDescription": "Cancellations made between 2 and 30 min before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "75",
+            "metricType": "MINUTES",
+            "metricMin": "2",
+            "metricMax": "30"
+        },
+        {
+            "ruleDescription": "Cancellations made between 31 and 60 min before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "50",
+            "metricType": "MINUTES",
+            "metricMin": "31",
+            "metricMax": "60"
+        },
+        {
+            "ruleDescription": "Cancellations made until 61 minutes before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "MINUTES",
+            "metricMin": "61"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "129.77",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "11.80"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "11.80"
+        },
+        "base": {
+            "monetaryAmount": "129.77"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "INVOICE"
+        ]
+    },
+    {
+        "id": "0078542909",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "CAR",
+        "category": "FC",
+        "description": "Arrive in style in premium full electric vehicles",
+        "imageURL": "https://img.mydriver.com/image/upload/v1629094480/cms_images/v6vixpmijkqga5jctkih.png",
+        "baggages": [
+            {
+            "count": 2,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 2
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SMD",
+        "name": "Sixt Ride",
+        "termsUrl": "https://sixt.staging.mydriver-international.com/ride/terms#/home",
+        "logoUrl": "https://img.mydriver.com/image/upload/v1629094475/cms_images/woomaftdurhwfnuwztob.png"
+        },
+        "quotation": {
+        "monetaryAmount": "122.91",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "11.17"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "11.17"
+        },
+        "base": {
+            "monetaryAmount": "122.91"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "converted": {
+        "monetaryAmount": "122.91",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "11.17"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "11.17"
+        },
+        "base": {
+            "monetaryAmount": "122.91"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "INVOICE"
+        ]
+    },
+    {
+        "id": "0078543420",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "CAR",
+        "category": "FC",
+        "description": "e.g. Audi A8, BMW 7 Series, MB S Class",
+        "imageURL": "https://img.mydriver.com/image/upload/v1521816137/cms_images/yaq9brswezd8q3nyjupq.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 3
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SMD",
+        "name": "Sixt Ride",
+        "termsUrl": "https://sixt.staging.mydriver-international.com/ride/terms#/home",
+        "logoUrl": "https://img.mydriver.com/image/upload/v1549011723/logos/ride/Sixt_ride_2d_4c_pos.png"
+        },
+        "quotation": {
+        "monetaryAmount": "160.73",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "14.61"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "14.61"
+        },
+        "base": {
+            "monetaryAmount": "160.73"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "ruleDescription": "In the event of a passenger No-Show",
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "MINUTES",
+            "metricMin": "0",
+            "metricMax": "1"
+        },
+        {
+            "ruleDescription": "Cancellations made between 2 and 30 min before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "75",
+            "metricType": "MINUTES",
+            "metricMin": "2",
+            "metricMax": "30"
+        },
+        {
+            "ruleDescription": "Cancellations made between 31 and 60 min before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "50",
+            "metricType": "MINUTES",
+            "metricMin": "31",
+            "metricMax": "60"
+        },
+        {
+            "ruleDescription": "Cancellations made until 61 minutes before start time",
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "MINUTES",
+            "metricMin": "61"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "160.73",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "14.61"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "14.61"
+        },
+        "base": {
+            "monetaryAmount": "160.73"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "INVOICE"
+        ]
+    },
+    {
+        "id": "0078543892",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "line": "95700 Roissy-en-France, France",
+            "zip": "95700",
+            "countryCode": "FR",
+            "latitude": 49.0096739,
+            "longitude": 2.547966
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "19 Av. de la Bourdonnais, 75007 Paris, France",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "duration": "PT2M",
+        "vehicle": {
+        "code": "CAR",
+        "category": "ST",
+        "description": "Toyota Prius or similar",
+        "imageURL": "https://media.servantrip.com/resources/img/Economy.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "S"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SVP",
+        "name": "Servantrip",
+        "termsUrl": "https://servantrip.com/integration-terms/",
+        "logoUrl": "https://media.servantrip.com/resources/img/imagotipo-blue-horizontal-147x45.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED"
+        ]
+        },
+        "quotation": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "extraServices": [
+        {
+            "code": "MAG",
+            "description": "Meet and Greet",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        },
+        {
+            "code": "FLM",
+            "description": "Flight Monitoring",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        }
+        ],
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "24",
+            "metricMax": "2147483647",
+            "ruleDescription": "Free cancellation up to 24 hours prior to ride"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "24",
+            "ruleDescription": "Non-refundable within 24 hours of pick-up time"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD"
+        ]
+    },
+    {
+        "id": "0078544972",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "line": "95700 Roissy-en-France, France",
+            "zip": "95700",
+            "countryCode": "FR",
+            "latitude": 49.0096739,
+            "longitude": 2.547966
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "19 Av. de la Bourdonnais, 75007 Paris, France",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "duration": "PT2M",
+        "vehicle": {
+        "code": "CAR",
+        "category": "ST",
+        "description": "VW Passat, Skoda Octavia or similar",
+        "imageURL": "https://media.servantrip.com/resources/img/Transfer-Sedan.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "S"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SVP",
+        "name": "Servantrip",
+        "termsUrl": "https://servantrip.com/integration-terms/",
+        "logoUrl": "https://media.servantrip.com/resources/img/imagotipo-blue-horizontal-147x45.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED"
+        ]
+        },
+        "quotation": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "extraServices": [
+        {
+            "code": "MAG",
+            "description": "Meet and Greet",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        },
+        {
+            "code": "FLM",
+            "description": "Flight Monitoring",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        }
+        ],
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "24",
+            "metricMax": "2147483647",
+            "ruleDescription": "Free cancellation up to 24 hours prior to ride"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "24",
+            "ruleDescription": "Non-refundable within 24 hours of pick-up time"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD"
+        ]
+    },
+    {
+        "id": "0078545521",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "line": "95700 Roissy-en-France, France",
+            "zip": "95700",
+            "countryCode": "FR",
+            "latitude": 49.0096739,
+            "longitude": 2.547966
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "19 Av. de la Bourdonnais, 75007 Paris, France",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "duration": "PT2M",
+        "vehicle": {
+        "code": "CAR",
+        "category": "BU",
+        "description": "Mercedes E class, Audi A6 or similar",
+        "imageURL": "https://media.servantrip.com/resources/img/Transfer-Business.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "S"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SVP",
+        "name": "Servantrip",
+        "termsUrl": "https://servantrip.com/integration-terms/",
+        "logoUrl": "https://media.servantrip.com/resources/img/imagotipo-blue-horizontal-147x45.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED"
+        ]
+        },
+        "quotation": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "extraServices": [
+        {
+            "code": "MAG",
+            "description": "Meet and Greet",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        },
+        {
+            "code": "FLM",
+            "description": "Flight Monitoring",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        }
+        ],
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "24",
+            "metricMax": "2147483647",
+            "ruleDescription": "Free cancellation up to 24 hours prior to ride"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "24",
+            "ruleDescription": "Non-refundable within 24 hours of pick-up time"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD"
+        ]
+    },
+    {
+        "id": "0078546006",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "line": "95700 Roissy-en-France, France",
+            "zip": "95700",
+            "countryCode": "FR",
+            "latitude": 49.0096739,
+            "longitude": 2.547966
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "19 Av. de la Bourdonnais, 75007 Paris, France",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "duration": "PT2M",
+        "vehicle": {
+        "code": "CAR",
+        "category": "FC",
+        "description": "Mercedes S class, Audi A8 or similar",
+        "imageURL": "https://media.servantrip.com/resources/img/Transfer-Premium.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "S"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SVP",
+        "name": "Servantrip",
+        "termsUrl": "https://servantrip.com/integration-terms/",
+        "logoUrl": "https://media.servantrip.com/resources/img/imagotipo-blue-horizontal-147x45.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED"
+        ]
+        },
+        "quotation": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "extraServices": [
+        {
+            "code": "MAG",
+            "description": "Meet and Greet",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        },
+        {
+            "code": "FLM",
+            "description": "Flight Monitoring",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        }
+        ],
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "24",
+            "metricMax": "2147483647",
+            "ruleDescription": "Free cancellation up to 24 hours prior to ride"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "24",
+            "ruleDescription": "Non-refundable within 24 hours of pick-up time"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD"
+        ]
+    },
+    {
+        "id": "0078546494",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "line": "95700 Roissy-en-France, France",
+            "zip": "95700",
+            "countryCode": "FR",
+            "latitude": 49.0096739,
+            "longitude": 2.547966
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "19 Av. de la Bourdonnais, 75007 Paris, France",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "duration": "PT2M",
+        "vehicle": {
+        "code": "CAR",
+        "category": "ST",
+        "description": "Skoda SuperB, VW Passat or similar",
+        "imageURL": "https://media.servantrip.com/resources/img/Transfer-Sedan.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "S"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SVP",
+        "name": "Servantrip",
+        "termsUrl": "https://servantrip.com/integration-terms/",
+        "logoUrl": "https://media.servantrip.com/resources/img/imagotipo-blue-horizontal-147x45.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED"
+        ]
+        },
+        "quotation": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "extraServices": [
+        {
+            "code": "MAG",
+            "description": "Meet and Greet",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        },
+        {
+            "code": "FLM",
+            "description": "Flight Monitoring",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        }
+        ],
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "24",
+            "metricMax": "2147483647",
+            "ruleDescription": "Free cancellation up to 24 hours prior to ride"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "24",
+            "ruleDescription": "Non-refundable within 24 hours of pick-up time"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD"
+        ]
+    },
+    {
+        "id": "0078547014",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "line": "95700 Roissy-en-France, France",
+            "zip": "95700",
+            "countryCode": "FR",
+            "latitude": 49.0096739,
+            "longitude": 2.547966
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "19 Av. de la Bourdonnais, 75007 Paris, France",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "duration": "PT2M",
+        "vehicle": {
+        "code": "VAN",
+        "category": "ST",
+        "description": "Nissan Urban, Toyota Sienna or similar",
+        "imageURL": "https://media.servantrip.com/resources/img/Transfer-Minivan-Sedan-White.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "S"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SVP",
+        "name": "Servantrip",
+        "termsUrl": "https://servantrip.com/integration-terms/",
+        "logoUrl": "https://media.servantrip.com/resources/img/imagotipo-blue-horizontal-147x45.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED"
+        ]
+        },
+        "quotation": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "extraServices": [
+        {
+            "code": "MAG",
+            "description": "Meet and Greet",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        },
+        {
+            "code": "FLM",
+            "description": "Flight Monitoring",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        }
+        ],
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "24",
+            "metricMax": "2147483647",
+            "ruleDescription": "Free cancellation up to 24 hours prior to ride"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "24",
+            "ruleDescription": "Non-refundable within 24 hours of pick-up time"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD"
+        ]
+    },
+    {
+        "id": "0078547613",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "line": "95700 Roissy-en-France, France",
+            "zip": "95700",
+            "countryCode": "FR",
+            "latitude": 49.0096739,
+            "longitude": 2.547966
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "19 Av. de la Bourdonnais, 75007 Paris, France",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "duration": "PT2M",
+        "vehicle": {
+        "code": "VAN",
+        "category": "BU",
+        "description": "Mercedes Viano, Mercedes Vito or similar",
+        "imageURL": "https://media.servantrip.com/resources/img/Minivan_business_black.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "S"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SVP",
+        "name": "Servantrip",
+        "termsUrl": "https://servantrip.com/integration-terms/",
+        "logoUrl": "https://media.servantrip.com/resources/img/imagotipo-blue-horizontal-147x45.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED"
+        ]
+        },
+        "quotation": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "extraServices": [
+        {
+            "code": "MAG",
+            "description": "Meet and Greet",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        },
+        {
+            "code": "FLM",
+            "description": "Flight Monitoring",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        }
+        ],
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "24",
+            "metricMax": "2147483647",
+            "ruleDescription": "Free cancellation up to 24 hours prior to ride"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "24",
+            "ruleDescription": "Non-refundable within 24 hours of pick-up time"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD"
+        ]
+    },
+    {
+        "id": "0078548137",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "line": "95700 Roissy-en-France, France",
+            "zip": "95700",
+            "countryCode": "FR",
+            "latitude": 49.0096739,
+            "longitude": 2.547966
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "19 Av. de la Bourdonnais, 75007 Paris, France",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "duration": "PT2M",
+        "vehicle": {
+        "code": "VAN",
+        "category": "FC",
+        "description": "Mercedes V Class or similar",
+        "imageURL": "https://media.servantrip.com/resources/img/Minivan_premium_mercedes_v_black.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "S"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SVP",
+        "name": "Servantrip",
+        "termsUrl": "https://servantrip.com/integration-terms/",
+        "logoUrl": "https://media.servantrip.com/resources/img/imagotipo-blue-horizontal-147x45.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED"
+        ]
+        },
+        "quotation": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "extraServices": [
+        {
+            "code": "MAG",
+            "description": "Meet and Greet",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        },
+        {
+            "code": "FLM",
+            "description": "Flight Monitoring",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        }
+        ],
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "24",
+            "metricMax": "2147483647",
+            "ruleDescription": "Free cancellation up to 24 hours prior to ride"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "24",
+            "ruleDescription": "Non-refundable within 24 hours of pick-up time"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD"
+        ]
+    },
+    {
+        "id": "0078548662",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "line": "95700 Roissy-en-France, France",
+            "zip": "95700",
+            "countryCode": "FR",
+            "latitude": 49.0096739,
+            "longitude": 2.547966
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "19 Av. de la Bourdonnais, 75007 Paris, France",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "duration": "PT2M",
+        "vehicle": {
+        "code": "VAN",
+        "category": "ST",
+        "description": "_purchase_carType_MinivanTransferTaxi",
+        "imageURL": "https://media.servantrip.com/resources/img/Transfer-Minivan-Sedan-White.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "S"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SVP",
+        "name": "Servantrip",
+        "termsUrl": "https://servantrip.com/integration-terms/",
+        "logoUrl": "https://media.servantrip.com/resources/img/imagotipo-blue-horizontal-147x45.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED"
+        ]
+        },
+        "quotation": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "extraServices": [
+        {
+            "code": "MAG",
+            "description": "Meet and Greet",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        },
+        {
+            "code": "FLM",
+            "description": "Flight Monitoring",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        }
+        ],
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "24",
+            "metricMax": "2147483647",
+            "ruleDescription": "Free cancellation up to 24 hours prior to ride"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "24",
+            "ruleDescription": "Non-refundable within 24 hours of pick-up time"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD"
+        ]
+    },
+    {
+        "id": "0078549166",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "line": "95700 Roissy-en-France, France",
+            "zip": "95700",
+            "countryCode": "FR",
+            "latitude": 49.0096739,
+            "longitude": 2.547966
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "19 Av. de la Bourdonnais, 75007 Paris, France",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "duration": "PT2M",
+        "vehicle": {
+        "code": "CAR",
+        "category": "ST",
+        "description": "Ford Eco Sport or similar",
+        "imageURL": "https://media.servantrip.com/resources/img/SUV_Standard.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "S"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SVP",
+        "name": "Servantrip",
+        "termsUrl": "https://servantrip.com/integration-terms/",
+        "logoUrl": "https://media.servantrip.com/resources/img/imagotipo-blue-horizontal-147x45.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED"
+        ]
+        },
+        "quotation": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "extraServices": [
+        {
+            "code": "MAG",
+            "description": "Meet and Greet",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        },
+        {
+            "code": "FLM",
+            "description": "Flight Monitoring",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        }
+        ],
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "24",
+            "metricMax": "2147483647",
+            "ruleDescription": "Free cancellation up to 24 hours prior to ride"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "24",
+            "ruleDescription": "Non-refundable within 24 hours of pick-up time"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD"
+        ]
+    },
+    {
+        "id": "0078549705",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "line": "95700 Roissy-en-France, France",
+            "zip": "95700",
+            "countryCode": "FR",
+            "latitude": 49.0096739,
+            "longitude": 2.547966
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "19 Av. de la Bourdonnais, 75007 Paris, France",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "duration": "PT2M",
+        "vehicle": {
+        "code": "CAR",
+        "category": "BU",
+        "description": "Toyota RAV4 or similar",
+        "imageURL": "https://media.servantrip.com/resources/img/SUV_business_black.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "S"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SVP",
+        "name": "Servantrip",
+        "termsUrl": "https://servantrip.com/integration-terms/",
+        "logoUrl": "https://media.servantrip.com/resources/img/imagotipo-blue-horizontal-147x45.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED"
+        ]
+        },
+        "quotation": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "extraServices": [
+        {
+            "code": "MAG",
+            "description": "Meet and Greet",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        },
+        {
+            "code": "FLM",
+            "description": "Flight Monitoring",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        }
+        ],
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "24",
+            "metricMax": "2147483647",
+            "ruleDescription": "Free cancellation up to 24 hours prior to ride"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "24",
+            "ruleDescription": "Non-refundable within 24 hours of pick-up time"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD"
+        ]
+    },
+    {
+        "id": "0078550270",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "line": "95700 Roissy-en-France, France",
+            "zip": "95700",
+            "countryCode": "FR",
+            "latitude": 49.0096739,
+            "longitude": 2.547966
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "19 Av. de la Bourdonnais, 75007 Paris, France",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "duration": "PT2M",
+        "vehicle": {
+        "code": "CAR",
+        "category": "FC",
+        "description": "Audi Q7 or similar",
+        "imageURL": "https://media.servantrip.com/resources/img/SUV_premium.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "S"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SVP",
+        "name": "Servantrip",
+        "termsUrl": "https://servantrip.com/integration-terms/",
+        "logoUrl": "https://media.servantrip.com/resources/img/imagotipo-blue-horizontal-147x45.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED"
+        ]
+        },
+        "quotation": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "extraServices": [
+        {
+            "code": "MAG",
+            "description": "Meet and Greet",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        },
+        {
+            "code": "FLM",
+            "description": "Flight Monitoring",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        }
+        ],
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "24",
+            "metricMax": "2147483647",
+            "ruleDescription": "Free cancellation up to 24 hours prior to ride"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "24",
+            "ruleDescription": "Non-refundable within 24 hours of pick-up time"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD"
+        ]
+    },
+    {
+        "id": "0078550796",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "line": "95700 Roissy-en-France, France",
+            "zip": "95700",
+            "countryCode": "FR",
+            "latitude": 49.0096739,
+            "longitude": 2.547966
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "19 Av. de la Bourdonnais, 75007 Paris, France",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "duration": "PT2M",
+        "vehicle": {
+        "code": "VAN",
+        "category": "ST",
+        "description": "Full size bus",
+        "imageURL": "https://media.servantrip.com/resources/img/Transfer-Minivan-Sedan-White.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "S"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SVP",
+        "name": "Servantrip",
+        "termsUrl": "https://servantrip.com/integration-terms/",
+        "logoUrl": "https://media.servantrip.com/resources/img/imagotipo-blue-horizontal-147x45.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED"
+        ]
+        },
+        "quotation": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "extraServices": [
+        {
+            "code": "MAG",
+            "description": "Meet and Greet",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        },
+        {
+            "code": "FLM",
+            "description": "Flight Monitoring",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        }
+        ],
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "24",
+            "metricMax": "2147483647",
+            "ruleDescription": "Free cancellation up to 24 hours prior to ride"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "24",
+            "ruleDescription": "Non-refundable within 24 hours of pick-up time"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD"
+        ]
+    },
+    {
+        "id": "0078551313",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG",
+        "address": {
+            "line": "95700 Roissy-en-France, France",
+            "zip": "95700",
+            "countryCode": "FR",
+            "latitude": 49.0096739,
+            "longitude": 2.547966
+        }
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "19 Av. de la Bourdonnais, 75007 Paris, France",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "duration": "PT2M",
+        "vehicle": {
+        "code": "VAN",
+        "category": "ST",
+        "description": "Medium size bus",
+        "imageURL": "https://media.servantrip.com/resources/img/Transfer-Minivan-Sedan-White.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "S"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "SVP",
+        "name": "Servantrip",
+        "termsUrl": "https://servantrip.com/integration-terms/",
+        "logoUrl": "https://media.servantrip.com/resources/img/imagotipo-blue-horizontal-147x45.png",
+        "settings": [
+            "FLIGHT_NUMBER_REQUIRED"
+        ]
+        },
+        "quotation": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "extraServices": [
+        {
+            "code": "MAG",
+            "description": "Meet and Greet",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        },
+        {
+            "code": "FLM",
+            "description": "Flight Monitoring",
+            "quotation": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            },
+            "isBookable": false,
+            "includedInTotal": true,
+            "converted": {
+            "monetaryAmount": "0",
+            "currencyCode": "EUR"
+            }
+        }
+        ],
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "0",
+            "metricType": "HOURS",
+            "metricMin": "24",
+            "metricMax": "2147483647",
+            "ruleDescription": "Free cancellation up to 24 hours prior to ride"
+        },
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "24",
+            "ruleDescription": "Non-refundable within 24 hours of pick-up time"
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "25.00",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "0"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "0"
+        },
+        "isEstimated": false,
+        "base": {
+            "monetaryAmount": "25.00"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD"
+        ]
+    },
+    {
+        "id": "0078551819",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "CAR",
+        "category": "ST",
+        "description": "Toyota Prius+, Ford Mondeo",
+        "imageURL": "https://static-beta.talixo-staging.com/images/vehicles/economy.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "TXO",
+        "name": "Talixo",
+        "termsUrl": "https://s3-eu-west-1.amazonaws.com/static-beta.talixo-staging.com/email-attachments/tos/amadeus/default.html",
+        "logoUrl": "https://static.talixo.de/images/talixo-logo-covid-tag-green.png"
+        },
+        "quotation": {
+        "monetaryAmount": "244.38",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "24.44"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "24.44"
+        },
+        "base": {
+            "monetaryAmount": "244.38"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "3",
+            "ruleDescription": "Non-refundable within 3 hours of pick-up time"
+        },
+        {
+            "feeType": "VALUE",
+            "feeValue": "0",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "3",
+            "metricMax": "1000",
+            "ruleDescription": "Free cancellation up to 3 hours prior to ride"
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD",
+        "INVOICE"
+        ],
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "244.38",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "24.44"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "24.44"
+        },
+        "base": {
+            "monetaryAmount": "244.38"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        }
+    },
+    {
+        "id": "0078552285",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "CAR",
+        "category": "ST",
+        "description": "Opel Zafira, VW Touran",
+        "imageURL": "https://static-beta.talixo-staging.com/images/vehicles/economy_mpv.png",
+        "baggages": [
+            {
+            "count": 4,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "TXO",
+        "name": "Talixo",
+        "termsUrl": "https://s3-eu-west-1.amazonaws.com/static-beta.talixo-staging.com/email-attachments/tos/amadeus/default.html",
+        "logoUrl": "https://static.talixo.de/images/talixo-logo-covid-tag-green.png"
+        },
+        "quotation": {
+        "monetaryAmount": "255.88",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "25.59"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "25.59"
+        },
+        "base": {
+            "monetaryAmount": "255.88"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "3",
+            "ruleDescription": "Non-refundable within 3 hours of pick-up time"
+        },
+        {
+            "feeType": "VALUE",
+            "feeValue": "0",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "3",
+            "metricMax": "1000",
+            "ruleDescription": "Free cancellation up to 3 hours prior to ride"
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD",
+        "INVOICE"
+        ],
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "255.88",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "25.59"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "25.59"
+        },
+        "base": {
+            "monetaryAmount": "255.88"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        }
+    },
+    {
+        "id": "0078552786",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "VAN",
+        "category": "ST",
+        "description": "Mercedes-Benz Vito, VW Caravelle",
+        "imageURL": "https://static-beta.talixo-staging.com/images/vehicles/economy_van.png",
+        "baggages": [
+            {
+            "count": 8,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 8
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "TXO",
+        "name": "Talixo",
+        "termsUrl": "https://s3-eu-west-1.amazonaws.com/static-beta.talixo-staging.com/email-attachments/tos/amadeus/default.html",
+        "logoUrl": "https://static.talixo.de/images/talixo-logo-covid-tag-green.png"
+        },
+        "quotation": {
+        "monetaryAmount": "255.88",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "25.59"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "25.59"
+        },
+        "base": {
+            "monetaryAmount": "255.88"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "3",
+            "ruleDescription": "Non-refundable within 3 hours of pick-up time"
+        },
+        {
+            "feeType": "VALUE",
+            "feeValue": "0",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "3",
+            "metricMax": "1000",
+            "ruleDescription": "Free cancellation up to 3 hours prior to ride"
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD",
+        "INVOICE"
+        ],
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "255.88",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "25.59"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "25.59"
+        },
+        "base": {
+            "monetaryAmount": "255.88"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        }
+    },
+    {
+        "id": "0078553285",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "CAR",
+        "category": "BU",
+        "description": "Mercedes-Benz E-Class, BMW 5series",
+        "imageURL": "https://static-beta.talixo-staging.com/images/vehicles/business.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "TXO",
+        "name": "Talixo",
+        "termsUrl": "https://s3-eu-west-1.amazonaws.com/static-beta.talixo-staging.com/email-attachments/tos/amadeus/default.html",
+        "logoUrl": "https://static.talixo.de/images/talixo-logo-covid-tag-green.png"
+        },
+        "quotation": {
+        "monetaryAmount": "310.49",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "31.05"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "31.05"
+        },
+        "base": {
+            "monetaryAmount": "310.49"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "3",
+            "ruleDescription": "Non-refundable within 3 hours of pick-up time"
+        },
+        {
+            "feeType": "VALUE",
+            "feeValue": "0",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "3",
+            "metricMax": "1000",
+            "ruleDescription": "Free cancellation up to 3 hours prior to ride"
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD",
+        "INVOICE"
+        ],
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "310.49",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "31.05"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "31.05"
+        },
+        "base": {
+            "monetaryAmount": "310.49"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        }
+    },
+    {
+        "id": "0078553775",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "CAR",
+        "category": "BU",
+        "description": "Mercedes-Benz Vito GLS, Chevrolet Suburban",
+        "imageURL": "https://static-beta.talixo-staging.com/images/vehicles/business_mpv.png",
+        "baggages": [
+            {
+            "count": 4,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "TXO",
+        "name": "Talixo",
+        "termsUrl": "https://s3-eu-west-1.amazonaws.com/static-beta.talixo-staging.com/email-attachments/tos/amadeus/default.html",
+        "logoUrl": "https://static.talixo.de/images/talixo-logo-covid-tag-green.png"
+        },
+        "quotation": {
+        "monetaryAmount": "310.49",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "31.05"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "31.05"
+        },
+        "base": {
+            "monetaryAmount": "310.49"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "3",
+            "ruleDescription": "Non-refundable within 3 hours of pick-up time"
+        },
+        {
+            "feeType": "VALUE",
+            "feeValue": "0",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "3",
+            "metricMax": "1000",
+            "ruleDescription": "Free cancellation up to 3 hours prior to ride"
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD",
+        "INVOICE"
+        ],
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "310.49",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "31.05"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "31.05"
+        },
+        "base": {
+            "monetaryAmount": "310.49"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        }
+    },
+    {
+        "id": "0078554257",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "VAN",
+        "category": "BU",
+        "description": "Mercedes-Benz V-Class, Cadillac Escalade",
+        "imageURL": "https://static-beta.talixo-staging.com/images/vehicles/business_van.png",
+        "baggages": [
+            {
+            "count": 6,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 6
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "TXO",
+        "name": "Talixo",
+        "termsUrl": "https://s3-eu-west-1.amazonaws.com/static-beta.talixo-staging.com/email-attachments/tos/amadeus/default.html",
+        "logoUrl": "https://static.talixo.de/images/talixo-logo-covid-tag-green.png"
+        },
+        "quotation": {
+        "monetaryAmount": "310.49",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "31.05"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "31.05"
+        },
+        "base": {
+            "monetaryAmount": "310.49"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "3",
+            "ruleDescription": "Non-refundable within 3 hours of pick-up time"
+        },
+        {
+            "feeType": "VALUE",
+            "feeValue": "0",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "3",
+            "metricMax": "1000",
+            "ruleDescription": "Free cancellation up to 3 hours prior to ride"
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD",
+        "INVOICE"
+        ],
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "310.49",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "31.05"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "31.05"
+        },
+        "base": {
+            "monetaryAmount": "310.49"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        }
+    },
+    {
+        "id": "0078554766",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "CAR",
+        "category": "FC",
+        "description": "Mercedes-Benz S-Class, BMW 7series",
+        "imageURL": "https://static-beta.talixo-staging.com/images/vehicles/first.png",
+        "baggages": [
+            {
+            "count": 3,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 4
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "TXO",
+        "name": "Talixo",
+        "termsUrl": "https://s3-eu-west-1.amazonaws.com/static-beta.talixo-staging.com/email-attachments/tos/amadeus/default.html",
+        "logoUrl": "https://static.talixo.de/images/talixo-logo-covid-tag-green.png"
+        },
+        "quotation": {
+        "monetaryAmount": "413.99",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "41.40"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "41.40"
+        },
+        "base": {
+            "monetaryAmount": "413.99"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "3",
+            "ruleDescription": "Non-refundable within 3 hours of pick-up time"
+        },
+        {
+            "feeType": "VALUE",
+            "feeValue": "0",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "3",
+            "metricMax": "1000",
+            "ruleDescription": "Free cancellation up to 3 hours prior to ride"
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD",
+        "INVOICE"
+        ],
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "413.99",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "41.40"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "41.40"
+        },
+        "base": {
+            "monetaryAmount": "413.99"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        }
+    },
+    {
+        "id": "0078555271",
+        "type": "transfer-offer",
+        "transferType": "PRIVATE",
+        "start": {
+        "dateTime": "2024-09-30T10:30:00",
+        "locationCode": "CDG"
+        },
+        "end": {
+        "dateTime": "2024-09-30T11:30:00",
+        "address": {
+            "line": "Avenue Anatole France, 5",
+            "zip": "75007",
+            "countryCode": "FR",
+            "cityName": "Paris",
+            "latitude": 48.859466,
+            "longitude": 2.2976965
+        },
+        "name": "Souvenirs De La Tour"
+        },
+        "vehicle": {
+        "code": "VAN",
+        "category": "ST",
+        "description": "Mercedes-Benz Sprinter",
+        "imageURL": "https://static-beta.talixo-staging.com/images/vehicles/minibus.png",
+        "baggages": [
+            {
+            "count": 16,
+            "size": "M"
+            }
+        ],
+        "seats": [
+            {
+            "count": 16
+            }
+        ]
+        },
+        "serviceProvider": {
+        "code": "TXO",
+        "name": "Talixo",
+        "termsUrl": "https://s3-eu-west-1.amazonaws.com/static-beta.talixo-staging.com/email-attachments/tos/amadeus/default.html",
+        "logoUrl": "https://static.talixo.de/images/talixo-logo-covid-tag-green.png"
+        },
+        "quotation": {
+        "monetaryAmount": "477.24",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "47.72"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "47.72"
+        },
+        "base": {
+            "monetaryAmount": "477.24"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        },
+        "cancellationRules": [
+        {
+            "feeType": "PERCENTAGE",
+            "feeValue": "100",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "0",
+            "metricMax": "3",
+            "ruleDescription": "Non-refundable within 3 hours of pick-up time"
+        },
+        {
+            "feeType": "VALUE",
+            "feeValue": "0",
+            "currencyCode": "EUR",
+            "metricType": "HOURS",
+            "metricMin": "3",
+            "metricMax": "1000",
+            "ruleDescription": "Free cancellation up to 3 hours prior to ride"
+        }
+        ],
+        "methodsOfPaymentAccepted": [
+        "CREDIT_CARD",
+        "INVOICE"
+        ],
+        "passengerCharacteristics": [
+        {
+            "passengerTypeCode": "ADT",
+            "age": 20
+        },
+        {
+            "passengerTypeCode": "CHD",
+            "age": 10
+        }
+        ],
+        "converted": {
+        "monetaryAmount": "477.24",
+        "currencyCode": "EUR",
+        "taxes": [
+            {
+            "monetaryAmount": "47.72"
+            }
+        ],
+        "totalTaxes": {
+            "monetaryAmount": "47.72"
+        },
+        "base": {
+            "monetaryAmount": "477.24"
+        },
+        "discount": {
+            "monetaryAmount": "0"
+        },
+        "totalFees": {
+            "monetaryAmount": "0"
+        }
+        }
+    }
+]

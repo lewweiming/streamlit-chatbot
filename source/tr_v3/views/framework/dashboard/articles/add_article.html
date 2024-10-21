@@ -1,0 +1,60 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block head %}
+<!-- SIMPLE MDE -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<main x-data="main">
+  <div class="ui container">
+
+    <!-- BREADCRUMBS -->
+    <div class="ui breadcrumb">
+      <a href="/framework/admin" class="section">Admin</a>
+      <i class="right angle icon divider"></i>
+      <a href="/framework/admin/articles" class="section">Articles</a>
+      <i class="right angle icon divider"></i>
+      <div class="active section">Add Article</div>
+    </div>
+
+    <h1>Add Awesome Article</h1>
+
+    <!-- FORM -->
+    <form method="post" action="/framework/admin/articles/create" class="ui form">
+      <div class="field">
+        <label>Article Title</label>
+        <input ype="text" name="title" placeholder="Article Title">
+      </div>
+
+      <!-- <div class="field">
+        <label>Startup Website</label>
+        <input x-model="input.website" type="text" name="startup-website" placeholder="https://www.website.com">
+      </div> -->
+
+      <button type="submit" class="ui positive button">
+        Submit
+      </button>
+    </form>
+  </div>
+
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+  var simplemdeAddModal = new SimpleMDE({ element: $("#simplemde-add-modal")[0] });
+</script>
+<script defer>
+
+  document.addEventListener('alpine:init', () => {
+
+    Alpine.data('main', () => ({
+      init() {
+
+      }
+    }))
+  })
+</script>
+{% endblock %}

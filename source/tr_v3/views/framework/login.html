@@ -1,0 +1,45 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block head %}
+<style>
+  .expand {
+    animation: expand 0.3s ease-in;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes expand {
+
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.1);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<main class="ui segment expand">
+  <h2>Developer Login</h2>
+  <p>Please enter the password to proceed.</p>
+  <article>
+
+    <form class="ui form" method="post" action="/framework/login">
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Password" />
+      </div>
+
+      <button class="ui button" type="submit">Submit</button>
+
+    </form>
+  </article>
+</main>
+{% endblock %}

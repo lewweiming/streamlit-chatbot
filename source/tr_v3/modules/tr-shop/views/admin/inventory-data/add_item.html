@@ -1,0 +1,142 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+  <a href="/framework/admin" class="section">Admin</a>
+  <i class="right angle icon divider"></i>
+  <a href="/framework/admin/shop-inventory/main" class="section">Shop Inventory</a>
+  <i class="right angle icon divider"></i>
+  <div class="active section">Add New Item</div>
+</div>
+
+<h2 class="ui header">Add New Inventory Item</h2>
+
+<!-- VALIDATION ERRORS -->
+{% if(errors) %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">
+    Validation Errors
+  </div>
+  <ul>
+    {% for key,val in errors %}
+    <li>{{ val[0] }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<form method="post" action="/shop-inventory/add" class="ui form">
+  <p>Enter inventory item details</p>
+
+  <div class="required field">
+    <label for="name">Item Name</label>
+    <input type="text" id="name" name="name">
+  </div>
+
+  <div class="required field">
+    <label for="price">Price</label>
+    <input type="text" id="price" name="price" placeholder="e.g., 19.99">
+  </div>
+
+  <div class="field">
+    <label for="sku">SKU</label>
+    <input type="text" id="sku" name="sku" placeholder="Stock Keeping Unit">
+  </div>
+
+  <div class="field">
+    <label for="thumb_url_link">Thumbnail URL</label>
+    <input type="text" id="thumb_url_link" name="thumb_url_link" placeholder="Link to item thumbnail image">
+  </div>
+
+  <div class="required field">
+    <label for="category">Category</label>
+    <input type="text" id="category" name="category">
+  </div>
+
+  <div class="field">
+    <label for="weight">Weight</label>
+    <input type="text" id="weight" name="weight" placeholder="e.g., 1.250 (in kg)">
+  </div>
+
+  <div class="field">
+    <label for="description">Description</label>
+    <textarea id="description" name="description" placeholder="Detailed description of the item"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="terms">Terms</label>
+    <textarea id="terms" name="terms" placeholder="Terms and conditions"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="variation_colours">Variation Colours</label>
+    <textarea id="variation_colours" name="variation_colours" placeholder="Available colours"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="variation_sizes">Variation Sizes</label>
+    <textarea id="variation_sizes" name="variation_sizes" placeholder="Available sizes"></textarea>
+  </div>
+
+  <div class="required field">
+    <label for="uid">Unique Identifier (UID)</label>
+    <input type="text" id="uid" name="uid" placeholder="Unique identifier for the item">
+  </div>
+
+  <button type="submit" class="ui button">Submit</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+<script>
+/* VALIDATION */
+$(document).ready(function () {
+    $('.ui.form').form({
+        fields: {
+            name: {
+                identifier: 'name',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the item name'
+                    }
+                ]
+            },
+            price: {
+                identifier: 'price',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the price'
+                    },
+                    {
+                        type: 'decimal',
+                        prompt: 'Please enter a valid decimal value for price'
+                    }
+                ]
+            },
+            category: {
+                identifier: 'category',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the category'
+                    }
+                ]
+            },
+            uid: {
+                identifier: 'uid',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter a unique identifier (UID)'
+                    }
+                ]
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

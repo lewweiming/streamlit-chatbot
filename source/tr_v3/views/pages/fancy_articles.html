@@ -1,0 +1,321 @@
+{% extends "_layout.html" %}
+
+{% block head %}
+<style>
+  .serif {
+    font-family: serif;
+  }
+</style>
+
+<style>
+  .expand {
+    animation: expand 1.0s ease-in;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes expand {
+    from {
+      width: 60%;
+    }
+
+    to {
+      width: 100%;
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+    .banner {
+      margin: 50px;
+      border-radius: 20px;
+    }
+
+    .caption {
+      border-radius: 20px;
+    }
+
+    .banner-video {
+      border-radius: 20px;
+    }
+  }
+
+  .background {
+    background-size: cover;
+  }
+
+  .background-blur {
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+  }
+
+  .caption {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    height: 800px;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    transition: all .2s ease-in-out;
+  }
+
+  .caption-hover-remove:hover .caption {
+    transform: scale(0);
+  }
+
+  .icon {
+    background: #FC256A;
+    padding: 40px;
+    border-radius: 70px;
+  }
+</style>
+{% endblock %}
+
+{% block unwrapped_content %}
+<div class="px-6 title has-text-centered my-6 font-roboto">Science And Tech News</div>
+<div class="px-6 title is-4 has-text-centered my-6 font-roboto">technologies that will impact the world</div>
+
+
+<div class="columns is-multiline">
+
+  <div class="column is-half">
+    <div class="banner is-relative my-6 caption-hover-remove">
+      <div class="caption font-roboto">
+        <div class="container p-6">
+          <div class="mb-6 subtitle is-4 has-text-white has-text-weight-semibold">Videos</div>
+          <h1 class="title is-size-1-desktop is-size-2-mobile has-text-white has-text-weight-semibold">All About Potash
+          </h1>
+          <p class="has-text-white is-size-3">Learn from the best.</p>
+          <div class="my-6">
+            <!-- <button class="button font-roboto is-size-4 is-light">Find Out More</button> -->
+          </div>
+        </div>
+      </div>
+    <iframe class="banner-video" width="100%" height="800" src="https://www.youtube.com/embed/YMDJA4UvXLA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="column is-half">
+    <div class="banner is-relative my-6 caption-hover-remove">
+      <div class="caption font-roboto">
+        <div class="container p-6">
+          <div class="mb-6 subtitle is-4 has-text-white has-text-weight-semibold">Videos</div>
+          <h1 class="title is-size-1-desktop is-size-2-mobile has-text-white has-text-weight-semibold">Robot Parkour
+          </h1>
+          <p class="has-text-white is-size-3">The future is now..</p>
+          <div class="my-6">
+            <!-- <button class="button font-roboto is-size-4 is-light">Find Out More</button> -->
+          </div>
+        </div>
+      </div>
+    <iframe class="banner-video" width="100%" height="800" src="https://www.youtube.com/embed/tF4DML7FIWk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="column is-half">
+
+    <!-- BANNER -->
+    <section data-bg="/assets/images/background-code.jpg" class="lazy banner background is-relative my-6"
+      style="min-height: 800px; max-height: 800px;">
+      <div class="caption font-roboto">
+        <div class="container p-6">
+          <div class="mb-6 subtitle is-4 has-text-white has-text-weight-semibold">AI</div>
+          <h1 class="title is-size-1-desktop is-size-2-mobile has-text-white has-text-weight-semibold">This AI Can Write Code!
+          </h1>
+          <p class="has-text-white is-size-3">Will programmers be displaced?</p>
+          <div class="my-6">
+            <a href="/article/100" class="glow button font-roboto is-size-4 is-light">Find Out More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="column is-half">
+
+    <!-- BANNER -->
+    <section data-bg="/assets/images/background-walle.jpg" class="lazy banner background is-relative my-6"
+      style="min-height: 800px; max-height: 800px;">
+      <div class="caption font-roboto">
+        <div class="container p-6">
+          <div class="mb-6 subtitle is-4 has-text-white has-text-weight-semibold">AI</div>
+          <h1 class="title is-size-1-desktop is-size-2-mobile has-text-white has-text-weight-semibold">Text Generated AI Videos
+          </h1>
+          <p class="has-text-white is-size-3">It's in the rage today!</p>
+          <div class="my-6">
+            <a href="/article/100" class="glow button font-roboto is-size-4 is-light">Find Out More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="column is-half">
+
+    <!-- BANNER -->
+    <section data-bg="/assets/images/background-ar-helmets.jpg" class="lazy banner background is-relative my-6"
+      style="min-height: 800px; max-height: 800px;">
+      <div class="caption font-roboto">
+        <div class="container p-6">
+          <div class="mb-6 subtitle is-4 has-text-white has-text-weight-semibold">Augmented Reality</div>
+          <h1 class="title is-size-1-desktop is-size-2-mobile has-text-white has-text-weight-semibold">AR Helmets
+          </h1>
+          <p class="has-text-white is-size-3">It's just the beginning..</p>
+          <div class="my-6">
+            <a href="/article/103" class="glow button font-roboto is-size-4 is-light">Find Out More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="column is-half">
+
+    <!-- BANNER -->
+    <section data-bg="/assets/images/background-ces-2022.jpg" class="lazy banner background is-relative my-6"
+      style="min-height: 800px; max-height: 800px;">
+      <div class="caption font-roboto">
+        <div class="container p-6">
+          <div class="mb-6 subtitle is-4 has-text-white has-text-weight-semibold">Events</div>
+          <h1 class="title is-size-1-desktop is-size-2-mobile has-text-white has-text-weight-semibold">CES 2022 Highlights
+          </h1>
+          <p class="has-text-white is-size-3">83 Glimpses of the Future From Tech’s Big Show</p>
+          <div class="my-6">
+            <a href="/article/104" class="glow button font-roboto is-size-4 is-light">Find Out More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="column is-half">
+
+    <!-- BANNER -->
+    <section data-bg="/assets/images/background-samsung-homehub.jpg" class="lazy banner background is-relative my-6"
+      style="min-height: 800px; max-height: 800px;">
+      <div class="caption font-roboto">
+        <div class="container p-6">
+          <div class="mb-6 subtitle is-4 has-text-white has-text-weight-semibold">Technology</div>
+          <h1 class="title is-size-1-desktop is-size-2-mobile has-text-white has-text-weight-semibold">Home Hub
+          </h1>
+          <p class="has-text-white is-size-3">Samsung’s Home Hub Will Let You Control All The SmartThings</p>
+          <div class="my-6">
+            <a href="/article/104" class="glow button font-roboto is-size-4 is-light">Find Out More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="column is-half">
+
+    <!-- BANNER -->
+    <section data-bg="/assets/images/background-jet-suit.jpg" class="lazy banner background is-relative my-6"
+      style="min-height: 800px; max-height: 800px;">
+      <div class="caption font-roboto">
+        <div class="container p-6">
+          <div class="mb-6 subtitle is-4 has-text-white has-text-weight-semibold">Technology</div>
+          <h1 class="title is-size-1-desktop is-size-2-mobile has-text-white has-text-weight-semibold">Jet Suits
+          </h1>
+          <p class="has-text-white is-size-3">The Gravity Jet Suit</p>
+          <div class="my-6">
+            <a href="/article/104" class="glow button font-roboto is-size-4 is-light">Find Out More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <div class="column is-half">
+
+    <!-- BANNER -->
+    <section data-bg="/assets/images/background-smart-contact-lens.jpg" class="lazy banner background is-relative my-6"
+      style="min-height: 800px; max-height: 800px;">
+      <div class="caption font-roboto">
+        <div class="container p-6">
+          <div class="mb-6 subtitle is-4 has-text-white has-text-weight-semibold">Technology</div>
+          <h1 class="title is-size-1-desktop is-size-2-mobile has-text-white has-text-weight-semibold">Smart Contact Lens
+          </h1>
+          <p class="has-text-white is-size-3">Mojo Vision’s Smart Contact Lens Will Focus on Sports and Fitness</p>
+          <div class="my-6">
+            <a href="/article/104" class="glow button font-roboto is-size-4 is-light">Find Out More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="column is-half">
+
+    <!-- BANNER -->
+    <section data-bg="/assets/images/background-hyperloop.jpeg" class="lazy banner background is-relative my-6"
+      style="min-height: 800px; max-height: 800px;">
+      <div class="caption font-roboto">
+        <div class="container p-6">
+          <div class="mb-6 subtitle is-4 has-text-white has-text-weight-semibold">Technology</div>
+          <h1 class="title is-size-1-desktop is-size-2-mobile has-text-white has-text-weight-semibold">The Hyperloop
+          </h1>
+          <p class="has-text-white is-size-3">The future of transportation?</p>
+          <div class="my-6">
+            <a href="/article/104" class="glow button font-roboto is-size-4 is-light">Find Out More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- WIDGET -->
+<section class="has-text-centered">
+  <b>
+    <div class="title">What's Your Biggest Challenge in 2023 ?</div>
+  </b>
+</section>
+
+
+<!-- WIDGET -->
+<!-- <section class="my-6 font-roboto">
+  <div class="card has-text-weight-bold">
+    <div class="card-content">
+      <div class="columns">
+        <div class="column p-5 has-text-centered">
+          <span class="icon has-text-white"><i class="mdi mdi-forwardburger mdi-48px"></i></span>
+          <p class="mt-4 subtitle">Focus on growing your business. We'll take care of the internet infrastructure.</p>
+        </div>
+        <div class="column p-5 has-text-centered">
+          <span class="icon has-text-white"><i class="mdi mdi-forwardburger mdi-48px"></i></span>
+          <p class="mt-4 subtitle">Flexibility on payments and subscription services. You decide.</p>
+        </div>
+        <div class="column p-5 has-text-centered">
+          <span class="icon has-text-white"><i class="mdi mdi-forwardburger mdi-48px"></i></span>
+          <p class="mt-4 subtitle">View streamlined invoices and payment data all in one place.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- FAB -->
+<!-- <div style="position: fixed; left: 20px; bottom: 20px; z-index:1;">
+
+    <div class="p-4" style="line-height: 15px;">
+      <div id="noCompetitions" class="notification float is-primary has-text-centered my-4" style="box-shadow: 0 10px 30px rgba(0, 0, 0, .9);">There are no competitions held at this time</div>
+  </div>
+</div> -->
+{% endblock %}
+
+{% block script %}
+<script>
+  var lazyLoadInstance = new LazyLoad()
+</script>
+<script>
+  // window.setTimeout(() => {
+  //   document.getElementById('noCompetitions').classList.add('is-hidden')
+  // }, 5000)
+</script>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    <h2 class="ui dividing header">Flight Bookings - Flights Dashboard</h2>
+
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Flight ID</th>
+                <th>Flight Number</th>
+                <th>Airline</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example row, loop through your data and replace accordingly -->
+            <tr>
+                <td>1</td>
+                <td>AA123</td>
+                <td>American Airlines</td>
+                <td>New York</td>
+                <td>Los Angeles</td>
+                <td>2024-10-01 08:00</td>
+                <td>2024-10-01 11:00</td>
+                <td><span class="ui blue label">Scheduled</span></td>
+                <td>
+                    <div class="ui buttons">
+                        <button class="ui blue button">Edit</button>
+                        <button class="ui red button">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>DL456</td>
+                <td>Delta Airlines</td>
+                <td>Atlanta</td>
+                <td>Miami</td>
+                <td>2024-10-02 14:30</td>
+                <td>2024-10-02 16:00</td>
+                <td><span class="ui green label">Departed</span></td>
+                <td>
+                    <div class="ui buttons">
+                        <button class="ui blue button">Edit</button>
+                        <button class="ui red button">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <button class="ui primary button">Add New Flight</button>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

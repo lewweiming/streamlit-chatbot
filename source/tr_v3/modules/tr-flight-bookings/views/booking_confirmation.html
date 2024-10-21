@@ -1,0 +1,67 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    <h2 class="ui header">Booking Confirmation</h2>
+    
+    <!-- Customer Information -->
+    <form class="ui form">
+        <h4 class="ui dividing header">Passenger Details</h4>
+        <div class="field">
+            <label>Full Name</label>
+            <input type="text" name="full_name" placeholder="Full Name">
+        </div>
+        <div class="field">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Email">
+        </div>
+        <div class="field">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" placeholder="Phone Number">
+        </div>
+        
+        <!-- Payment Details -->
+        <h4 class="ui dividing header">Payment Details</h4>
+        <div class="field">
+            <label>Card Number</label>
+            <input type="text" name="card_number" placeholder="Card Number">
+        </div>
+        <div class="fields">
+            <div class="eight wide field">
+                <label>Expiry Date</label>
+                <input type="text" name="expiry_date" placeholder="MM/YY">
+            </div>
+            <div class="eight wide field">
+                <label>CVV</label>
+                <input type="password" name="cvv" placeholder="CVV">
+            </div>
+        </div>
+        <div class="field">
+            <button class="ui primary button" type="submit">Confirm Booking</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

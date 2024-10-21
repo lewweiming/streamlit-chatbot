@@ -1,0 +1,88 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    <h2 class="ui dividing header">Hotel Booking Dashboard</h2>
+
+    <div class="ui segment">
+        <h3 class="ui header">Bookings Overview</h3>
+        <div>
+            <a href="/framework/admin/hotel-bookings/add-booking" class="ui primary button">Add New Booking</a>
+        </div>
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Guest Name</th>
+                    <th>Hotel</th>
+                    <th>Room</th>
+                    <th>Check-in Date</th>
+                    <th>Check-out Date</th>
+                    <th>Total Amount</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row.booking_id }}</td>
+                    <td>Guest Id: {{ row.guest_id }}</td>
+                    <td>Hotel Id: {{ row.hotel_id }}</td>
+                    <td>Room Id: {{ row.room_id }}</td>
+                    <td>{{ row.check_in_date }}</td>
+                    <td>{{ row.check_out_date }}</td>
+                    <td>{{ row.total_amount }}</td>
+                    <td>{{ row.status }}</td>
+                    <td>
+                        <div class="ui buttons">
+                            <a href="/framework/admin/hotel-bookings/booking-details" class="ui button">View</a>
+                            <a href="/framework/admin/hotel-bookings/modify-booking" class="ui button">Modify</a>
+                            <a href="/framework/admin/hotel-bookings/cancel-booking" class="ui button">Cancel</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+                <!-- <tr>
+                    <td>HT-301</td>
+                    <td>Emily Brown</td>
+                    <td>Room 402 (Deluxe)</td>
+                    <td>2024-09-25</td>
+                    <td>2024-09-28</td>
+                    <td><div class="ui green label">Confirmed</div></td>
+                    <td>
+                        <div class="ui buttons">
+                            <button class="ui button">View</button>
+                            <button class="ui button">Edit</button>
+                            <button class="ui button">Cancel</button>
+                        </div>
+                    </td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

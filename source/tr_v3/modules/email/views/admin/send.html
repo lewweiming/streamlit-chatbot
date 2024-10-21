@@ -1,0 +1,73 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block head %}
+<!-- WYSIWYG EDITOR -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@2.27.2/dist/editorjs.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/editorjs-html@3.4.0/build/edjsHTML.js"></script>
+{% endblock %}
+
+
+{% block content %}
+<h2 class="ui header">Send An Email</h2>
+<form name="send" method="post" action="/framework/admin/email/send" class="ui form">
+    <div class="field">
+        <label>Recipient</label>
+        <input type="text" name="recipient" placeholder="Recipient's email address">
+    </div>
+    <div class="field">
+        <label>Subject</label>
+        <input type="text" name="subject">
+    </div>
+    <div class="field">
+        <label>Message HTML</label>
+        <div class="ui segment">
+            <div id="editorjs"></div>
+        </div>
+        <textarea name="html" style="display: none"></textarea>
+    </div>
+    <button onclick="submitForm()" class="ui button" type="button">Send</button>
+</form>
+{% endblock %}
+
+{% block script %}
+<!-- EDITOR JS -->
+<script>
+    const edjsParser = edjsHTML(); // Parser for Editor.js
+
+    let editor;
+    const initEditor = async (html = undefined) => {
+        editor = new EditorJS({
+            minHeight: 0,
+            tools: {
+                header: Header,
+                list: List
+            }
+        });
+        await editor.isReady;
+        if (html) {
+            editor.blocks.renderFromHTML(html);
+        }
+    };
+
+    /* WYSIWYG */
+    async function editorGetContent(editor) {
+
+        let r = await editor.save();
+        let html_blocks = edjsParser.parse(r);
+        let str = html_blocks.join('\n')
+        return str;
+    }
+
+    async function submitForm() {
+
+        let htmlContent = await editorGetContent(editor)
+        document.querySelector("textarea[name='html']").value = htmlContent
+        document.forms["send"].submit();
+    }
+
+    /* INIT - Can be done with AlpineJS */
+    initEditor();
+</script>
+{% endblock %}

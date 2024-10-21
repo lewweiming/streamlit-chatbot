@@ -1,0 +1,127 @@
+<div class="ui form">
+
+    <div class="field">
+        <label for="date">Departure Date:</label>
+        <input placeholder="City or Airport search E.g. London" type="date" id="fromLocation" name="from"
+            x-model="date">
+    </div>
+    <button @click="searchFlights()" class="ui button">Search Flight Offers (Find Flights)</button>
+</div>
+
+<div class="ui hidden divider"></div>
+
+<template x-if="selectedFlight">
+<section>
+    <div class="ui hidden divider"></div>
+    <div class="ui top attached segment">
+        <div class="ui small header">Price: <span x-text="selectedFlight.price.total"></span> (<span
+                x-text="selectedFlight.price.currency"></span>)</div>
+    </div>
+    <div class="ui attached segment">
+        <table class="ui table">
+            <tr>
+                <td>Number of Seats Available</td>
+                <td x-text="selectedFlight.numberOfBookableSeats"></td>
+            </tr>
+            <tr>
+                <td>Last Ticketing Date</td>
+                <td x-text="selectedFlight.lastTicketingDate"></td>
+            </tr>
+        </table>
+
+        <h5 class="ui header">Itineraries</h5>
+        <p>Duration: <span x-text="selectedFlight.itineraries[0].duration"></span></p>
+        <table class="ui celled table">
+            <tbody>
+                <template x-for="i in selectedFlight.itineraries[0].segments">
+                    <tr>
+                        <td>
+                            <strong>Departure:</strong> <span x-text="i.departure.iataCode"></span> <strong>at</strong>
+                            <span x-text="i.departure.at"></span>
+                            <em>(Terminal: <span x-text="i.departure.terminal"></span>)</em>
+                        </td>
+                        <td>
+                            <strong>Arrival:</strong> <span x-text="i.arrival.iataCode"></span> <strong>at</strong>
+                            <span x-text="i.arrival.at"></span>
+                            <em>(Terminal: <span x-text="i.arrival.terminal"></span>)</em>
+                        </td>
+
+                        <td>
+                            <strong>Number of stops:</strong> <span x-text="i.numberOfStops"></span>
+                        </td>
+                    </tr>
+                </template>
+
+            </tbody>
+        </table>
+    </div>
+</section>
+</template>
+
+<template x-for="flight in flights">
+    <section>
+        <div class="ui hidden divider"></div>
+        <div class="ui top attached segment">
+            <div class="ui small header">Price: <span x-text="flight.price.total"></span> (<span
+                    x-text="flight.price.currency"></span>)</div>
+        </div>
+        <div class="ui attached segment">
+            <table class="ui table">
+                <tr>
+                    <td>Number of Seats Available</td>
+                    <td x-text="flight.numberOfBookableSeats"></td>
+                </tr>
+                <tr>
+                    <td>Last Ticketing Date</td>
+                    <td x-text="flight.lastTicketingDate"></td>
+                </tr>
+            </table>
+
+            <h5 class="ui header">Itineraries</h5>
+            <p>Duration: <span x-text="flight.itineraries[0].duration"></span></p>
+            <table class="ui celled table">
+                <tbody>
+                    <template x-for="i in flight.itineraries[0].segments">
+                        <tr>
+                            <td>
+                                <strong>Departure:</strong> <span x-text="i.departure.iataCode"></span> <strong>at</strong>
+                                <span x-text="i.departure.at"></span>
+                                <em>(Terminal: <span x-text="i.departure.terminal"></span>)</em>
+                            </td>
+                            <td>
+                                <strong>Arrival:</strong> <span x-text="i.arrival.iataCode"></span> <strong>at</strong>
+                                <span x-text="i.arrival.at"></span>
+                                <em>(Terminal: <span x-text="i.arrival.terminal"></span>)</em>
+                            </td>
+
+                            <td>
+                                <strong>Number of stops:</strong> <span x-text="i.numberOfStops"></span>
+                            </td>
+                        </tr>
+                    </template>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="ui bottom attached segment">
+            <button @click="selectedFlight = flight, flights = []" class="ui fluid primary button">Choose This Flight</button>
+        </div>
+    </section>
+</template>
+
+<div class="ui hidden divider"></div>
+
+<template x-if="selectedFlight">
+<section>
+<h2 class="ui header">Confirm Flight Booking: Enter your details</h2>
+<div class="ui form">
+    <div class="field">
+        <input x-model="firstName" type="text" placeholder="First name" />
+    </div>
+    <div class="field">
+        <input x-model="lastName" type="text" placeholder="Last name" />
+    </div>
+    <button @click="onBookFlight(selectedFlight)" class="ui button">Confirm Flight Booking</button>
+</div>
+</section>    
+</template>

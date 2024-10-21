@@ -1,0 +1,89 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+
+<main>
+
+    <div class="ui breadcrumb">
+        <a href="/framework/admin" class="section">Admin</a>
+        <i class="right angle icon divider"></i>
+        <a href="/framework/admin/amadeus/main" class="section">Amadeus Module</a>
+        <i class="right angle icon divider"></i>
+        <div class="active section">Hotel Api</div>
+    </div>
+
+    <h2 class="ui header">Amadeus Hotel Api</h2>
+
+    <div class="ui message">"Fetch Data" will update the local DB with the latest information.</div>
+
+    <!-- TABLE -->
+    <table class="ui table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Last Updated</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <!-- ROW -->
+        <tr>
+            <td>Hotel List</td>
+            <td>The Hotel List REST JSON API helps you find the list of hotels inside a city or an area.</td>
+            <td>-</td>
+            <td>
+                <a href="/framework/admin/amadeus/hotels/hotel-list" class="ui button">View Data</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Hotel Search</td>
+            <td>The Hotel Search API finds the best deals at over 150,000 hotels worldwide.</td>
+            <td>-</td>
+            <td>
+                <a href="/framework/admin/amadeus/hotels/hotel-search" class="ui button">View Data</a>
+            </td>
+        </tr>
+        <!-- <tr>
+            <td>Airport Routes</td>
+            <td>Shows airport routes by IATA code.</td>
+            <td>-</td>
+            <td>
+                <a href="/framework/admin/amadeus/flights/airport-routes" class="ui button">View Data</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Flight Offers</td>
+            <td>This API answers the question: "What are the cheapest flights from Madrid to Paris on June 1st?"</td>
+            <td>-</td>
+            <td>
+                <a href="/framework/admin/amadeus/flights/flight-offers" class="ui button">View Data</a>
+            </td>
+        </tr> -->
+        </tbody>
+    </table>
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

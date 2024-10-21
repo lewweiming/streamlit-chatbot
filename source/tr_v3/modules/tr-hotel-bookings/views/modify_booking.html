@@ -1,0 +1,41 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    <h2 class="ui header">Modify Your Booking</h2>
+    <form class="ui form" id="modifyBookingForm">
+        <div class="field">
+            <label>New Check-in Date</label>
+            <input type="date" name="new_check_in_date" required>
+        </div>
+        <div class="field">
+            <label>New Check-out Date</label>
+            <input type="date" name="new_check_out_date" required>
+        </div>
+        <button class="ui green button" type="submit">Submit Changes</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

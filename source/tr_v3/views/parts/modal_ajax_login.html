@@ -1,0 +1,75 @@
+<!-- THE MODAL -->
+<div x-data="ajaxLogin()" @show-modal-login.window="showModalLogin = $event.detail" x-show="showModalLogin"
+    x-transition :class="showModalLogin?'is-active':''" class="modal" style="z-index: 50;">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Ajax Login</p>
+            <button @click="showModalLogin = false" class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <!-- Content -->
+
+            <div class="field has-text-centered">
+                <label class="label" for="password">Password</label>
+                <div class="control">
+                    <input x-model="inputPassword" class="input has-text-centered" type="password" name="password" id="password"
+                        placeholder="Password" />
+                </div>
+                <div x-show="errorMessage.length > 0" class="my-4 notification is-danger" x-text="errorMessage"></div>
+            </div>
+        </section>
+        <footer class="modal-card-foot is-flex is-justify-content-center">
+            <div class="buttons">
+            <button @click="attemptLogin()" :class="isLoading?'is-loading':''" class="button is-dark">Submit</button>
+            <button @click="showModalLogin = false" class="button">Cancel</button>
+            </div>
+        </footer>
+    </div>
+</div>
+
+{% push script %}
+<script defer>
+    document.addEventListener('alpine:init', () => {
+  
+    Alpine.data('ajaxLogin', () => ({
+        showModalLogin: false,
+        isLoading: false,
+        errorMessage: '',
+        inputPassword: '',
+        async attemptLogin() {
+
+            this.isLoading = true;
+            let formData = new FormData();
+            formData.append('password', this.inputPassword)
+            let r = await axios.post('/api/x2-framework/auth/ajax_login.php', formData);
+            this.isLoading = false;
+
+            /* FAIL */
+            if(r.data.response == false) {
+
+                this.errorMessage = 'Login failed';
+                return;
+            }
+
+            /* SUCCESS */
+            if(r.data.response == true) {
+
+                let authUser = {
+                'user': 'developer'
+                }
+
+                this.$store.authUser = authUser
+
+                /* UPDATE SESSION STORAGE */
+                sessionStorage.setItem("authUser", JSON.stringify(authUser));
+
+                bulmaToast.toast({ message: 'Login successful!' })
+                this.inputPassword = '';
+                this.showModalLogin = false
+            }
+        }
+    }))
+  })
+  </script>
+{% endpush %}

@@ -1,0 +1,173 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+  <a href="/framework/admin" class="section">Admin</a>
+  <i class="right angle icon divider"></i>
+  <a href="/framework/admin/trips-data/main" class="section">Trips Data</a>
+  <i class="right angle icon divider"></i>
+  <div class="active section">Add New Trip</div>
+</div>
+
+<h2 class="ui header">Add New Trip</h2>
+
+<!-- VALIDATION ERRORS -->
+{% if(errors) %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">
+    Validation Errors
+  </div>
+  <ul>
+    {% for key,val in errors %}
+    <li>{{ val[0] }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<form method="post" action="/trips/add" class="ui form">
+  <p>Enter trip details</p>
+
+  <div class="required field">
+    <label for="title">Trip Title</label>
+    <input type="text" id="title" name="title">
+  </div>
+
+  <div class="required field">
+    <label for="price">Price</label>
+    <input type="text" id="price" name="price" placeholder="e.g., 500.00">
+  </div>
+
+  <div class="field">
+    <label for="banner_image_url">Banner Image URL</label>
+    <input type="text" id="banner_image_url" name="banner_image_url" placeholder="Link to trip banner image">
+  </div>
+
+  <div class="required field">
+    <label for="region">Region</label>
+    <input type="text" id="region" name="region">
+  </div>
+
+  <div class="required field">
+    <label for="country">Country</label>
+    <input type="text" id="country" name="country">
+  </div>
+
+  <div class="required field">
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location">
+  </div>
+
+  <div class="field">
+    <label for="description">Description</label>
+    <textarea id="description" name="description" placeholder="Detailed description of the trip"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="terms">Terms</label>
+    <textarea id="terms" name="terms" placeholder="Terms and conditions"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="itinerary">Itinerary</label>
+    <textarea id="itinerary" name="itinerary" placeholder="Trip itinerary"></textarea>
+  </div>
+
+  <div class="required field">
+    <label for="category">Category</label>
+    <input type="text" id="category" name="category" placeholder="e.g., Adventure, Relaxation">
+  </div>
+
+  <div class="required field">
+    <label for="days">Number of Days</label>
+    <input type="text" id="days" name="days" placeholder="e.g., 5">
+  </div>
+
+  <button type="submit" class="ui button">Submit</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+<script>
+/* VALIDATION */
+$(document).ready(function () {
+    $('.ui.form').form({
+        fields: {
+            title: {
+                identifier: 'title',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the trip title'
+                    }
+                ]
+            },
+            price: {
+                identifier: 'price',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the price'
+                    },
+                    {
+                        type: 'decimal',
+                        prompt: 'Please enter a valid decimal value for price'
+                    }
+                ]
+            },
+            region: {
+                identifier: 'region',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the region'
+                    }
+                ]
+            },
+            country: {
+                identifier: 'country',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the country'
+                    }
+                ]
+            },
+            location: {
+                identifier: 'location',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the location'
+                    }
+                ]
+            },
+            category: {
+                identifier: 'category',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please specify the category'
+                    }
+                ]
+            },
+            days: {
+                identifier: 'days',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please specify the number of days'
+                    },
+                    {
+                        type: 'integer',
+                        prompt: 'Please enter a valid number for days'
+                    }
+                ]
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

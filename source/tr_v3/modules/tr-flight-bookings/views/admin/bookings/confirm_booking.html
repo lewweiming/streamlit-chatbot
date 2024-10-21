@@ -1,0 +1,90 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+    <a href="/framework/admin" class="section">Admin Home</a>
+    <i class="right angle icon divider"></i>
+    <a href="/framework/admin/flights/bookings-dashboard" class="section">Flight Booking Dashboard</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section">Confirm Booking (Id: {{ booking.booking_id }})</div>
+</div>
+
+<h2 class="ui header">Flight Booking Confirmation</h2>
+
+<div class="ui segment">
+    <h4 class="ui dividing header">Confirm Flight Booking</h4>
+    
+    <form class="ui form" action="/framework/admin/flights/confirm-booking/{{ booking.booking_id }}" method="POST">
+
+        <!-- Booking ID -->
+        <div class="field">
+            <label>Booking ID</label>
+            <input type="number" value="{{ booking.booking_id }}" name="booking_id" readonly>
+        </div>
+
+        <!-- Confirmed By -->
+        <div class="required field">
+            <label>Confirmed By (Person Name)</label>
+            <input type="text" name="confirmed_by" placeholder="Enter your name" required>
+        </div>
+
+        <!-- Payment Reference -->
+        <div class="field">
+            <label>Payment Reference</label>
+            <input type="text" name="payment_reference" placeholder="Enter payment reference (optional)">
+        </div>
+
+        <!-- Cashier Payment ID -->
+        <div class="required field">
+            <label>Cashier Payment ID</label>
+            <input type="number" name="cashier_payment_id" placeholder="Enter cashier payment ID">
+        </div>
+
+        <!-- Confirmation Date -->
+        <div class="required field">
+            <label>Confirmation Date</label>
+            <div class="ui calendar">
+                <div class="ui fluid input left icon">
+                    <i class="calendar icon"></i>
+                    <input type="text" name="confirmation_date" placeholder="Confirmation Date" readonly value="{{ confirmation_date }}">
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmation Notes -->
+        <div class="field">
+            <label>Confirmation Notes</label>
+            <textarea name="confirmation_notes" rows="3" placeholder="Additional notes about the confirmation for this booking"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="ui primary button">Submit Confirmation</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    // Initialize calendar
+    $('.ui.calendar').calendar({
+        onChange: (date, text) => {
+            // Where date is the JS object and text is the string representation of the date 
+            // Do something
+        },
+        // Optional formatter
+        formatter: {
+            date: 'YYYY-MM-DD'
+        },
+        type: 'date'
+    });
+
+    // Form validation
+    $('.ui.form').form({
+        fields: {
+            confirmed_by: 'empty',
+            cashier_payment_id: 'integer',
+            confirmation_date: 'empty',
+        }
+    });
+</script>
+{% endblock %}

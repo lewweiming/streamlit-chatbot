@@ -1,0 +1,67 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<main x-data="main()" data-files="{{ files|json_encode|e }}">
+    
+<h2 class="ui header">Email Debug</h2>
+<p>The following templates are available for testing (emails sent to socrates):</p>
+
+<table class="ui table">
+    <thead>
+        <tr>
+            <th>Template Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    <template x-for="i in files">
+    <tr>
+        <td x-text="i"></td>
+        <td>
+            <button @click="testSend(i)" class="ui button">Test Send</button>
+        </td>
+    </tr>
+    </template>
+</tbody>
+</table>
+</main>
+{% endblock %}
+
+
+{% block script %}
+<script>
+    const API_EMAIL_TEST_SEND = '/modules/email/api/admin/test_send_template.php'
+    
+    
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            files: [],
+            init() {
+                this.loadFiles()
+            },
+            async testSend(filename) {
+
+                $.toast({ message: 'Test sending email template..' });
+
+                let r = await axios.get(API_EMAIL_TEST_SEND, {
+                    params: {
+                        template: filename
+                    }
+                })
+
+                if (r.data.message == 'success') {
+                    $.toast({ class: 'success', message: `Email successfully sent!` });
+                }
+            },
+            loadFiles() {
+
+            let r = document.querySelector('[data-files]');
+            this.files = JSON.parse(r.dataset.files)
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

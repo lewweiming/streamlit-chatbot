@@ -1,0 +1,116 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+  <a href="/" class="section">Framework Admin</a>
+  <i class="right angle icon divider"></i>
+  <a href="/framework/admin/support-tickets" class="section">Support Tickets</a>
+  <i class="right angle icon divider"></i>
+  <div class="active section">Add</div>
+</div>
+
+<h2 class="ui header">Add New Ticket</h2>
+
+<!-- VALIDATION ERRORS -->
+{% if(errors) %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">
+    Validation Errors
+  </div>
+  <ul>
+    {% for key,val in errors %}
+    <li>{{ val[0] }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<form method="post" action="/framework/admin/support-tickets/add" class="ui form">
+  <p>Add your ticket details</p>
+
+  <div class="required field">
+    <label>Title</label>
+    <input type="text" name="title" placeholder="Title of the issue">
+  </div>
+  <div class="field">
+    <label>Tags</label>
+    <input type="text" name="tags" placeholder="Tags (comma-separated)">
+  </div>
+  <div class="required field">
+    <label>Description</label>
+    <textarea name="description" placeholder="Describe your issue"></textarea>
+  </div>
+  <div class="required field">
+    <label>Priority</label>
+    <select name="priority" class="ui dropdown">
+      <option value="">Select Priority</option>
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+      <option value="Urgent">Urgent</option>
+    </select>
+  </div>
+  <div class="required field">
+    <label>Status</label>
+    <select name="status" class="ui dropdown">
+      <option value="">Select Status</option>
+      <option value="Open">Open</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Closed">Closed</option>
+    </select>
+  </div>
+
+  <button type="submit" class="ui button">Submit</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+<script>
+/* VALIDATION */
+$(document).ready(function () {
+    $('.ui.form').form({
+        fields: {
+            title: {
+                identifier: 'title',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the title of the issue'
+                    }
+                ]
+            },
+            description: {
+                identifier: 'description',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter a description'
+                    }
+                ]
+            },
+            priority: {
+                identifier: 'priority',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please select a priority level'
+                    }
+                ]
+            },
+            status: {
+                identifier: 'status',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please select a status'
+                    }
+                ]
+            },
+        }
+    });
+});
+
+</script>
+{% endblock %}

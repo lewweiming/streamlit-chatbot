@@ -1,0 +1,24 @@
+{% extends "_layout_admin.html" %}
+
+{% set title = 'Examples - Graphs' %}
+
+{% block head %}
+<link rel="stylesheet" href="/plugins/bulma-graphs/custom.css" />
+{% endblock %}
+
+{% block content %}
+<!-- 
+    Based on https://github.com/frizzant/bulma-graphs
+-->
+<div class="graphs-container" data-title="Horizontal Graph">
+    <div class="data-container column is-full columns is-mobile is-size-7 has-text-white is-marginless">
+        <div data-title="One" data-value="10"></div>
+        <div data-title="Two" data-value="50"></div>
+        <div data-title="Three" data-value="100"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="/plugins/bulma-graphs/graphs.js"></script>
+{% endblock %}

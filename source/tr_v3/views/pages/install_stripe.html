@@ -1,0 +1,40 @@
+{% extends "_layout.html" %}
+
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="stylesheet" href="/css/markdown.css" />
+{% endblock %}
+
+{% block content %}
+<section class="my-4">
+
+<div class="markdown markdown-body">
+# Install Stripe
+
+> By clicking "install now", the server application will update through the central repository on x2.webconxept.com through Curl operations.
+
+The following script will be run:
+- /api/x2-framework/plugins/install_stripe.php
+
+The following files will be updated:
+- Core
+- definitions
+
+The following files will be added:
+- controllers
+- api
+- views
+</div>
+
+</section>
+{% endblock %}
+
+{% block script %}
+<script>
+let collection = document.getElementsByClassName('markdown')
+let nodes = Array.from(collection)
+nodes.forEach(el => {
+    el.innerHTML = marked.parse(el.innerHTML.replace(/&gt;+/g, '>'))
+})
+</script>
+{% endblock %}

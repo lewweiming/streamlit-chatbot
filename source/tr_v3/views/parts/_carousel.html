@@ -1,0 +1,43 @@
+
+<section>
+<!-- CAROUSEL, GLIDE -->
+<h4 class="title has-text-centered">Latest Products</h4>
+
+<div class="glide">
+    <div class="glide__track" data-glide-el="track">
+    <ul class="glide__slides">
+        
+        <li class="glide__slide">
+        <div class="has-background-link title has-text-white has-text-centered p-4">I'm a slide</div>
+        </li>
+        <li class="glide__slide">
+        <div class="has-background-link title has-text-white has-text-centered p-4">I'm a slide</div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="glide__arrows" data-glide-el="controls">
+    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+    </div>
+</div>
+</section>
+
+{% push head %}
+<!-- GLIDER SUPPORT -->
+<!-- Required Core Stylesheet -->
+<link rel="stylesheet" href="/vendor/glidejs/glide.core.min.css">
+
+<!-- Optional Theme Stylesheet -->
+<link rel="stylesheet" href="/vendor/glidejs/glide.theme.min.css">
+{% endpush %}
+
+{% push script %}
+<script src="/vendor/glidejs/glide.min.js"></script>
+
+<script>
+new Glide('.glide', {
+  autoplay: 10000
+}).mount()
+</script>
+{% endpush %}

@@ -1,0 +1,184 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+  <a href="/" class="section">Hotel Booking Home</a>
+  <i class="right angle icon divider"></i>
+  <a href="/hotels/bookings" class="section">Bookings</a>
+  <i class="right angle icon divider"></i>
+  <div class="active section">Add Booking</div>
+</div>
+
+<h2 class="ui header">Add New Hotel Booking</h2>
+
+<!-- VALIDATION ERRORS -->
+{% if(errors) %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">
+    Validation Errors
+  </div>
+  <ul>
+    {% for key,val in errors %}
+    <li>{{ val[0] }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<form method="post" action="/framework/admin/hotel-bookings/add-booking" class="ui form">
+  <p>Add your hotel booking details</p>
+
+  <div class="required field">
+    <label for="guest_id">Guest ID</label>
+    <input type="number" id="guest_id" name="guest_id">
+  </div>
+
+  <div class="required field">
+    <label for="hotel_id">Hotel ID</label>
+    <input type="number" id="hotel_id" name="hotel_id">
+  </div>
+
+  <div class="required field">
+    <label for="room_id">Room ID</label>
+    <input type="number" id="room_id" name="room_id">
+  </div>
+
+  <div class="required field">
+    <label>Check-In Date</label>
+    <div class="ui calendar" id="check_in_calendar">
+      <div class="ui fluid input left icon">
+        <i class="calendar icon"></i>
+        <input type="text" name="check_in_date" placeholder="YYYY-MM-DD">
+      </div>
+    </div>
+  </div>
+
+  <div class="required field">
+    <label>Check-Out Date</label>
+    <div class="ui calendar" id="check_out_calendar">
+      <div class="ui fluid input left icon">
+        <i class="calendar icon"></i>
+        <input type="text" name="check_out_date" placeholder="YYYY-MM-DD">
+      </div>
+    </div>
+  </div>
+
+  <div class="required field">
+    <label for="total_amount">Total Amount</label>
+    <input type="number" step="0.01" id="total_amount" name="total_amount" placeholder="0.00">
+  </div>
+
+  <div class="required field">
+    <label for="booking_status">Booking Status</label>
+    <select name="booking_status" id="booking_status" class="ui dropdown">
+      <option value="pending" selected>Pending</option>
+      <option value="confirmed">Confirmed</option>
+      <option value="cancelled">Cancelled</option>
+      <option value="modified">Modified</option>
+    </select>
+  </div>
+
+  <button type="submit" class="ui button">Submit</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+<script>
+  $('#check_in_calendar, #check_out_calendar')
+    .calendar({
+      type: 'date',
+      formatter: {
+        date: 'YYYY-MM-DD'
+      }
+    });   
+
+$(document).ready(function () {
+    $('.ui.dropdown').dropdown();
+    $('.ui.form').form({
+        fields: {
+            guest_id: {
+                identifier: 'guest_id',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the guest ID'
+                    },
+                    {
+                        type: 'integer',
+                        prompt: 'Guest ID must be a number'
+                    }
+                ]
+            },
+            hotel_id: {
+                identifier: 'hotel_id',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the hotel ID'
+                    },
+                    {
+                        type: 'integer',
+                        prompt: 'Hotel ID must be a number'
+                    }
+                ]
+            },
+            room_id: {
+                identifier: 'room_id',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the room ID'
+                    },
+                    {
+                        type: 'integer',
+                        prompt: 'Room ID must be a number'
+                    }
+                ]
+            },
+            check_in_date: {
+                identifier: 'check_in_date',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please select the check-in date'
+                    }
+                ]
+            },
+            check_out_date: {
+                identifier: 'check_out_date',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please select the check-out date'
+                    }
+                ]
+            },
+            total_amount: {
+                identifier: 'total_amount',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the total amount'
+                    },
+                    {
+                        type: 'decimal',
+                        prompt: 'Please enter a valid amount'
+                    }
+                ]
+            },
+            booking_status: {
+                identifier: 'booking_status',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please select a booking status'
+                    }
+                ]
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

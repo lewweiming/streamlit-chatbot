@@ -1,0 +1,210 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+  <a href="/framework/admin" class="section">Admin</a>
+  <i class="right angle icon divider"></i>
+  <a href="/framework/admin/trips/main" class="section">Trip Data</a>
+  <i class="right angle icon divider"></i>
+  <div class="active section">Edit</div>
+</div>
+
+<h2 class="ui header">Edit Trip Listing</h2>
+
+<!-- VALIDATION ERRORS -->
+{% if(errors) %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">
+    Validation Errors
+  </div>
+  <ul>
+    {% for key,val in errors %}
+    <li>{{ val[0] }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<form method="post" action="/trips/{{ trip.id }}/edit" class="ui form">
+  <p>Edit your trip details</p>
+
+  <div class="required field">
+    <label for="title">Trip Title</label>
+    <input value="{{ trip.title }}" type="text" id="title" name="title">
+  </div>
+
+  <div class="required field">
+    <label for="sku">SKU</label>
+    <input value="{{ trip.sku }}" type="text" id="sku" name="sku">
+  </div>
+
+  <div class="required field">
+    <label for="region">Region</label>
+    <input value="{{ trip.region }}" type="text" id="region" name="region">
+  </div>
+
+  <div class="required field">
+    <label for="country">Country</label>
+    <input value="{{ trip.country }}" type="text" id="country" name="country">
+  </div>
+
+  <div class="required field">
+    <label for="location">Location</label>
+    <input value="{{ trip.location }}" type="text" id="location" name="location">
+  </div>
+
+  <div class="required field">
+    <label for="days">Days</label>
+    <input value="{{ trip.days }}" type="number" id="days" name="days">
+  </div>
+
+  <div class="required field">
+    <label for="category">Category</label>
+    <input value="{{ trip.category }}" type="text" id="category" name="category">
+  </div>
+
+  <div class="required field">
+    <label for="type">Type</label>
+    <input value="{{ trip.type }}" type="text" id="type" name="type">
+  </div>
+
+  <div class="required field">
+    <label for="timing">Timing</label>
+    <input value="{{ trip.timing }}" type="text" id="timing" name="timing">
+  </div>
+
+  <div class="required field">
+    <label for="body">Description</label>
+    <textarea name="body" placeholder="Detailed description">{{ trip.body }}</textarea>
+  </div>
+
+  <div class="required field">
+    <label for="price">Price</label>
+    <input value="{{ trip.price }}" type="text" id="price" name="price">
+  </div>
+
+  <div class="field">
+    <label for="terms">Terms</label>
+    <textarea name="terms" placeholder="Terms and conditions">{{ trip.terms }}</textarea>
+  </div>
+
+  <button type="submit" class="ui button">Update</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+<script>
+  /* VALIDATION */
+  $(document).ready(function () {
+    $('.ui.form').form({
+      fields: {
+        title: {
+          identifier: 'title',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the trip title'
+            }
+          ]
+        },
+        sku: {
+          identifier: 'sku',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the SKU'
+            }
+          ]
+        },
+        region: {
+          identifier: 'region',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the region'
+            }
+          ]
+        },
+        country: {
+          identifier: 'country',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the country'
+            }
+          ]
+        },
+        location: {
+          identifier: 'location',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the location'
+            }
+          ]
+        },
+        days: {
+          identifier: 'days',
+          rules: [
+            {
+              type: 'integer',
+              prompt: 'Please enter a valid number of days'
+            }
+          ]
+        },
+        category: {
+          identifier: 'category',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the category'
+            }
+          ]
+        },
+        type: {
+          identifier: 'type',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the type'
+            }
+          ]
+        },
+        timing: {
+          identifier: 'timing',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the timing'
+            }
+          ]
+        },
+        body: {
+          identifier: 'body',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter a detailed description'
+            }
+          ]
+        },
+        price: {
+          identifier: 'price',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the price'
+            },
+            {
+              type: 'decimal',
+              prompt: 'Please enter a valid decimal price'
+            }
+          ]
+        }
+      }
+    });
+  });
+</script>
+{% endblock %}

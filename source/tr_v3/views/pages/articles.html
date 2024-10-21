@@ -1,0 +1,46 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<h2 class="ui header">Articles</h2>
+
+  <!-- ITEMS -->
+  <div class="ui divided items">
+    {% for i in items %}
+
+    <div class="item">
+      <div class="image">
+        <img onerror="imgError(this);" src="{{ i.thumbnail_path }}" />
+      </div>
+      <div class="content">
+        <a class="header">{{ i.title }}</a>
+        <div class="meta">
+          <div class="">Added on {{ i.updated_at }}
+          </div>
+        </div>
+        <div class="description">
+            <div class="ui label">{{ tags }}</div>  
+        </div>
+        <div class="extra">
+          <a href="{{ i.source_url }}" target="blank" class="ui small primary button">
+            Link
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
+
+
+
+{% endblock %}
+
+{% block script %}
+<script>
+function imgError(image) {
+  image.onerror = "";
+  image.src = "http://via.placeholder.com/300x300";
+  return true;
+}
+</script>
+{% endblock %}

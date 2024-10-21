@@ -1,0 +1,29 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<h2 class="ui large header">Modify/Cancel Booking</h2>
+<div class="content">
+    <form class="ui form" id="requestForm">
+        <div class="field">
+            <label>Booking ID</label>
+            <input type="text" name="bookingId" id="bookingId" readonly>
+        </div>
+        <div class="field">
+            <label>Reason</label>
+            <textarea name="reason" id="reason" placeholder="Please provide a reason..."></textarea>
+        </div>
+        <div class="field">
+            <label>New Pickup Date (if modifying)</label>
+            <input type="date" name="newPickupDate" id="newPickupDate">
+        </div>
+        <div class="field">
+            <label>New Return Date (if modifying)</label>
+            <input type="date" name="newReturnDate" id="newReturnDate">
+        </div>
+        <div class="actions">
+            <div class="ui cancel button">Cancel</div>
+            <button type="submit" class="ui green button">Submit Request</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

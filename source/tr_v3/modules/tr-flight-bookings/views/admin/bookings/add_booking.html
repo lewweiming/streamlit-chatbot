@@ -1,0 +1,223 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+  <a href="/" class="section">Flight Home</a>
+  <i class="right angle icon divider"></i>
+  <a href="/flights/bookings" class="section">Bookings</a>
+  <i class="right angle icon divider"></i>
+  <div class="active section">Add Booking</div>
+</div>
+
+<h2 class="ui header">Add New Flight Booking</h2>
+
+<!-- VALIDATION ERRORS -->
+{% if(errors) %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">
+    Validation Errors
+  </div>
+  <ul>
+    {% for key,val in errors %}
+    <li>{{ val[0] }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<form method="post" action="/framework/admin/flights/add-booking" class="ui form">
+
+  <p>Add your flight booking details</p>
+
+  <div class="required field">
+    <label for="customer_name">Customer Name</label>
+    <input type="text" id="customer_name" name="customer_name" placeholder="Enter customer name">
+  </div>
+
+  <div class="required field">
+    <label for="customer_email">Customer Email</label>
+    <input type="email" id="customer_email" name="customer_email" placeholder="Enter customer email">
+  </div>
+
+  <div class="required field">
+    <label for="customer_phone">Customer Phone</label>
+    <input type="tel" id="customer_phone" name="customer_phone" placeholder="Enter customer phone">
+  </div>
+
+  <div class="required field">
+    <label for="flight_id">Flight ID</label>
+    <input type="number" id="flight_id" name="flight_id" placeholder="Enter flight ID">
+  </div>
+
+  <div class="required field">
+    <label for="departure_city">Departure City</label>
+    <input type="text" id="departure_city" name="departure_city" placeholder="Enter departure city">
+  </div>
+
+  <div class="required field">
+    <label for="arrival_city">Arrival City</label>
+    <input type="text" id="arrival_city" name="arrival_city" placeholder="Enter arrival city">
+  </div>
+
+  <div class="required field">
+    <label for="departure_date">Departure Date</label>
+    <div class="ui calendar" id="departure_date_calendar">
+      <div class="ui fluid input left icon">
+        <i class="calendar icon"></i>
+        <input type="text" name="departure_date" placeholder="YYYY-MM-DD">
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="return_date">Return Date (Optional)</label>
+    <div class="ui calendar" id="return_date_calendar">
+      <div class="ui fluid input left icon">
+        <i class="calendar icon"></i>
+        <input type="text" name="return_date" placeholder="YYYY-MM-DD">
+      </div>
+    </div>
+  </div>
+
+  <div class="required field">
+    <label for="passengers">Number of Passengers</label>
+    <input type="number" id="passengers" name="passengers" placeholder="Enter number of passengers">
+  </div>
+
+  <div class="required field">
+    <label for="seat_class">Seat Class</label>
+    <select name="seat_class" id="seat_class" class="ui dropdown">
+      <option value="economy">Economy</option>
+      <option value="business">Business</option>
+      <option value="first_class">First Class</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="direct_flight">Direct Flight</label>
+    <select name="direct_flight" id="direct_flight" class="ui dropdown">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="flexible_dates">Flexible Dates</label>
+    <select name="flexible_dates" id="flexible_dates" class="ui dropdown">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select>
+  </div>
+
+  <div class="required field">
+    <label for="total_amount">Total Amount</label>
+    <input type="number" step="0.01" id="total_amount" name="total_amount" placeholder="0.00">
+  </div>
+
+  <button type="submit" class="ui button">Submit</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+<script>
+  $('#departure_date_calendar, #return_date_calendar')
+    .calendar({
+      type: 'date',
+      formatter: {
+        date: 'YYYY-MM-DD'
+      }
+    });
+</script>
+
+<script>
+/* VALIDATION */
+$(document).ready(function () {
+    $('.ui.form').form({
+        fields: {
+            customer_name: {
+                identifier: 'customer_name',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the customer name'
+                    }
+                ]
+            },
+            customer_email: {
+                identifier: 'customer_email',
+                rules: [
+                    {
+                        type: 'email',
+                        prompt: 'Please enter a valid email address'
+                    }
+                ]
+            },
+            flight_id: {
+                identifier: 'flight_id',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the flight ID'
+                    },
+                    {
+                        type: 'integer',
+                        prompt: 'Flight ID must be a number'
+                    }
+                ]
+            },
+            departure_city: {
+                identifier: 'departure_city',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the departure city'
+                    }
+                ]
+            },
+            arrival_city: {
+                identifier: 'arrival_city',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the arrival city'
+                    }
+                ]
+            },
+            departure_date: {
+                identifier: 'departure_date',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the departure date'
+                    }
+                ]
+            },
+            passengers: {
+                identifier: 'passengers',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the number of passengers'
+                    }
+                ]
+            },
+            total_amount: {
+                identifier: 'total_amount',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the total amount'
+                    },
+                    {
+                        type: 'decimal',
+                        prompt: 'Please enter a valid amount'
+                    }
+                ]
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

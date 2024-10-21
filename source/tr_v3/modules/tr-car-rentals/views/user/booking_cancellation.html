@@ -1,0 +1,83 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<h2 class="ui large header">Car Rentals: Cancel Booking</h2>
+
+<!-- BOOKING SUMMARY INSERT HERE -->
+<h3 class="ui header">Summary</h3>
+<table class="ui celled table">
+    <thead>
+        <tr>
+            <th>Booking Ref</th>
+            <th>Pickup Date</th>
+            <th>Return Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ booking.booking_ref }}</td>
+            <td>{{ booking.start_date }}</td>
+            <td>{{ booking.end_date }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="ui message">
+    <p>Cancellations will depend on a case by case basis. Once the form has been submitted, it will be reviewed and
+        processed within 3 working days. Refunds will be issued depending on circumstance.</p>
+    <p>You can view the outcome of your request in "<a href="/customer-support/my-requests">My Requests</a>"</p>
+</div>
+
+<div class="ui top attached header inverted segment">
+    <div class="">Cancellation Form</div>
+</div>
+<div class="ui padded attached segment">
+    <form action="/customer-support/new-customer-request" method="post" class="ui form" id="requestForm">
+
+        <input type="hidden" value="{{ booking.booking_ref }}" name="booking_ref" />
+        <input type="hidden" value="car_rentals" name="booking_table" />
+        <input type="hidden" value="Car Rental" name="booking_type" />
+        <input type="hidden" value="cancellations" name="request_type" />
+        <input type="hidden" value="Inquiry about car rental booking cancellation" name="details" />
+        <input type="hidden" name="request_info" id="request_info" />
+
+        <div class="field">
+            <label>Reason</label>
+            <textarea name="reason" id="reason" placeholder="Please provide a reason..."></textarea>
+        </div>
+
+        <div class="actions">
+            <a href="/modules/car-rentals/bookings-dashboard" class="ui cancel button">Return to Car Rental Dashboard</a>
+            <button type="submit" class="ui green button">Submit Request</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    $('.ui.calendar')
+        .calendar({
+            onChange: (date, text) => {
+                // Where date is the JS object and text is the string representation of the date 
+                // Do something
+            },
+            // Optional formatter
+            formatter: {
+                date: 'YYYY-MM-DD'
+            },
+            type: 'date'
+        });
+</script>
+<script>
+    /* VALIDATION */
+    $(document).ready(function () {
+        $('.ui.form').form({
+            fields: {
+                "reason": 'empty',
+            }
+        });
+    }); 
+</script>
+{% endblock %}

@@ -1,0 +1,4 @@
+<Files "adminer-4.8.1.php">
+    Order allow,deny
+    Deny from all
+</Files>

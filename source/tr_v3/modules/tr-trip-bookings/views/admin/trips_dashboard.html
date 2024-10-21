@@ -1,0 +1,80 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    <h2 class="ui dividing header">Trip Bookings - Trips Dashboard</h2>
+
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Trip ID</th>
+                <th>Trip Name</th>
+                <th>Destination</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Price ($)</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example row, loop through your data and replace accordingly -->
+            <tr>
+                <td>1</td>
+                <td>Grand Canyon Adventure</td>
+                <td>Grand Canyon, Arizona</td>
+                <td>2024-11-01</td>
+                <td>2024-11-05</td>
+                <td>799.99</td>
+                <td>2024-09-24 10:15:00</td>
+                <td>
+                    <div class="ui buttons">
+                        <button class="ui blue button">Edit</button>
+                        <button class="ui red button">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Hawaii Beach Holiday</td>
+                <td>Honolulu, Hawaii</td>
+                <td>2024-12-15</td>
+                <td>2024-12-22</td>
+                <td>1599.99</td>
+                <td>2024-09-24 11:00:00</td>
+                <td>
+                    <div class="ui buttons">
+                        <button class="ui blue button">Edit</button>
+                        <button class="ui red button">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <button class="ui primary button">Add New Trip</button>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

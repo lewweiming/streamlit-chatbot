@@ -1,0 +1,42 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="stylesheet" href="/css/markdown.css" />
+<link rel="stylesheet" href="/vendor/prismjs/prism.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="ui text container" style="margin-top: 2em; margin-bottom: 2em;">
+
+
+<h2 class="ui header">{{ article.title }}</h2>
+
+<div class="ui divider"></div>
+
+{% if(article.source_url) %}
+<div>
+    <a target="blank" href="{{ article.source_url }}" class="ui button">Source</a>
+</div>
+
+<div class="ui divider"></div>
+{% endif %}
+
+<div class="markdown markdown-body">
+{{ article.markdown_content }}
+</div>
+
+
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+let collection = document.getElementsByClassName('markdown')
+let nodes = Array.from(collection)
+nodes.forEach(el => {
+    el.innerHTML = marked.parse(el.textContent)
+})
+</script>
+<script src="/vendor/prismjs/prism.min.js"></script>
+{% endblock %}

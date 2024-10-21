@@ -1,0 +1,37 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<h2 class="ui header">Discussion Board</h2>
+
+<ul class="ui list">
+<li>
+    <a href="/framework/admin/discussion-board/categories">Manage Categories</a>
+</li>
+<li></li>
+    <a href="/framework/admin/discussion-board/discussions">Manage Discussions</a>
+</li>
+</ul>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

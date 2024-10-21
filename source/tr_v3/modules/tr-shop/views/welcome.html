@@ -1,0 +1,31 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<h2 class="ui dividing header">Welcome to Shop</h2>
+<ul>
+    <li><a href="/modules/shop/inventory">Inventory</a></li>
+</ul>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

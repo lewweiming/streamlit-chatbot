@@ -1,0 +1,41 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui segment">
+    <h3 class="ui header">Booking Details</h3>
+    <div class="ui form">
+        <div class="field">
+            <label>Booking ID</label>
+            <input type="text" placeholder="TR-501" disabled>
+        </div>
+        <div class="field">
+            <label>Traveler Name</label>
+            <input type="text" placeholder="Susan Miller">
+        </div>
+        <div class="field">
+            <label>Trip Package</label>
+            <input type="text" placeholder="European Adventure">
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label>Start Date</label>
+                <input type="date">
+            </div>
+            <div class="field">
+                <label>End Date</label>
+                <input type="date">
+            </div>
+        </div>
+        <div class="field">
+            <label>Status</label>
+            <select class="ui dropdown">
+                <option value="">Select Status</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="pending">Pending</option>
+                <option value="cancelled">Cancelled</option>
+            </select>
+        </div>
+        <button class="ui button primary">Update Booking</button>
+    </div>
+</div>
+{% endblock %}

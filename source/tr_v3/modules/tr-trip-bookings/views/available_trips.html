@@ -1,0 +1,33 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="">
+    <h2 class="ui header">Available Trips/Tours</h2>
+    <div class="ui cards" id="trips-container">
+        <!-- Trip card example -->
+        <div class="card">
+            <div class="content">
+                <div class="header">Trip to Paris</div>
+                <div class="meta">Destination: Paris, France</div>
+                <div class="description">
+                    Start Date: 2024-10-01<br>
+                    End Date: 2024-10-10<br>
+                    Price: $1200.00
+                </div>
+            </div>
+            <div class="extra content">
+                <button class="ui button primary" onclick="bookTrip(1)">Book Now</button>
+            </div>
+        </div>
+        <!-- Add more trip cards dynamically -->
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    function bookTrip(tripId) {
+        window.location.href = `book-trip.html?trip_id=${tripId}`;
+    }
+</script>
+{% endblock %}

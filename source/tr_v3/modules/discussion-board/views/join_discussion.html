@@ -1,0 +1,94 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+    <a href="/" class="section">Home</a>
+    <i class="right angle icon divider"></i>
+    <a href="/discussion-board" class="section">Discussion Board</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section">{{ discussion.subject }}</div>
+</div>
+<div class="ui hidden divider"></div>
+
+<div>
+    <!-- Discussion Header -->
+    <h2 class="ui dividing header">
+        {{ discussion.subject }}
+        <div class="sub header">Posted by {{ discussion.name }} on {{ discussion.created_at | date("d M Y") }} in {{ discussion.category }}</div>
+    </h2>
+
+    <!-- Original Post -->
+    <div class="ui segment">
+        <p>{{ discussion.message }}</p>
+        <div class="ui horizontal list">
+            <div class="item">
+                <img class="ui avatar image" src="https://via.placeholder.com/150" alt="User Avatar">
+                <div class="content">
+                    <div class="header">{{ discussion.name }}</div>
+                    <div class="description">Member</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Replies Section -->
+    <h3 class="ui dividing header">Replies</h3>
+    
+    {% for post in posts %}
+    <div class="ui comments">
+        <!-- Comment -->
+        <div class="comment">
+            <a class="avatar">
+                <img src="https://via.placeholder.com/150" alt="User Avatar">
+            </a>
+            <div class="content">
+                <a class="author">{{ post.name|default('Guest') }}</a>
+                <div class="metadata">
+                    <span class="date">{{ post.created_at|humanize_time }}</span>
+                </div>
+                <div class="text">
+                    {{ post.message }}
+                </div>
+                <div class="actions">
+                    <a href="/discussion-board/discussions/{{ discussion.id }}/replies/{{ post.id }}/delete" class="reply">Remove Reply</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- Add Reply Form -->
+    <form method="post" action="/discussion-board/discussions/{{ discussion.id }}" class="ui reply form">
+
+        <input type="hidden" name="discussion_id" value="{{ discussion.id }}" />
+
+        <div class="field">
+            <textarea name="message" placeholder="Add your reply..."></textarea>
+        </div>
+        <button class="ui primary button" type="submit">Post Reply</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

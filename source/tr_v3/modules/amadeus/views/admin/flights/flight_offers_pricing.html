@@ -1,0 +1,119 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block head %}
+<!-- CLIPBOARD -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<main x-data="main()">
+
+    <div class="ui breadcrumb">
+        <a href="/framework/admin" class="section">Admin</a>
+        <i class="right angle icon divider"></i>
+        <a href="/framework/admin/amadeus/main" class="section">Amadeus Module</a>
+        <i class="right angle icon divider"></i>
+        <a href="/framework/admin/amadeus/flights/main" class="section">Flight Api</a>
+        <i class="right angle icon divider"></i>
+        <div class="active section">Flight Offers Pricing</div>
+    </div>
+
+    <h2 class="ui header">Flight Offers Pricing</h2>
+
+    <div class="ui alert message">Bear in mind, the flight offer pricing data is only valid for a few minutes due to rapidly changing ticket prices.</div>
+
+    <div class="ui message">"Submit" will check the flight offer to get the latest pricing for the offer in a dynamic
+        market.</div>
+
+    <div class="ui hidden divider"></div>
+
+    <h2 class="ui header">Next Steps</h2>
+
+    <div>
+        <a href="/framework/admin/amadeus/flights/flight-create-order" data-tooltip="Create a flight order based on the flight offer" class="ui button">Create Flight Order</a>
+    </div>
+
+    <div class="ui hidden divider"></div>
+
+    <h2 class="ui header">Paste Flight Offer Data (JSON)</h2>
+
+
+    <div class="ui form">
+        <div class="field">
+        <div class="ui fluid input">
+            <textarea x-model="input.flightOffer" placeholder="Paste here..."></textarea>
+        </div>
+        </div>
+        <button @click="submitFlightOffer()" class="ui button">Submit</button>
+    </div>
+
+
+    <div class="ui hidden divider"></div>
+
+    <!-- JSON/RESULTS -->
+    <div class="ui code">
+        <h2 class="ui header">JSON Data</h2>
+
+        <div>
+            <button class="ui clipboard button" :data-clipboard-text="resultsFlightOffers">Copy Price Offers as JSON</button></div>
+        </div>
+
+        <pre><code x-text="resultsJson"></code></pre>
+    </div>
+
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+    var clipboard = new ClipboardJS('.clipboard');
+
+    clipboard.on('success', function(e) {
+
+        $.toast({
+            class: 'success',
+            message: 'Successfully copied to clipboard'
+        });
+        // console.info('Action:', e.action);
+        // console.info('Text:', e.text);
+        // console.info('Trigger:', e.trigger);
+
+        e.clearSelection();
+    });
+</script>
+<script>
+    const API_FETCH_AMADEUS_FLIGHT_OFFERS_PRICE = '/modules/amadeus/api/flights/flight_offers_price.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            rows: [],
+            resultsJson: '',
+            resultsFlightOffers: '', // the flight offers part of results
+            input: {
+                flightOffer: ''
+            },
+            init() {
+                
+            },
+            async submitFlightOffer() {
+
+                $.toast({ message: 'Submitting data..' });
+
+                let fd = new FormData()
+                fd.append('flightOffer', this.input.flightOffer)
+
+                let r = await axios.post(API_FETCH_AMADEUS_FLIGHT_OFFERS_PRICE, fd)
+
+                if (r.data.message == 'success') {
+                    this.resultsJson = JSON.stringify(r.data, null, 2);
+                    this.resultsFlightOffers = JSON.stringify(r.data.results.data.flightOffers, null, 2);
+                    $.toast({ class: 'success', message: `Data fetched` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

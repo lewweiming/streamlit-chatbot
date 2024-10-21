@@ -1,0 +1,54 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="ui breadcrumb">
+    <a href="/" class="section">Home</a>
+    <i class="right angle icon divider"></i>
+    <a class="section">User Account</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section">My Profile</div>
+</div>
+
+<section x-data="main" x-cloak class="ui segment">
+    <h2>My Profile</h2>
+
+    <form class="ui form info" name="profile" method="post" action="/user/my-profile">
+
+        <div class="field">
+        <label>Name</label>
+        <input type="text" name="name" value="{{ profile.name }}" placeholder="Text input">
+        <div class="ui info message">
+        <p>How should we address you?</p>
+        </div>
+        </div>
+
+
+        <div class="field">
+            <label>About me</label>
+            <textarea name="about_me">{{ profile.about_me }}</textarea>
+            <div class="ui info message">
+            <p>Write about yourself..</p>
+            </div>
+        </div>
+
+        <button type="submit" class="ui button">Update</button>
+    </form>
+
+</section>
+{% endblock %}
+
+
+{% block script %}
+<script>
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+
+        }))
+    })
+</script>
+{% endblock %}

@@ -1,0 +1,199 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+  <a href="/framework/admin" class="section">Admin</a>
+  <i class="right angle icon divider"></i>
+  <a href="/framework/admin/car-rentals/cars-data/main" class="section">Car Data</a>
+  <i class="right angle icon divider"></i>
+  <div class="active section">Edit</div>
+</div>
+
+<h2 class="ui header">Edit Car Rental Listing</h2>
+
+<!-- VALIDATION ERRORS -->
+{% if(errors) %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">Validation Errors</div>
+  <ul>
+    {% for key, val in errors %}
+    <li>{{ val[0] }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<form method="post" action="/car-rentals/{{ car.id }}/edit" class="ui form">
+  <p>Edit your car details</p>
+
+  <div class="required field">
+    <label for="name">Car Name</label>
+    <input value="{{ car.name }}" type="text" id="name" name="name" placeholder="Car Name">
+  </div>
+
+  <div class="required field">
+    <label for="price">Price</label>
+    <input value="{{ car.price }}" type="text" id="price" name="price" placeholder="Price (e.g., 50.00)">
+  </div>
+
+  <div class="required field">
+    <label for="summary">Summary</label>
+    <textarea name="summary" placeholder="Short summary about the car">{{ car.summary }}</textarea>
+  </div>
+
+  <div class="required field">
+    <label for="thumb_url_link">Thumbnail URL</label>
+    <input value="{{ car.thumb_url_link }}" type="text" id="thumb_url_link" name="thumb_url_link" placeholder="Link to car thumbnail image">
+  </div>
+
+  <div class="required field">
+    <label for="brand">Brand</label>
+    <input value="{{ car.brand }}" type="text" id="brand" name="brand" placeholder="Car Brand">
+  </div>
+
+  <div class="required field">
+    <label for="model">Model</label>
+    <input value="{{ car.model }}" type="text" id="model" name="model" placeholder="Car Model">
+  </div>
+
+  <div class="required field">
+    <label for="country">Country</label>
+    <input value="{{ car.country }}" type="text" id="country" name="country" placeholder="Country of Origin">
+  </div>
+
+  <div class="required field">
+    <label for="description">Description</label>
+    <textarea name="description" placeholder="Detailed description">{{ car.description }}</textarea>
+  </div>
+
+  <div class="field">
+    <label for="terms">Terms</label>
+    <textarea name="terms" placeholder="Rental terms">{{ car.terms }}</textarea>
+  </div>
+
+  <div class="field">
+    <label for="insurance">Insurance Details</label>
+    <textarea name="insurance" placeholder="Insurance information">{{ car.insurance }}</textarea>
+  </div>
+
+  <div class="required field">
+    <label for="rental_pricing">Rental Pricing</label>
+    <textarea name="rental_pricing" placeholder="Details about rental pricing">{{ car.rental_pricing }}</textarea>
+  </div>
+
+  <div class="required field">
+    <label for="size">Size</label>
+    <input value="{{ car.size }}" type="text" id="size" name="size" placeholder="Car Size (e.g., Compact, SUV)">
+  </div>
+
+  <button type="submit" class="ui button">Update</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+<script>
+  /* VALIDATION */
+  $(document).ready(function () {
+    $('.ui.form').form({
+      fields: {
+        name: {
+          identifier: 'name',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the car name'
+            }
+          ]
+        },
+        price: {
+          identifier: 'price',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the price'
+            },
+            {
+              type: 'decimal',
+              prompt: 'Please enter a valid decimal price'
+            }
+          ]
+        },
+        summary: {
+          identifier: 'summary',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter a short summary'
+            }
+          ]
+        },
+        thumb_url_link: {
+          identifier: 'thumb_url_link',
+          rules: [
+            {
+              type: 'url',
+              prompt: 'Please enter a valid thumbnail URL'
+            }
+          ]
+        },
+        brand: {
+          identifier: 'brand',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the car brand'
+            }
+          ]
+        },
+        model: {
+          identifier: 'model',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the car model'
+            }
+          ]
+        },
+        country: {
+          identifier: 'country',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the country of origin'
+            }
+          ]
+        },
+        description: {
+          identifier: 'description',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter a detailed description'
+            }
+          ]
+        },
+        rental_pricing: {
+          identifier: 'rental_pricing',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the rental pricing details'
+            }
+          ]
+        },
+        size: {
+          identifier: 'size',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the size of the car'
+            }
+          ]
+        }
+      }
+    });
+  });
+</script>
+{% endblock %}

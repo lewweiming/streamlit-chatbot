@@ -1,0 +1,225 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/css/dropzone.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/filesize/9.0.11/filesize.min.js"></script>
+
+
+<style>
+  #FileUpload.active {
+    border: 2px solid black;
+  }
+
+  #FileUpload {
+    border: 2px dashed #777;
+  }
+
+  .file-upload {
+    display: none;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<main x-data="main" data-files="{{ files|json_encode|e }}" data-article="{{ article|json_encode|e }}"
+  class="ui container">
+
+    <!-- BREADCRUMBS -->
+    <div class="ui breadcrumb">
+      <a href="/framework/admin" class="section">Admin</a>
+      <i class="right angle icon divider"></i>
+      <a href="/framework/admin/articles" class="section">Articles</a>
+      <i class="right angle icon divider"></i>
+      <div class="active section">Article Images: {{ article.title }}</div>
+    </div>
+
+    <!-- HEADER -->
+    <h2 class="ui header">Article Images</h2>
+
+    <!-- DEBUG: START -->
+    <!-- <article>
+      <div class="mb-4">
+        <div class="title is-6">Article:</div>
+        <div x-text="JSON.stringify(article)"></div>
+      </div>
+
+      <div class="mb-4">
+        <div class="title is-6">Uploader Files:</div>
+        <div x-text="JSON.stringify(files)"></div>
+      </div>
+
+      <div class="mb-4">
+        <div class="title is-6">Uploaded Items:</div>
+        <div x-text="JSON.stringify(items)"></div>
+      </div>
+    </article> -->
+    <!-- DEBUG: END -->
+
+    <!-- ARTICLE FILES -->
+    <table class="ui table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Filename</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <template x-for="i in articleFiles">
+          <tr>
+            <td>
+              <img class="ui tiny image" :src="`/assets/x2f/articles/${article.id}/images/${i}`" />
+            </td>
+            <td x-text="i"></td>
+            <td>
+              <div class="ui buttons">
+              <a @click="removeFile(i)" class="ui button">Remove</a>
+              <template x-if="article.thumbnail_path !== i.path">
+                <button @click="setThumbnail(i)" class="ui button">Select as Thumbnail</button>
+              </template>
+              </div>
+            </td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+
+    <!-- UPLOADER: BASED ON https://tailwindcomponents.com/component/dragdrop-sortable-dropzone-file-upload-2 -->
+
+    <div x-ref="fileUpload" id="FileUpload" class="ui segment" style="position: relative;"
+      x-on:dragleave="$refs.fileUpload.classList.remove('active')"
+      x-on:drop="$refs.fileUpload.classList.remove('active'), dropHandler($event)"
+      x-on:dragover="$refs.fileUpload.classList.add('active'), dragOverHandler($event)">
+
+      <input type="file" multiple id="file-upload" class="file-upload"
+        x-on:change="files = $event.target.files; uploadAll($event.target.files);" />
+      <template x-if="files !== null">
+        <div class="">
+          <p>Drag more files..</p>
+          <template x-for="(_,index) in Array.from({ length: files.length })">
+            <div class="">
+              <template x-if="files[index].type.includes('audio/')"></template>
+              <template x-if="files[index].type.includes('application/')"></template>
+              <template x-if="files[index].type.includes('image/')"></template>
+              <template x-if="files[index].type.includes('video/')"></template>
+              <span class="" x-text="files[index].name">Uploading</span>
+              <span class="" x-text="filesize(files[index].size)">...</span>
+            </div>
+          </template>
+        </div>
+      </template>
+      <template x-if="files === null">
+        <div class="">
+          <h5 class="ui header">Drag your files here or click in this
+            area.</h5>
+          <a @click="document.getElementById('file-upload').click();" class="ui button">Select a file</a>
+        </div>
+      </template>
+    </div>
+
+  </main>
+
+  {% endblock %}
+
+
+  {% block script %}
+  <script defer>
+
+  const API_ARTICLE_SET_THUMBNAIL = '/framework/admin/articles/thumbnail'
+
+    document.addEventListener('alpine:init', () => {
+
+      Alpine.data('main', () => ({
+        files: null, // For uploader
+        items: [],
+        article: null,
+        articleFiles: [],
+        init() {
+          this.loadArticle()
+          this.loadArticleFiles()
+        },
+        loadArticleFiles() {
+          let r = document.querySelector('[data-files]');
+          this.articleFiles = JSON.parse(r.dataset.files)
+        },
+        loadArticle() {
+          let r = document.querySelector('[data-article]');
+          this.article = JSON.parse(r.dataset.article)
+        },
+        /* Prevent default behavior (Prevent file from being opened) */
+        dragOverHandler(e) {
+          e.preventDefault();
+        },
+        /* HANDLES FILES DROPPED INTO DROPZONE */
+        dropHandler(ev) {
+
+          ev.preventDefault();
+
+          let dt = ev.dataTransfer;
+          this.files = dt.files;
+
+          this.uploadAll(dt.files);
+        },
+        async removeFile(filename) {
+
+          let formData = new FormData()
+          formData.append('filename', filename)
+
+          let r = await axios.post(`/framework/admin/article/${this.article.id}/images/remove`, formData)
+
+          console.log(r)
+
+          let index = this.articleFiles.indexOf(filename)
+          this.articleFiles.splice(index, 1)
+
+          $.toast({ message: `File removed: ${filename}` });
+
+        },
+        async setThumbnail(filename) {
+
+            let path = `/assets/x2f/articles/${this.article.id}/images/${filename}`
+
+            let formData = new FormData()
+            formData.append('path', path)
+            formData.append('article_id', this.article.id)
+            let r = axios.post(API_ARTICLE_SET_THUMBNAIL, formData)
+            $.toast({ message: `Thumbnail set to: ${path}!` });
+        },
+        /* Uploads multiple files determined by PHP Max Upload Size Per Post */
+        async uploadAll(files) {
+
+          let filesArray = Array.from(files);
+          filesArray.forEach((file) => {
+            // toaster.pop({ message: `Uploading ${file.name} ..`, class: 'blue' })
+            $.toast({ message: `Uploading ${file.name} ..` });
+          })
+
+          let formData = new FormData()
+
+          filesArray.forEach((file, index) => {
+            formData.append('file[]', file, file.name)
+          })
+
+          let r = await axios.post(`/framework/admin/article/${this.article.id}/images/upload`, formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          })
+
+          if (r.data.error) {
+            // toaster.pop({ message: r.data.message, class: 'red' })
+            $.toast({ message: r.data.message });
+          }
+
+          if ('files' in r.data) {
+            r.data.files.forEach(i => {
+
+              this.items.push(i)
+              this.articleFiles.push(i.filename)
+            })
+          }
+        }
+      }))
+    })
+  </script>
+  {% endblock %}

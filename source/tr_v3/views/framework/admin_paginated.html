@@ -1,0 +1,191 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% set title = 'Admin (Paginated Articles)' %}
+
+{% block content %}
+<section x-data="main" x-init="getPaginatedItems(currentPage)" x-cloak>
+
+    <!-- MODAL -->
+    <div class=" modal" :class="showModalAdd?'is-active':''">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Add new article</p>
+                <button @click="showModalAdd = false" class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- FORM -->
+
+                <form name="addArticle" action="/framework/admin/article" method="post" class="w-full">
+
+                    <div class="field">
+                        <label class="label">Article Title</label>
+                        <div class="control">
+                            <input class="input" type="text" name="title" placeholder="Text input">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Article Source URL</label>
+                        <div class="control">
+                            <input class="input" type="text" name="source_url" placeholder="Text input">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Markdown Body</label>
+                        <div class="control">
+                            <textarea class="textarea" name="markdown_content"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <footer class="modal-card-foot">
+                <button onclick="submit()" type="button" class="button is-success">Submit</button>
+                <button @click="showModalAdd = false" class="button">Cancel</button>
+            </footer>
+        </div>
+    </div>
+
+
+    <div class="box">
+        <div class="title is-4">Table Data</div>
+
+        <!-- TOOLBAR -->
+        <div class="field is-grouped">
+            <p class="control is-expanded">
+                <input @keyup.enter="performSearch()" x-model="filterInput.title" type="text" class="input"
+                    placeholder="Search..." required />
+            </p>
+            <p class="control">
+                <button @click="showModalAdd = true" class="button">Add Article</button>
+            </p>
+        </div>
+
+        <!-- TABLE -->
+        <table class="table is-striped">
+            <thead>
+
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Article
+                    </th>
+                    <th>
+                        Tags
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        <span class="sr-only">Actions</span>
+                    </th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <template x-for="row in items">
+                    <tr>
+                        <td x-text="row.id">
+                        </td>
+                        <td x-text="row.title">
+                        </td>
+                        <td>
+                            <template x-if="row.tags">
+                                <div>
+                                    <template x-for="tag in row.tags.split(',')">
+                                        <span class="badge rounded-pill text-bg-dark me-1" x-text="tag"></span>
+                                    </template>
+                                </div>
+                            </template>
+                        </td>
+                        <td x-text="row.updated_at"></td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a :href="`/framework/admin/article/${ row.id }/preview`" class="mr-3">Preview</a>
+                                <a :href="`/framework/admin/article/${ row.id }`" class="mr-3">Edit</a>
+                                <a :href="`/framework/admin/article/${ row.id }/files`" class="mr-3">Files</a>
+                                <a :href="`/framework/admin/article/${ row.id }/images`" class="mr-3">Images</a>
+                                <a :href="`/framework/admin/article/${ row.id }/delete`" class="mr-3">Delete</a>
+                            </div>
+                        </td>
+
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PAGINATION -->
+    <nav class="pagination box" role="navigation" aria-label="pagination">
+        <a @click="getPrevious()" class="pagination-previous">Previous</a>
+        <a @click="getNext()" class="pagination-next">Next page</a>
+        <ul class="pagination-list">
+            <template x-for="i in maxPage">
+                <li><a @click="currentPage = i, getPaginatedItems(currentPage)"
+                        :class="i == currentPage?'is-current':''" class="pagination-link" x-text="i"></a></li>
+            </template>
+        </ul>
+    </nav>
+
+</section>
+{% endblock %}
+
+{% block script %}
+<script>
+    function submit() {
+        document.forms["addArticle"].submit();
+    }
+
+    const ITEMS_PER_PAGE = 12
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            showModalAdd: false,
+            currentPage: 1,
+            maxPage: null,
+            items: [],
+            filterInput: {
+                title: ''
+            },
+            /* METHODS */
+            performSearch() {
+                this.resetCurrentPage()
+                this.getPaginatedItems(this.currentPage)
+            },
+            setMaxPage(count) {
+                count = parseInt(count)
+                this.maxPage = Math.ceil(count / ITEMS_PER_PAGE)
+            },
+            async getPaginatedItems(page) {
+                let r = await axios.get('/api/x2-framework/articles/fetch_paginated.php', {
+                    params: {
+                        page: page,
+                        filters: JSON.stringify(this.filterInput)
+                    }
+                })
+                this.items = r.data.rows
+                this.setMaxPage(r.data.count)
+            },
+            getNext() {
+                if (this.currentPage < this.maxPage) {
+                    this.currentPage++
+                    this.getPaginatedItems(this.currentPage)
+                }
+            },
+            getPrevious() {
+                if (this.currentPage > 1) {
+                    this.currentPage--
+                    this.getPaginatedItems(this.currentPage)
+                }
+            },
+            resetCurrentPage() {
+                this.currentPage = 1
+            },
+        }))
+    })
+</script>
+{% endblock %}

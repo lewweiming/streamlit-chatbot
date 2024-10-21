@@ -15,7 +15,7 @@ import numpy as np
 
 DOC_PATH = "samples/travelobby.pdf"
 FOLDER_PATH = "faiss_vector_store"
-USER_QUERY = 'What is Travelobby'
+USER_QUERY = 'Tell me more about The Checkout page in Travelgowhere for Car Rentals' # I.e What is Travelobby
 MODEL_NAME = 'bert-base-nli-mean-tokens'
 MODE = 'load'
 
@@ -103,7 +103,6 @@ context_text = "\n\n".join([doc.page_content for doc, _score in results])
 hub_llm = HuggingFaceEndpoint(repo_id="mistralai/Mixtral-8x7B-Instruct-v0.1")
 
 # Combine user query and retrieved context to create a prompt
-context_text = "\n\n".join([doc.page_content for doc, _score in results])
 prompt = f"User Query: {USER_QUERY}\n\nContext:\n{context_text}\n\nGenerate a detailed answer based on the context above:"
 
 # Generate an answer using the LLM

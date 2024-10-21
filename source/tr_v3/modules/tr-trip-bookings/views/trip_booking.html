@@ -1,0 +1,54 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="">
+    <h2 class="ui header">Book Your Trip/Tour</h2>
+    <form class="ui form" id="booking-form">
+        <div class="field">
+            <label>Full Name</label>
+            <input type="text" name="full_name" placeholder="Full Name" required>
+        </div>
+        <div class="field">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+        <div class="field">
+            <label>Phone Number</label>
+            <input type="text" name="phone_number" placeholder="Phone Number">
+        </div>
+        <div class="field">
+            <label>Trip Name</label>
+            <input type="text" name="trip_name" id="trip-name" readonly>
+        </div>
+        <div class="field">
+            <label>Total Amount</label>
+            <input type="text" name="total_amount" id="total-amount" readonly>
+        </div>
+        <button class="ui primary button" type="submit">Confirm Booking</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    // Example of populating trip details based on trip_id from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const tripId = urlParams.get('trip_id');
+
+    // Dummy data for trip
+    const tripData = {
+        1: { name: "Trip to Paris", price: 1200.00 }
+    };
+
+    const trip = tripData[tripId];
+    if (trip) {
+        document.getElementById('trip-name').value = trip.name;
+        document.getElementById('total-amount').value = `$${trip.price}`;
+    }
+
+    document.getElementById('booking-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        alert('Booking Confirmed!');
+    });
+</script>
+{% endblock %}

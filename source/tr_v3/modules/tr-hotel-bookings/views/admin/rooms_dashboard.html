@@ -1,0 +1,91 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="">
+    <h2 class="ui dividing header">Hotel Bookings - Hotel Rooms Dashboard</h2>
+
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Room ID</th>
+                <th>Hotel ID</th>
+                <th>Room Number</th>
+                <th>Room Type</th>
+                <th>Price ($)</th>
+                <th>Availability Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example row, loop through your data and replace accordingly -->
+            <tr>
+                <td>1</td>
+                <td>101</td>
+                <td>101A</td>
+                <td>Deluxe Suite</td>
+                <td>250.00</td>
+                <td><span class="ui green label">Available</span></td>
+                <td>
+                    <div class="ui buttons">
+                        <button class="ui blue button">Edit</button>
+                        <button class="ui red button">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>102</td>
+                <td>202B</td>
+                <td>Standard Room</td>
+                <td>120.00</td>
+                <td><span class="ui orange label">Booked</span></td>
+                <td>
+                    <div class="ui buttons">
+                        <button class="ui blue button">Edit</button>
+                        <button class="ui red button">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>103</td>
+                <td>303C</td>
+                <td>Executive Suite</td>
+                <td>400.00</td>
+                <td><span class="ui yellow label">Maintenance</span></td>
+                <td>
+                    <div class="ui buttons">
+                        <button class="ui blue button">Edit</button>
+                        <button class="ui red button">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <button class="ui primary button">Add New Room</button>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

@@ -1,0 +1,218 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block head %}
+<!-- ACE EDITOR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.8.1/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.8.1/mode-html.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.8.1/theme-monokai.min.js"></script>
+
+<!-- EDITOR STYLE -->
+<style type="text/css" media="screen">
+    #editor {
+        display: block;
+        height: 500px;
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<main x-data="main()" class="ui container">
+
+    <!-- MODAL -->
+    <div class="ui modal load">
+        <i class="close icon"></i>
+        <div class="header">
+            Select Templates To Load
+        </div>
+        <div class="content">
+
+            <!-- TOGGLE -->
+            <div class="ui toggle checkbox">
+                <input x-model="deleteMode" type="checkbox">
+                <label>Toggle delete mode</label>
+            </div>
+
+            <!-- TABLE -->
+            <table class="ui table">
+                <template x-for="t in templates">
+                    <tr>
+                        <td x-text="t"></td>
+                        <td>
+                            <button @click="onTemplateLoad(t)" class="ui button">Load</button>
+                            <template x-if="deleteMode">
+                                <button @click="deleteTemplate(t)" class="ui button">Delete</button>
+                            </template>
+                        </td>
+                    </tr>
+                </template>
+            </table>
+        </div>
+        <div class="actions">
+            <button class="ui deny button">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <h2 class="ui header">Email Templates (Powered by Ace Editor)</h2>
+
+    <p>Email template files will be saved to /modules/email/views/emails/templates/</p>
+
+    <!-- TOOLBAR -->
+    <div class="ui borderless menu">
+        <div class="item">
+
+            <div class="ui labeled input">
+                <div class="ui label">Filename</div>
+                <input x-model="inputFilename" type="text" placeholder="E.g my_email_template.html">
+            </div>
+        </div>
+
+        <div class="item">
+
+            <button @click="saveTemplate()" class="ui primary button">Save</button>
+        </div>
+        <div class="item">
+            <button @click="loadTemplates(), $('.modal.load').modal('show')" class="ui primary button">Load
+                Template</button>
+        </div>
+
+
+    </div>
+
+
+
+    <!-- GRID -->
+    <div class="ui grid two columns">
+        <div class="column">
+            <!-- ACE CODE EDITOR -->
+            <div id="editor"></div>
+        </div>
+        <div class="column">
+            <div x-html="loadedTemplateContent"></div>
+        </div>
+    </div>
+
+
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+    const aceEditor = ace.edit("editor");
+    aceEditor.setTheme("ace/theme/monokai");
+    aceEditor.session.setMode("ace/mode/html");
+
+    aceEditor.setValue('<div class="text-lg">hello</div>')
+
+    aceEditor.session.on('change', function (delta) {
+    })
+</script>
+<script>
+
+    const API_LIST = '/api/list.php'
+
+    const API_TEMPLATE_SAVE = '/modules/email/api/admin/save_template.php'
+    const API_TEMPLATE_LIST = '/modules/email/api/admin/load_templates.php'
+    const API_TEMPLATE_DELETE = '/modules/email/api/admin/delete_template.php'
+    const API_TEMPLATE_LOAD = '/modules/email/api/admin/load_template_content.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            inputFilename: '',
+            templates: [],
+            selectedFile: null,
+            deleteMode: false,
+            loadedTemplateContent: "<h1>hello</h1>",
+            init() {
+                this.loadTemplates()
+            },
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+            async deleteTemplate(filename) {
+
+                let fd = new FormData();
+                fd.append('filename', filename);
+
+                let r = await axios.post(API_TEMPLATE_DELETE, fd)
+
+                if (r.data.error) {
+                    $.toast({ class: 'error', message: r.data.message });
+                }
+
+                if (r.data.message == "success") {
+                    this.templates.splice(this.templates.indexOf(filename), 1);
+                    $.toast({ class: 'success', message: `File: ${filename} removed!` });
+                }
+            },
+            async loadTemplates() {
+
+                let r = await axios.get(API_TEMPLATE_LIST)
+
+                if (r.data.error) {
+                    $.toast({ class: 'error', message: r.data.message });
+                }
+
+                if (r.data.message == "success") {
+                    this.templates = r.data.files;
+                    $.toast({ class: 'success', message: `Templates fetched!` });
+                }
+            },
+            onTemplateLoad(filename) {
+                this.selectedFile = filename
+                this.inputFilename = filename
+                this.loadTemplateContent(filename)
+                $('.modal.load').modal('hide')
+            },
+            async loadTemplateContent(filename) {
+
+                let r = await axios.get(API_TEMPLATE_LOAD, {
+                    params: {
+                        filename: filename
+                    }
+                })
+
+                if (r.data.error) {
+                    $.toast({ class: 'error', message: r.data.message });
+                }
+
+                if (r.data.message == "success") {
+
+                    this.loadedTemplateContent = r.data.content;
+                    aceEditor.setValue(this.loadedTemplateContent)
+
+                    $.toast({ class: 'success', message: `File content fetched!` });
+                }
+            },
+            async saveTemplate() {
+
+                let fd = new FormData();
+                fd.append('filename', this.inputFilename);
+                fd.append('content', aceEditor.getValue());
+
+                let r = await axios.post(API_TEMPLATE_SAVE, fd)
+
+                if (r.data.error) {
+
+                    $.toast({ class: 'error', message: r.data.message });
+                }
+
+                if (r.data.message == "success") {
+
+                    $.toast({ class: 'success', message: `File saved as ${this.inputFilename}` });
+                }
+            },
+        }))
+    })
+</script>
+{% endblock %}

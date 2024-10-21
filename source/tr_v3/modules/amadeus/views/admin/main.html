@@ -1,0 +1,91 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+
+    <h1>Amadeus Module</h1>
+
+    <div class="ui message">
+        <div class="header">
+          Export as JSON
+        </div>
+        <p>Refer to Airport Routes</p>
+      </div>
+
+    <!-- CARDS -->
+    <div class="ui four cards">
+        <div class="card">
+            <div class="center aligned content">
+                <img class="ui tiny image" src="/modules/amadeus/assets/icons/Amadeus_Logo.png" />
+                <div class="ui hidden divider"></div>
+                <div class="header">Flights</div>
+                <p>Flight related api</p>
+            </div>
+            <div class="extra content">
+                <a href="/framework/admin/amadeus/flights/main" class="ui right floated primary button">View</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="center aligned content">
+                <img class="ui tiny image" src="/modules/amadeus/assets/icons/Amadeus_Logo.png" />
+                <div class="ui hidden divider"></div>
+                <div class="header">Flight Booking App</div>
+                <p>Creating flight bookings with Amadeus</p>
+            </div>
+            <div class="extra content">
+                <a href="/amadeus-flight-app" class="ui right floated primary button">View</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="center aligned content">
+                <img class="ui tiny image" src="/modules/amadeus/assets/icons/Amadeus_Logo.png" />
+                <div class="ui hidden divider"></div>
+                <div class="header">Hotels</div>
+                <p>Hotel related api</p>
+            </div>
+            <div class="extra content">
+                <a href="/framework/admin/amadeus/hotels/main" class="ui right floated primary button">View</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="center aligned content">
+                <img class="ui tiny image" src="/modules/amadeus/assets/icons/Amadeus_Logo.png" />
+                <div class="ui hidden divider"></div>
+                <div class="header">Hotel Booking App</div>
+                <p>Creating hotel bookings with Amadeus</p>
+            </div>
+            <div class="extra content">
+                <a href="/amadeus-hotel-app" class="ui right floated primary button">View</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="center aligned content">
+                <img class="ui tiny image" src="/modules/amadeus/assets/icons/Amadeus_Logo.png" />
+                <div class="ui hidden divider"></div>
+                <div class="header">Trips</div>
+                <p>Trip related api</p>
+            </div>
+            <div class="extra content">
+                <a href="/framework/admin/amadeus/trips/main" class="ui right floated primary button">View</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="center aligned content">
+                <img class="ui tiny image" src="/modules/amadeus/assets/icons/Amadeus_Logo.png" />
+                <div class="ui hidden divider"></div>
+                <div class="header">Transfers</div>
+                <p>Car transfers related api</p>
+            </div>
+            <div class="extra content">
+                <a href="/framework/admin/amadeus/transfers/main" class="ui right floated primary button">View</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

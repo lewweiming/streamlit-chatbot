@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset=utf-8>
+    <title>TR V3 - Admin</title>
+
+    <!-- You MUST include jQuery 3+ before Fomantic -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/fomantic-ui/semantic.min.css">
+    <script src="/fomantic-ui/semantic.min.js"></script>
+
+    <!-- ALPINE + AXIOS -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- ADDITIONAL HEADERS -->
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+
+    {% block head %}{% endblock %}
+    {% stack head %}
+</head>
+
+<body data-flash="{{ flash|json_encode|e }}">
+
+    <!-- NAVBAR -->
+    {% include 'parts/navbar_admin.html' %}
+
+    <!-- ROUTE CONTENT -->
+    <div class="ui container" style="padding-bottom: 70px;">
+    {% block content %}{% endblock %}
+    </div>
+
+    <!-- NAVBAR: BOTTOM FIXED -->
+    <nav class="ui bottom fixed menu">
+        
+        <a class="item" href="/framework/admin/crud">CRUD</a>
+        <a class="item" href="/framework/admin/inbox/main">Inbox</a>
+        <a class="item" href="/framework/admin/file-manager">File Manager</a>
+        <a class="item" href="/framework/admin/x2-file-uploads">X2 File Uploads</a>
+        <a class="item" href="/framework/admin/twig">Twig</a>
+        <a class="item" href="/framework/admin/debugger/main">Debugger</a>
+        <a class="item" href="/framework/admin/routes">Routes</a>
+        <a class="item" href="/framework/admin/definitions">Definitions</a>
+        <a class="item" href="/framework/admin/pages">Pages</a>
+        <a class="item" href="/framework/admin/database">Database</a>
+        <a class="item" target=blank href="/vendor/adminer/adminer_x2f.php">Adminer</a>
+        <a class="item" href="/framework/admin/plugins/install">Plugins</a>
+        
+        
+        
+        <!-- Add more items or customize as needed -->
+    </nav>
+
+
+    <!-- ADDITIONAL SCRIPTS -->
+    <script>
+    $('.ui.dropdown').dropdown();
+    </script>
+    <!-- HANDLE FLASH ERRORS / SUCCESS -->
+    <script>
+        var flashData = document.querySelector('[data-flash]');
+        var flash = JSON.parse(flashData.dataset.flash); // Dictionary Object
+
+        if (flash) {
+            renderFlashElement(flash)
+            renderFlashMessages(flash) // Optional
+        }
+
+        // Flash messages NOT toast
+        function renderFlashMessages(flash) {
+
+            const flashMesagesContainer = document.getElementById('flashMessages');
+
+            // Render success messages
+            if ('success' in flash) {
+                flash.success.forEach(message => {
+                    const el = document.createElement("div");
+                    el.className = "ui success message";
+                    el.textContent = message;
+
+                    const iconEl = document.createElement("i");
+                    iconEl.className = "close icon";
+
+                    el.prepend(iconEl);
+                    flashMesagesContainer.append(el)
+                })
+            }
+
+            // Render error messages
+            if ('error' in flash) {
+                flash.error.forEach(message => {
+                    const el = document.createElement("div");
+                    el.className = "ui error message";
+                    el.textContent = message;
+
+                    const iconEl = document.createElement("i");
+                    iconEl.className = "close icon";
+
+                    el.prepend(iconEl);
+                    flashMesagesContainer.append(el)
+                })
+            }
+
+            // Active Dismissable blocks
+            $('.message .close').on('click', function () { $(this).closest('.message').transition('fade'); });
+
+        }
+
+        function renderFlashElement(flash) {
+
+            if ('success' in flash) {
+
+                flash.success.forEach((message) => {
+                    $.toast({
+                    class: 'success',
+                    message: message
+                    });
+                })
+
+            }
+            
+            if ('error' in flash) {
+
+                flash.error.forEach((message) => {
+
+                    $.toast({
+                    class: 'error',
+                    message: message
+                    });
+                })
+            }
+        }
+    </script>
+    {% block script %}{% endblock %}
+    {% stack script %}
+</body>
+
+</html>

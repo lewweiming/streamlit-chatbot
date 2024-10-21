@@ -1,0 +1,100 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<main x-data="main()">
+
+    <h2 class="ui dividing header">Shop Orders Dashboard</h2>
+
+    <div class="ui message">
+        <div class="header">
+          Notes
+        </div>
+        <ul>
+            <li>Modifications will update the order status to "Modified" with new values.</li>
+            <li>For modifications, only certain fields are modifiable.</li>
+            <li>Cancellations will update the order status to "Cancelled".</li>
+            <li>Confirmations will update the order status to "Confirmed".</li>
+            <li>For confirmation, you'll need to provide a valid payment ID pointing to a payment made by a user.</li>
+        </ul>
+      </div>
+
+    <div class="ui grid">
+        <div class="sixteen wide column">
+            <div class="ui segment">
+                <h3 class="ui header">Orders Overview</h3>
+                <!-- TOOLBAR -->
+                <div class="ui secondary menu">
+                    <div class="item">
+                        <div>
+                            <a href="/framework/admin/shop/add-order" class="ui primary button">Add New Order</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ui toggle checkbox">
+                            <input @click="deleteMode = !deleteMode" type="checkbox">
+                            <label>Toggle delete mode</label>
+                        </div>
+                    </div>
+                </div>
+                <table class="ui celled table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer Name</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Order Date</th>
+                            <th>Total Price</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in rows %}
+                        <tr>
+                            <td>{{ row.order_id }}</td>
+                            <td>{{ row.customer_name }}</td>
+                            <td>{{ row.product_name }}</td>
+                            <td>{{ row.quantity }}</td>
+                            <td>{{ row.order_date }}</td>
+                            <td>{{ row.total_price | currency }}</td>
+                            <td>
+                                <div class="ui label {{ row.status | lowercase }}">
+                                    {{ row.status | capitalize }}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="ui buttons">
+                                    <a href="/framework/admin/shop/order-details/{{ row.order_id }}" class="ui button">View</a>
+                                    {% if row.status != 'confirmed' %}
+                                    <a href="/framework/admin/shop/confirm-order/{{ row.order_id }}" class="ui button">Confirm</a>
+                                    {% endif %}
+                                    <a href="/framework/admin/shop/modify-order/{{ row.order_id }}" class="ui button">Modify</a>
+                                    {% if row.status != 'cancelled' %}
+                                    <a href="/framework/admin/shop/cancel-order/{{ row.order_id }}" class="ui button">Cancel</a>
+                                    {% endif %}
+                                    <a x-show="deleteMode == true" href="/framework/admin/shop/delete-order/{{ row.order_id }}" class="ui negative icon button">
+                                    <i class="trash icon"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('main', () => ({
+            deleteMode: false
+        }))
+    })
+</script>
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block head %}
+<!-- SIMPLE MDE -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<main x-data="main" data-article="{{ article|json_encode|e }}" data-images="{{ images|json_encode|e }}">
+  <div class="ui container">
+
+    <!-- BREADCRUMBS -->
+    <div class="ui breadcrumb">
+      <a href="/framework/admin" class="section">Admin</a>
+      <i class="right angle icon divider"></i>
+      <a href="/framework/admin/articles" class="section">Articles</a>
+      <i class="right angle icon divider"></i>
+      <div class="active section">Edit Article: {{ article.title }}</div>
+    </div>
+
+    <h1>Edit Awesome Article</h1>
+
+    <!-- GRID -->
+    <div class="ui grid two columns">
+
+      <div class="column">
+
+        <!-- FORM -->
+        <form method="post" action="/framework/admin/article/{{ article.id }}" class="ui form">
+          <div class="field">
+            <label>Article Title</label>
+            <input type="text" value="{{ article.title }}" name="title" placeholder="Article Title">
+          </div>
+
+          <div class="field">
+            <label>Article Thumbnail Path</label>
+            <input type="text" value="{{ article.thumbnail_path }}" name="thumbnail_path" placeholder="Article Thumbnail Path. Http paths can be used.">
+          </div>
+
+          <div class="field">
+            <label>Article Source Url</label>
+            <input type="text" value="{{ article.source_url }}" name="source_url" placeholder="Url source">
+          </div>
+
+          <div class="field">
+            <label>Article Tags</label>
+            <input type="text" value="{{ article.tags }}" name="tags" placeholder="Comma separated tags">
+          </div>
+
+          <div class="field">
+            <label>Markdown Content</label>
+            <!-- TEXTAREA -->
+            <textarea name="markdown_content" id="simplemde">{{ article.markdown_content }}</textarea>
+          </div>
+
+          <button type="submit" class="ui positive button">
+            Update
+          </button>
+        </form>
+      </div>
+      <div class="column">
+        <h2 class="ui header">Images</h2>
+        <p>Click on image to load into markdown content</p>
+        <div class="ui small images">
+          <template x-for="image in images">
+          <img @click="onImageClick(image)" :src="`/assets/x2f/articles/${article.id}/images/${image}`">
+          </template>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+  var simplemde;
+</script>
+<script defer>
+
+  const API_CREATE = '/api/x2-framework/articles/create.php'
+
+  document.addEventListener('alpine:init', () => {
+
+    Alpine.data('main', () => ({
+      article: {},
+      images: [],
+      init() {
+        this.$nextTick(() => {
+
+          this.loadArticle();
+          this.loadImages();
+
+          if (simplemde === undefined) {
+            simplemde = new SimpleMDE({ element: $("#simplemde")[0] });
+          }
+        });
+      },
+      loadArticle() {
+        let r = document.querySelector('[data-article]');
+        this.article = JSON.parse(r.dataset.article)
+      },
+      loadImages() {
+        let r = document.querySelector('[data-images]');
+        this.images = JSON.parse(r.dataset.images)
+      },
+      onImageClick(filename) {
+
+        let imageMarkdown = `![](/assets/x2f/articles/${this.article.id}/images/${filename})`;
+
+        var pos = simplemde.codemirror.getCursor();
+        simplemde.codemirror.setSelection(pos, pos);
+        simplemde.codemirror.replaceSelection(imageMarkdown)
+
+      }
+    }))
+  })
+</script>
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+
+<div class="ui container segment">
+    <div class="ui centered grid">
+      <div class="sixteen wide column">
+        <div class="ui two column grid">
+          <div class="column">
+            <h2 class="ui header">Hotel Booking Receipt</h2>
+            <p>Thank you for staying with us!</p>
+          </div>
+          <div class="column right aligned">
+            <div class="ui label">Receipt #56789</div>
+            <div class="ui label">Date: 2024-10-04</div>
+          </div>
+        </div>
+
+        <div class="ui divider"></div>
+
+        <!-- Customer Information -->
+        <div class="ui grid">
+          <div class="eight wide column">
+            <h4 class="ui dividing header">Customer Information</h4>
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Email:</strong> johndoe@example.com</p>
+            <p><strong>Phone:</strong> +123 456 7890</p>
+          </div>
+          <div class="eight wide column">
+            <h4 class="ui dividing header">Hotel Booking Details</h4>
+            <p><strong>Hotel Name:</strong> Sunshine Hotel</p>
+            <p><strong>Check-in Date:</strong> 2024-10-10</p>
+            <p><strong>Check-out Date:</strong> 2024-10-15</p>
+            <p><strong>Room Type:</strong> Deluxe Suite</p>
+            <p><strong>Location:</strong> 123 Beach Road, Miami</p>
+          </div>
+        </div>
+
+        <div class="ui divider"></div>
+
+        <!-- Payment Summary -->
+        <h4 class="ui dividing header">Payment Summary</h4>
+        <table class="ui celled table">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Quantity</th>
+              <th>Unit Price</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Room Charge (5 nights)</td>
+              <td>5</td>
+              <td>$150</td>
+              <td>$750</td>
+            </tr>
+            <tr>
+              <td>Breakfast</td>
+              <td>5</td>
+              <td>$20</td>
+              <td>$100</td>
+            </tr>
+            <tr>
+              <td>Spa Services</td>
+              <td>1</td>
+              <td>$80</td>
+              <td>$80</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="3">Subtotal</th>
+              <th>$930</th>
+            </tr>
+            <tr>
+              <th colspan="3">Tax (10%)</th>
+              <th>$93</th>
+            </tr>
+            <tr>
+              <th colspan="3">Total</th>
+              <th>$1023</th>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="ui divider"></div>
+
+        <!-- Footer -->
+        <div class="ui two column grid">
+          <div class="column">
+            <h4 class="ui header">Payment Method</h4>
+            <p>Paid via Credit Card (Visa ****1234)</p>
+          </div>
+          <div class="column right aligned">
+            <button class="ui primary button" onclick="window.print()">Print Receipt</button>
+            <button class="ui button">Download PDF</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

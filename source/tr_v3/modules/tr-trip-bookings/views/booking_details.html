@@ -1,0 +1,28 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="">
+    <h2 class="ui header">Your Booking Details</h2>
+    <div class="ui segment">
+        <h3 class="ui dividing header">Booking Information</h3>
+        <p><strong>Trip:</strong> Trip to Paris</p>
+        <p><strong>Destination:</strong> Paris, France</p>
+        <p><strong>Start Date:</strong> 2024-10-01</p>
+        <p><strong>End Date:</strong> 2024-10-10</p>
+        <p><strong>Total Amount:</strong> $1200.00</p>
+        <p><strong>Status:</strong> Booked</p>
+    </div>
+    <button class="ui button negative" onclick="cancelBooking()">Cancel Booking</button>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    function cancelBooking() {
+        if (confirm("Are you sure you want to cancel this booking?")) {
+            alert("Booking has been cancelled.");
+            // Logic to update booking status would go here
+        }
+    }
+</script>
+{% endblock %}

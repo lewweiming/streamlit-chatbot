@@ -1,0 +1,184 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<main x-data="main">
+  <div class="ui container">
+    <h1>My Inbox</h1>
+    <p>This page application is based on CRUD Paginated.</p>
+
+    <!-- TOOLBAR -->
+    <div class="ui secondary menu">
+      <div class="item">
+        <div class="ui toggle checkbox">
+          <input @click="deleteMode = !deleteMode" type="checkbox">
+          <label>Toggle delete mode</label>
+        </div>
+      </div>
+
+      <div class="item">
+        <a @click="list()" class="ui small button">
+          <i class="refresh icon"></i> Refresh
+        </a>
+      </div>
+
+      <div class="item">
+        <div class="ui input">
+        <input @keyup.enter="performSearch()" x-model="filterInput.title" type="text" placeholder="Search by name">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TABLE -->
+    <table class="ui celled table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Markdown Content</th>
+          <th>Message updated on</th>
+          <th>Action(s)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <template x-for="i in rows">
+          <tr>
+            <td data-label="Title" x-text="i.title"></td>
+            <td data-label="Website" x-text="i.markdown_content"></td>
+            <td data-label="Updated" x-text="convertDate(i.updated_at)"></td>
+            <td data-label="Actions">
+              <a x-show="deleteMode" @click="submitDelete(i.id)" class="ui small button">
+                <i class="delete icon"></i> Delete
+              </a>
+            </td>
+          </tr>
+        </template>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="5">
+            <div class="ui right floated pagination menu">
+              <a @click="getPrevious()" class="icon item">
+                <i class="left chevron icon"></i>
+              </a>
+              <template x-for="i in maxPage">
+                <a @click="currentPage = i, listPaginated(currentPage)"
+                :class="i == currentPage?'active':''" class="item" x-text="i"></a>        
+              </template>
+              <a @click="getNext()" class="icon item">
+                <i class="right chevron icon"></i>
+              </a>
+            </div>
+          </th>
+        </tr>
+      </tfoot>
+
+    </table>
+  </div>
+
+</main>
+{% endblock %}
+
+{% block script %}
+<script defer>
+
+  const ITEMS_PER_PAGE = 12 // DEFAULT 12
+  const API_LIST = '/api/user-inbox/list.php'
+  const API_LIST_PAGINATED = '/api/user-inbox/list_paginated.php'
+  const API_DELETE = '/api/user-inbox/delete.php'
+
+  document.addEventListener('alpine:init', () => {
+
+    Alpine.data('main', () => ({
+      rows: [],
+      deleteMode: false,
+      input: {
+        title: '',
+      },
+      selected: null,
+      init() {
+        this.listPaginated(this.currentPage)
+      },
+      async list() {
+        $.toast({ message: 'Fetching list..' });
+
+        let r = await axios.get(API_LIST)
+
+        if (r.data.message == 'success') {
+          this.rows = r.data.rows
+          $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+        }
+      },
+      clearInput() {
+        this.input.title = ''
+      },
+      async submitDelete(id) {
+        let fd = new FormData();
+        fd.append('id', id);
+        let r = await axios.post(API_DELETE, fd)
+
+        if (r.data.message == 'success') {
+          this.rows.splice(this.rows.findIndex((i) => i.id == id), 1)
+          $.toast({ class: 'success', message: 'Entry removed!' });
+        } else {
+          $.toast({ class: 'error', message: r.data.message });
+        }
+      },
+      convertDate(mysqlTimestamp) {
+        // Assuming your MySQL timestamp is in the format 'YYYY-MM-DD HH:MM:SS'
+        const date = new Date(mysqlTimestamp);
+        const options = { day: 'numeric', month: 'short', year: '2-digit' };
+        const formattedDate = date.toLocaleDateString('en-GB', options);
+        return formattedDate;
+      },
+      /* FILTER SUPPORT */
+      filterInput: {
+          title: ''
+      },
+      /* PAGINATION SUPPORT */
+      currentPage: 1,
+      maxPage: null,
+      performSearch() {
+          $.toast({ message: 'Performig filter search..' });
+          this.resetCurrentPage()
+          this.listPaginated(this.currentPage)
+      },
+      setMaxPage(count) {
+          count = parseInt(count)
+          this.maxPage = Math.ceil(count / ITEMS_PER_PAGE)
+      },
+      async listPaginated(page) {
+
+          $.toast({ message: 'Fetching list..' });
+
+          let r = await axios.get(API_LIST_PAGINATED, {
+              params: {
+                  page: page,
+                  filters: JSON.stringify(this.filterInput)
+              }
+          })
+
+          if (r.data.message == 'success') {
+            this.rows = r.data.rows
+            $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+            this.setMaxPage(r.data.count)
+          }
+      },
+      getNext() {
+          if (this.currentPage < this.maxPage) {
+              this.currentPage++
+              this.listPaginated(this.currentPage)
+          }
+      },
+      getPrevious() {
+          if (this.currentPage > 1) {
+              this.currentPage--
+              this.listPaginated(this.currentPage)
+          }
+      },
+      resetCurrentPage() {
+          this.currentPage = 1
+      }
+    }))
+  })
+</script>
+{% endblock %}

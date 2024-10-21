@@ -1,0 +1,70 @@
+<div class="ui form">
+
+    <div class="field">
+        <label for="fromLocation">From where:</label>
+        <input placeholder="City or Airport search E.g. London" type="text" id="fromLocation" name="from"
+            x-model="from">
+    </div>
+    <button @click="handleFromLocation()" class="ui button">Search</button>
+</div>
+
+<div class="ui hidden divider"></div>
+
+<!-- SELECT ORIGIN -->
+<template x-if="origin">
+    <section>
+        <div class="ui hidden divider"></div>
+        <div class="ui top attached segment">
+            <div class="ui small header">Name: <span x-text="origin.name"></div>
+        </div>
+        <div class="ui attached segment">
+            <table class="ui table">
+                <tr>
+                    <td>City Name</td>
+                    <td x-text="origin.address.cityName"></td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td x-text="origin.address.countryName"></td>
+                </tr>
+                <tr>
+                    <td>IATA Code</td>
+                    <td x-text="origin.iataCode"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="ui bottom attached segment">
+            <div class="ui small header">SubType: <span x-text="origin.subType"></div>
+        </div>
+    </section>
+</template>
+
+<!-- SEGMENTS -->
+<template x-for="location in fromLocation">
+    <section>
+        <div class="ui hidden divider"></div>
+        <div class="ui top attached segment">
+            <div class="ui small header">Name: <span x-text="location.name"></div>
+        </div>
+        <div class="ui attached segment">
+            <table class="ui table">
+                <tr>
+                    <td>City Name</td>
+                    <td x-text="location.address.cityName"></td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td x-text="location.address.countryName"></td>
+                </tr>
+                <tr>
+                    <td>IATA Code</td>
+                    <td x-text="location.iataCode"></td>
+                </tr>
+            </table>
+            <button @click="handleOrigin(location)" class="ui basic primary fluid button">Select</button>
+        </div>
+        <div class="ui bottom attached segment">
+            <div class="ui small header">SubType: <span x-text="location.subType"></div>
+        </div>
+    </section>
+</template>

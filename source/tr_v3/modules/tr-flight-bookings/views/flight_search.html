@@ -1,0 +1,83 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    <h2 class="ui header">Flight Booking</h2>
+    
+    <!-- Flight Search Form -->
+    <form class="ui form">
+        <div class="fields">
+            <div class="eight wide field">
+                <label>Origin</label>
+                <input type="text" name="origin" placeholder="Origin">
+            </div>
+            <div class="eight wide field">
+                <label>Destination</label>
+                <input type="text" name="destination" placeholder="Destination">
+            </div>
+        </div>
+        <div class="fields">
+            <div class="eight wide field">
+                <label>Departure Date</label>
+                <input type="date" name="departure_date">
+            </div>
+            <div class="eight wide field">
+                <label>Return Date</label>
+                <input type="date" name="return_date">
+            </div>
+        </div>
+        <div class="field">
+            <button class="ui primary button" type="submit">Search Flights</button>
+        </div>
+    </form>
+
+    <!-- Search Results -->
+    <h3 class="ui dividing header">Available Flights</h3>
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Flight Number</th>
+                <th>Airline</th>
+                <th>Departure</th>
+                <th>Arrival</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Sample Row -->
+            <tr>
+                <td>AA123</td>
+                <td>American Airlines</td>
+                <td>2024-09-30 09:00</td>
+                <td>2024-09-30 12:00</td>
+                <td>$300</td>
+                <td><button class="ui green button">Book Now</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

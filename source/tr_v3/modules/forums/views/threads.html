@@ -1,0 +1,55 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<!-- HEADER -->
+<h1 class="ui horizontal divider center aligned header">Threads</h1>
+
+<!-- SEARCH -->
+<div class="ui hidden section divider"></div>
+<div class="ui grid centered">
+    <div class="ui large form">
+    <div class="field">
+        <input type="text" placeholder="Search..">
+    </div>
+    <div>
+        <button class="ui primary button">Search</button>
+        <a href="/forum/threads/create" class="ui primary button">Create Thread</a>
+        
+    </div>
+    </div>
+</div>
+
+
+
+<!-- THREADS -->
+<div class="ui items">
+  {% for thread in threads %}
+  <div class="item">
+    <div class="image">
+      <img src="https://via.placeholder.com/150">
+    </div>
+    <div class="content">
+      <a class="header">{{ thread.title|e }}</a>
+      <div class="meta">
+        <span>Description</span>
+      </div>
+      <div class="description">
+        <p></p>
+      </div>
+      <div class="extra">
+        <a href="/forum/thread/{{ thread.id }}" class="ui left floated primary button">
+          View thread
+          <i class="right chevron icon"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+{% endfor %}
+    
+</div>
+
+{% endblock %}

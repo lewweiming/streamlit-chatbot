@@ -1,0 +1,139 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+    <a href="/framework/admin" class="section">Admin Home</a>
+    <i class="right angle icon divider"></i>
+    <a href="/framework/admin/flights/bookings-dashboard" class="section">Flight Booking Dashboard</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section">Modify Booking (Id: {{ booking.booking_id }})</div>
+</div>
+
+<h2 class="ui header">Flight Booking Modifications</h2>
+
+<!-- SHOW EXISTING MODIFICATIONS FOR THIS BOOKING -->
+<table class="ui celled table">
+    <thead>
+      <tr>
+        <th>Modification ID</th>
+        <th>Booking ID</th>
+        <th>Modified By</th>
+        <th>Previous Departure Date</th>
+        <th>Previous Return Date</th>
+        <th>New Departure Date</th>
+        <th>New Return Date</th>
+        <th>Modification Reason</th>
+        <th>Modification Date</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% if modifications|length == 0 %}
+    <tr>
+        <td colspan="9">No modifications for this booking.</td>
+    </tr>
+    {% endif %}
+      {% for modification in modifications %}
+      <tr>
+        <td>{{ modification.modification_id }}</td>
+        <td>{{ modification.booking_id }}</td>
+        <td>{{ modification.modified_by }}</td>
+        <td>{{ modification.previous_departure_date|date('Y-m-d') }}</td>
+        <td>{{ modification.previous_return_date|date('Y-m-d') }}</td>
+        <td>{{ modification.new_departure_date|date('Y-m-d') }}</td>
+        <td>{{ modification.new_return_date|date('Y-m-d') }}</td>
+        <td>{{ modification.modification_reason }}</td>
+        <td>{{ modification.modification_date|date('Y-m-d H:i:s') }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+
+<!-- MODIFICATION FORM TO BE SUBMITTED -->
+<div class="ui segment">
+    <h2 class="ui dividing header">Flight Booking Modification Submission Form</h2>
+    <form class="ui form" action="/framework/admin/flights/modify-booking/{{ booking.booking_id }}" method="POST">
+        <!-- Booking ID -->
+        <div class="field">
+            <label>Booking ID</label>
+            <input type="number" value="{{ booking.booking_id }}" name="booking_id" placeholder="Enter Booking ID"
+                readonly>
+        </div>
+
+        <!-- Modified By -->
+        <div class="field">
+            <label>Modified By (Person Name)</label>
+            <input type="text" name="modified_by" placeholder="Name of the person modifying the booking">
+        </div>
+
+        <!-- Previous Departure Date -->
+        <div class="field">
+            <label>Previous Departure Date</label>
+            <input type="date" value="{{ booking.departure_date }}" name="previous_departure_date" readonly>
+        </div>
+
+        <!-- Previous Return Date -->
+        <div class="field">
+            <label>Previous Return Date</label>
+            <input type="date" value="{{ booking.return_date }}" name="previous_return_date" readonly>
+        </div>
+
+        <!-- New Departure Date -->
+        <div class="field">
+            <label>New Departure Date</label>
+            <div class="ui calendar">
+                <div class="ui fluid input left icon">
+                    <i class="calendar icon"></i>
+                    <input type="text" name="new_departure_date" placeholder="Date">
+                </div>
+            </div>
+        </div>
+
+        <!-- New Return Date -->
+        <div class="field">
+            <label>New Return Date</label>
+            <div class="ui calendar">
+                <div class="ui fluid input left icon">
+                    <i class="calendar icon"></i>
+                    <input type="text" name="new_return_date" placeholder="Date">
+                </div>
+            </div>
+        </div>
+
+        <!-- Modification Reason -->
+        <div class="field">
+            <label>Modification Reason</label>
+            <textarea name="modification_reason" rows="3" placeholder="Provide the reason for modification"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="ui primary button">Submit Modification</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    $('.ui.calendar')
+        .calendar({
+            onChange: (date, text) => {
+                // Where date is the JS object and text is the string representation of the date 
+                // Do something
+            },
+            // Optional formatter
+            formatter: {
+                date: 'YYYY-MM-DD'
+            },
+            type: 'date'
+        });
+
+    $('.ui.form').form({
+        fields: {
+            "new_departure_date": 'empty',
+            "new_return_date": 'empty',
+            "modification_reason": 'empty'
+        }
+    });
+
+</script>
+{% endblock %}

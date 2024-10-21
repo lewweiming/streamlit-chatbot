@@ -1,0 +1,57 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<h2 class="ui header">Shop Inventory</h2>
+
+<!-- TOOLBAR -->
+<div>
+    <a href="/framework/admin/shop-inventory/add" class="ui primary button">Add New Item</a>
+</div>
+
+<table class="ui celled table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>UID</th>
+            <th>SKU</th>
+            <th>Name</th>
+            <th>Thumbnail</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Weight</th>
+            <th>Views</th>
+            <th>Action(s)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in rows %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.uid }}</td>
+                <td>{{ row.sku }}</td>
+                <td>{{ row.name }}</td>
+                <td>
+                    {% if row.thumb_url_link %}
+                        <img src="{{ row.thumb_url_link }}" alt="Thumbnail" class="ui small image">
+                    {% else %}
+                        No Image
+                    {% endif %}
+                </td>
+                <td>{{ row.price | number_format(2) }}</td>
+                <td>{{ row.category }}</td>
+                <td>{{ row.weight }}</td>
+                <td>{{ row.views }}</td>
+                <td>
+                    <a href="/framework/admin/shop-inventory/{{ row.id }}/edit" class="ui button">Edit</a>
+                    <a href="/framework/admin/shop-inventory/{{ row.id }}/delete" class="ui button">Delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10" class="center aligned">No data available</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

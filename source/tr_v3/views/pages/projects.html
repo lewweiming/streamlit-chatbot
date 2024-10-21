@@ -1,0 +1,22 @@
+{% extends "_layout.html" %}
+
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<section>
+<h1 class="title">Bulma Projects</h1>
+<p>Powered by <a class="text-blue-600 hover:underline" target=blank href="https://mermaid-js.github.io/mermaid/#/">Mermaid</a></p>
+<div class="mermaid">
+    flowchart TD
+    B["Bulma"]
+    B-->C["X2F - Bulma Admin Template)"]
+    B-->D["WC Bulma"]
+    B-->E["WC Home?"]
+    B-->F["WC Games"]
+    B-->G["WC Social"]
+</div>
+
+</section>
+{% endblock %}

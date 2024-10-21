@@ -1,0 +1,52 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    
+    <h2 class="ui header">Customer Requests Dashboard</h2>
+
+    <div class="ui message">
+      <p>You can view the status of your request(s) here.</p>
+    </div>
+    
+    <div class="ui top attached tabular menu">
+      <a class="item active" data-tab="enquiries">Enquiries</a>
+    </div>
+  
+    <!-- Enquiries Tab -->
+    <div class="ui bottom attached tab segment active" data-tab="enquiries">
+      <table class="ui celled table">
+        <thead>
+          <tr>
+            <th>Booking Ref</th>
+            <th>Booking Type</th>
+            <th>Date of Enquiry</th>
+            <th>Details</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in rows %}
+          <tr>
+            <td>{{ row.booking_ref }}</td>
+            <td>{{ row.booking_type }}</td>
+            <td>{{ row.request_date | date("d M Y") }}</td>
+            <td>{{ row.details }}</td>
+            <td><div class="ui label">{{ row.status|capitalize }}</div></td>
+            <td><a href="/customer-support/request-details/{{ row.id }}" class="ui button">View</buttaon></td>
+          </tr>
+          {% endfor %}
+          <!-- Additional rows here -->
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+{% endblock %}
+
+{% block script %}
+<script>
+$('.menu .item').tab();
+</script>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+  <a href="/" class="section">Trip Booking Home</a>
+  <i class="right angle icon divider"></i>
+  <a href="/trips/bookings" class="section">Bookings</a>
+  <i class="right angle icon divider"></i>
+  <div class="active section">Add Booking</div>
+</div>
+
+<h2 class="ui header">Add New Trip Booking</h2>
+
+<!-- VALIDATION ERRORS -->
+{% if(errors) %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">
+    Validation Errors
+  </div>
+  <ul>
+    {% for key,val in errors %}
+    <li>{{ val[0] }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<form method="post" action="/framework/admin/trip-bookings/add-booking" class="ui form">
+  <p>Add your trip booking details</p>
+
+  <div class="required field">
+    <label for="customer_id">Customer ID</label>
+    <input type="number" id="customer_id" name="customer_id">
+  </div>
+
+  <div class="required field">
+    <label for="trip_id">Trip ID</label>
+    <input type="number" id="trip_id" name="trip_id">
+  </div>
+
+  <div class="required field">
+    <label for="booking_status">Booking Status</label>
+    <select name="booking_status" id="booking_status" class="ui dropdown">
+      <option value="Booked" selected>Booked</option>
+      <option value="Cancelled">Cancelled</option>
+      <option value="Modified">Modified</option>
+      <option value="Confirmed">Confirmed</option>
+    </select>
+  </div>
+
+  <div class="required field">
+    <label for="total_amount">Total Amount</label>
+    <input type="number" step="0.01" id="total_amount" name="total_amount" placeholder="0.00">
+  </div>
+
+  <button type="submit" class="ui button">Submit</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+<script>
+  $(document).ready(function () {
+    $('.ui.dropdown').dropdown();
+    $('.ui.form').form({
+        fields: {
+            customer_id: {
+                identifier: 'customer_id',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the customer ID'
+                    },
+                    {
+                        type: 'integer',
+                        prompt: 'Customer ID must be a number'
+                    }
+                ]
+            },
+            trip_id: {
+                identifier: 'trip_id',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the trip ID'
+                    },
+                    {
+                        type: 'integer',
+                        prompt: 'Trip ID must be a number'
+                    }
+                ]
+            },
+            booking_status: {
+                identifier: 'booking_status',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please select a booking status'
+                    }
+                ]
+            },
+            total_amount: {
+                identifier: 'total_amount',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the total amount'
+                    },
+                    {
+                        type: 'decimal',
+                        prompt: 'Please enter a valid amount'
+                    }
+                ]
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+
+    <div class="ui breadcrumb">
+        <a href="/framework/admin" class="section">Admin Home</a>
+        <i class="right angle icon divider"></i>
+        <a href="/framework/admin/flights/bookings-dashboard" class="section">Flight Bookings Dashboard</a>
+        <i class="right angle icon divider"></i>
+        <div class="active section">Booking Details (Id: {{ booking.booking_id }})</div>
+    </div>
+
+    <h2 class="ui header">Flight Booking Details</h2>
+
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th colspan="2">Booking Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Booking Reference</strong></td>
+                <td>{{ booking.booking_ref }}</td>
+            </tr>
+            <tr>
+                <td><strong>Customer Name</strong></td>
+                <td>{{ booking.customer_name }}</td>
+            </tr>
+            <tr>
+                <td><strong>Customer Email</strong></td>
+                <td>{{ booking.customer_email }}</td>
+            </tr>
+            <tr>
+                <td><strong>Customer Phone</strong></td>
+                <td>{{ booking.customer_phone }}</td>
+            </tr>
+            <tr>
+                <td><strong>Flight ID</strong></td>
+                <td>{{ booking.flight_id }}</td>
+            </tr>
+            <tr>
+                <td><strong>Departure City</strong></td>
+                <td>{{ booking.departure_city }}</td>
+            </tr>
+            <tr>
+                <td><strong>Arrival City</strong></td>
+                <td>{{ booking.arrival_city }}</td>
+            </tr>
+            <tr>
+                <td><strong>Departure Date</strong></td>
+                <td>{{ booking.departure_date|date("Y-m-d") }}</td>
+            </tr>
+            <tr>
+                <td><strong>Return Date</strong></td>
+                <td>{{ booking.return_date|date("Y-m-d") }}</td>
+            </tr>
+            <tr>
+                <td><strong>Passengers</strong></td>
+                <td>{{ booking.passengers }}</td>
+            </tr>
+            <tr>
+                <td><strong>Seat Class</strong></td>
+                <td>{{ booking.seat_class }}</td>
+            </tr>
+            <tr>
+                <td><strong>Direct Flight</strong></td>
+                <td>{{ booking.direct_flight ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <td><strong>Flexible Dates</strong></td>
+                <td>{{ booking.flexible_dates ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <td><strong>Status</strong></td>
+                <td>{{ booking.status }}</td>
+            </tr>
+            <tr>
+                <td><strong>Total Amount</strong></td>
+                <td>${{ booking.total_amount }}</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td><strong>Created At</strong></td>
+                <td>{{ booking.created_at|date("Y-m-d H:i:s") }}</td>
+            </tr>
+            <tr>
+                <td><strong>Updated At</strong></td>
+                <td>{{ booking.updated_at|date("Y-m-d H:i:s") }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

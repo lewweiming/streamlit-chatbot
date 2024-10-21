@@ -1,0 +1,3472 @@
+[
+    {
+        "filename": "file_searcher.php",
+        "relative_path": "file_searcher.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "index.php",
+        "relative_path": "index.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "oops.html",
+        "relative_path": "oops.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "scheduler.php",
+        "relative_path": "scheduler.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "robots.txt",
+        "relative_path": "robots.txt",
+        "file_type": "txt"
+    },
+    {
+        "filename": ".htaccess",
+        "relative_path": ".htaccess",
+        "file_type": ""
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "documentation/hotel-booking-docsify/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "README.md",
+        "relative_path": "documentation/hotel-booking-docsify/README.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "TEST.md",
+        "relative_path": "documentation/hotel-booking-docsify/TEST.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "APP_STRUCTURE.md",
+        "relative_path": "documentation/hotel-booking-docsify/docs/APP_STRUCTURE.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "VITAL_COMPONENTS.md",
+        "relative_path": "documentation/hotel-booking-docsify/docs/VITAL_COMPONENTS.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "README.md",
+        "relative_path": "documentation/hotel-booking-docsify/docs/README.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "DB_TABLES.md",
+        "relative_path": "documentation/hotel-booking-docsify/docs/DB_TABLES.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "_coverpage.md",
+        "relative_path": "documentation/hotel-booking-docsify/docs/_coverpage.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "PROMPTS.md",
+        "relative_path": "documentation/hotel-booking-docsify/docs/PROMPTS.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "README.md",
+        "relative_path": "documentation/hotel-booking-docsify/components/README.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "bulma.svg",
+        "relative_path": "documentation/hotel-booking-docsify/_media/bulma.svg",
+        "file_type": "svg"
+    },
+    {
+        "filename": "PAYPAL_DEVELOPMENT.md",
+        "relative_path": "documentation/development/PAYPAL_DEVELOPMENT.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "TRAVEL_API_DEVELOPMENT.md",
+        "relative_path": "documentation/development/TRAVEL_API_DEVELOPMENT.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "TRAVEL_BOOKING_DEVELOPMENT.md",
+        "relative_path": "documentation/development/TRAVEL_BOOKING_DEVELOPMENT.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "CHATBOT_DEVELOPMENT.md",
+        "relative_path": "documentation/development/CHATBOT_DEVELOPMENT.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "PHASE_1_DEVELOPMENT.md",
+        "relative_path": "documentation/development/PHASE_1_DEVELOPMENT.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "PHASE_2_DEVELOPMENT.md",
+        "relative_path": "documentation/development/PHASE_2_DEVELOPMENT.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "PHASE_3_DEVELOPMENT.md",
+        "relative_path": "documentation/development/PHASE_3_DEVELOPMENT.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "documentation/car-rental-docsify/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "README.md",
+        "relative_path": "documentation/car-rental-docsify/README.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "_sidebar.md",
+        "relative_path": "documentation/car-rental-docsify/_sidebar.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "TEST.md",
+        "relative_path": "documentation/car-rental-docsify/TEST.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "APP_STRUCTURE.md",
+        "relative_path": "documentation/car-rental-docsify/docs/APP_STRUCTURE.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "VITAL_COMPONENTS.md",
+        "relative_path": "documentation/car-rental-docsify/docs/VITAL_COMPONENTS.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "API_DEVELOPMENT_STRATEGY.md",
+        "relative_path": "documentation/car-rental-docsify/docs/API_DEVELOPMENT_STRATEGY.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "TASK_LIST.md",
+        "relative_path": "documentation/car-rental-docsify/docs/TASK_LIST.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "MODULE_DEPENDENCIES.md",
+        "relative_path": "documentation/car-rental-docsify/docs/MODULE_DEPENDENCIES.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "DB_TABLES.md",
+        "relative_path": "documentation/car-rental-docsify/docs/DB_TABLES.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "PIPELINES_WORKFLOWS.md",
+        "relative_path": "documentation/car-rental-docsify/docs/PIPELINES_WORKFLOWS.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "_sidebar.md",
+        "relative_path": "documentation/car-rental-docsify/docs/_sidebar.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "MANAGER_ROLE.md",
+        "relative_path": "documentation/car-rental-docsify/docs/MANAGER_ROLE.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "PROMPTS.md",
+        "relative_path": "documentation/car-rental-docsify/docs/PROMPTS.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "README.md",
+        "relative_path": "documentation/car-rental-docsify/components/README.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "bulma.svg",
+        "relative_path": "documentation/car-rental-docsify/_media/bulma.svg",
+        "file_type": "svg"
+    },
+    {
+        "filename": "BOOKING_RECEIPTS.md",
+        "relative_path": "documentation/workflows/BOOKING_RECEIPTS.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "BOOKING_MODIFICATIONS_CANCELLATIONS.md",
+        "relative_path": "documentation/workflows/BOOKING_MODIFICATIONS_CANCELLATIONS.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "documentation/flight-booking-docsify/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "README.md",
+        "relative_path": "documentation/flight-booking-docsify/README.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "_sidebar.md",
+        "relative_path": "documentation/flight-booking-docsify/_sidebar.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "TEST.md",
+        "relative_path": "documentation/flight-booking-docsify/TEST.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "APP_STRUCTURE.md",
+        "relative_path": "documentation/flight-booking-docsify/docs/APP_STRUCTURE.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "VITAL_COMPONENTS.md",
+        "relative_path": "documentation/flight-booking-docsify/docs/VITAL_COMPONENTS.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "README.md",
+        "relative_path": "documentation/flight-booking-docsify/docs/README.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "DB_TABLES.md",
+        "relative_path": "documentation/flight-booking-docsify/docs/DB_TABLES.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "_coverpage.md",
+        "relative_path": "documentation/flight-booking-docsify/docs/_coverpage.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "_sidebar.md",
+        "relative_path": "documentation/flight-booking-docsify/docs/_sidebar.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "PROMPTS.md",
+        "relative_path": "documentation/flight-booking-docsify/docs/PROMPTS.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "README.md",
+        "relative_path": "documentation/flight-booking-docsify/components/README.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "bulma.svg",
+        "relative_path": "documentation/flight-booking-docsify/_media/bulma.svg",
+        "file_type": "svg"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "documentation/trip-booking-docsify/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "README.md",
+        "relative_path": "documentation/trip-booking-docsify/README.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "_sidebar.md",
+        "relative_path": "documentation/trip-booking-docsify/_sidebar.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "TEST.md",
+        "relative_path": "documentation/trip-booking-docsify/TEST.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "APP_STRUCTURE.md",
+        "relative_path": "documentation/trip-booking-docsify/docs/APP_STRUCTURE.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "VITAL_COMPONENTS.md",
+        "relative_path": "documentation/trip-booking-docsify/docs/VITAL_COMPONENTS.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "README.md",
+        "relative_path": "documentation/trip-booking-docsify/docs/README.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "DB_TABLES.md",
+        "relative_path": "documentation/trip-booking-docsify/docs/DB_TABLES.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "_coverpage.md",
+        "relative_path": "documentation/trip-booking-docsify/docs/_coverpage.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "_sidebar.md",
+        "relative_path": "documentation/trip-booking-docsify/docs/_sidebar.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "PROMPTS.md",
+        "relative_path": "documentation/trip-booking-docsify/docs/PROMPTS.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "README.md",
+        "relative_path": "documentation/trip-booking-docsify/components/README.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "bulma.svg",
+        "relative_path": "documentation/trip-booking-docsify/_media/bulma.svg",
+        "file_type": "svg"
+    },
+    {
+        "filename": "bulma.css",
+        "relative_path": "css/bulma.css",
+        "file_type": "css"
+    },
+    {
+        "filename": "markdown.css",
+        "relative_path": "css/markdown.css",
+        "file_type": "css"
+    },
+    {
+        "filename": "dropzone.css",
+        "relative_path": "css/dropzone.css",
+        "file_type": "css"
+    },
+    {
+        "filename": "app.css",
+        "relative_path": "css/app.css",
+        "file_type": "css"
+    },
+    {
+        "filename": "main.css",
+        "relative_path": "css/main.css",
+        "file_type": "css"
+    },
+    {
+        "filename": "admin.css",
+        "relative_path": "css/admin.css",
+        "file_type": "css"
+    },
+    {
+        "filename": "github-markdown-light.css",
+        "relative_path": "css/markdown/github-markdown-light.css",
+        "file_type": "css"
+    },
+    {
+        "filename": "bulma-switch.min.css",
+        "relative_path": "css/bulma/bulma-switch.min.css",
+        "file_type": "css"
+    },
+    {
+        "filename": "Flash.php",
+        "relative_path": "classes/Flash.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Mail.php",
+        "relative_path": "classes/Mail.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "FileSystem.php",
+        "relative_path": "classes/FileSystem.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Database.php",
+        "relative_path": "classes/Database.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ErrorHandlers.php",
+        "relative_path": "classes/ErrorHandlers.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "AdminDashboardMiddleware.php",
+        "relative_path": "classes/AdminDashboardMiddleware.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "UserAccountMiddleware.php",
+        "relative_path": "classes/UserAccountMiddleware.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Debug.php",
+        "relative_path": "classes/Debug.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Curl.php",
+        "relative_path": "classes/Curl.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "HumanizeTime.php",
+        "relative_path": "classes/HumanizeTime.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "PHPMailerX2F.php",
+        "relative_path": "classes/PHPMailerX2F.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Pusher.php",
+        "relative_path": "classes/Pusher.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "SimpleSessionAuth.php",
+        "relative_path": "classes/SimpleSessionAuth.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Utils.php",
+        "relative_path": "classes/Utils.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Delight.php",
+        "relative_path": "classes/Delight.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Twig.php",
+        "relative_path": "classes/Twig.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "PaypalDigitalCheckout.php",
+        "relative_path": "classes/PaypalDigitalCheckout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Exceptions.php",
+        "relative_path": "classes/Exceptions.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Bus.php",
+        "relative_path": "classes/Bus.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Stripe.php",
+        "relative_path": "classes/Stripe.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Paypal.php",
+        "relative_path": "classes/Paypal.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ExceptionsTrait.php",
+        "relative_path": "classes/ExceptionsTrait.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "SimpleAuthMiddleware.php",
+        "relative_path": "classes/SimpleAuthMiddleware.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Core.php",
+        "relative_path": "classes/Core.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "custom.css",
+        "relative_path": "plugins/bulma-graphs/custom.css",
+        "file_type": "css"
+    },
+    {
+        "filename": "graphs.js",
+        "relative_path": "plugins/bulma-graphs/graphs.js",
+        "file_type": "js"
+    },
+    {
+        "filename": "toaster.js",
+        "relative_path": "js/bootstrap/toaster.js",
+        "file_type": "js"
+    },
+    {
+        "filename": "admin.js",
+        "relative_path": "js/admin/admin.js",
+        "file_type": "js"
+    },
+    {
+        "filename": "toaster.js",
+        "relative_path": "js/tailwind/toaster.js",
+        "file_type": "js"
+    },
+    {
+        "filename": "Test.php",
+        "relative_path": "cron-jobs/Test.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "UpdateListings.php",
+        "relative_path": "cron-jobs/UpdateListings.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "UserProfile.php",
+        "relative_path": "models/UserProfile.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "X2User.php",
+        "relative_path": "models/X2User.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "X2File.php",
+        "relative_path": "models/X2File.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "User.php",
+        "relative_path": "models/User.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "DebuggerMessage.php",
+        "relative_path": "models/DebuggerMessage.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "UserInboxMessage.php",
+        "relative_path": "models/UserInboxMessage.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Model.php",
+        "relative_path": "models/Model.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "X2FArticle.php",
+        "relative_path": "models/X2FArticle.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "X2FArticleComment.php",
+        "relative_path": "models/X2FArticleComment.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModelDB.php",
+        "relative_path": "models/ModelDB.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "InboxMessage.php",
+        "relative_path": "models/InboxMessage.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "X2FPage.php",
+        "relative_path": "models/X2FPage.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "pdf_test.php",
+        "relative_path": "api/pdf_test.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "list.php",
+        "relative_path": "api/user-inbox/list.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "delete.php",
+        "relative_path": "api/user-inbox/delete.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "list_paginated.php",
+        "relative_path": "api/user-inbox/list_paginated.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "test_send.php",
+        "relative_path": "api/phpmailer/test_send.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "update.php",
+        "relative_path": "api/admin/user-inbox/update.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create.php",
+        "relative_path": "api/admin/user-inbox/create.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "list.php",
+        "relative_path": "api/admin/user-inbox/list.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "delete.php",
+        "relative_path": "api/admin/user-inbox/delete.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "list_paginated.php",
+        "relative_path": "api/admin/user-inbox/list_paginated.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "force_login.php",
+        "relative_path": "api/delight/force_login.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "is_authenticated_ajax.php",
+        "relative_path": "api/x2-framework/auth/is_authenticated_ajax.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ajax_login.php",
+        "relative_path": "api/x2-framework/auth/ajax_login.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "google_callback_signup.php",
+        "relative_path": "api/x2-framework/auth/google_callback_signup.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "google_callback_signin.php",
+        "relative_path": "api/x2-framework/auth/google_callback_signin.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ajax_logout.php",
+        "relative_path": "api/x2-framework/auth/ajax_logout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "install_stripe.php",
+        "relative_path": "api/x2-framework/plugins/install_stripe.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "receiver.php",
+        "relative_path": "api/x2-framework/plugins/receiver.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "update.php",
+        "relative_path": "api/x2-framework/articles/update.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create.php",
+        "relative_path": "api/x2-framework/articles/create.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "list.php",
+        "relative_path": "api/x2-framework/articles/list.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "delete.php",
+        "relative_path": "api/x2-framework/articles/delete.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "list_paginated.php",
+        "relative_path": "api/x2-framework/articles/list_paginated.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "update.php",
+        "relative_path": "api/x2-framework/articles/comments/update.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create.php",
+        "relative_path": "api/x2-framework/articles/comments/create.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "list.php",
+        "relative_path": "api/x2-framework/articles/comments/list.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "delete.php",
+        "relative_path": "api/x2-framework/articles/comments/delete.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "capture_sandbox_digital_checkout.php",
+        "relative_path": "api/paypal/capture_sandbox_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "capture_live_digital_checkout.php",
+        "relative_path": "api/paypal/capture_live_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create_sandbox_digital_checkout.php",
+        "relative_path": "api/paypal/create_sandbox_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create_live_digital_checkout.php",
+        "relative_path": "api/paypal/create_live_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "server_load_time.php",
+        "relative_path": "api/debug/server_load_time.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "FLOWCHART_EXAMPLE.png",
+        "relative_path": "modules/FLOWCHART_EXAMPLE.png",
+        "file_type": "png"
+    },
+    {
+        "filename": "README.md",
+        "relative_path": "modules/README.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "config.php",
+        "relative_path": "modules/forums/config.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/forums/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "definitions.php",
+        "relative_path": "modules/forums/definitions.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/forums/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Reply.php",
+        "relative_path": "modules/forums/models/Reply.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Thread.php",
+        "relative_path": "modules/forums/models/Thread.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/forums/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleForumsController.php",
+        "relative_path": "modules/forums/controllers/ModuleForumsController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/forums/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_my_view.html",
+        "relative_path": "modules/forums/views/_my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "threads.html",
+        "relative_path": "modules/forums/views/threads.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "create_thread.html",
+        "relative_path": "modules/forums/views/create_thread.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "thread.html",
+        "relative_path": "modules/forums/views/thread.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "config.php",
+        "relative_path": "modules/customer-support/config.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/customer-support/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "definitions.php",
+        "relative_path": "modules/customer-support/definitions.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/customer-support/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "CustomerRequest.php",
+        "relative_path": "modules/customer-support/models/CustomerRequest.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/customer-support/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleCustomerSupportController.php",
+        "relative_path": "modules/customer-support/controllers/ModuleCustomerSupportController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/customer-support/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "customer_request_details.html",
+        "relative_path": "modules/customer-support/views/customer_request_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_my_view.html",
+        "relative_path": "modules/customer-support/views/_my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "customer_request_dashboard.html",
+        "relative_path": "modules/customer-support/views/customer_request_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "customer_request_dashboard_manager.html",
+        "relative_path": "modules/customer-support/views/admin/customer_request_dashboard_manager.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/cashier/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/cashier/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "PaypalDigitalCheckout.php",
+        "relative_path": "modules/cashier/classes/PaypalDigitalCheckout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Paypal.php",
+        "relative_path": "modules/cashier/classes/Paypal.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "CashierReceipt.php",
+        "relative_path": "modules/cashier/models/CashierReceipt.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/cashier/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "request_sandbox_payment.php",
+        "relative_path": "modules/cashier/api/paypal/request_sandbox_payment.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "capture_sandbox_order.php",
+        "relative_path": "modules/cashier/api/paypal/capture_sandbox_order.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create_sandbox_order.php",
+        "relative_path": "modules/cashier/api/paypal/create_sandbox_order.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "request_sandbox_payment.php",
+        "relative_path": "modules/cashier/api/paypal/ads/request_sandbox_payment.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "capture_sandbox_digital_checkout.php",
+        "relative_path": "modules/cashier/api/paypal/ads/capture_sandbox_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create_sandbox_digital_checkout.php",
+        "relative_path": "modules/cashier/api/paypal/ads/create_sandbox_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "CashierController.php",
+        "relative_path": "modules/cashier/controllers/CashierController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/cashier/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "my_view.html",
+        "relative_path": "modules/cashier/views/my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "paypal.html",
+        "relative_path": "modules/cashier/views/paypal.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "paypal_sponsored_ads.html",
+        "relative_path": "modules/cashier/views/paypal_sponsored_ads.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "modules/cashier/views/admin/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit.html",
+        "relative_path": "modules/cashier/views/admin/edit.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "my_cashier_receipts.html",
+        "relative_path": "modules/cashier/views/user/my_cashier_receipts.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "config.php",
+        "relative_path": "modules/tr-car-rentals/config.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/tr-car-rentals/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "definitions.php",
+        "relative_path": "modules/tr-car-rentals/definitions.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/tr-car-rentals/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "car_rentals_receipt_67035914671.pdf",
+        "relative_path": "modules/tr-car-rentals/receipts/car_rentals_receipt_67035914671.pdf",
+        "file_type": "pdf"
+    },
+    {
+        "filename": "car_rentals_receipt_1812231542131255.pdf",
+        "relative_path": "modules/tr-car-rentals/receipts/car_rentals_receipt_1812231542131255.pdf",
+        "file_type": "pdf"
+    },
+    {
+        "filename": "CarRentalSessionManager.php",
+        "relative_path": "modules/tr-car-rentals/classes/CarRentalSessionManager.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "CarRentalCostCalculator.php",
+        "relative_path": "modules/tr-car-rentals/classes/CarRentalCostCalculator.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "CarRentalsCarV1.php",
+        "relative_path": "modules/tr-car-rentals/models/CarRentalsCarV1.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "CarRentalsBooking.php",
+        "relative_path": "modules/tr-car-rentals/models/CarRentalsBooking.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/tr-car-rentals/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "CarRentalsReceipt.php",
+        "relative_path": "modules/tr-car-rentals/models/CarRentalsReceipt.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "capture_sandbox_digital_checkout.php",
+        "relative_path": "modules/tr-car-rentals/api/paypal/capture_sandbox_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "capture_live_digital_checkout.php",
+        "relative_path": "modules/tr-car-rentals/api/paypal/capture_live_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create_sandbox_digital_checkout.php",
+        "relative_path": "modules/tr-car-rentals/api/paypal/create_sandbox_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create_live_digital_checkout.php",
+        "relative_path": "modules/tr-car-rentals/api/paypal/create_live_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleCarRentalsCarDataController.php",
+        "relative_path": "modules/tr-car-rentals/controllers/ModuleCarRentalsCarDataController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleCarRentalsCheckoutController.php",
+        "relative_path": "modules/tr-car-rentals/controllers/ModuleCarRentalsCheckoutController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleCarRentalsController.php",
+        "relative_path": "modules/tr-car-rentals/controllers/ModuleCarRentalsController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/tr-car-rentals/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "receipt.html",
+        "relative_path": "modules/tr-car-rentals/views/receipt.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_my_view.html",
+        "relative_path": "modules/tr-car-rentals/views/_my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "available_cars.html",
+        "relative_path": "modules/tr-car-rentals/views/available_cars.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "stepper_review_payment.html",
+        "relative_path": "modules/tr-car-rentals/views/stepper_review_payment.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "stepper_personal_details.html",
+        "relative_path": "modules/tr-car-rentals/views/stepper_personal_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "checkout.html",
+        "relative_path": "modules/tr-car-rentals/views/checkout.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "welcome.html",
+        "relative_path": "modules/tr-car-rentals/views/welcome.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "cars_dashboard.html",
+        "relative_path": "modules/tr-car-rentals/views/admin/cars_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "reports.html",
+        "relative_path": "modules/tr-car-rentals/views/admin/reports.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "modules/tr-car-rentals/views/admin/cars-data/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_car.html",
+        "relative_path": "modules/tr-car-rentals/views/admin/cars-data/add_car.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_car.html",
+        "relative_path": "modules/tr-car-rentals/views/admin/cars-data/edit_car.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "modules/tr-car-rentals/views/admin/receipts/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "confirm_booking.html",
+        "relative_path": "modules/tr-car-rentals/views/admin/bookings/confirm_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_details.html",
+        "relative_path": "modules/tr-car-rentals/views/admin/bookings/booking_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "bookings_dashboard.html",
+        "relative_path": "modules/tr-car-rentals/views/admin/bookings/bookings_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_booking.html",
+        "relative_path": "modules/tr-car-rentals/views/admin/bookings/add_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "modify_booking.html",
+        "relative_path": "modules/tr-car-rentals/views/admin/bookings/modify_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "cancel_booking.html",
+        "relative_path": "modules/tr-car-rentals/views/admin/bookings/cancel_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "car_rentals_receipt.html",
+        "relative_path": "modules/tr-car-rentals/views/pdf/car_rentals_receipt.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "bookings_dashboard.html",
+        "relative_path": "modules/tr-car-rentals/views/user/bookings_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_cancellation.html",
+        "relative_path": "modules/tr-car-rentals/views/user/booking_cancellation.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_modification.html",
+        "relative_path": "modules/tr-car-rentals/views/user/booking_modification.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "config.php",
+        "relative_path": "modules/work-orders/config.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/work-orders/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "definitions.php",
+        "relative_path": "modules/work-orders/definitions.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/work-orders/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "WorkOrder.php",
+        "relative_path": "modules/work-orders/models/WorkOrder.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/work-orders/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/work-orders/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleWorkOrdersController.php",
+        "relative_path": "modules/work-orders/controllers/ModuleWorkOrdersController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "preview.html",
+        "relative_path": "modules/work-orders/views/preview.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_my_view.html",
+        "relative_path": "modules/work-orders/views/_my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "work_orders.html",
+        "relative_path": "modules/work-orders/views/work_orders.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "modules/work-orders/views/admin/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_request.html",
+        "relative_path": "modules/work-orders/views/admin/add_request.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_request.html",
+        "relative_path": "modules/work-orders/views/admin/edit_request.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "config.php",
+        "relative_path": "modules/tr-flight-bookings/config.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/tr-flight-bookings/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "definitions.php",
+        "relative_path": "modules/tr-flight-bookings/definitions.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/tr-flight-bookings/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "FlightBookingCostCalculator.php",
+        "relative_path": "modules/tr-flight-bookings/classes/FlightBookingCostCalculator.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "FlightBookingSessionManager.php",
+        "relative_path": "modules/tr-flight-bookings/classes/FlightBookingSessionManager.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "AIRPORT_ROUTES.json",
+        "relative_path": "modules/tr-flight-bookings/datasets/AIRPORT_ROUTES.json",
+        "file_type": "json"
+    },
+    {
+        "filename": "FlightBooking.php",
+        "relative_path": "modules/tr-flight-bookings/models/FlightBooking.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/tr-flight-bookings/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "capture_sandbox_digital_checkout.php",
+        "relative_path": "modules/tr-flight-bookings/api/paypal/capture_sandbox_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "capture_live_digital_checkout.php",
+        "relative_path": "modules/tr-flight-bookings/api/paypal/capture_live_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create_sandbox_digital_checkout.php",
+        "relative_path": "modules/tr-flight-bookings/api/paypal/create_sandbox_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create_live_digital_checkout.php",
+        "relative_path": "modules/tr-flight-bookings/api/paypal/create_live_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleFlightBookingsController.php",
+        "relative_path": "modules/tr-flight-bookings/controllers/ModuleFlightBookingsController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleFlightBookingsCheckoutController.php",
+        "relative_path": "modules/tr-flight-bookings/controllers/ModuleFlightBookingsCheckoutController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/tr-flight-bookings/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "receipt.html",
+        "relative_path": "modules/tr-flight-bookings/views/receipt.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "manage_bookings.html",
+        "relative_path": "modules/tr-flight-bookings/views/manage_bookings.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_my_view.html",
+        "relative_path": "modules/tr-flight-bookings/views/_my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "stepper_review_payment.html",
+        "relative_path": "modules/tr-flight-bookings/views/stepper_review_payment.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "stepper_personal_details.html",
+        "relative_path": "modules/tr-flight-bookings/views/stepper_personal_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "checkout.html",
+        "relative_path": "modules/tr-flight-bookings/views/checkout.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "welcome.html",
+        "relative_path": "modules/tr-flight-bookings/views/welcome.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "flight_search.html",
+        "relative_path": "modules/tr-flight-bookings/views/flight_search.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_confirmation.html",
+        "relative_path": "modules/tr-flight-bookings/views/booking_confirmation.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_details.html",
+        "relative_path": "modules/tr-flight-bookings/views/admin/booking_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "flights_dashboard.html",
+        "relative_path": "modules/tr-flight-bookings/views/admin/flights_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "bookings_dashboard.html",
+        "relative_path": "modules/tr-flight-bookings/views/admin/bookings_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_booking.html",
+        "relative_path": "modules/tr-flight-bookings/views/admin/add_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "reports.html",
+        "relative_path": "modules/tr-flight-bookings/views/admin/reports.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "confirm_booking.html",
+        "relative_path": "modules/tr-flight-bookings/views/admin/bookings/confirm_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_details.html",
+        "relative_path": "modules/tr-flight-bookings/views/admin/bookings/booking_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "bookings_dashboard.html",
+        "relative_path": "modules/tr-flight-bookings/views/admin/bookings/bookings_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_booking.html",
+        "relative_path": "modules/tr-flight-bookings/views/admin/bookings/add_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "modify_booking.html",
+        "relative_path": "modules/tr-flight-bookings/views/admin/bookings/modify_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "cancel_booking.html",
+        "relative_path": "modules/tr-flight-bookings/views/admin/bookings/cancel_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "bookings_dashboard.html",
+        "relative_path": "modules/tr-flight-bookings/views/user/bookings_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_cancellation.html",
+        "relative_path": "modules/tr-flight-bookings/views/user/booking_cancellation.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_modification.html",
+        "relative_path": "modules/tr-flight-bookings/views/user/booking_modification.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "config.php",
+        "relative_path": "modules/tr-hotel-bookings/config.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/tr-hotel-bookings/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "definitions.php",
+        "relative_path": "modules/tr-hotel-bookings/definitions.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/tr-hotel-bookings/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "HotelBookingSessionManager.php",
+        "relative_path": "modules/tr-hotel-bookings/classes/HotelBookingSessionManager.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "HotelBookingCostCalculator.php",
+        "relative_path": "modules/tr-hotel-bookings/classes/HotelBookingCostCalculator.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "HotelBooking.php",
+        "relative_path": "modules/tr-hotel-bookings/models/HotelBooking.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "HotelRoomV1.php",
+        "relative_path": "modules/tr-hotel-bookings/models/HotelRoomV1.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "HotelV1.php",
+        "relative_path": "modules/tr-hotel-bookings/models/HotelV1.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/tr-hotel-bookings/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "list_paginated.php",
+        "relative_path": "modules/tr-hotel-bookings/api/admin/hotels/list_paginated.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "list_paginated.php",
+        "relative_path": "modules/tr-hotel-bookings/api/admin/rooms/list_paginated.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "capture_sandbox_digital_checkout.php",
+        "relative_path": "modules/tr-hotel-bookings/api/paypal/capture_sandbox_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "capture_live_digital_checkout.php",
+        "relative_path": "modules/tr-hotel-bookings/api/paypal/capture_live_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create_sandbox_digital_checkout.php",
+        "relative_path": "modules/tr-hotel-bookings/api/paypal/create_sandbox_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create_live_digital_checkout.php",
+        "relative_path": "modules/tr-hotel-bookings/api/paypal/create_live_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleHotelBookingsController.php",
+        "relative_path": "modules/tr-hotel-bookings/controllers/ModuleHotelBookingsController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleHotelRoomDataController.php",
+        "relative_path": "modules/tr-hotel-bookings/controllers/ModuleHotelRoomDataController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/tr-hotel-bookings/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleHotelBookingsCheckoutController.php",
+        "relative_path": "modules/tr-hotel-bookings/controllers/ModuleHotelBookingsCheckoutController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleHotelDataController.php",
+        "relative_path": "modules/tr-hotel-bookings/controllers/ModuleHotelDataController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "receipt.html",
+        "relative_path": "modules/tr-hotel-bookings/views/receipt.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "available_rooms.html",
+        "relative_path": "modules/tr-hotel-bookings/views/available_rooms.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_my_view.html",
+        "relative_path": "modules/tr-hotel-bookings/views/_my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_details.html",
+        "relative_path": "modules/tr-hotel-bookings/views/booking_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "book_room.html",
+        "relative_path": "modules/tr-hotel-bookings/views/book_room.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "stepper_review_payment.html",
+        "relative_path": "modules/tr-hotel-bookings/views/stepper_review_payment.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "stepper_personal_details.html",
+        "relative_path": "modules/tr-hotel-bookings/views/stepper_personal_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "checkout.html",
+        "relative_path": "modules/tr-hotel-bookings/views/checkout.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "welcome.html",
+        "relative_path": "modules/tr-hotel-bookings/views/welcome.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "modify_booking.html",
+        "relative_path": "modules/tr-hotel-bookings/views/modify_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "rooms_dashboard.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/rooms_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "hotels_dashboard.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/hotels_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_details.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/booking_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "bookings_dashboard.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/bookings_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_booking.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/add_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "reports.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/reports.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_room.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/rooms-data/edit_room.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/rooms-data/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_room.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/rooms-data/add_room.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "confirm_booking.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/bookings/confirm_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_details.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/bookings/booking_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "bookings_dashboard.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/bookings/bookings_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_booking.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/bookings/add_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "modify_booking.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/bookings/modify_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "cancel_booking.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/bookings/cancel_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/hotels-data/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_hotel.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/hotels-data/edit_hotel.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_hotel.html",
+        "relative_path": "modules/tr-hotel-bookings/views/admin/hotels-data/add_hotel.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "bookings_dashboard.html",
+        "relative_path": "modules/tr-hotel-bookings/views/user/bookings_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_cancellation.html",
+        "relative_path": "modules/tr-hotel-bookings/views/user/booking_cancellation.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_modification.html",
+        "relative_path": "modules/tr-hotel-bookings/views/user/booking_modification.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/module-manager/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/module-manager/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Module.php",
+        "relative_path": "modules/module-manager/models/Module.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/module-manager/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "uninstall_module.php",
+        "relative_path": "modules/module-manager/api/admin/uninstall_module.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "install_module.php",
+        "relative_path": "modules/module-manager/api/admin/install_module.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleManagerController.php",
+        "relative_path": "modules/module-manager/controllers/ModuleManagerController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "my_view.html",
+        "relative_path": "modules/module-manager/views/my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "modules/module-manager/views/admin/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "workflow.html",
+        "relative_path": "modules/module-manager/views/admin/workflow.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "config.php",
+        "relative_path": "modules/chatbot/config.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/chatbot/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "definitions.php",
+        "relative_path": "modules/chatbot/definitions.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/chatbot/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/chatbot/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "debug.php",
+        "relative_path": "modules/chatbot/api/debug.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "submit.php",
+        "relative_path": "modules/chatbot/api/submit.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "submit_plain.php",
+        "relative_path": "modules/chatbot/api/submit_plain.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "process.php",
+        "relative_path": "modules/chatbot/api/speech-to-text/process.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "process.php",
+        "relative_path": "modules/chatbot/api/language-translation/process.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "process.php",
+        "relative_path": "modules/chatbot/api/sentiment-analysis/process.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "process.php",
+        "relative_path": "modules/chatbot/api/image-recognition/process.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleChatbotController.php",
+        "relative_path": "modules/chatbot/controllers/ModuleChatbotController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/chatbot/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_my_view.html",
+        "relative_path": "modules/chatbot/views/_my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "main.html",
+        "relative_path": "modules/chatbot/views/main.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "jenny.jpg",
+        "relative_path": "modules/chatbot/assets/icons/jenny.jpg",
+        "file_type": "jpg"
+    },
+    {
+        "filename": "chat.png",
+        "relative_path": "modules/chatbot/assets/icons/chat.png",
+        "file_type": "png"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/blog/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/blog/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "my_view.html",
+        "relative_path": "modules/blog/views/my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_post.html",
+        "relative_path": "modules/blog/views/admin/edit_post.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "modules/blog/views/admin/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_images.html",
+        "relative_path": "modules/blog/views/admin/edit_images.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_post.html",
+        "relative_path": "modules/blog/views/admin/add_post.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "config.php",
+        "relative_path": "modules/_my_module/config.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/_my_module/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "definitions.php",
+        "relative_path": "modules/_my_module/definitions.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/_my_module/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/_my_module/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/_my_module/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_my_view.html",
+        "relative_path": "modules/_my_module/views/_my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "config.php",
+        "relative_path": "modules/discussion-board/config.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/discussion-board/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "definitions.php",
+        "relative_path": "modules/discussion-board/definitions.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/discussion-board/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "DiscussionBoardPost.php",
+        "relative_path": "modules/discussion-board/models/DiscussionBoardPost.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "DiscussionBoardDiscussion.php",
+        "relative_path": "modules/discussion-board/models/DiscussionBoardDiscussion.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "DiscussionBoardCategory.php",
+        "relative_path": "modules/discussion-board/models/DiscussionBoardCategory.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/discussion-board/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "discussions.php",
+        "relative_path": "modules/discussion-board/api/admin/discussions.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "categories.php",
+        "relative_path": "modules/discussion-board/api/admin/categories.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "DiscussionBoardController.php",
+        "relative_path": "modules/discussion-board/controllers/DiscussionBoardController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/discussion-board/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "discussion_board.html",
+        "relative_path": "modules/discussion-board/views/discussion_board.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_my_view.html",
+        "relative_path": "modules/discussion-board/views/_my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "join_discussion.html",
+        "relative_path": "modules/discussion-board/views/join_discussion.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_discussion.html",
+        "relative_path": "modules/discussion-board/views/add_discussion.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "modules/discussion-board/views/admin/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "manage_discussions.html",
+        "relative_path": "modules/discussion-board/views/admin/manage_discussions.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "manage_categories.html",
+        "relative_path": "modules/discussion-board/views/admin/manage_categories.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/file-searcher/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/file-searcher/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/file-searcher/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleFileSearcherController.php",
+        "relative_path": "modules/file-searcher/controllers/ModuleFileSearcherController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/file-searcher/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "my_view.html",
+        "relative_path": "modules/file-searcher/views/my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "modules/file-searcher/views/admin/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "config.php",
+        "relative_path": "modules/tr-trip-bookings/config.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/tr-trip-bookings/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "definitions.php",
+        "relative_path": "modules/tr-trip-bookings/definitions.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/tr-trip-bookings/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "TripBookingSessionManager.php",
+        "relative_path": "modules/tr-trip-bookings/classes/TripBookingSessionManager.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "TripBookingCostCalculator.php",
+        "relative_path": "modules/tr-trip-bookings/classes/TripBookingCostCalculator.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "TripBooking.php",
+        "relative_path": "modules/tr-trip-bookings/models/TripBooking.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "TripV1.php",
+        "relative_path": "modules/tr-trip-bookings/models/TripV1.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/tr-trip-bookings/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "list_paginated.php",
+        "relative_path": "modules/tr-trip-bookings/api/admin/list_paginated.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "capture_sandbox_digital_checkout.php",
+        "relative_path": "modules/tr-trip-bookings/api/paypal/capture_sandbox_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "capture_live_digital_checkout.php",
+        "relative_path": "modules/tr-trip-bookings/api/paypal/capture_live_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create_sandbox_digital_checkout.php",
+        "relative_path": "modules/tr-trip-bookings/api/paypal/create_sandbox_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create_live_digital_checkout.php",
+        "relative_path": "modules/tr-trip-bookings/api/paypal/create_live_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleTripBookingsController.php",
+        "relative_path": "modules/tr-trip-bookings/controllers/ModuleTripBookingsController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/tr-trip-bookings/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleTripBookingsAdminController.php",
+        "relative_path": "modules/tr-trip-bookings/controllers/ModuleTripBookingsAdminController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleTripBookingsCheckoutController.php",
+        "relative_path": "modules/tr-trip-bookings/controllers/ModuleTripBookingsCheckoutController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleTripDataController.php",
+        "relative_path": "modules/tr-trip-bookings/controllers/ModuleTripDataController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "receipt.html",
+        "relative_path": "modules/tr-trip-bookings/views/receipt.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "trip_booking.html",
+        "relative_path": "modules/tr-trip-bookings/views/trip_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "available_trips.html",
+        "relative_path": "modules/tr-trip-bookings/views/available_trips.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_my_view.html",
+        "relative_path": "modules/tr-trip-bookings/views/_my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_details.html",
+        "relative_path": "modules/tr-trip-bookings/views/booking_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "stepper_review_payment.html",
+        "relative_path": "modules/tr-trip-bookings/views/stepper_review_payment.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "stepper_personal_details.html",
+        "relative_path": "modules/tr-trip-bookings/views/stepper_personal_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "checkout.html",
+        "relative_path": "modules/tr-trip-bookings/views/checkout.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "welcome.html",
+        "relative_path": "modules/tr-trip-bookings/views/welcome.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_details.html",
+        "relative_path": "modules/tr-trip-bookings/views/admin/booking_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "bookings_dashboard.html",
+        "relative_path": "modules/tr-trip-bookings/views/admin/bookings_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "trips_dashboard.html",
+        "relative_path": "modules/tr-trip-bookings/views/admin/trips_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_booking.html",
+        "relative_path": "modules/tr-trip-bookings/views/admin/add_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "reports.html",
+        "relative_path": "modules/tr-trip-bookings/views/admin/reports.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_trip.html",
+        "relative_path": "modules/tr-trip-bookings/views/admin/trips-data/add_trip.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "modules/tr-trip-bookings/views/admin/trips-data/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_trip.html",
+        "relative_path": "modules/tr-trip-bookings/views/admin/trips-data/edit_trip.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "confirm_booking.html",
+        "relative_path": "modules/tr-trip-bookings/views/admin/bookings/confirm_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_details.html",
+        "relative_path": "modules/tr-trip-bookings/views/admin/bookings/booking_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "bookings_dashboard.html",
+        "relative_path": "modules/tr-trip-bookings/views/admin/bookings/bookings_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_booking.html",
+        "relative_path": "modules/tr-trip-bookings/views/admin/bookings/add_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "modify_booking.html",
+        "relative_path": "modules/tr-trip-bookings/views/admin/bookings/modify_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "cancel_booking.html",
+        "relative_path": "modules/tr-trip-bookings/views/admin/bookings/cancel_booking.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "bookings_dashboard.html",
+        "relative_path": "modules/tr-trip-bookings/views/user/bookings_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_cancellation.html",
+        "relative_path": "modules/tr-trip-bookings/views/user/booking_cancellation.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "booking_modification.html",
+        "relative_path": "modules/tr-trip-bookings/views/user/booking_modification.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "config.php",
+        "relative_path": "modules/tr-shop/config.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/tr-shop/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "definitions.php",
+        "relative_path": "modules/tr-shop/definitions.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/tr-shop/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ShopSessionManager.php",
+        "relative_path": "modules/tr-shop/classes/ShopSessionManager.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ShopCostCalculator.php",
+        "relative_path": "modules/tr-shop/classes/ShopCostCalculator.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ShopInventory.php",
+        "relative_path": "modules/tr-shop/models/ShopInventory.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ShopOrder.php",
+        "relative_path": "modules/tr-shop/models/ShopOrder.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/tr-shop/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "CarRentalsReceipt.php",
+        "relative_path": "modules/tr-shop/models/CarRentalsReceipt.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "capture_sandbox_digital_checkout.php",
+        "relative_path": "modules/tr-shop/api/paypal/capture_sandbox_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "capture_live_digital_checkout.php",
+        "relative_path": "modules/tr-shop/api/paypal/capture_live_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create_sandbox_digital_checkout.php",
+        "relative_path": "modules/tr-shop/api/paypal/create_sandbox_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create_live_digital_checkout.php",
+        "relative_path": "modules/tr-shop/api/paypal/create_live_digital_checkout.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleShopUserController.php",
+        "relative_path": "modules/tr-shop/controllers/ModuleShopUserController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleShopCheckoutController.php",
+        "relative_path": "modules/tr-shop/controllers/ModuleShopCheckoutController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/tr-shop/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleShopInventoryAdminController.php",
+        "relative_path": "modules/tr-shop/controllers/ModuleShopInventoryAdminController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "inventory.html",
+        "relative_path": "modules/tr-shop/views/inventory.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_my_view.html",
+        "relative_path": "modules/tr-shop/views/_my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "stepper_review_payment.html",
+        "relative_path": "modules/tr-shop/views/stepper_review_payment.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "stepper_personal_details.html",
+        "relative_path": "modules/tr-shop/views/stepper_personal_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "welcome.html",
+        "relative_path": "modules/tr-shop/views/welcome.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "item_detail.html",
+        "relative_path": "modules/tr-shop/views/item_detail.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "stepper_delivery_details.html",
+        "relative_path": "modules/tr-shop/views/stepper_delivery_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "cart.html",
+        "relative_path": "modules/tr-shop/views/cart.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_item.html",
+        "relative_path": "modules/tr-shop/views/admin/inventory-data/add_item.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "modules/tr-shop/views/admin/inventory-data/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_item.html",
+        "relative_path": "modules/tr-shop/views/admin/inventory-data/edit_item.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "modify_order.html",
+        "relative_path": "modules/tr-shop/views/admin/orders/modify_order.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "order_details.html",
+        "relative_path": "modules/tr-shop/views/admin/orders/order_details.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "confirm_order.html",
+        "relative_path": "modules/tr-shop/views/admin/orders/confirm_order.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "orders_dashboard.html",
+        "relative_path": "modules/tr-shop/views/admin/orders/orders_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_order.html",
+        "relative_path": "modules/tr-shop/views/admin/orders/add_order.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "cancel_order.html",
+        "relative_path": "modules/tr-shop/views/admin/orders/cancel_order.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "order_modification.html",
+        "relative_path": "modules/tr-shop/views/user/order_modification.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "order_cancellation.html",
+        "relative_path": "modules/tr-shop/views/user/order_cancellation.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "orders_dashboard.html",
+        "relative_path": "modules/tr-shop/views/user/orders_dashboard.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "config.php",
+        "relative_path": "modules/amadeus/config.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "README.md",
+        "relative_path": "modules/amadeus/README.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/amadeus/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "definitions.php",
+        "relative_path": "modules/amadeus/definitions.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/amadeus/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "Amadeus.php",
+        "relative_path": "modules/amadeus/classes/Amadeus.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "TRANSFERS_SEARCH.json",
+        "relative_path": "modules/amadeus/datasets/TRANSFERS_SEARCH.json",
+        "file_type": "json"
+    },
+    {
+        "filename": "AmadeusFlight.php",
+        "relative_path": "modules/amadeus/models/AmadeusFlight.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/amadeus/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "get_oauth_token.php",
+        "relative_path": "modules/amadeus/api/get_oauth_token.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "transfer_search.php",
+        "relative_path": "modules/amadeus/api/cars-transfers/transfer_search.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "seat_map_by_flight_offer.TBA",
+        "relative_path": "modules/amadeus/api/flights/seat_map_by_flight_offer.TBA",
+        "file_type": "TBA"
+    },
+    {
+        "filename": "seat_map_by_order.php",
+        "relative_path": "modules/amadeus/api/flights/seat_map_by_order.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "city_search.php",
+        "relative_path": "modules/amadeus/api/flights/city_search.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "airport_routes.php",
+        "relative_path": "modules/amadeus/api/flights/airport_routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "flight_offers_price.php",
+        "relative_path": "modules/amadeus/api/flights/flight_offers_price.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "flight_offers_search.php",
+        "relative_path": "modules/amadeus/api/flights/flight_offers_search.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "flight_create_order.php",
+        "relative_path": "modules/amadeus/api/flights/flight_create_order.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "create_hotel_order.php",
+        "relative_path": "modules/amadeus/api/hotels/booking/create_hotel_order.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "get_hotel_offers.php",
+        "relative_path": "modules/amadeus/api/hotels/search/get_hotel_offers.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "get_hotel_offer_pricing.php",
+        "relative_path": "modules/amadeus/api/hotels/search/get_hotel_offer_pricing.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "search_hotels_by_city.php",
+        "relative_path": "modules/amadeus/api/hotels/list/search_hotels_by_city.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "flight_most_traveled_destinations.php",
+        "relative_path": "modules/amadeus/api/market-insights/flight_most_traveled_destinations.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "flight_busiest_traveling_period.php",
+        "relative_path": "modules/amadeus/api/market-insights/flight_busiest_traveling_period.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "flight_most_booked_destinations.php",
+        "relative_path": "modules/amadeus/api/market-insights/flight_most_booked_destinations.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "city_search.php",
+        "relative_path": "modules/amadeus/api/experiences/city_search.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "tour_fetch_by_id.php",
+        "relative_path": "modules/amadeus/api/experiences/tour_fetch_by_id.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "tour_search.php",
+        "relative_path": "modules/amadeus/api/experiences/tour_search.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleAmadeusTripsController.php",
+        "relative_path": "modules/amadeus/controllers/ModuleAmadeusTripsController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleAmadeusController.php",
+        "relative_path": "modules/amadeus/controllers/ModuleAmadeusController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleAmadeusTransfersController.php",
+        "relative_path": "modules/amadeus/controllers/ModuleAmadeusTransfersController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleAmadeusFlightsController.php",
+        "relative_path": "modules/amadeus/controllers/ModuleAmadeusFlightsController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleAmadeusHotelsController.php",
+        "relative_path": "modules/amadeus/controllers/ModuleAmadeusHotelsController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/amadeus/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_my_view.html",
+        "relative_path": "modules/amadeus/views/_my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "flights_main.html",
+        "relative_path": "modules/amadeus/views/admin/flights_main.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "main.html",
+        "relative_path": "modules/amadeus/views/admin/main.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "hotels_main.html",
+        "relative_path": "modules/amadeus/views/admin/hotels_main.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "transfers_main.html",
+        "relative_path": "modules/amadeus/views/admin/transfers_main.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "trips_main.html",
+        "relative_path": "modules/amadeus/views/admin/trips_main.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "city_search.html",
+        "relative_path": "modules/amadeus/views/admin/flights/city_search.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "flight_create_order.html",
+        "relative_path": "modules/amadeus/views/admin/flights/flight_create_order.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "airport_routes.html",
+        "relative_path": "modules/amadeus/views/admin/flights/airport_routes.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_view_basic.html",
+        "relative_path": "modules/amadeus/views/admin/flights/_view_basic.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "flight_offers.html",
+        "relative_path": "modules/amadeus/views/admin/flights/flight_offers.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_view_detailed.html",
+        "relative_path": "modules/amadeus/views/admin/flights/_view_detailed.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "flight_offers_pricing.html",
+        "relative_path": "modules/amadeus/views/admin/flights/flight_offers_pricing.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "hotel_search.html",
+        "relative_path": "modules/amadeus/views/admin/hotels/hotel_search.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "hotel_list.html",
+        "relative_path": "modules/amadeus/views/admin/hotels/hotel_list.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_view_basic.html",
+        "relative_path": "modules/amadeus/views/admin/hotels/_view_basic.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_view_detailed.html",
+        "relative_path": "modules/amadeus/views/admin/hotels/_view_detailed.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "tour_search.html",
+        "relative_path": "modules/amadeus/views/admin/trips/tour_search.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "main.html",
+        "relative_path": "modules/amadeus/views/transfer-booking/main.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "main.html",
+        "relative_path": "modules/amadeus/views/hotel-booking/main.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "main.html",
+        "relative_path": "modules/amadeus/views/trip-booking/main.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_from.html",
+        "relative_path": "modules/amadeus/views/flight-booking/_from.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_book.html",
+        "relative_path": "modules/amadeus/views/flight-booking/_book.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_to.html",
+        "relative_path": "modules/amadeus/views/flight-booking/_to.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "main.html",
+        "relative_path": "modules/amadeus/views/flight-booking/main.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "Amadeus_Logo.png",
+        "relative_path": "modules/amadeus/assets/icons/Amadeus_Logo.png",
+        "file_type": "png"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/email/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/email/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "delete_template.php",
+        "relative_path": "modules/email/api/admin/delete_template.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "save_template.php",
+        "relative_path": "modules/email/api/admin/save_template.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "load_template_content.php",
+        "relative_path": "modules/email/api/admin/load_template_content.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "test_send_template.php",
+        "relative_path": "modules/email/api/admin/test_send_template.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "load_templates.php",
+        "relative_path": "modules/email/api/admin/load_templates.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/email/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "EmailController.php",
+        "relative_path": "modules/email/controllers/EmailController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "my_view.html",
+        "relative_path": "modules/email/views/my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "test.html",
+        "relative_path": "modules/email/views/emails/templates/test.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "debug_test.html",
+        "relative_path": "modules/email/views/emails/templates/debug/debug_test.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "send.html",
+        "relative_path": "modules/email/views/admin/send.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "templates.html",
+        "relative_path": "modules/email/views/admin/templates.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "debug.html",
+        "relative_path": "modules/email/views/admin/debug.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "routes.php",
+        "relative_path": "modules/support-tickets/routes.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "autoloader.php",
+        "relative_path": "modules/support-tickets/autoloader.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_MODEL.php",
+        "relative_path": "modules/support-tickets/models/_CRUD_MODEL.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "SupportTicket.php",
+        "relative_path": "modules/support-tickets/models/SupportTicket.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ModuleSupportTicketsController.php",
+        "relative_path": "modules/support-tickets/controllers/ModuleSupportTicketsController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "modules/support-tickets/controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "my_view.html",
+        "relative_path": "modules/support-tickets/views/my_view.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "modules/support-tickets/views/admin/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_ticket.html",
+        "relative_path": "modules/support-tickets/views/admin/edit_ticket.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_ticket.html",
+        "relative_path": "modules/support-tickets/views/admin/add_ticket.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "X2ArticlesController.php",
+        "relative_path": "controllers/X2ArticlesController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "X2ExamplesController.php",
+        "relative_path": "controllers/X2ExamplesController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "DebuggerController.php",
+        "relative_path": "controllers/DebuggerController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "X2UserController.php",
+        "relative_path": "controllers/X2UserController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "DatabaseController.php",
+        "relative_path": "controllers/DatabaseController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "X2FrameworkController.php",
+        "relative_path": "controllers/X2FrameworkController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "X2FileManagerController.php",
+        "relative_path": "controllers/X2FileManagerController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "CRUDController.php",
+        "relative_path": "controllers/CRUDController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "UserInboxController.php",
+        "relative_path": "controllers/UserInboxController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ErrorLogController.php",
+        "relative_path": "controllers/ErrorLogController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "X2FileUploadController.php",
+        "relative_path": "controllers/X2FileUploadController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "X2FPagesController.php",
+        "relative_path": "controllers/X2FPagesController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "InboxController.php",
+        "relative_path": "controllers/InboxController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "UserProfileController.php",
+        "relative_path": "controllers/UserProfileController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "X2FPluginsController.php",
+        "relative_path": "controllers/X2FPluginsController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "CoreController.php",
+        "relative_path": "controllers/CoreController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_CRUD_CONTROLLER.php",
+        "relative_path": "controllers/_CRUD_CONTROLLER.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "X2FrameworkAuthController.php",
+        "relative_path": "controllers/X2FrameworkAuthController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "PageController.php",
+        "relative_path": "controllers/PageController.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "_navbar.html",
+        "relative_path": "views/_navbar.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_layout_filemanager.html",
+        "relative_path": "views/_layout_filemanager.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_layout_fomantic.html",
+        "relative_path": "views/_layout_fomantic.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_layout.html",
+        "relative_path": "views/_layout.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "main.html",
+        "relative_path": "views/main.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_layout_admin_fomantic.html",
+        "relative_path": "views/_layout_admin_fomantic.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_layout_admin.html",
+        "relative_path": "views/_layout_admin.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_layout_tailwind.html",
+        "relative_path": "views/_layout_tailwind.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_footer.html",
+        "relative_path": "views/_footer.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_navbar_tailwind.html",
+        "relative_path": "views/_navbar_tailwind.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "admin_paginated.html",
+        "relative_path": "views/framework/admin_paginated.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "routes.html",
+        "relative_path": "views/framework/routes.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "file_manager.html",
+        "relative_path": "views/framework/file_manager.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "file_upload.html",
+        "relative_path": "views/framework/file_upload.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "admin.html",
+        "relative_path": "views/framework/admin.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "preview_article.html",
+        "relative_path": "views/framework/preview_article.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "definitions.html",
+        "relative_path": "views/framework/definitions.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_files.html",
+        "relative_path": "views/framework/edit_files.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_images.html",
+        "relative_path": "views/framework/edit_images.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "login.html",
+        "relative_path": "views/framework/login.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_article.html",
+        "relative_path": "views/framework/edit_article.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "twig.html",
+        "relative_path": "views/framework/twig.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "crud.html",
+        "relative_path": "views/framework/crud.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "forgot_password.html",
+        "relative_path": "views/framework/auth/forgot_password.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "change_username.html",
+        "relative_path": "views/framework/auth/change_username.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "change_email.html",
+        "relative_path": "views/framework/auth/change_email.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "reset_password.html",
+        "relative_path": "views/framework/auth/reset_password.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "register.html",
+        "relative_path": "views/framework/auth/register.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "login.html",
+        "relative_path": "views/framework/auth/login.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "change_password.html",
+        "relative_path": "views/framework/auth/change_password.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "login_o.html",
+        "relative_path": "views/framework/auth/login_o.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "install.html",
+        "relative_path": "views/framework/plugins/install.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "install_stripe.html",
+        "relative_path": "views/framework/plugins/install_stripe.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "views/framework/dashboard/articles/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_images.html",
+        "relative_path": "views/framework/dashboard/articles/edit_images.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_article.html",
+        "relative_path": "views/framework/dashboard/articles/edit_article.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "comments.html",
+        "relative_path": "views/framework/dashboard/articles/comments.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "add_article.html",
+        "relative_path": "views/framework/dashboard/articles/add_article.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "admin.html",
+        "relative_path": "views/framework/users/admin.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "main.html",
+        "relative_path": "views/admin/main.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "dashboard_apps.html",
+        "relative_path": "views/admin/dashboard_apps.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "admin.html",
+        "relative_path": "views/admin/database/admin.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "views/admin/user-inbox/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_modal_add.html",
+        "relative_path": "views/admin/user-inbox/_modal_add.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_modal_edit.html",
+        "relative_path": "views/admin/user-inbox/_modal_edit.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "admin.html",
+        "relative_path": "views/admin/inbox/admin.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "preview_article.html",
+        "relative_path": "views/admin/inbox/preview_article.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_article.html",
+        "relative_path": "views/admin/inbox/edit_article.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "main.html",
+        "relative_path": "views/admin/examples/graphs/main.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "admin.html",
+        "relative_path": "views/admin/debugger/admin.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "index.html",
+        "relative_path": "views/admin/error-log/index.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "apache.html",
+        "relative_path": "views/admin/error-log/apache.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_page.html",
+        "relative_path": "views/admin/pages/edit_page.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "admin.html",
+        "relative_path": "views/admin/pages/admin.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "admin_paginated.html",
+        "relative_path": "views/admin/_CRUD_VIEWS/admin_paginated.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "admin.html",
+        "relative_path": "views/admin/_CRUD_VIEWS/admin.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "edit_item.html",
+        "relative_path": "views/admin/_CRUD_VIEWS/edit_item.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_navbar.html",
+        "relative_path": "views/examples/ebike/_navbar.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_layout.html",
+        "relative_path": "views/examples/ebike/_layout.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "README.md",
+        "relative_path": "views/examples/ebike/README.md",
+        "file_type": "md"
+    },
+    {
+        "filename": "main.html",
+        "relative_path": "views/examples/ebike/main.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_footer.html",
+        "relative_path": "views/examples/ebike/_footer.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "testimonials.html",
+        "relative_path": "views/examples/ebike/parts/testimonials.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "get_started.html",
+        "relative_path": "views/examples/ebike/parts/get_started.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "features.html",
+        "relative_path": "views/examples/ebike/parts/features.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "modal_ajax_login.html",
+        "relative_path": "views/parts/modal_ajax_login.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_carousel.html",
+        "relative_path": "views/parts/_carousel.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "navbar.html",
+        "relative_path": "views/parts/navbar.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_carousel_owl.html",
+        "relative_path": "views/parts/_carousel_owl.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "navbar_admin.html",
+        "relative_path": "views/parts/navbar_admin.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "my_inbox.html",
+        "relative_path": "views/user-account/my_inbox.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "my_profile.html",
+        "relative_path": "views/user-account/my_profile.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "my_profile_image.html",
+        "relative_path": "views/user-account/my_profile_image.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "plugins.html",
+        "relative_path": "views/pages/plugins.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "customer_request_detail.html",
+        "relative_path": "views/pages/customer_request_detail.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "google_map.html",
+        "relative_path": "views/pages/google_map.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "articles.html",
+        "relative_path": "views/pages/articles.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_blank_page_markdown.html",
+        "relative_path": "views/pages/_blank_page_markdown.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "article.html",
+        "relative_path": "views/pages/article.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "fancy_articles.html",
+        "relative_path": "views/pages/fancy_articles.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "projects.html",
+        "relative_path": "views/pages/projects.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_blank_page.html",
+        "relative_path": "views/pages/_blank_page.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "__blank_page_mermaid.html",
+        "relative_path": "views/pages/__blank_page_mermaid.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "templates.html",
+        "relative_path": "views/pages/templates.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "upload_files.html",
+        "relative_path": "views/pages/upload_files.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_blank_page_markdown_editable.html",
+        "relative_path": "views/pages/_blank_page_markdown_editable.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "markdown.html",
+        "relative_path": "views/pages/markdown.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "paypal.html",
+        "relative_path": "views/pages/paypal.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "_blank_page_content_loading.html",
+        "relative_path": "views/pages/_blank_page_content_loading.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "install_stripe.html",
+        "relative_path": "views/pages/install_stripe.html",
+        "file_type": "html"
+    },
+    {
+        "filename": "UsernameChangeListener.php",
+        "relative_path": "listeners/UsernameChangeListener.php",
+        "file_type": "php"
+    },
+    {
+        "filename": "ExampleListener.php",
+        "relative_path": "listeners/ExampleListener.php",
+        "file_type": "php"
+    }
+]

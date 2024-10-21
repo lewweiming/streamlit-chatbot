@@ -1,0 +1,49 @@
+{% extends "_layout_admin.html" %}
+
+{% set title = 'Preview Article' %}
+
+{% block head %}
+<link rel="stylesheet" href="/vendor/prismjs/prism.min.css">
+<link rel="stylesheet" type="text/css" href="/css/markdown.css">
+{% endblock %}
+
+{% block content %}
+<!-- FAB -->
+<!-- <div style="position: fixed; right: 120px; bottom: 70px; z-index:2;">
+  
+  <a href="/framework/admin/main" class="rounded-full">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="white" viewBox="0 0 24 24" stroke="black" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+    </svg>
+  </a>
+  <a href="/framework/admin/article/{{ article.id }}" class="rounded-full">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+    </svg>
+  </a>
+</div> -->
+
+<section>
+
+
+<!-- BREADCRUMBS -->
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="/framework">Home</a></li>
+    <li><a href="/framework/admin/main">Admin</a></li>
+    <li><a href="/framework/admin/inbox/main">Inbox</a></li>
+    <li class="is-active"><a href="#" aria-current="page">{{ article.title }}</a></li>
+  </ul>
+</nav>
+
+<h4 class="title">{{ article.title }}</h4>
+
+  <div class="markdown-body">
+  {{ content|raw }}
+  </div>
+</section>
+{% endblock %}
+
+{% block script %}
+<script src="/vendor/prismjs/prism.min.js"></script>
+{% endblock %}

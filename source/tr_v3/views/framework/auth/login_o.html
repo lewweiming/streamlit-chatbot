@@ -1,0 +1,45 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui segment">
+<h1>Login</h1>
+
+<form class="ui form" method="post" action="/login">
+
+  {% if page %}
+  <input type="hidden" name="page" value="{{ page }}" />
+  {% endif %}
+
+  <div class="field">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="Email" />
+  </div>
+
+  <div class="field">
+    <label for="password" >Password</label>
+    <input type="password" name="password" id="password" placeholder="Password" />
+  </div>
+
+  <div class="field">
+    <div class="ui checkbox">
+      <input value="1" name="remember" type="checkbox">
+      <label>Remember me</label>
+    </div>
+  </div>
+
+
+  <div class="field">
+    <a href="/password/forgot">Forgot password</a>
+  </div>
+  
+  <button class="ui button" type="submit">Submit</button>
+
+</form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+$('.ui.checkbox').checkbox();
+</script>
+{% endblock %}

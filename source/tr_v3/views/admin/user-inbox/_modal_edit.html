@@ -1,0 +1,31 @@
+<template x-if="selected">
+    <div class="ui modal edit">
+      <i class="close icon"></i>
+      <div class="header">
+        Edit Existing
+      </div>
+      <div class="content">
+      <!-- FORM -->
+      <form class="ui form">
+        <div class="field">
+          <label>Message Title</label>
+          <input x-model="selected.title" type="text" name="message-title" placeholder="Message title">
+        </div>
+
+        <div class="field">
+          <label>Markdown Content</label>
+          <!-- TEXTAREA -->
+          <textarea id="simplemde-edit-modal"></textarea>
+          </div>
+      </form>       
+      </div>
+      <div class="actions">
+        <button class="ui deny button">
+          Cancel
+        </button>
+        <button @click="submitEdit()" class="ui positive right button">
+          Update
+        </button>
+      </div>
+    </div>
+  </template>

@@ -1,0 +1,187 @@
+{% extends "_layout_admin.html" %}
+
+{% set title = 'Install Stripe' %}
+
+{% block content %}
+<main x-data="main">
+   
+    <div class="title is-4">Customise Installation</div>
+    <div class="subtitle">Please note that installation will overwrite existing files at destination.</div>
+    <hr />
+    
+    <!-- DIRECT LINK TO X2 MAIN MARKDOWN VIEWER -->
+       <div><a href="#" class="button is-primary">View Readme</a></div>
+       
+       <hr />
+    
+    
+      <div class="title is-5">Definitions</div>
+    <table class="table is-fullwidth is-striped">
+        <thead>
+            <tr>
+                <th>Route Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <div class="title is-5">payments</div>
+            </td>
+            <td>
+                <div class="buttons">
+                    <button class="button is-light">View Source</button>
+                    <a href="/framework/admin/plugins/install/stripe/table" class="button is-primary">Install</a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan=3 align=right>
+                    <button class="button is-primary">Install all</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    
+    <hr/>
+    
+      <div class="title is-5">Routes</div>
+    <table class="table is-fullwidth is-striped">
+        <thead>
+            <tr>
+                <th>Route Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <div class="title is-5">payments</div>
+            </td>
+            <td>
+                <div class="buttons">
+                    <button class="button is-light">View Source</button>
+                    <a href="/framework/admin/plugins/install/stripe/table" class="button is-primary">Install</a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan=3 align=right>
+                    <button class="button is-primary">Install all</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    
+    <hr />
+    
+    <div class="title is-5">Database Installation</div>
+    <table class="table is-fullwidth is-striped">
+        <thead>
+            <tr>
+                <th width=50>Select</th>
+                <th>Table Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <label class="checkbox">
+                <input type="checkbox">
+                </label>
+            </td>
+            <td>
+                <div class="title is-5">payments</div>
+            </td>
+            <td>
+                <div class="buttons">
+                    <button class="button is-light">View Source</button>
+                    <a href="/framework/admin/plugins/install/stripe/table" class="button is-primary">Install</a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan=3 align=right>
+                    <button class="button is-primary">Install all</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    
+    <hr />
+    
+      <div class="title is-5">File Installation</div>
+    <table class="table is-fullwidth is-striped">
+        <thead>
+            <tr>
+                <th>File Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <div class="title is-5">classes/Stripe.php</div>
+            </td>
+            <td>
+                <div class="buttons">
+                    <button class="button is-light">View source</button>
+                    <button @click="install()" class="button is-primary">Install</button>
+                    <!--<a href="https://x2.webconxept.com/assets/app-integrations/stripe/installer/install.php" class="button is-primary">Install</a>-->
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan=4 align=right>
+                    <button class="button is-primary">Install all</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</main>
+{% endblock %}
+
+
+{% block script %}
+<script defer>
+  document.addEventListener('alpine:init', () => {
+
+  Alpine.data('main', () => ({
+    async install() {
+        let r = await axios.get('https://x2.webconxept.com/assets/app-integrations/stripe/installer/install.php');
+        
+        if(r.data.error) {
+            bulmaToast.toast({
+            message: r.data.message,
+            duration: 2000,
+            type: 'is-danger',
+            dismissible: true,
+            position: "top-right",
+            animate: { in: 'fadeIn', out: 'fadeOut' }
+            })
+        }
+        
+        if(r.data.message == 'success') {
+            bulmaToast.toast({
+            message: "Installation complete!",
+            duration: 2000,
+            type: 'is-success',
+            dismissible: true,
+            position: "top-right",
+            animate: { in: 'fadeIn', out: 'fadeOut' }
+            })
+        }
+    }
+  }))
+})
+</script>
+{% endblock %}

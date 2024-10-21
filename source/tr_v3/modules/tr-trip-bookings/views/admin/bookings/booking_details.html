@@ -1,0 +1,110 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+
+    <div class="ui breadcrumb">
+        <a href="/framework/admin" class="section">Admin Home</a>
+        <i class="right angle icon divider"></i>
+        <a href="/framework/admin/trips/bookings-dashboard" class="section">Trip Bookings Dashboard</a>
+        <i class="right angle icon divider"></i>
+        <div class="active section">Booking Details (Id: {{ booking.booking_id }})</div>
+    </div>
+
+    <h2 class="ui header">Trip Booking Details</h2>
+
+    <table class="ui cell table">
+        <thead>
+            <tr>
+                <th>Confirmation</th>
+            </tr>
+        </thead>
+    </table>
+
+    <table class="ui cell table">
+        <thead>
+            <tr>
+                <th>Modifications</th>
+            </tr>
+        </thead>
+    </table>
+
+    <table class="ui cell table">
+        <thead>
+            <tr>
+                <th>Cancellation</th>
+            </tr>
+        </thead>
+    </table>
+    
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th colspan="2">Booking Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Booking Reference</strong></td>
+                <td>{{ booking.booking_ref }}</td>
+            </tr>
+            <tr>
+                <td><strong>Customer ID</strong></td>
+                <td>{{ booking.customer_id }}</td>
+            </tr>
+            <tr>
+                <td><strong>Trip ID</strong></td>
+                <td>{{ booking.trip_id }}</td>
+            </tr>
+            <tr>
+                <td><strong>Destination</strong></td>
+                <td>{{ booking.destination }}</td>
+            </tr>
+            <tr>
+                <td><strong>Activity</strong></td>
+                <td>{{ booking.activity }}</td>
+            </tr>
+            <tr>
+                <td><strong>Travelers</strong></td>
+                <td>{{ booking.travelers }}</td>
+            </tr>
+            <tr>
+                <td><strong>Status</strong></td>
+                <td>{{ booking.status }}</td>
+            </tr>
+            <tr>
+                <td><strong>Start Date</strong></td>
+                <td>{{ booking.start_date|date("Y-m-d") }}</td>
+            </tr>
+            <tr>
+                <td><strong>End Date</strong></td>
+                <td>{{ booking.end_date|date("Y-m-d") }}</td>
+            </tr>
+            <tr>
+                <td><strong>Hotel Booking Included</strong></td>
+                <td>{{ booking.hotel_booking ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <td><strong>Car Rental Included</strong></td>
+                <td>{{ booking.car_rental ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <td><strong>Total Amount</strong></td>
+                <td>${{ booking.total_amount }}</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td><strong>Created At</strong></td>
+                <td>{{ booking.created_at|date("Y-m-d H:i:s") }}</td>
+            </tr>
+            <tr>
+                <td><strong>Updated At</strong></td>
+                <td>{{ booking.updated_at|date("Y-m-d H:i:s") }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

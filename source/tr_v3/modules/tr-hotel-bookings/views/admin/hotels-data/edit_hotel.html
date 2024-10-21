@@ -1,0 +1,224 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+  <a href="/framework/admin" class="section">Admin</a>
+  <i class="right angle icon divider"></i>
+  <a href="/framework/admin/hotels/hotels-data/main" class="section">Hotel Data</a>
+  <i class="right angle icon divider"></i>
+  <div class="active section">Edit</div>
+</div>
+
+<h2 class="ui header">Edit Hotel Listing</h2>
+
+<!-- VALIDATION ERRORS -->
+{% if(errors) %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">
+    Validation Errors
+  </div>
+  <ul>
+    {% for key,val in errors %}
+    <li>{{ val[0] }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<form method="post" action="/hotels/{{ hotel.id }}/edit" class="ui form">
+  <p>Edit your hotel details</p>
+
+  <div class="required field">
+    <label for="name">Hotel Name</label>
+    <input value="{{ hotel.name }}" type="text" id="name" name="name">
+  </div>
+
+  <div class="field">
+    <label for="address">Address</label>
+    <input value="{{ hotel.address }}" type="text" id="address" name="address">
+  </div>
+
+  <div class="field">
+    <label for="phone">Phone</label>
+    <input value="{{ hotel.phone }}" type="text" id="phone" name="phone">
+  </div>
+
+  <div class="field">
+    <label for="email">Email</label>
+    <input value="{{ hotel.email }}" type="text" id="email" name="email">
+  </div>
+
+  <div class="required field">
+    <label for="location">Location</label>
+    <input value="{{ hotel.location }}" type="text" id="location" name="location">
+  </div>
+
+  <div class="required field">
+    <label for="description">Description</label>
+    <textarea name="description" placeholder="Detailed description">{{ hotel.description }}</textarea>
+  </div>
+
+  <div class="field">
+    <label for="terms">Terms</label>
+    <textarea name="terms" placeholder="Rental terms">{{ hotel.terms }}</textarea>
+  </div>
+
+  <div class="required field">
+    <label for="price">Price</label>
+    <input value="{{ hotel.price }}" type="text" id="price" name="price" placeholder="e.g., 100.00">
+  </div>
+
+  <div class="field">
+    <label for="amenities">Amenities</label>
+    <input value="{{ hotel.amenities }}" type="text" id="amenities" name="amenities" placeholder="e.g., Wi-Fi, Breakfast">
+  </div>
+
+  <div class="field">
+    <label for="banner_image_url">Banner Image URL</label>
+    <input value="{{ hotel.banner_image_url }}" type="text" id="banner_image_url" name="banner_image_url">
+  </div>
+
+  <div class="field">
+    <label for="thumb_image_1_url">Thumbnail Image 1 URL</label>
+    <input value="{{ hotel.thumb_image_1_url }}" type="text" id="thumb_image_1_url" name="thumb_image_1_url">
+  </div>
+
+  <div class="field">
+    <label for="thumb_image_2_url">Thumbnail Image 2 URL</label>
+    <input value="{{ hotel.thumb_image_2_url }}" type="text" id="thumb_image_2_url" name="thumb_image_2_url">
+  </div>
+
+  <div class="field">
+    <label for="thumb_image_3_url">Thumbnail Image 3 URL</label>
+    <input value="{{ hotel.thumb_image_3_url }}" type="text" id="thumb_image_3_url" name="thumb_image_3_url">
+  </div>
+
+  <button type="submit" class="ui button">Update</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+<script>
+  /* VALIDATION */
+  $(document).ready(function () {
+    $('.ui.form').form({
+      fields: {
+        name: {
+          identifier: 'name',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the hotel name'
+            }
+          ]
+        },
+        address: {
+          identifier: 'address',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the hotel address'
+            }
+          ]
+        },
+        phone: {
+          identifier: 'phone',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the hotel phone number'
+            }
+          ]
+        },
+        email: {
+          identifier: 'email',
+          rules: [
+            {
+              type: 'email',
+              prompt: 'Please enter a valid email address'
+            }
+          ]
+        },
+        location: {
+          identifier: 'location',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the hotel location'
+            }
+          ]
+        },
+        description: {
+          identifier: 'description',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter a detailed description'
+            }
+          ]
+        },
+        price: {
+          identifier: 'price',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the price'
+            },
+            {
+              type: 'decimal',
+              prompt: 'Please enter a valid decimal price'
+            }
+          ]
+        },
+        amenities: {
+          identifier: 'amenities',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the amenities offered'
+            }
+          ]
+        },
+        banner_image_url: {
+          identifier: 'banner_image_url',
+          rules: [
+            {
+              type: 'url',
+              prompt: 'Please enter a valid banner image URL'
+            }
+          ]
+        },
+        thumb_image_1_url: {
+          identifier: 'thumb_image_1_url',
+          rules: [
+            {
+              type: 'url',
+              prompt: 'Please enter a valid thumbnail image URL'
+            }
+          ]
+        },
+        thumb_image_2_url: {
+          identifier: 'thumb_image_2_url',
+          rules: [
+            {
+              type: 'url',
+              prompt: 'Please enter a valid thumbnail image URL'
+            }
+          ]
+        },
+        thumb_image_3_url: {
+          identifier: 'thumb_image_3_url',
+          rules: [
+            {
+              type: 'url',
+              prompt: 'Please enter a valid thumbnail image URL'
+            }
+          ]
+        }
+      }
+    });
+  });
+</script>
+{% endblock %}

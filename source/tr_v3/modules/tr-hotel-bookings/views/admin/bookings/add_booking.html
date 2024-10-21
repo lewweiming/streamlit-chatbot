@@ -1,0 +1,237 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+  <a href="/" class="section">Hotel Home</a>
+  <i class="right angle icon divider"></i>
+  <a href="/hotels/bookings" class="section">Bookings</a>
+  <i class="right angle icon divider"></i>
+  <div class="active section">Add Booking</div>
+</div>
+
+<h2 class="ui header">Add New Hotel Booking</h2>
+
+<!-- VALIDATION ERRORS -->
+{% if(errors) %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">
+    Validation Errors
+  </div>
+  <ul>
+    {% for key,val in errors %}
+    <li>{{ val[0] }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<form method="post" action="/framework/admin/hotels/add-booking" class="ui form">
+  
+  <p>Add your hotel booking details</p>
+
+  <div class="required field">
+    <label for="guest_id">Guest ID</label>
+    <input type="number" id="guest_id" name="guest_id">
+  </div>
+
+  <div class="required field">
+    <label for="hotel_id">Hotel ID</label>
+    <input type="number" id="hotel_id" name="hotel_id">
+  </div>
+
+  <div class="required field">
+    <label for="hotel">Hotel Name</label>
+    <input type="text" id="hotel" name="hotel" placeholder="Enter hotel name">
+  </div>
+
+  <div class="required field">
+    <label for="room_id">Room ID</label>
+    <input type="number" id="room_id" name="room_id">
+  </div>
+
+  <div class="required field">
+    <label for="room_type">Room Type</label>
+    <input type="text" id="room_type" name="room_type" placeholder="Enter room type">
+  </div>
+
+  <div class="required field">
+    <label for="guests">Number of Guests</label>
+    <input type="number" id="guests" name="guests" placeholder="0">
+  </div>
+
+  <div class="required field">
+    <label>Check-In Date</label>
+    <div class="ui calendar" id="check_in_date_calendar">
+      <div class="ui fluid input left icon">
+        <i class="calendar icon"></i>
+        <input type="text" name="check_in_date" placeholder="YYYY-MM-DD">
+      </div>
+    </div>
+  </div>
+
+  <div class="required field">
+    <label>Check-Out Date</label>
+    <div class="ui calendar" id="check_out_date_calendar">
+      <div class="ui fluid input left icon">
+        <i class="calendar icon"></i>
+        <input type="text" name="check_out_date" placeholder="YYYY-MM-DD">
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="breakfast">Breakfast</label>
+    <select name="breakfast" id="breakfast" class="ui dropdown">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="parking">Parking</label>
+    <select name="parking" id="parking" class="ui dropdown">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="wifi">WiFi</label>
+    <select name="wifi" id="wifi" class="ui dropdown">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select>
+  </div>
+
+  <div class="required field">
+    <label for="total_amount">Total Amount</label>
+    <input type="number" step="0.01" id="total_amount" name="total_amount" placeholder="0.00">
+  </div>
+
+  <button type="submit" class="ui button">Submit</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+<script>
+  $('#check_in_date_calendar, #check_out_date_calendar')
+    .calendar({
+      onChange: (date, text) => {
+        // Where date is the JS object and text is the string representation of the date 
+        // Do something
+      },
+      formatter: {
+        date: 'YYYY-MM-DD'
+      },
+      type: 'date'
+    });   
+</script>
+<script>
+/* VALIDATION */
+$(document).ready(function () {
+    $('.ui.form').form({
+        fields: {
+            guest_id: {
+                identifier: 'guest_id',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the guest ID'
+                    },
+                    {
+                        type: 'integer',
+                        prompt: 'Guest ID must be a number'
+                    }
+                ]
+            },
+            hotel_id: {
+                identifier: 'hotel_id',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the hotel ID'
+                    },
+                    {
+                        type: 'integer',
+                        prompt: 'Hotel ID must be a number'
+                    }
+                ]
+            },
+            hotel: {
+                identifier: 'hotel',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the hotel name'
+                    }
+                ]
+            },
+            room_id: {
+                identifier: 'room_id',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the room ID'
+                    },
+                    {
+                        type: 'integer',
+                        prompt: 'Room ID must be a number'
+                    }
+                ]
+            },
+            room_type: {
+                identifier: 'room_type',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the room type'
+                    }
+                ]
+            },
+            guests: {
+                identifier: 'guests',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the number of guests'
+                    }
+                ]
+            },
+            check_in_date: {
+                identifier: 'check_in_date',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the check-in date'
+                    }
+                ]
+            },
+            check_out_date: {
+                identifier: 'check_out_date',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the check-out date'
+                    }
+                ]
+            },
+            total_amount: {
+                identifier: 'total_amount',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the total amount'
+                    },
+                    {
+                        type: 'decimal',
+                        prompt: 'Please enter a valid amount'
+                    }
+                ]
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

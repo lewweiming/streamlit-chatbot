@@ -1,0 +1,162 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<main x-data="main()">
+  <div class="ui container segment">
+    <h2 class="ui dividing header">Hotel Booking Checkout</h2>
+
+
+  <!-- STEPPER -->
+<div class="ui ordered steps">
+
+  <div class="active step">
+    <div class="content">
+      <div class="title">Personal Details</div>
+      <div class="description">Enter your details</div>
+    </div>
+  </div>
+  
+  <div class="disabled step">
+    <div class="content">
+      <div class="title">Review</div>
+      <div class="description">Review your booking</div>
+    </div>
+  </div>
+  
+  <div class="disabled step">
+    <div class="content">
+      <div class="title">Payment</div>
+      <div class="description">Complete your payment</div>
+    </div>
+  </div>
+</div>
+
+    <form method="post" action="/modules/hotel-bookings/checkout" class="ui form">
+      <!-- Booking Details -->
+      <h4 class="ui dividing header">Booking Details</h4>
+      <div class="two fields">
+        <div class="field">
+          <label>Check-In Date</label>
+          <div class="ui calendar standard_calendar">
+            <div class="ui fluid input left icon">
+              <i class="calendar icon"></i>
+              <input name="checkin-date" type="text" placeholder="Check-In Date">
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Check-Out Date</label>
+          <div class="ui calendar standard_calendar">
+            <div class="ui fluid input left icon">
+              <i class="calendar icon"></i>
+              <input name="checkout-date" type="text" placeholder="Check-Out Date">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Room Details -->
+      <h4 class="ui dividing header">Room Details</h4>
+      <div class="field">
+        <label>Selected Room Type</label>
+        <select x-model="input.selectedRoom" name="room" class="ui selection dropdown">
+          <option value=''>Select Room Type</option>
+          <option>Single Room</option>
+          <option>Double Room</option>
+          <option>Suite</option>
+          <option>Family Room</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Number of Guests</label>
+        <input x-model="input.guests" type="number" name="guests" placeholder="Number of Guests" min="1">
+      </div>
+
+      <!-- Customer Details -->
+      <h4 class="ui dividing header">Customer Information</h4>
+      <div class="field">
+        <label>Full Name</label>
+        <input x-model="input.fullName" type="text" name="name" placeholder="Full Name">
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input x-model="input.email" type="email" name="email" placeholder="Email">
+      </div>
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" placeholder="Phone Number">
+      </div>
+
+      <!-- Payment Information -->
+      <h4 class="ui dividing header">Payment Information</h4>
+      <div class="field">
+        <label>Credit Card Number</label>
+        <input type="text" name="card-number" placeholder="Credit Card Number">
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Expiration Date</label>
+          <input type="text" name="expiry-date" placeholder="MM/YY">
+        </div>
+        <div class="field">
+          <label>CVV</label>
+          <input type="text" name="cvv" placeholder="CVV">
+        </div>
+      </div>
+
+      <!-- Agreement and Confirmation -->
+      <div class="field">
+        <div class="ui checkbox">
+          <input type="checkbox" name="agreement">
+          <label>I agree to the Terms and Conditions</label>
+        </div>
+      </div>
+
+      <button class="ui primary button" type="submit">Complete Booking</button>
+    </form>
+  </div>
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+  $('.ui.dropdown').dropdown();
+  $('.ui.checkbox').checkbox();
+  $('.ui.form').form({
+    fields: {
+      name: 'empty',
+      email: 'email',
+      room: 'empty',
+      guests: 'empty',
+      'checkin-date': 'empty',
+      'checkout-date': 'empty',
+      agreement: 'checked'
+    }
+  });
+
+  $('.standard_calendar')
+    .calendar({
+      onChange: (date, text) => {
+        // Handle date selection
+      },
+      formatter: {
+        date: 'DD/MM/YYYY'
+      },
+      type: 'date'
+    });
+</script>
+
+<script defer>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('main', () => ({
+      input: {
+        fullName: 'John Smith',
+        email: 'socrates3142@gmail.com',
+        selectedRoom: 'Single Room',
+        guests: 1
+      }
+    }))
+  })
+</script>
+{% endblock %}

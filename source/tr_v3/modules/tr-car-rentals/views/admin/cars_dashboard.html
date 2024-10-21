@@ -1,0 +1,77 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    <h2 class="ui dividing header">Car Rentals - Cars Dashboard</h2>
+
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Car ID</th>
+                <th>Car Name</th>
+                <th>Model</th>
+                <th>Type</th>
+                <th>Daily Rent ($)</th>
+                <th>Availability Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example row, loop through your data and replace accordingly -->
+            <tr>
+                <td>1</td>
+                <td>Toyota Corolla</td>
+                <td>2019</td>
+                <td>Sedan</td>
+                <td>45.00</td>
+                <td><span class="ui green label">Available</span></td>
+                <td>
+                    <div class="ui buttons">
+                        <button class="ui blue button">Edit</button>
+                        <button class="ui red button">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ford Mustang</td>
+                <td>2021</td>
+                <td>Coupe</td>
+                <td>150.00</td>
+                <td><span class="ui red label">Rented</span></td>
+                <td>
+                    <div class="ui buttons">
+                        <button class="ui blue button">Edit</button>
+                        <button class="ui red button">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <button class="ui primary button">Add New Car</button>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

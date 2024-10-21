@@ -1,0 +1,60 @@
+{% extends "_layout_admin.html" %}
+
+{% set title = 'Definitions' %}
+
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.8.1/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.8.1/mode-plain_text.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.8.1/theme-monokai.min.js"></script>
+<style type="text/css" media="screen">
+#editor { 
+    height: 500px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<form method="post" action="/framework/admin/definitions">
+
+<div class="title is-4">Editing .env</div>  
+<div id="editor" class="my-3">{{ content }}</div>
+
+<textarea style="display:none;" name="content">{{ content }}</textarea>
+      
+<div class="field is-grouped">
+    <div class="control">
+      <button type="submit" class="button is-primary">Submit</button>
+    </div>
+    <div class="control">
+      <button class="button is-light">Cancel</button>
+    </div>
+  </div>
+</form>
+{% endblock %}
+
+{% block script %}
+<script>
+var textarea = document.querySelector('textarea[name="content"]');
+const aE = ace.edit("editor");
+aE.setTheme("ace/theme/monokai");
+aE.session.setMode("ace/mode/plain_text");
+
+aE.getSession().on('change', function(){
+  textarea.value = aE.getSession().getValue();
+});
+
+/* SET OPTIONS */
+aE.setOptions({
+   highlightActiveLine: true,
+   highlightGutterLine: true,
+   fontSize: 16
+});
+
+/* FIX TOP & BOTTOM SPACING */
+aE.renderer.setScrollMargin(10, 10)
+
+/* FIX LINE HEIGHT */
+aE.container.style.lineHeight = 2
+aE.renderer.updateFontSize()
+</script>
+{% endblock %}

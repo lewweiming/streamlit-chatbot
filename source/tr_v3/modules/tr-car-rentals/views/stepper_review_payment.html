@@ -1,0 +1,374 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<main x-data="main" x-cloak data-paypal-mode="{{ mode|e }}">
+
+<!-- BREADCRUMBS -->
+<div class="ui breadcrumb">
+    <a href="/" class="section">Home</a>
+    <i class="right angle icon divider"></i>
+    <a href="/modules/car-rentals" class="section">Car Rental</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section">Checkout: Review & Payment</div>
+</div>
+
+<!-- MODAL COMPLETE -->
+<div class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Your booking is under review
+    </div>
+    <div class="image content">
+      <div class="ui small image">
+        <img src="/assets/icons/documents.png">
+      </div>
+      <div class="description">
+        <div class="ui header">What to do next?</div>
+        <p>Once your booking is confirmed, you will be notified via email.</p>
+        <p>This will take within 1 - 3 working days.</p>
+        <p>You can also view the status of your dashboard.</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="ui positive right labeled icon button">
+        Okay
+        <i class="checkmark icon"></i>
+      </button>
+    </div>
+  </div>
+
+<!-- STEPPER -->
+<div class="ui ordered fluid steps">
+
+    <a href="/modules/car-rentals/checkout/personal-details" class="completed step">
+        <div class="content">
+            <div class="title">Personal Details</div>
+            <div class="description">Enter your details</div>
+        </div>
+    </a>
+
+    <div class="active step">
+        <div class="content">
+            <div class="title">Review & Payment</div>
+            <div class="description">Review booking and complete your payment</div>
+        </div>
+    </div>
+</div>
+
+<!-- ALERT -->
+<div class="ui message">
+    <p>All currency in USD unless otherwise stated.</p>
+</div>
+
+<div class="ui grid">
+    <div class="ten wide column">
+
+        <div class="ui black padded segment">
+            <h1 class="ui header">Car Rental Application</h1>
+
+        <!-- Rental Details -->
+        <div class="ui inverted segment" id="summary">
+            <h2 class="ui header">Rental Details</h2>
+            <table class="ui celled table">
+                <thead>
+                  <tr>
+                    <th>Detail</th>
+                    <th>Summary</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Selected Car</strong></td>
+                    <td><span id="summaryCarType">{{ bookingData.carType | capitalize }}</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Pick-up Date</strong></td>
+                    <td><span id="summaryPickupDate">{{ bookingData.pickupDate }}</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Return Date</strong></td>
+                    <td><span id="summaryReturnDate">{{ bookingData.returnDate }}</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Insurance</strong></td>
+                    <td><span id="summaryInsurance">{{ bookingData.insurance == 'true' ? 'Yes' : 'No' }}</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>GPS</strong></td>
+                    <td><span id="summaryGPS">{{ bookingData.gps == 'true' ? 'Yes' : 'No' }}</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Total Price</strong></td>
+                    <td>$<span id="summaryPrice">{{ totalCost }}</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+        </div>
+
+        
+        <div class="ui inverted segment">
+            <h3 class="ui header">Personal Details</h3>
+            <table class="ui celled table">
+                <tr>
+                    <td width="100"><strong>Name</strong></td>
+                    <td>{{ bookingData.name }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Email</strong></td>
+                    <td>{{ bookingData.email }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Phone</strong></td>
+                    <td>{{ bookingData.phone }}</td>
+                </tr>
+            </table>
+
+        </div>
+
+        </div>
+
+    </div>
+    <div class="six wide column">
+        <!-- Payment Method -->
+        <div class="ui black padded segment">
+
+            <h3 class="ui header">Rental Summary</h3>
+            <div class="ui relaxed divided list">
+                <div class="item">
+                    <i class="car icon"></i>
+                    <div class="content">
+                        <div class="header">Car Model</div>
+                        <!-- <div class="description">Toyota Corolla 2024</div> -->
+                        <div class="description">{{ bookingData.carType | capitalize }}</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="calendar alternate outline icon"></i>
+                    <div class="content">
+                        <div class="header">Rental Period</div>
+                        <div class="description">
+                            {{ bookingData.pickUpDate | date('M j, Y') }} - {{ bookingData.returnDate | date('M j, Y') }} ( {{ duration }} day(s) )
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="dollar sign icon"></i>
+                    <div class="content">
+                        <div class="header">Total Price</div>
+                        <div class="description">{{ totalCost|format_currency('SGD') }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui divider"></div>
+
+            <!-- SHOW IF PAYMENT COMPLETE -->
+            <section x-show="isComplete">
+             <div class="ui vertical fluid spaced buttons">
+            <button data-tooltip="Your payment is currently under review" class="ui fluid positive button">Payment Completed</button>
+            <a href="/" class="ui fluid button">Return Home</a>
+            </div>
+            </section>
+
+            <!-- SHOW IF PAYMENT NOT COMPLETE -->
+            <section x-show="!isComplete">
+            <h3 class="ui header">Payment Method</h3>
+            <form class="ui form">
+                <div class="grouped fields">
+                    <label>Select a Payment Method</label>
+                    <!-- <div class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="paymentMethod" checked="checked" tabindex="0" class="hidden">
+                            <label>Credit Card</label>
+                        </div>
+                    </div> -->
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                            <input checked type="radio" name="paymentMethod" tabindex="0" class="hidden">
+                            <label>PayPal ({{ mode }})</label>
+                        </div>
+                    </div>
+                    <!-- <div class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="paymentMethod" tabindex="0" class="hidden">
+                            <label>Bank Transfer</label>
+                        </div>
+                    </div> -->
+                </div>
+
+                <!-- Credit Card Information -->
+                <!-- <div class="ui segment">
+                    <div class="field">
+                        <label>Card Number</label>
+                        <input type="text" name="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX">
+                    </div>
+                    <div class="fields">
+                        <div class="eight wide field">
+                            <label>Expiration Date</label>
+                            <input type="text" name="expiryDate" placeholder="MM/YY">
+                        </div>
+                        <div class="eight wide field">
+                            <label>CVV</label>
+                            <input type="text" name="cvv" placeholder="CVV">
+                        </div>
+                    </div>
+                </div> -->
+
+                <section>
+
+                    <!-- PAYPAL -->
+                    <div id="paypal-button-container"></div>
+                </section>
+
+            </form>
+            </section>
+        </div>
+    </div>
+</div>
+
+</main>
+{% endblock %}
+
+
+{% block script %}
+<script src="https://www.paypal.com/sdk/js?client-id={{ paypal_client_id }}&currency=USD"></script>
+<script>
+
+    let r = document.querySelector('[data-paypal-mode]');
+    const paypalMode = r.dataset.paypalMode; // sandbox / live
+
+    const API_PAYPAL_SANDBOX_CREATE = '/modules/tr-car-rentals/api/paypal/create_sandbox_digital_checkout.php'
+    const API_PAYPAL_SANDBOX_CAPTURE = '/modules/tr-car-rentals/api/paypal/capture_sandbox_digital_checkout.php'
+    const API_PAYPAL_LIVE_CREATE = '/modules/tr-car-rentals/api/paypal/create_live_digital_checkout.php'
+    const API_PAYPAL_LIVE_CAPTURE = '/modules/tr-car-rentals/api/paypal/capture_live_digital_checkout.php'
+
+    var API_PAYPAL_CREATE, API_PAYPAL_CAPTURE
+    API_PAYPAL_CREATE = paypalMode == 'live' ? API_PAYPAL_LIVE_CREATE : API_PAYPAL_SANDBOX_CREATE;
+    API_PAYPAL_CAPTURE = paypalMode == 'live' ? API_PAYPAL_LIVE_CAPTURE : API_PAYPAL_SANDBOX_CAPTURE;
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            isConnecting: false,
+            isComplete: false,
+            init() {
+                this.$nextTick(() => {
+                    this.mountPaypal();
+                });
+            },
+            /*
+            - To pass to Paypal on payment
+            */
+            getFormDataPaypalCreate() {
+
+                let data = this.formInput
+                // let total = this.getAmountTotal()
+                let total = 1;
+
+                let formData = new FormData()
+                formData.append('amount', total)
+                formData.append('form', JSON.stringify(data))
+
+                return formData
+            },
+            getFormDataPaypalCapture() {
+
+                let data = this.formInput
+
+                let formData = new FormData()
+                formData.append('cart', JSON.stringify(cart.itemsCheckout))
+                formData.append('form', JSON.stringify(data))
+
+                return formData
+            },
+            mountPaypal() {
+                paypal.Buttons({
+
+                    // Order is created on the server and the order id is returned
+                    createOrder: async () => {
+
+                        $.toast({ message: 'Creating an order on paypal..' })
+
+                        /* Validate Amount or Paypal will throw cryptic errors */
+                        // if (this.cartTotal == 0) {
+                        //     bulmaToast.toast({ message: 'Cart cannot be empty!' })
+                        //     return
+                        // }
+
+                        // if (this.getAmountTotal() == 0) {
+                        //     bulmaToast.toast({ message: 'Total amount cannot be 0!' })
+                        //     return
+                        // }
+
+                        /* Validate Address or Paypal will throw cryptic errors */
+                        // if (this.formInput.use_new_shipping_address == false && this.formInput.selected_shipping_address == null) {
+                        //     bulmaToast.toast({ message: 'Please select a shipping address first!' })
+                        //     return
+                        // }
+
+                        // if (this.formInput.use_new_shipping_address == true && validateShippingAddressForm(this.formInput.shipping_address, true) == true) {
+                        //     return
+                        // }
+
+                        const r = await fetch(API_PAYPAL_CREATE, {
+                            method: "POST",
+                            body: this.getFormDataPaypalCreate()
+                        });
+
+                        const order = await r.json();
+
+                        return order.id;
+                    },
+                    // Finalize the transaction after payer approval
+                    onApprove: (data, actions) => {
+
+                        this.isConnecting = true
+
+                        return fetch(API_PAYPAL_CAPTURE + `?orderId=${data.orderID}`, {
+                            method: "post",
+                            // body: this.getFormDataPaypalCapture()
+                        })
+                            .then((response) => response.json())
+                            .then((data) => {
+
+                                this.isConnecting = false
+
+                                // console.log(data) // The Paypal Order Object
+
+                                if (typeof data === 'string') {
+                                    alert(data)
+                                    return
+                                }
+
+                                if (data.error) {
+                                    $.toast({ message: data.message })
+                                    return
+                                }
+
+                                // Successful capture! For dev/demo purposes:
+                                // console.log('Capture result', data, JSON.stringify(data, null, 2));
+                                const transaction = data.purchase_units[0].payments.captures[0];
+                                console.log(transaction)
+
+                                $.toast({ message: `Checkout (Paypal) complete` })
+
+                                // Show Dialog
+                                $('.ui.modal').modal('show');
+                                this.isComplete = true;
+                                // this.currentStep = 'complete'
+                                // this.completedOrderHash = data.orderHash
+                                // this.clearCart()
+                            });
+                    },
+                    onError(err) {
+                        console.log(err);
+                        // For example, redirect to a specific error page
+                        // window.location.href = "/your-error-page-here";
+                    },
+                }).render('#paypal-button-container');
+            }
+        }))
+    })
+</script>
+{% endblock %}

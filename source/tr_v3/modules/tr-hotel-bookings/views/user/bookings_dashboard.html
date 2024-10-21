@@ -1,0 +1,44 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    <!-- Page Header -->
+    <div class="ui secondary menu">
+        <h2 class="ui header">Customer Hotel Bookings Dashboard</h2>
+    </div>
+
+    <!-- Hotel Bookings -->
+    <div>
+        <h3 class="ui dividing header">Hotel Bookings</h3>
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Hotel Name</th>
+                    <th>Room Type</th>
+                    <th>Check-in Date</th>
+                    <th>Check-out Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#HB001</td>
+                    <td>Hilton Garden Inn</td>
+                    <td>Deluxe</td>
+                    <td>2024-10-10</td>
+                    <td>2024-10-15</td>
+                    <td><div class="ui orange label">Pending</div></td>
+                    <td>
+                        <a href="/modules/hotel-bookings/booking-modification" class="ui button">Modify</a>
+                        <a href="/modules/hotel-bookings/booking-cancellation" class="ui button">Cancel</a>
+                    </td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock %}

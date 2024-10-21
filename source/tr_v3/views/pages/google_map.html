@@ -1,0 +1,62 @@
+{% extends "_layout.html" %}
+
+{% block head %}
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK2KQrzurHnmjwZy2dhWbVTLK0396a9Vg&callback=initMap"></script>
+<style>
+    #map {
+        height: 700px;
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section x-data="main" class="">
+    <div id="map" class=""></div>
+</section>
+{% endblock %}
+
+{% block script %}
+<script>
+    const baseUrl = "https://www.travelgowhere.com.sg";
+
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 1.3521, lng: 103.8198 },
+            zoom: 12,
+        });
+        // Add new marker - Sentosa
+        var sentosa = { lat: 1.2494, lng: 103.8303 };
+        var treeImage = baseUrl + "/img/map/tree.png";
+        var sentosaMarker = new google.maps.Marker({
+            position: sentosa,
+            map: map,
+            icon: treeImage,
+        });
+        // Add new marker - Pulau Tekukor Island
+        var pulauTekukorIsland = { lat: 1.2308, lng: 103.8377 };
+        var crabImage = baseUrl + "/icons/crab.svg";
+        var sentosaMarker = new google.maps.Marker({
+            position: pulauTekukorIsland,
+            map: map,
+            icon: crabImage,
+        });
+        // Add new marker - D'Resort
+        var dResort = { lat: 1.3799, lng: 103.955 };
+        var hotelImage = baseUrl + "/img/map/hotel.png";
+        var sentosaMarker = new google.maps.Marker({
+            position: dResort,
+            map: map,
+            icon: hotelImage,
+        });
+    }
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+
+        }))
+    })
+</script>
+{% endblock %}

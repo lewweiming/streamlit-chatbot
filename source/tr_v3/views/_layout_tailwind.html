@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tailwind admin demo</title>
+
+  <link rel="stylesheet" href="/vendor/easymde/easymde.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+
+      @layer components {
+        .btn-primary {
+          @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+        }
+      }      
+      
+#loadOverlay{display: none;}
+
+[x-cloak] { display: none !important; }
+
+    </style>
+
+  <!-- GFONTS-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=block"
+    rel="stylesheet">
+
+  <style>
+    .font-lato {
+      font-family: 'Lato';
+    }
+  </style>
+
+  <!-- Additional Headers / Styles -->
+  {% block head %}{% endblock %}
+</head>
+
+<body class="font-lato content-auto">
+
+  <div id="loadOverlay"
+    style="background-color:#333; position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:2000;"></div>
+
+  <!-- TOAST -->
+  <div id="flash" class="fixed bottom-2 right-2">
+    <div id="toasts" class="columns-1">
+
+    </div>
+  </div>
+
+  <!-- TOOLBAR -->
+  {% include '_navbar.html' %}
+
+  <!-- CONTENT -->
+  <div class="mx-auto" style="max-width: 1000px;">
+    {% block content %}{% endblock %}
+  </div>
+
+  <!-- FOOTER -->
+  {% include '_footer.html' %}
+
+  <script src="/js/tailwind/toaster.js"></script>
+  <script src="/vendor/easymde/easymde.min.js"></script>
+
+  <!-- FLASH SUPPORT JS - TOAST MODE -->
+  <script>
+    let toaster = new Toaster();
+
+    var flash = {{ flash| json_encode | raw }} // Dictionary Object
+
+    if (flash) {
+      renderFlashElement(flash)
+    }
+
+    function renderFlashElement(flash) {
+
+      if ('success' in flash) {
+
+        flash.success.forEach((message) => {
+          toaster.pop({ message: message, class: 'green' })
+        })
+
+      } else if ('error' in flash) {
+
+        flash.error.forEach((message) => {
+
+          toaster.pop({ message: message, class: 'red' })
+        })
+      }
+    }
+
+  </script>
+
+  <!-- Additional Scripts -->
+  {% block script %}{% endblock %}
+</body>
+
+</html>

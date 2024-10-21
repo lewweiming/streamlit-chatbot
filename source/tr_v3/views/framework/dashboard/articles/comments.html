@@ -1,0 +1,216 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<main x-data="main" data-article="{{ article|json_encode|e }}">
+    <div class="ui container">
+
+        <!-- BREADCRUMBS -->
+    <div class="ui breadcrumb">
+        <a href="/framework/admin" class="section">Admin</a>
+        <i class="right angle icon divider"></i>
+        <a href="/framework/admin/articles" class="section">Articles</a>
+        <i class="right angle icon divider"></i>
+        <div class="active section">Comments for {{ article.title }}</div>
+      </div>
+
+        <h1>Article Comments</h1>
+        <p>This page application is based on CRUD Paginated.</p>
+
+        <!-- TOOLBAR -->
+        <div class="ui secondary menu">
+            <div class="item">
+                <div class="ui toggle checkbox">
+                    <input @click="deleteMode = !deleteMode" type="checkbox">
+                    <label>Toggle delete mode</label>
+                </div>
+            </div>
+
+            <div class="item">
+                <a @click="list()" class="ui small button">
+                    <i class="refresh icon"></i> Refresh
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- FORM ADD -->
+        <div class="ui blue segment">
+            <div class="ui large header">Add New</div>
+            <form class="ui form">
+                <div class="field">
+                    <label>Name</label>
+                    <input x-model="input.name" type="text" name="comment-name" placeholder="">
+                </div>
+
+                <div class="field">
+                    <label>Comment Body</label>
+                    <input x-model="input.comment_body" type="text" name="comment-body" placeholder="">
+                </div>
+
+                <button @click="submitAdd()" type="button" class="ui button">Submit</button>
+            </form>
+        </div>
+
+        <!-- FORM EDIT -->
+        <template x-if="selected">
+
+            <div class="ui blue segment">
+                <div class="ui large header">Edit Existing</div>
+                <!-- FORM -->
+                <form class="ui form">
+                    <div class="field">
+                        <label>Name</label>
+                        <input x-model="selected.name" type="text" name="comment-name"
+                            placeholder="">
+                    </div>
+
+                    <div class="field">
+                        <label>Comment Body</label>
+                        <input x-model="selected.comment_body" type="text" name="comment-body"
+                            placeholder="">
+                    </div>
+
+                    <button @click="submitEdit()" type="button" class="ui button">Update</button>
+                </form>
+            </div>
+
+        </template>
+
+        <!-- TABLE -->
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Comment Body</th>
+                    <th>Created on</th>
+                    <th>Action(s)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template x-for="i in rows">
+                    <tr>
+                        <td data-label="Name" x-text="i.name"></td>
+                        <td data-label="Comment Body" x-text="i.comment_body"></td>
+                        <td data-label="Created" x-text="convertDate(i.created_at)"></td>
+                        <td data-label="Actions">
+                            <a @click="selected = {...i}" class="ui small button">
+                                <i class="edit icon"></i> Edit
+                            </a>
+                            <a x-show="deleteMode" @click="submitDelete(i.id)" class="ui small button">
+                                <i class="delete icon"></i> Delete
+                            </a>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+
+        </table>
+    </div>
+
+</main>
+{% endblock %}
+
+{% block script %}
+<script defer>
+
+    const API_LIST = '/api/x2-framework/articles/comments/list.php'
+    const API_CREATE = '/api/x2-framework/articles/comments/create.php'
+    const API_UPDATE = '/api/x2-framework/articles/comments/update.php'
+    const API_DELETE = '/api/x2-framework/articles/comments/delete.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            article: null,
+            rows: [],
+            deleteMode: false,
+            input: {
+                name: '',
+                comment_body: ''
+            },
+            selected: null,
+            init() {
+                this.loadArticle();
+                this.list()
+            },
+            loadArticle() {
+
+                let r = document.querySelector('[data-article]');
+                this.article = JSON.parse(r.dataset.article)
+            },
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+            clearInput() {
+                this.input.name = ''
+                this.input.comment_body = ''
+            },
+            async submitAdd() {
+                let fd = new FormData();
+                fd.append('article_id', this.article.id);
+                fd.append('name', this.input.name);
+                fd.append('comment_body', this.input.comment_body);
+                let r = await axios.post(API_CREATE, fd)
+
+                if (r.data.error == true) {
+                    $.toast({ class: 'error', message: r.data.message });
+                    return;
+                }
+
+                if (r.data.message == 'success') {
+                    $.toast({ class: 'success', message: 'New entry added successfully' });
+                    this.rows.push({
+                        id: r.data.lastId,
+                        name: this.input.name,
+                        created_at: new Date().toISOString().slice(0, 19).replace('T', ' ')
+                    })
+                    this.clearInput();
+                }
+            },
+            async submitEdit() {
+                let fd = new FormData();
+                fd.append('id', this.selected.id);
+                fd.append('name', this.selected.name);
+                fd.append('comment_body', this.selected.comment_body);
+                let r = await axios.post(API_UPDATE, fd)
+
+                if (r.data.error == true) {
+                    $.toast({ class: 'error', message: r.data.message });
+                    return;
+                }
+
+                if (r.data.message == 'success') {
+                    $.toast({ class: 'success', message: 'Entry updated successfully' });
+                    this.rows.splice(this.rows.findIndex((i) => i.id == this.selected.id), 1, this.selected);
+                    this.selected = null;
+                }
+            },
+            async submitDelete(id) {
+                let fd = new FormData();
+                fd.append('id', id);
+                let r = await axios.post(API_DELETE, fd)
+
+                if (r.data.message == 'success') {
+                    this.rows.splice(this.rows.findIndex((i) => i.id == id), 1)
+                    $.toast({ class: 'success', message: 'Entry removed!' });
+                }
+            },
+            convertDate(mysqlTimestamp) {
+                // Assuming your MySQL timestamp is in the format 'YYYY-MM-DD HH:MM:SS'
+                const date = new Date(mysqlTimestamp);
+                const options = { day: 'numeric', month: 'short', year: '2-digit' };
+                const formattedDate = date.toLocaleDateString('en-GB', options);
+                return formattedDate;
+            }
+        }))
+    })
+</script>
+{% endblock %}

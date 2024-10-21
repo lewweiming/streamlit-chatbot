@@ -1,0 +1,77 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+    <a href="/" class="section">Home</a>
+    <i class="right angle icon divider"></i>
+    <a class="active section">Work Orders</a>
+</div>
+
+<h2 class="ui header">List of Work Orders</h2>
+
+<!-- MESSAGE -->
+<div class="ui message">
+    <div class="header">What are Work Orders</div>
+    <p>Work orders can be assigned to teams, approved, or have status changes applied.</p>
+</div>
+
+<!-- TABLE -->
+<table class="ui table">
+    <thead>
+        <tr>
+            <th>Requestor</th>
+            <th>Department</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Date Submitted</th>
+            <th>Action(s)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if rows|length == 0 %}
+        <tr>
+            <td colspan="7">No work orders added yet</td>
+        </tr>
+        {% endif %}
+        {% for row in rows %}
+        <tr>
+            <td>{{ row.requestor }}</td>
+            <td>{{ row.department }}</td>
+            <td>{{ row.description }}</td>
+            <td>{{ row.priority }}</td>
+            <td>{{ row.status }}</td>
+            <td>{{ row.date_submitted }}</td>
+            <td>
+                <a href="/work-order/{{ row.id }}/preview" class="ui button">Preview</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/work-orders/list'
+
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('main', () => ({
+            rows: [],
+            async list() {
+                $.toast({ message: 'Fetching list...' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                } else {
+                    $.toast({ class: 'error', message: 'Failed to fetch list' });
+                }
+            },
+        }))
+    })
+</script>
+{% endblock %}

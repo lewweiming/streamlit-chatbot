@@ -1,0 +1,81 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<main x-data="main()">
+    <h2 class="ui header">Find hotel deals around the world</h2>
+    <div class="ui divider"></div>
+
+    <!-- LIST HOTEL BY CITY, ENTER CITY CODE, GET TABLE IN VIRTUAL SCROLL -->
+    <section>
+        <h2 class="ui header">Search Hotel By City</h2>
+        <div class="ui form">
+            <div class="field">
+                <input x-model="input.cityCode" type="text" placeholder="Enter City Code. E.g NYC" />
+            </div>
+            <button @click="startSearch()" class="ui button">Start search</button>
+        </div>
+
+        <h2 class="ui header">Hotels in City</h2>
+        <div class="ui short scrolling container">
+        <table class="ui head foot stuck celled table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Hotel Id</th>
+                </tr>
+            </thead>
+            <tbody>
+            <template x-for="i in hotels">
+                <tr>
+                    <td x-text="i.name"></td>
+                    <td x-text="i.hotelId"></td>
+                </tr>
+            </template>
+            </tbody>
+        </table>
+        </div>
+    </section>
+
+    <!-- GET OFFERS BY HOTEL CODE, AFTER USING CLICKS ON HOTEL, LIST THE OFFERS -->
+    <section></section>
+
+    <!-- CONFIRM BOOKING, ENTER PAX, DATES, AND OFFER -->
+    <section></section>
+
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_FETCH_AMADEUS_CITY_SEARCH = '/modules/amadeus/api/hotels/list/search_hotels_by_city.php'
+    // const API_FETCH_AMADEUS_FLIGHT_OFFERS = '/modules/amadeus/api/flights/flight_offers_search.php'
+    // const API_FETCH_AMADEUS_FLIGHT_OFFERS_PRICE = '/modules/amadeus/api/flights/flight_offers_price.php'
+    // const API_FETCH_AMADEUS_FLIGHT_CREATE_ORDER = '/modules/amadeus/api/flights/flight_create_order.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            input: {
+                cityCode: 'NYC'
+            },
+            hotels: [],
+            async startSearch() {
+
+                $.toast({ message: 'Submitting data..' });
+
+                let fd = new FormData()
+                fd.append('keywords', this.input.cityCode)
+
+                let r = await axios.post(API_FETCH_AMADEUS_CITY_SEARCH, fd)
+
+                if (r.data.message == 'success') {
+                    
+                    this.hotels = r.data.results.data;
+                    $.toast({ class: 'success', message: `Hotels fetched` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

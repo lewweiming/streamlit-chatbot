@@ -1,0 +1,119 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+  <a href="/" class="section">Framework Admin</a>
+  <i class="right angle icon divider"></i>
+  <a href="/framework/admin/support-tickets" class="section">Support Tickets</a>
+  <i class="right angle icon divider"></i>
+  <div class="active section">Edit</div>
+</div>
+
+<h2 class="ui header">Edit Support Ticket</h2>
+
+<!-- VALIDATION ERRORS -->
+{% if(errors) %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">
+    Validation Errors
+  </div>
+  <ul>
+    {% for key,val in errors %}
+    <li>{{ val[0] }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<form method="post" action="/framework/admin/support-ticket/{{ ticket.id }}/edit" class="ui form">
+  <p>Edit your ticket details</p>
+
+  <div class="required field">
+    <label for="title">Title</label>
+    <input value="{{ ticket.title }}" type="text" id="title" name="title">
+  </div>
+
+  <div class="field">
+    <label for="tags">Tags</label>
+    <input value="{{ ticket.tags }}" type="text" id="tags" name="tags">
+  </div>
+
+  <div class="required field">
+    <label for="description">Description</label>
+    <textarea name="description" placeholder="Describe the issue">{{ ticket.description }}</textarea>
+  </div>
+
+  <div class="required field">
+    <label for="priority">Priority</label>
+    <select name="priority" class="ui dropdown">
+      <option value="">Select Priority</option>
+      <option value="Low" {{ ticket.priority == 'Low' ? 'selected' : '' }}>Low</option>
+      <option value="Medium" {{ ticket.priority == 'Medium' ? 'selected' : '' }}>Medium</option>
+      <option value="High" {{ ticket.priority == 'High' ? 'selected' : '' }}>High</option>
+      <option value="Urgent" {{ ticket.priority == 'Urgent' ? 'selected' : '' }}>Urgent</option>
+    </select>
+  </div>
+
+  <div class="required field">
+    <label for="status">Status</label>
+    <select name="status" class="ui dropdown">
+      <option value="">Select Status</option>
+      <option value="Open" {{ ticket.status == 'Open' ? 'selected' : '' }}>Open</option>
+      <option value="In Progress" {{ ticket.status == 'In Progress' ? 'selected' : '' }}>In Progress</option>
+      <option value="Closed" {{ ticket.status == 'Closed' ? 'selected' : '' }}>Closed</option>
+    </select>
+  </div>
+
+  <button type="submit" class="ui button">Submit</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+<script>
+  /* VALIDATION */
+  $(document).ready(function () {
+    $('.ui.form').form({
+      fields: {
+        title: {
+          identifier: 'title',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter the title'
+            }
+          ]
+        },
+        description: {
+          identifier: 'description',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please enter a description'
+            }
+          ]
+        },
+        priority: {
+          identifier: 'priority',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please select a priority'
+            }
+          ]
+        },
+        status: {
+          identifier: 'status',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'Please select a status'
+            }
+          ]
+        }
+      }
+    });
+  });
+</script>
+{% endblock %}

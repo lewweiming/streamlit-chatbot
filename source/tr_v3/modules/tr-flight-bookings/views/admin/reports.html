@@ -1,0 +1,183 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content %}
+ <!-- Header Section -->
+ <div class="ui container">
+    <h2 class="ui dividing header">Flight Bookings Reports Dashboard</h2>
+    <div class="ui form">
+        <div class="fields">
+            <div class="field">
+                <label>Date Range</label>
+                <input type="date" placeholder="Start Date">
+            </div>
+            <div class="field">
+                <label>To</label>
+                <input type="date" placeholder="End Date">
+            </div>
+            <div class="field">
+                <label>Filter by Airline</label>
+                <select class="ui dropdown">
+                    <option value="">Select Airline</option>
+                    <option value="1">Airline 1</option>
+                    <option value="2">Airline 2</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Filter by Destination</label>
+                <select class="ui dropdown">
+                    <option value="">Select Destination</option>
+                    <option value="1">New York</option>
+                    <option value="2">London</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Key Metrics Overview -->
+    <div class="ui four statistics">
+        <div class="statistic">
+            <div class="value">250</div>
+            <div class="label">Total Bookings</div>
+        </div>
+        <div class="statistic">
+            <div class="value">$150,000</div>
+            <div class="label">Total Revenue</div>
+        </div>
+        <div class="statistic">
+            <div class="value">180</div>
+            <div class="label">Flights Completed</div>
+        </div>
+        <div class="statistic">
+            <div class="value">85%</div>
+            <div class="label">Occupancy Rate</div>
+        </div>
+    </div>
+
+    <!-- Charts & Graphs Section -->
+    <h3 class="ui dividing header">Reports Overview</h3>
+    <div class="ui grid">
+        <div class="eight wide column">
+            <div class="ui segment">
+                <canvas id="bookingTrendsChart"></canvas>
+            </div>
+        </div>
+        <div class="eight wide column">
+            <div class="ui segment">
+                <canvas id="revenueBreakdownChart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <div class="ui grid">
+        <div class="eight wide column">
+            <div class="ui segment">
+                <canvas id="popularRoutesChart"></canvas>
+            </div>
+        </div>
+        <div class="eight wide column">
+            <div class="ui segment">
+                <canvas id="customerDemographicsChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Reports Table -->
+    <h3 class="ui dividing header">Detailed Reports</h3>
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Customer Name</th>
+                <th>Flight Number</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Departure Date</th>
+                <th>Arrival Date</th>
+                <th>Total Cost</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2001</td>
+                <td>Jane Smith</td>
+                <td>AA123</td>
+                <td>Los Angeles</td>
+                <td>New York</td>
+                <td>2024-09-10</td>
+                <td>2024-09-10</td>
+                <td>$600</td>
+                <td>Completed</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+
+    <!-- Export & Download Section -->
+    <button class="ui primary button">Export to CSV</button>
+    <button class="ui button">Export to PDF</button>
+    <button class="ui button">Print</button>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    // Example data for the charts
+    const bookingTrendsCtx = document.getElementById('bookingTrendsChart').getContext('2d');
+    new Chart(bookingTrendsCtx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Booking Trends',
+                data: [100, 150, 180, 120, 220, 200],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2,
+                fill: false
+            }]
+        }
+    });
+
+    const revenueBreakdownCtx = document.getElementById('revenueBreakdownChart').getContext('2d');
+    new Chart(revenueBreakdownCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Economy', 'Business', 'First Class'],
+            datasets: [{
+                label: 'Revenue Breakdown',
+                data: [90000, 40000, 20000],
+                backgroundColor: ['rgba(54, 162, 235, 0.6)', 'rgba(255, 99, 132, 0.6)', 'rgba(255, 206, 86, 0.6)']
+            }]
+        }
+    });
+
+    const popularRoutesCtx = document.getElementById('popularRoutesChart').getContext('2d');
+    new Chart(popularRoutesCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Los Angeles - New York', 'Chicago - Miami', 'Dallas - Atlanta'],
+            datasets: [{
+                data: [50, 30, 20],
+                backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(255, 206, 86, 0.6)']
+            }]
+        }
+    });
+
+    const customerDemographicsCtx = document.getElementById('customerDemographicsChart').getContext('2d');
+    new Chart(customerDemographicsCtx, {
+        type: 'bar',
+        data: {
+            labels: ['18-25', '26-35', '36-45', '46-60', '60+'],
+            datasets: [{
+                label: 'Customer Age Groups',
+                data: [40, 80, 60, 30, 10],
+                backgroundColor: 'rgba(153, 102, 255, 0.6)'
+            }]
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<main x-data="main()" data-profile="{{ profile|json_encode|e }}">
+    <div class="ui breadcrumb">
+        <a href="/" class="section">Home</a>
+        <i class="right angle icon divider"></i>
+        <a class="section">User Account</a>
+        <i class="right angle icon divider"></i>
+        <div class="active section">My Jobseeker Profile Image</div>
+    </div>
+
+    <div class="ui segment">
+        <h2 class="ui header">Profile Image</h2>
+
+        <!-- VALIDATION ERRORS -->
+        {% if(errors) %}
+        <div class="ui warning message">
+            <i class="close icon"></i>
+            <div class="header">
+                Validation Errors
+            </div>
+            <ul>
+                {% for key,val in errors %}
+                <li>{{ val[0] }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <!-- USER IMAGE -->
+        {% if profile.image %}
+        <div class="ui card">
+            <div class="ui bordered fluid image">
+                <img src="/assets/users/profile-images/{{ profile.image }}" />
+            </div>
+            <a href="/user/my-profile-image/remove" class="ui button">
+                Remove Image
+            </a>
+          </div>
+        {% endif %}
+
+        <div class="ui hidden divider"></div>
+
+        <form method="post" enctype="multipart/form-data" action="/user/my-profile-image" class="ui form">
+
+            <div class="field">
+
+                <label>Your photo</label>
+                <div class="ui file input">
+                    <input name="image" type="file">
+                </div>
+
+            </div>
+
+            <button class="ui primary button">Upload</button>
+
+        </form>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,184 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<h2 class="ui dividing header">Welcome to Car Rentals</h2>
+<ul>
+    <li>
+        <a href="/modules/car-rentals/available-cars">Available Cars for Rental</a>
+    </li>
+    <li>
+        <a href="/modules/car-rentals/checkout/personal-details">Checkout (Personal Details)</a>
+    </li>
+    <li>
+        <a href="/modules/car-rentals/checkout/review-payment">Checkout (Review & Payment)</a>
+    </li>
+    <li>
+        <a href="/modules/car-rentals/receipt">Car Rental Receipt (You should only be able to view the receipt in the user dashboard once the booking status is confirmed</a>
+    </li>
+    
+</ul>
+
+<!-- STEPPER -->
+<div class="ui ordered steps">
+    <div class="step">
+        <div class="content">
+            <div class="title">Select Car</div>
+            <div class="description">Choose your desired car</div>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="content">
+            <div class="title">Add Extras</div>
+            <div class="description">Add additional services</div>
+        </div>
+    </div>
+</div>
+
+
+<div class="ui inverted padded segment">
+    <h1 class="ui header">Car Rental Application</h1>
+    <form class="ui inverted form">
+        <div class="field">
+            <label>Select a Car</label>
+            <select class="ui dropdown" id="carSelect">
+                <option value="">Choose a car</option>
+                <option value="economy">Economy</option>
+                <option value="compact">Compact</option>
+                <option value="midsize">Midsize</option>
+                <option value="fullsize">Full Size</option>
+                <option value="suv">SUV</option>
+            </select>
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label>Pick-up Location</label>
+                <select class="ui dropdown" id="pickupLocation">
+                    <option value="">Select Pick-up Location</option>
+                    <option value="changi">Changi</option>
+                    <option value="marina_bay">Marina Bay</option>
+                    <option value="orchard_road">Orchard Road</option>
+                    <option value="sentosa">Sentosa</option>
+                    <option value="jurong_east">Jurong East</option>
+                    <option value="woodlands">Woodlands</option>
+                    <option value="tampines">Tampines</option>
+                    <option value="bukit_timah">Bukit Timah</option>
+                    <option value="ang_mo_kio">Ang Mo Kio</option>
+                    <option value="clementi">Clementi</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Return Location</label>
+                <select class="ui dropdown" id="returnLocation">
+                    <option value="">Select Return Location</option>
+                    <option value="changi">Changi</option>
+                    <option value="marina_bay">Marina Bay</option>
+                    <option value="orchard_road">Orchard Road</option>
+                    <option value="sentosa">Sentosa</option>
+                    <option value="jurong_east">Jurong East</option>
+                    <option value="woodlands">Woodlands</option>
+                    <option value="tampines">Tampines</option>
+                    <option value="bukit_timah">Bukit Timah</option>
+                    <option value="ang_mo_kio">Ang Mo Kio</option>
+                    <option value="clementi">Clementi</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="two fields">
+            <div class="field">
+                <label>Pick-Up Date</label>
+                <div class="ui calendar standard_calendar">
+                    <div class="ui fluid input left icon">
+                        <i class="calendar icon"></i>
+                        <input id="pickupDate" type="text" placeholder="Pick-Up Date">
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Return Date</label>
+                <div class="ui calendar standard_calendar">
+                    <div class="ui fluid input left icon">
+                        <i class="calendar icon"></i>
+                        <input id="returnDate" type="text" placeholder="Drop-Off Date">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="ui checkbox">
+                <input type="checkbox" id="insurance">
+                <label>Add Insurance</label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui checkbox">
+                <input type="checkbox" id="gps">
+                <label>Add GPS</label>
+            </div>
+        </div>
+        <button class="ui primary button" type="button" id="submitBtn">Submit Rental</button>
+    </form>
+
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready(function () {
+        $('.ui.dropdown').dropdown();
+        $('.ui.checkbox').checkbox();
+
+        $('.standard_calendar')
+            .calendar({
+                onChange: (date, text) => {
+                    // Where date is the JS object and text is the string representation of the date 
+                    // Do something
+                },
+                // Optional formatter
+                formatter: {
+                    date: 'DD/MM/YYYY'
+                },
+                type: 'date'
+            });
+
+        $('#submitBtn').on('click', function () {
+
+            const carType = $('#carSelect').val();
+            const pickupLocation = $('#pickupLocation').val();
+            const returnLocation = $('#returnLocation').val();
+            const pickupDate = $('#pickupDate').val();
+            const returnDate = $('#returnDate').val();
+            
+            const insurance = $('#insurance').prop('checked');
+            const gps = $('#gps').prop('checked');
+
+            if (!carType || !pickupDate || !returnDate) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Construct the URL with query parameters
+            const queryParams = {
+                carType,
+                pickupLocation,
+                returnLocation,
+                pickupDate,
+                returnDate,
+                insurance,
+                gps
+            };
+
+            const queryString = new URLSearchParams(queryParams).toString();
+            const url = `/modules/car-rentals/selection?${queryString}`;
+
+            // Redirect to the new URL
+            window.location.href = url;
+
+        });
+    });
+</script>
+{% endblock %}

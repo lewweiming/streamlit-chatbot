@@ -1,0 +1,180 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="">
+    <h2 class="ui dividing header">Hotel Bookings Reports Dashboard</h2>
+    <div class="ui form">
+        <div class="fields">
+            <div class="field">
+                <label>Date Range</label>
+                <input type="date" placeholder="Start Date">
+            </div>
+            <div class="field">
+                <label>To</label>
+                <input type="date" placeholder="End Date">
+            </div>
+            <div class="field">
+                <label>Filter by Hotel</label>
+                <select class="ui dropdown">
+                    <option value="">Select Hotel</option>
+                    <option value="1">Hotel 1</option>
+                    <option value="2">Hotel 2</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Filter by Location</label>
+                <select class="ui dropdown">
+                    <option value="">Select Location</option>
+                    <option value="1">New York</option>
+                    <option value="2">London</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Key Metrics Overview -->
+    <div class="ui four statistics">
+        <div class="statistic">
+            <div class="value">320</div>
+            <div class="label">Total Bookings</div>
+        </div>
+        <div class="statistic">
+            <div class="value">$75,000</div>
+            <div class="label">Total Revenue</div>
+        </div>
+        <div class="statistic">
+            <div class="value">260</div>
+            <div class="label">Rooms Booked</div>
+        </div>
+        <div class="statistic">
+            <div class="value">4.5 Days</div>
+            <div class="label">Average Stay Duration</div>
+        </div>
+    </div>
+
+    <!-- Charts & Graphs Section -->
+    <h3 class="ui dividing header">Reports Overview</h3>
+    <div class="ui grid">
+        <div class="eight wide column">
+            <div class="ui segment">
+                <canvas id="bookingTrendsChart"></canvas>
+            </div>
+        </div>
+        <div class="eight wide column">
+            <div class="ui segment">
+                <canvas id="revenueBreakdownChart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <div class="ui grid">
+        <div class="eight wide column">
+            <div class="ui segment">
+                <canvas id="popularRoomsChart"></canvas>
+            </div>
+        </div>
+        <div class="eight wide column">
+            <div class="ui segment">
+                <canvas id="customerDemographicsChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Reports Table -->
+    <h3 class="ui dividing header">Detailed Reports</h3>
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Customer Name</th>
+                <th>Room Type</th>
+                <th>Check-in Date</th>
+                <th>Check-out Date</th>
+                <th>Duration</th>
+                <th>Total Cost</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>301</td>
+                <td>John Doe</td>
+                <td>Deluxe Suite</td>
+                <td>2024-09-10</td>
+                <td>2024-09-15</td>
+                <td>5 Days</td>
+                <td>$1200</td>
+                <td>Completed</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+
+    <!-- Export & Download Section -->
+    <button class="ui primary button">Export to CSV</button>
+    <button class="ui button">Export to PDF</button>
+    <button class="ui button">Print</button>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    // Example data for the charts
+    const bookingTrendsCtx = document.getElementById('bookingTrendsChart').getContext('2d');
+    new Chart(bookingTrendsCtx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Booking Trends',
+                data: [50, 70, 90, 60, 110, 130],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2,
+                fill: false
+            }]
+        }
+    });
+
+    const revenueBreakdownCtx = document.getElementById('revenueBreakdownChart').getContext('2d');
+    new Chart(revenueBreakdownCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Single', 'Double', 'Suite'],
+            datasets: [{
+                label: 'Revenue Breakdown',
+                data: [25000, 30000, 20000],
+                backgroundColor: ['rgba(54, 162, 235, 0.6)', 'rgba(255, 99, 132, 0.6)', 'rgba(255, 206, 86, 0.6)']
+            }]
+        }
+    });
+
+    const popularRoomsCtx = document.getElementById('popularRoomsChart').getContext('2d');
+    new Chart(popularRoomsCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Single', 'Double', 'Suite'],
+            datasets: [{
+                data: [40, 35, 25],
+                backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(255, 206, 86, 0.6)']
+            }]
+        }
+    });
+
+    const customerDemographicsCtx = document.getElementById('customerDemographicsChart').getContext('2d');
+    new Chart(customerDemographicsCtx, {
+        type: 'bar',
+        data: {
+            labels: ['18-25', '26-35', '36-45', '46-60', '60+'],
+            datasets: [{
+                label: 'Customer Age Groups',
+                data: [20, 50, 30, 15, 5],
+                backgroundColor: 'rgba(153, 102, 255, 0.6)'
+            }]
+        }
+    });
+</script>
+{% endblock %}

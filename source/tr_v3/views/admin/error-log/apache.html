@@ -1,0 +1,81 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div x-data="main()" data-content="{{ content|e }}" class="ui long scrolling container">
+    <h1>Error Log (Apache)</h1>
+
+    <div class="ui secondary  menu">
+        <a href="/framework/admin/error-log" class="item">
+            Error Log (Private)
+        </a>
+        <a class="active item">
+            Error Log (Apache)
+        </a>
+    </div>
+
+    <div class="content">
+        <table class="ui head foot stuck celled table">
+            <thead>
+                <tr>
+                    <th>Date/Time</th>
+                    <th>Error Type</th>
+                    <th>PID</th>
+                    <th>TID</th>
+                    <th>Client</th>
+                    <th>Error Message</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template x-for="log in logs">
+                    <tr>
+                        <td x-text="log.dateTime"></td>
+                        <td x-text="log.errorType"></td>
+                        <td x-text="log.pid"></td>
+                        <td x-text="log.tid"></td>
+                        <td x-text="log.client"></td>
+                        <td x-text="log.errorMessage"></td>
+                        <td><div class="error-log" x-text="log.details"></div></td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block script %}
+<script defer>
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            rawLogs: '',
+            logs: [],
+            init() {
+                this.loadLogContent();
+                this.parseLogs();
+            },
+            loadLogContent() {
+                let r = document.querySelector('[data-content]');
+                this.rawLogs = r.dataset.content
+            },
+            parseLogs() {
+                const logEntries = this.rawLogs.trim().split("\n").filter(line => line);
+                this.logs = logEntries.map(entry => {
+                    const parts = entry.match(/^\[([^\]]+)] \[([^\]]+)] \[pid (\d+):tid (\d+)] \[client ([^\]]+)] (.+)$/);
+                    return {
+                        dateTime: parts[1],
+                        errorType: parts[2],
+                        pid: parts[3],
+                        tid: parts[4],
+                        client: parts[5],
+                        errorMessage: parts[6].split(': ')[1],
+                        details: parts[6]
+                    };
+                });
+            }
+        }))
+    })
+</script>
+{% endblock %}

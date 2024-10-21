@@ -1,0 +1,60 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<section style="padding-top: 30px; padding-bottom: 70px;">
+<h2 class="ui header">Cashier Receipts / Payments Dashboard</h2>
+<div class="ui long scrolling container">
+
+    <table class="ui first last head stuck unstackable celled single line table" style="z-index: 1;">
+        <thead>
+            <tr>
+                <th>Payment ID</th>
+                <th>Description</th>
+                <th>Payment Date</th>
+                <th>Currency</th>
+                <th>Amount</th>
+                <th>Payment Method</th>
+                <th>Payment Status</th>
+                <th>Payment Mode</th>
+                <th>Stripe Fee</th>
+                <th>PayPal Fee</th>
+                <th>Net Amount</th>
+                <th>Stripe Payment ID</th>
+                <th>PayPal Payment ID</th>
+                <th>User ID</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for receipt in cashier_receipts %}
+            <tr>
+                <td>{{ receipt.id }}</td>
+                <td>{{ receipt.description }}</td>
+                <td>{{ receipt.created_at }}</td>
+                <td>{{ receipt.currency }}</td>
+                <td>{{ receipt.amount }}</td>
+                <td>{{ receipt.payment_type }}</td>
+                <td class="{{ receipt.payment_status == 'completed'?'positive':'negative' }}">{{ receipt.payment_status|capitalize }}</td>
+                <td>{{ receipt.payment_mode }}</td>
+                <td>{{ receipt.stripe_fee }}</td>
+                <td>{{ receipt.paypal_fee }}</td>
+                <td>{{ receipt.net_amount }}</td>
+                <td>{{ receipt.stripe_payment_identifier }}</td>
+                <td>{{ receipt.paypal_invoice_id }}</td>
+                <td>{{ receipt.user_id }}</td>
+                <td>{{ receipt.email }}</td>
+                <td>
+                    <a href="/framework/admin/cashier/edit/{{ receipt.id }}" class="ui button">Edit</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="15">No receipts found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</section>
+{% endblock %}

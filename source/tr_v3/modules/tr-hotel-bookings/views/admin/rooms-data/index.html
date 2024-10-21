@@ -1,0 +1,177 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<main x-data="main()">
+
+<h2 class="ui header">Rooms Data</h2>
+
+<!-- TOOLBAR -->
+<div>
+    <a href="/framework/admin/hotel-bookings/rooms-data/add" class="ui primary button">Add New Room</a>
+</div>
+
+<table class="ui celled table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Room Name</th>
+            <th>Room Price</th>
+            <th>Image</th>
+            <th>Summary</th>
+            <th>Amenities</th>
+            <th>Policies</th>
+            <th>People per Room</th>
+            <th>Action(s)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in rows %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.room_name }}</td>
+                <td>{{ row.room_price | number_format(2) }}</td>
+                <td>
+                    {% if row.image_path %}
+                        <img src="{{ row.image_path }}" alt="Room Image" class="ui small image">
+                    {% else %}
+                        No Image
+                    {% endif %}
+                </td>
+                <td>{{ row.summary }}</td>
+                <td>{{ row.amenities }}</td>
+                <td>{{ row.policies }}</td>
+                <td>{{ row.people_per_room }}</td>
+                <td>
+                    <a href="/framework/admin/hotels/rooms-data/room/{{ row.id }}/edit" class="ui button">Edit</a>
+                    <a href="/framework/admin/hotels/rooms-data/room/{{ row.id }}/delete" class="ui button">Delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9" class="center aligned">No data available</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    
+    <tfoot>
+        <tr>
+          <th colspan="10">
+            <div class="ui right floated pagination menu">
+              <a @click="getPrevious()" class="icon item" :class="{ disabled: currentPage === 1 }">
+                <i class="left chevron icon"></i>
+              </a>
+              <template x-for="page in pagesToShow()">
+                <a @click="currentPage = page, listPaginated(currentPage)"
+                  :class="{ 'active': page === currentPage, 'item': true, 'disabled': page === '...' }"
+                  x-text="page"></a>
+              </template>
+              <a @click="getNext()" class="icon item" :class="{ disabled: currentPage === maxPage }">
+                <i class="right chevron icon"></i>
+              </a>
+            </div>
+          </th>
+        </tr>
+      </tfoot>
+</table>
+
+</main>
+{% endblock %}
+
+{% block script %}
+<script defer>
+
+    const ITEMS_PER_PAGE = 12 // DEFAULT 12
+    const API_LIST_PAGINATED = '/modules/tr-trip-bookings/api/admin/list_paginated.php'
+  
+    document.addEventListener('alpine:init', () => {
+  
+      Alpine.data('main', () => ({
+        rows: [],
+        selected: null,
+        init() {
+          this.listPaginated(this.currentPage)
+        },
+        convertDate(mysqlTimestamp) {
+          // Assuming your MySQL timestamp is in the format 'YYYY-MM-DD HH:MM:SS'
+          const date = new Date(mysqlTimestamp);
+          const options = { day: 'numeric', month: 'short', year: '2-digit' };
+          const formattedDate = date.toLocaleDateString('en-GB', options);
+          return formattedDate;
+        },
+        /* FILTER SUPPORT */
+        filterInput: {
+            name: ''
+        },
+        /* PAGINATION SUPPORT */
+        currentPage: 1,
+        maxPage: null,
+        performSearch() {
+            $.toast({ message: 'Performig filter search..' });
+            this.resetCurrentPage()
+            this.listPaginated(this.currentPage)
+        },
+        setMaxPage(count) {
+            count = parseInt(count)
+            this.maxPage = Math.ceil(count / ITEMS_PER_PAGE)
+        },
+        async listPaginated(page) {
+  
+            $.toast({ message: 'Fetching list..' });
+  
+            let r = await axios.get(API_LIST_PAGINATED, {
+                params: {
+                    page: page,
+                    filters: JSON.stringify(this.filterInput)
+                }
+            })
+  
+            if (r.data.message == 'success') {
+              this.rows = r.data.rows
+              $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+              this.setMaxPage(r.data.count)
+            }
+        },
+        getNext() {
+            if (this.currentPage < this.maxPage) {
+                this.currentPage++
+                this.listPaginated(this.currentPage)
+            }
+        },
+        getPrevious() {
+            if (this.currentPage > 1) {
+                this.currentPage--
+                this.listPaginated(this.currentPage)
+            }
+        },
+        resetCurrentPage() {
+            this.currentPage = 1
+        },
+        pagesToShow() {
+          let pages = [];
+          let startPage = Math.max(this.currentPage - 2, 1);
+          let endPage = Math.min(this.currentPage + 2, this.maxPage);
+  
+          if (startPage > 1) {
+            pages.push(1);
+            if (startPage > 2) {
+              pages.push('...');
+            }
+          }
+  
+          for (let i = startPage; i <= endPage; i++) {
+            pages.push(i);
+          }
+  
+          if (endPage < this.maxPage) {
+            if (endPage < this.maxPage - 1) {
+              pages.push('...');
+            }
+            pages.push(this.maxPage);
+          }
+  
+          return pages;
+        }
+      }))
+    })
+  </script>
+{% endblock %}

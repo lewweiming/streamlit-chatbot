@@ -1,0 +1,424 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% set title = 'Database' %}
+
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+<style>
+    .table td div {
+        white-space: nowrap;
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<main x-data="main" x-cloak>
+
+    <h2 class="ui header">Database</h2>
+
+    <section>
+        <div class="ui two column grid">
+            <div class="column">
+                <div class="box">
+
+
+                    <div class="ui input">
+                        <input x-model="searchTable" type="text" placeholder="Search" />
+                    </div>
+
+                    <div class="ui hidden divider"></div>
+
+
+                    <div style="max-height: 300px; overflow-y:scroll;">
+                        <table class="ui selectable table">
+                            <thead>
+                                <tr>
+                                    <th>Tables</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template x-for="i in filteredTables()">
+                                    <tr>
+                                        <td @click="selectedTable = i, fetchTableColumns(i), getPaginatedItems(currentPage)"
+                                            class="is-clickable" x-text="i"></td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <template x-if="selectedTable">
+                <div class="column">
+                    <div class="box">
+                        <div style="max-height: 300px; overflow-y:scroll;">
+                            <div>
+                                <button id="copyTable" class="ui button">Copy Table As
+                                    Markdown</button>
+                            </div>
+                            <table class="ui table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2" class="has-background-white-ter" x-text="selectedTable"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template x-for="i in tableColumns">
+                                        <tr>
+                                            <td class="is-clickable" x-text="i.Field"></td>
+                                            <td class="is-clickable" x-text="i.Type"></td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <template x-if="selectedTable">
+        <div>
+            <div class="ui hidden divider"></div>
+            <section>
+                <!-- PAGINATION -->
+                <div class="ui pagination menu">
+                    <a @click="getPrevious()" class="item">Previous</a>
+                    <template x-for="i in maxPage">
+                        <a @click="currentPage = i, getPaginatedItems(currentPage)"
+                            :class="i == currentPage ? 'active item' : 'item'" x-text="i"></a>
+                    </template>
+                    <a @click="getNext()" class="item">Next</a>
+                </div>
+
+            </section>
+            <div class="ui hidden divider"></div>
+            <section>
+
+                <div style="overflow-x: scroll;">
+
+                    <table class="ui table">
+                        <thead>
+                            <tr>
+                                <th>Actions</th>
+                                <template x-for="c in tableColumns">
+                                    <th x-text="c.Field"></th>
+                                </template>
+
+                            </tr>
+                        </thead>
+                        <template x-for="i in tableRows">
+                            <tr>
+                                <td>
+                                    <div class="ui buttons">
+                                    <a class="ui button" @click="onEdit(i)">Edit</a>
+                                    
+                                    <a class="ui button" @click="selectedRow = i, deleteRow(selectedTable, i.id)">Delete</a>
+                                </div>
+                                </td>
+                                <template x-for="c in tableColumns">
+                                    <td>
+                                        <div x-text="i[c.Field]"></div>
+                                    </td>
+                                </template>
+
+                            </tr>
+                        </template>
+                    </table>
+                </div>
+
+            </section>
+        </div>
+    </template>
+
+    <!-- MODAL: EDIT -->
+    <template x-if="mutableRow">
+        <div class="ui edit modal">
+            <i class="close icon"></i>
+            <div class="header">
+                Edit Row
+            </div>
+            <div class="content">
+                <!-- Content ... -->
+                <template x-for="i in Object.keys(mutableRow)">
+                    <div class="field">
+                        <label class="ui label" x-text="i"></label>
+                        <div class="ui input">
+                            <template x-if="!columnIsText(i)">
+                                <input x-model="mutableRow[i]" :name="i" type="text" placeholder="Text input">
+                            </template>
+                            <template x-if="columnIsText(i)">
+                                <textarea x-model="mutableRow[i]" :name="i" placeholder="Text input"></textarea>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="actions">
+                <button @click="updateRow(selectedTable, mutableRow.id, getMutableRowPayload())" class="ui button positive">Save changes</button>
+                <button class="ui cancel button">Cancel</button>
+            </div>
+        </div>
+    </template>
+    
+</main>
+{% endblock %}
+
+{% block script %}
+<!-- MARKDOWN TABLE COPY FUNCTIONALITY -->
+<script>
+    const WIDTH_PADDING = 10;
+
+    function getPaddedString(str, widthPadding = 10) {
+
+        if (str.length >= widthPadding) {
+
+            return str;
+        }
+
+        return str.padEnd(widthPadding);
+    }
+
+    /* Return an array of padded strings */
+    function padArray(strArr, widthPadding = 10) {
+
+        let arr = [];
+
+        strArr.forEach(s => {
+
+            arr.push(getPaddedString(s, widthPadding));
+        })
+
+        return arr;
+    }
+
+    /* Returns an array of - chars based on arr length */
+    function getSeparator(arrLen, widthPadding = 10) {
+
+        let arr = [];
+
+        var str;
+
+        for (var i = 0; i < arrLen; i++) {
+
+            str = new Array(widthPadding + 1).join('-');
+
+            arr.push(str);
+        }
+
+        return arr;
+    }
+
+    /* Specialised function that maps an array of table column values  */
+    function mapTableColumns(tableColumns) {
+        let arr = [];
+        tableColumns.forEach(i => {
+            arr.push([i.Field, i.Type]);
+        })
+        return arr;
+    }
+
+    /*
+    Takes in array of data, widthPadding is the no. of characters (Int)
+    */
+    function getMarkdownTable(headerColumns, bodyRows, widthPadding = 10) {
+
+        let str = '';
+
+        // Generate the header I.e | Month    | Savings |
+        let paddedHeaderColumns = padArray(headerColumns, widthPadding);
+        let partialH = '';
+        partialH += paddedHeaderColumns.join(' | ');
+        partialH = '| ' + partialH;
+        partialH = partialH + ' |';
+        str += partialH;
+
+        // Add the separator between header and body. I.e | -------- | ------- |
+        let separatorArr = getSeparator(headerColumns.length, widthPadding);
+        let partialS = '';
+        partialS += separatorArr.join(' | ');
+        partialS = '| ' + partialS;
+        partialS = partialS + ' |';
+        str += '\n' + partialS;
+
+        // Generate the body I.e | January  | $250    |
+        bodyRows.forEach(row => {
+            let paddedRowValues = padArray(row, widthPadding);
+            let partialB = '';
+            partialB += paddedRowValues.join(' | ');
+            partialB = '| ' + partialB;
+            partialB = partialB + ' |';
+            str += '\n' + partialB;
+        })
+
+        return str;
+    }
+
+    // Str = | -------- | ------- | (depending on padding
+
+    // foreach bodyRows
+
+    // Return str
+</script>
+<script>
+    const ITEMS_PER_PAGE = 12
+
+    var clipboard;
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            searchTable: '',
+            tables: [],
+            selectedTable: null,
+            selectedRow: null,
+            mutableRow: null,
+            tableColumns: [],
+            tableRows: [],
+            currentPage: 1,
+            maxPage: null,
+            init() {
+                this.fetchTables()
+                this.$nextTick(() => {
+                    clipboard = new ClipboardJS('#copyTable', {
+                        text: (trigger) => {
+
+                            return getMarkdownTable(['name', 'type'], mapTableColumns(this.tableColumns), 10);
+                        }
+                    });
+
+                    clipboard.on('success', function (e) {
+
+                        $.toast({ class: 'success', message: 'Copy successful!' });
+                    });
+
+                })
+            },
+            filteredTables() {
+                return this.tables.filter(
+                    c => c.toLowerCase().includes(this.searchTable.toLowerCase())
+                );
+            },
+            async fetchTables() {
+
+                let r = await axios.get('/framework/admin/database/ajax/tables')
+                this.tables = r.data.results
+            },
+            async fetchTableColumns(table) {
+
+                let r = await axios.get('/framework/admin/database/ajax/table/columns', {
+                    params: {
+                        table_name: table
+                    }
+                })
+                this.tableColumns = r.data.results
+            },
+            // async fetchTableRows(table) {
+
+            //     let r = await axios.get('/framework/admin/database/ajax/table/rows', {
+            //         params: {
+            //             table_name: table
+            //         }
+            //     })
+
+            //     this.tableRows = r.data.results
+            // },
+            /* PAGINATED RESULTS: START */
+            setMaxPage(count) {
+                count = parseInt(count)
+                this.maxPage = Math.ceil(count / ITEMS_PER_PAGE)
+            },
+            async getPaginatedItems(page) {
+
+                let r = await axios.get('/framework/admin/database/ajax/table/rows/paginated', {
+                    params: {
+                        table_name: this.selectedTable,
+                        page: page
+                    }
+                })
+
+                this.tableRows = r.data.rows
+
+                /* OPTIONALLY ESCAPE TEXT TO PREVENT CRASHES */
+                // this.tableRows.forEach(row => {
+                //     var keys = Object.keys(row)
+                //     keys.forEach( k => {
+                //         row[k] = escape(row[k])
+                //     })
+                // })
+
+                this.setMaxPage(r.data.count)
+            },
+            getNext() {
+                if (this.currentPage < this.maxPage) {
+                    this.currentPage++
+                    this.getPaginatedItems(this.currentPage)
+                }
+            },
+            getPrevious() {
+                if (this.currentPage > 1) {
+                    this.currentPage--
+                    this.getPaginatedItems(this.currentPage)
+                }
+            },
+            resetCurrentPage() {
+                this.currentPage = 1
+            },
+            /* PAGINATED RESULTS: END */
+            getMutableRowPayload() {
+                let r = { ...this.mutableRow }
+                delete r.id;
+                return r
+            },
+            onEdit(row) {
+                this.selectedRow = row;
+                this.mutableRow = {...row};
+                this.$nextTick(() => {
+                    $('.ui.edit.modal').modal('show');   
+                })
+            },
+            async updateRow(table, id, payload) {
+
+                let formData = new FormData()
+                formData.append('id', id);
+                formData.append('payload', JSON.stringify(payload));
+                formData.append('table_name', table);
+
+                let r = await axios.post('/framework/admin/database/ajax/table/row/update', formData)
+
+
+                let index = this.tableRows.indexOf(this.selectedRow);
+                this.tableRows[index] = { ...this.mutableRow };
+                this.selectedRow = null;
+
+
+                $.toast({ class: 'success', message: 'Update successful!' });
+            },
+            async deleteRow(table, id) {
+
+                let formData = new FormData()
+                formData.append('id', id);
+                formData.append('table_name', table);
+
+                let r = await axios.post('/framework/admin/database/ajax/table/row/delete', formData)
+
+                let index = this.tableRows.indexOf(this.selectedRow);
+                this.tableRows.splice(index, 1);
+                this.selectedRow = null;
+
+                $.toast({ class: 'success', message: 'Row removed!' });
+            },
+            columnIsText(name) {
+                let column = this.tableColumns.find(c => c.Field == name)
+                return column.Type == 'text' ? true : false;
+            }
+
+        }))
+    })
+</script>
+{% endblock %}

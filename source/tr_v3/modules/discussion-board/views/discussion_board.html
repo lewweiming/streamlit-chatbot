@@ -1,0 +1,80 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div>
+    <!-- Page Header -->
+    <h2 class="ui dividing header">Developer Discussion Board</h2>
+
+    <!-- TOOLBAR -->
+     <div>
+        <a href="/discussion-board/add" class="ui primary button">Add New Discussion</a>
+     </div>
+     <div class="ui hidden divider"></div>
+    
+    <!-- Discussion Categories -->
+    <div class="ui grid">
+        <div class="four wide column">
+            <div class="ui segment">
+                <h3 class="ui header">Categories</h3>
+                <div class="ui relaxed list">
+                    
+                    {% for category in categories %}
+                    <a class="item">{{ category.name }}</a>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="twelve wide column">
+            <!-- Latest Discussions -->
+            <div class="ui segment">
+                <h3 class="ui header">Latest Discussions</h3>
+                <div class="ui divided items">
+                    {% for i in rows %}
+                    <div class="item">
+                        <div class="content">
+                            <a class="header">{{ i.subject }}</a>
+                            <div class="meta">
+                                <span>Posted by {{ i.name|default('Guest') }} on {{ i.created_at | date("d M Y") }}</span>
+                            </div>
+                            <div class="description">
+                                {{ i.message }}
+                            </div>
+                            <div class="extra">
+                                <div class="ui label">{{ i.category }}</div>
+                                <a href="/discussion-board/discussions/{{ i.id }}" class="ui right floated button">Join Discussion</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- Add more discussions here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

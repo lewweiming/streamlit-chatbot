@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset=utf-8>
+    <title>Travelgowhere V3</title>
+
+    <!-- You MUST include jQuery 3+ before Fomantic -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/fomantic-ui/semantic.min.css">
+    <script src="/fomantic-ui/semantic.min.js"></script>
+
+    <!-- ALPINEJS + AXIOS -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- Additional Headers / Styles -->
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    {% block head %}{% endblock %}
+    {% stack head %}
+</head>
+
+<body data-flash="{{ flash|json_encode|e }}">
+
+    <!-- NAVBAR -->
+    {% include 'parts/navbar.html' %}
+
+    {% block unwrapped_content %}{% endblock %}
+
+    <div class="ui container" style="padding-top: 30px; padding-bottom: 70px;">
+
+        {% block content %}{% endblock %}
+
+    </div>
+
+    <!-- FOOTER -->
+    {% include '_footer.html' %}
+    
+    <!-- <div class="ui hidden divider"></div>
+    <div class="ui vertical footer segment">
+        <div class="ui container">
+            Cushiejobs 2023. All Rights Reserved
+        </div>
+    </div> -->
+
+
+  <!-- NAVBAR: BOTTOM FIXED -->
+  <nav class="ui bottom fixed centered inverted menu">
+    <a class="item" href="#">Home</a>
+    <a class="item" href="#">About</a>
+    <a class="item" href="#">Contact</a>
+    <!-- Add more items or customize as needed -->
+    <a href="/framework/admin/main" class="item">Admin</a>
+    {% if session.is_logged_in == true %}
+    <a href="/framework/logout" class="item">Admin Logout</a>
+    {% endif %}
+  </nav>
+
+
+    <!-- ADDITIONAL SCRIPTS -->
+    <script>
+        $('.ui.dropdown').dropdown();
+    </script>
+
+    <!-- HANDLE FLASH ERRORS / SUCCESS -->
+    <script>
+        var flashData = document.querySelector('[data-flash]');
+        var flash = JSON.parse(flashData.dataset.flash); // Dictionary Object
+
+        if (flash) {
+            renderFlashElement(flash)
+            renderFlashMessages(flash) // Optional
+        }
+
+        // Flash messages NOT toast
+        function renderFlashMessages(flash) {
+
+            const flashMesagesContainer = document.getElementById('flashMessages');
+
+            // Render success messages
+            if ('success' in flash) {
+                flash.success.forEach(message => {
+                    const el = document.createElement("div");
+                    el.className = "ui success message";
+                    el.textContent = message;
+
+                    const iconEl = document.createElement("i");
+                    iconEl.className = "close icon";
+
+                    el.prepend(iconEl);
+                    flashMesagesContainer.append(el)
+                })
+            }
+
+            // Render error messages
+            if ('error' in flash) {
+                flash.error.forEach(message => {
+                    const el = document.createElement("div");
+                    el.className = "ui error message";
+                    el.textContent = message;
+
+                    const iconEl = document.createElement("i");
+                    iconEl.className = "close icon";
+
+                    el.prepend(iconEl);
+                    flashMesagesContainer.append(el)
+                })
+            }
+
+            // Active Dismissable blocks
+            $('.message .close').on('click', function () { $(this).closest('.message').transition('fade'); });
+
+        }
+
+        function renderFlashElement(flash) {
+
+            if ('success' in flash) {
+
+                flash.success.forEach((message) => {
+                    $.toast({
+                    class: 'success',
+                    message: message
+                    });
+                })
+
+            }
+            
+            if ('error' in flash) {
+
+                flash.error.forEach((message) => {
+
+                    $.toast({
+                    class: 'error',
+                    message: message
+                    });
+                })
+            }
+        }
+    </script>
+
+    {% block script %}{% endblock %}
+    {% stack script %}
+</body>
+
+</html>

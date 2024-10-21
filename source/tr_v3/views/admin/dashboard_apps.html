@@ -1,0 +1,201 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+
+<div class="ui container">
+    <h1>Admin Dashboard</h1>
+
+    <!-- ALERT -->
+    <div class="ui message">
+        <div class="header">
+          Agency Dashboard
+        </div>
+        <p>Let's identify key modules for agency dashboard.</p>
+      </div>
+
+
+    <h2>Remaining Work</h2>
+
+    <!-- CARDS -->
+<div class="ui four cards">
+    <div class="card">
+        <div class="center aligned content">
+            <img class="ui tiny image" src="/assets/icons/invoice.png" />
+            <div class="ui hidden divider"></div>
+            <div class="header">Invoice</div>
+            <p>Generate and manage customer invoices easily.</p>
+        </div>
+        <div class="extra content">
+            <a href="#" class="ui right floated primary button">Check it out</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="center aligned content">
+            <img class="ui tiny image" src="/assets/icons/payment.png" />
+            <div class="ui hidden divider"></div>
+            <div class="header">Payment</div>
+            <p>Secure and flexible payment options for customers.</p>
+        </div>
+        <div class="extra content">
+            <a href="#" class="ui right floated primary button">Check it out</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="center aligned content">
+            <img class="ui tiny image" src="/assets/icons/receipt.png" />
+            <div class="ui hidden divider"></div>
+            <div class="header">Receipt</div>
+            <p>Provide customers with receipts after successful transactions.</p>
+        </div>
+        <div class="extra content">
+            <a href="#" class="ui right floated primary button">Check it out</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="center aligned content">
+            <img class="ui tiny image" src="/assets/icons/email-notification.png" />
+            <div class="ui hidden divider"></div>
+            <div class="header">Email Notification</div>
+            <p>Send timely email notifications for important updates.</p>
+        </div>
+        <div class="extra content">
+            <a href="#" class="ui right floated primary button">Check it out</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="center aligned content">
+            <img class="ui tiny image" src="/assets/icons/shipping.png" />
+            <div class="ui hidden divider"></div>
+            <div class="header">Shipping</div>
+            <p>Manage shipping and delivery of goods effectively.</p>
+        </div>
+        <div class="extra content">
+            <a href="#" class="ui right floated primary button">Check it out</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="center aligned content">
+            <img class="ui tiny image" src="/assets/icons/inventory.png" />
+            <div class="ui hidden divider"></div>
+            <div class="header">Inventory</div>
+            <p>Track stock levels and manage inventory seamlessly.</p>
+        </div>
+        <div class="extra content">
+            <a href="#" class="ui right floated primary button">Check it out</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="center aligned content">
+            <img class="ui tiny image" src="/assets/icons/warehousing.png" />
+            <div class="ui hidden divider"></div>
+            <div class="header">Warehousing</div>
+            <p>Organize and manage goods in warehouses efficiently.</p>
+        </div>
+        <div class="extra content">
+            <a href="#" class="ui right floated primary button">Check it out</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="center aligned content">
+            <img class="ui tiny image" src="/assets/icons/packaging.png" />
+            <div class="ui hidden divider"></div>
+            <div class="header">Packaging</div>
+            <p>Ensure proper packaging of goods for delivery.</p>
+        </div>
+        <div class="extra content">
+            <a href="#" class="ui right floated primary button">Check it out</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="center aligned content">
+            <img class="ui tiny image" src="/assets/icons/promotion.png" />
+            <div class="ui hidden divider"></div>
+            <div class="header">Promotion</div>
+            <p>Offer promotions to boost customer engagement.</p>
+        </div>
+        <div class="extra content">
+            <a href="#" class="ui right floated primary button">Check it out</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="center aligned content">
+            <img class="ui tiny image" src="/assets/icons/review.png" />
+            <div class="ui hidden divider"></div>
+            <div class="header">Review</div>
+            <p>Allow customers to leave reviews for products and services.</p>
+        </div>
+        <div class="extra content">
+            <a href="#" class="ui right floated primary button">Check it out</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="center aligned content">
+            <img class="ui tiny image" src="/assets/icons/ratings.png" />
+            <div class="ui hidden divider"></div>
+            <div class="header">Ratings</div>
+            <p>Enable product ratings for better customer insights.</p>
+        </div>
+        <div class="extra content">
+            <a href="#" class="ui right floated primary button">Check it out</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="center aligned content">
+            <img class="ui tiny image" src="/assets/icons/discounts.png" />
+            <div class="ui hidden divider"></div>
+            <div class="header">Discounts</div>
+            <p>Provide exclusive discounts</p>
+        </div>
+        <div class="extra content">
+            <a href="#" class="ui right floated primary button">Check it out</a>
+        </div>
+    </div>
+
+    <div class="card"></div>
+        <div class="center aligned content">
+            <img class="ui tiny image" src="/assets/icons/discounts.png" />
+            <div class="ui hidden divider"></div>
+            <div class="header">Easy Parcel</div>
+            <p>3rd party delivery services</p>
+        </div>
+        <div class="extra content">
+            <a href="#" class="ui right floated primary button">Check it out</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

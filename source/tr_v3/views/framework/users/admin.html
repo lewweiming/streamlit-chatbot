@@ -1,0 +1,70 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<main class="ui container">
+    <section data-rows="{{ rows|json_encode|e }}" x-data="main" x-cloak x-init="$nextTick(() => { loadData() })">
+
+        <!-- TOOLBAR -->
+        <div>
+            <h1>Users (Paginated Search)</h1>
+            <div class="ui input">
+                <input x-model="search" type="text" placeholder="Search..">
+            </div>
+        </div>
+
+        <table class="ui celled table">
+            <thead class="">
+                <tr>
+                    <th scope="col" class="">
+                        Id
+                    </th>
+                    <th>Username</th>
+                    <th>Email</th>
+
+                    <th scope="col">
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="">
+                <template x-for="row in filteredList()">
+                    <tr class="">
+                        <td class="" x-text="row.id"></td>
+                        <td class="" x-text="row.username"></td>
+                        <td class="" x-text="row.email"></td>
+                        <td class="">
+
+                            <a :href="`/framework/admin/user/${ row.id }/delete`" class="ui small button">Delete</a>
+
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+
+    </section>
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+    function submit() {
+        document.forms["addItem"].submit();
+    }
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            search: '',
+            rows: [],
+            loadData() {
+                let r = document.querySelector('[data-rows]');
+                this.rows = JSON.parse(r.dataset.rows)
+            },
+            filteredList() {
+                return (this.rows).filter((i) => (i.email).startsWith(this.search))
+            }
+        }))
+    })
+</script>
+{% endblock %}

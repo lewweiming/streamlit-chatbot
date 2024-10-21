@@ -1,0 +1,138 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui breadcrumb">
+  <a href="/framework/admin" class="section">Admin</a>
+  <i class="right angle icon divider"></i>
+  <a href="/framework/admin/hotels/hotels-data/main" class="section">Hotel Data</a>
+  <i class="right angle icon divider"></i>
+  <div class="active section">Add New Hotel</div>
+</div>
+
+<h2 class="ui header">Add New Hotel</h2>
+
+<!-- VALIDATION ERRORS -->
+{% if(errors) %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">
+    Validation Errors
+  </div>
+  <ul>
+    {% for key,val in errors %}
+    <li>{{ val[0] }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<form method="post" action="/hotels/add" class="ui form">
+  <p>Enter hotel details</p>
+
+  <div class="required field">
+    <label for="name">Hotel Name</label>
+    <input type="text" id="name" name="name">
+  </div>
+
+  <div class="required field">
+    <label for="price">Price</label>
+    <input type="text" id="price" name="price" placeholder="e.g., 150.00">
+  </div>
+
+  <div class="field">
+    <label for="address">Address</label>
+    <input type="text" id="address" name="address" placeholder="Hotel address">
+  </div>
+
+  <div class="field">
+    <label for="phone">Phone</label>
+    <input type="text" id="phone" name="phone" placeholder="Hotel phone number">
+  </div>
+
+  <div class="field">
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" placeholder="Hotel email address">
+  </div>
+
+  <div class="required field">
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location" placeholder="Location of the hotel">
+  </div>
+
+  <div class="field">
+    <label for="description">Description</label>
+    <textarea id="description" name="description" placeholder="Detailed description of the hotel"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="terms">Terms</label>
+    <textarea id="terms" name="terms" placeholder="Hotel terms and conditions"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="description_facilities">Facilities Description</label>
+    <textarea id="description_facilities" name="description_facilities" placeholder="Description of hotel facilities"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="description_policies">Policies Description</label>
+    <textarea id="description_policies" name="description_policies" placeholder="Description of hotel policies"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="banner_image_url">Banner Image URL</label>
+    <input type="text" id="banner_image_url" name="banner_image_url" placeholder="Link to hotel banner image">
+  </div>
+
+  <div class="field">
+    <label for="thumb_image_1_url">Thumbnail Image 1 URL</label>
+    <input type="text" id="thumb_image_1_url" name="thumb_image_1_url" placeholder="Link to thumbnail image 1">
+  </div>
+
+  <button type="submit" class="ui button">Submit</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+<script>
+/* VALIDATION */
+$(document).ready(function () {
+    $('.ui.form').form({
+        fields: {
+            name: {
+                identifier: 'name',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the hotel name'
+                    }
+                ]
+            },
+            price: {
+                identifier: 'price',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the price'
+                    },
+                    {
+                        type: 'decimal',
+                        prompt: 'Please enter a valid decimal value for price'
+                    }
+                ]
+            },
+            location: {
+                identifier: 'location',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter the location'
+                    }
+                ]
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

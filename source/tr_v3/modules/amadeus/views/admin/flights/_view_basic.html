@@ -1,0 +1,85 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+
+<main x-data="main()">
+
+    <div class="ui breadcrumb">
+        <a href="/framework/admin" class="section">Admin</a>
+        <i class="right angle icon divider"></i>
+        <a href="/framework/admin/amadeus/main" class="section">Amadeus Module</a>
+        <i class="right angle icon divider"></i>
+        <a href="/framework/admin/amadeus/flights/main" class="section">Flight Api</a>
+        <i class="right angle icon divider"></i>
+        <div class="active section">Flight Offers</div>
+    </div>
+
+    <h2 class="ui header">Flight Offers</h2>
+
+    <div class="ui message">"Fetch Data" will update the local DB with the latest information.</div>
+
+    <div>Searching for "SIN" -> "BKK" Deals on 2024-07-31 for 2 adults</div>
+
+    <!-- TABLE -->
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Departure</th>
+                <th>Arrival</th>
+                <th>Duration</th>
+                <th>Price (EUR)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template x-for="offer in rows" :key="offer.id">
+                <tr>
+                    <td>
+                        <template x-for="segment in offer.itineraries[0].segments" :key="segment.id">
+                            <span x-text="segment.departure.iataCode"></span> → <span x-text="segment.arrival.iataCode"></span><br>
+                            <small><span x-text="segment.departure.at"></span> - <span x-text="segment.arrival.at"></span></small>
+                            <br><br>
+                        </template>
+                    </td>
+                    <td>
+                        <span x-text="offer.itineraries[0].segments[0].arrival.iataCode"></span> → <span x-text="offer.itineraries[0].segments[1].arrival.iataCode"></span>
+                    </td>
+                    <td>
+                        <span x-text="offer.itineraries[0].duration"></span>
+                    </td>
+                    <td>
+                        <span x-text="offer.price.total"></span>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_FETCH_AMADEUS_FLIGHT_OFFERS = '/modules/amadeus/api/flights/flight_offers.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            rows: [],
+            init() {
+                this.list();
+            },
+            async list() {
+
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_FETCH_AMADEUS_FLIGHT_OFFERS)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.results.data
+                    $.toast({ class: 'success', message: `${r.data.results.data.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

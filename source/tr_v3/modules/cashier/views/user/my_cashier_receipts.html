@@ -1,0 +1,27 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<h2 class="ui header">My Cashier Receipts</h2>
+<table class="ui table">
+    <thead>
+        <tr>
+            <th>Payee Email</th>
+            <th>Description</th>
+            <th>Currency</th>
+            <th>Amount</th>
+            <th>Created At</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in receipts %}    
+        <tr>
+            <td>{{ i.email }}</td>
+            <td>{{ i.description }}</td>
+            <td>{{ i.currency }}</td>
+            <td>{{ (i.amount/100)|format_currency('USD', {fraction_digit: 2}) }}</td>
+            <td>{{ i.created_at | date("d M Y") }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="">
+    <h2 class="ui dividing header">Hotel Bookings - Hotels Dashboard</h2>
+
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Hotel ID</th>
+                <th>Hotel Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Zip Code</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example row, loop through your data and replace accordingly -->
+            <tr>
+                <td>1</td>
+                <td>Sunset Resort</td>
+                <td>123 Beach Avenue</td>
+                <td>Miami</td>
+                <td>Florida</td>
+                <td>USA</td>
+                <td>33101</td>
+                <td>(305) 123-4567</td>
+                <td>info@sunsetresort.com</td>
+                <td>
+                    <div class="ui buttons">
+                        <button class="ui blue button">Edit</button>
+                        <button class="ui red button">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Mountain Lodge</td>
+                <td>456 Alpine Way</td>
+                <td>Denver</td>
+                <td>Colorado</td>
+                <td>USA</td>
+                <td>80202</td>
+                <td>(720) 789-1234</td>
+                <td>contact@mountainlodge.com</td>
+                <td>
+                    <div class="ui buttons">
+                        <button class="ui blue button">Edit</button>
+                        <button class="ui red button">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <button class="ui primary button">Add New Hotel</button>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

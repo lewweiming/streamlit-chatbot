@@ -10,6 +10,7 @@ import numpy as np
 
 DOC_PATH = "samples/travelobby.pdf"
 FOLDER_PATH = "faiss_vector_store"
+MODEL_NAME = 'bert-base-nli-mean-tokens'
 
 # Load your PDF document
 loader = PyPDFLoader(DOC_PATH)
@@ -19,8 +20,7 @@ pages = loader.load()
 documents = [Document(page_content=page.page_content, metadata={"page_number": i + 1}) for i, page in enumerate(pages)]
 
 # Initialize HuggingFace embeddings model
-model_name = 'bert-base-nli-mean-tokens'
-embedding_function = HuggingFaceEmbeddings(model_name=model_name)
+embedding_function = HuggingFaceEmbeddings(model_name=MODEL_NAME)
 
 # Create VectorStore with FAISS
 vector_store = FAISS.from_documents(documents, embedding_function) 

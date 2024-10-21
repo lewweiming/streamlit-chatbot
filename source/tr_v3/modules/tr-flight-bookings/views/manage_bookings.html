@@ -1,0 +1,55 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    <h2 class="ui header">Manage Booking</h2>
+    
+    <!-- Booking Search Form -->
+    <form class="ui form">
+        <div class="field">
+            <label>Booking Reference Number</label>
+            <input type="text" name="booking_reference" placeholder="Enter Booking Reference">
+        </div>
+        <button class="ui primary button" type="submit">Retrieve Booking</button>
+    </form>
+
+    <!-- Booking Details -->
+    <h3 class="ui dividing header">Booking Details</h3>
+    <div class="ui segment">
+        <p><strong>Booking Reference:</strong> XYZ123</p>
+        <p><strong>Passenger Name:</strong> John Doe</p>
+        <p><strong>Flight:</strong> AA123</p>
+        <p><strong>Departure:</strong> 2024-09-30 09:00</p>
+        <p><strong>Arrival:</strong> 2024-09-30 12:00</p>
+        <p><strong>Status:</strong> Confirmed</p>
+        <div class="ui buttons">
+            <button class="ui yellow button">Modify Booking</button>
+            <div class="or"></div>
+            <button class="ui red button">Cancel Booking</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

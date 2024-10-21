@@ -1,0 +1,74 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<main class="ui segment" data-name="{{ profile.name|e }}">
+  <h2 class="ui header">Change Username</h2>
+  <div class="ui divider"></div>
+  <form class="ui form info" method="post" action="/user/username/change">
+
+    <h5>Current Username: <span class="ui basic black label">{{ username }}</span></h5>
+
+    <input type="hidden" name="old_username" id="old_username" placeholder="Old username" value="{{ username }}" />
+
+    <div class="field">
+      <label>New Username</label>
+      <input type="text" name="new_username" id="new_username" placeholder="Enter a new username" autofocus />
+      <div class="ui pointing basic black label">Username consists of at least 5 alphanumeric characters with no spaces
+        and no special characters</div>
+      <div>
+        <button onclick="fillInputUsername(randomUsername(getProfileName()))" type="button" class="ui tertiary primary button">Generate Random
+          Username (Optional)</button>
+      </div>
+    </div>
+
+    <button class="ui button" type="submit">Submit</button>
+  </form>
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+function randomFruit() {
+    // Array of fruits
+    const fruits = ["Apple", "Banana", "Orange", "Grape", "Pineapple", "Strawberry", "Watermelon", "Mango", "Kiwi", "Pear"];
+
+    // Generate a random index
+    const randomIndex = Math.floor(Math.random() * fruits.length);
+
+    // Return the fruit at the random index
+    return fruits[randomIndex];
+}
+
+  function getProfileName() {
+
+    let r = document.querySelector('[data-name]');
+
+    if(!r.dataset.name) {
+      return randomName();
+    }
+
+    return r.dataset.name
+  }
+
+  function randomUsername(string) {
+    const words = string.toLowerCase().split(" ");
+    let firstPart = words[0];
+    let secondPart = "";
+
+    // Concatenate remaining words if more than one
+    if (words.length > 1) {
+        secondPart = words.slice(1).join("").substring(0, 3);
+    }
+
+    const randNum = Math.floor(Math.random() * 100);
+
+    const username = firstPart.trim() + secondPart.trim() + randNum;
+    return username;
+}
+
+  function fillInputUsername(val) {
+    let el = document.querySelector('input[name="new_username"]');
+    el.value = val;
+  }
+</script>
+{% endblock %}

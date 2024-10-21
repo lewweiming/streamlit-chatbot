@@ -1,0 +1,107 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block head %}
+<!-- CLIPBOARD -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<main x-data="main()">
+
+    <div class="ui breadcrumb">
+        <a href="/framework/admin" class="section">Admin</a>
+        <i class="right angle icon divider"></i>
+        <a href="/framework/admin/amadeus/main" class="section">Amadeus Module</a>
+        <i class="right angle icon divider"></i>
+        <a href="/framework/admin/amadeus/hotels/main" class="section">Hotel Api</a>
+        <i class="right angle icon divider"></i>
+        <div class="active section">Hotel List</div>
+    </div>
+
+    <h2 class="ui header">Hotel List</h2>
+
+    <div class="ui message">"Submit" will check for cities with the keyword or code.</div>
+
+    <div class="ui hidden divider"></div>
+
+    <h2 class="ui header">Input Keywords / City Code</h2>
+
+    <div class="ui form">
+        <div class="field">
+        <div class="ui fluid input">
+            <input x-model="input.keywords" type="text" placeholder="E.g New York / NYC"//>
+        </div>
+        </div>
+        <button @click="startSearch()" class="ui button">Submit</button>
+    </div>
+
+
+    <div class="ui hidden divider"></div>
+
+    <!-- JSON/RESULTS -->
+    <div class="ui code">
+        <h2 class="ui header">JSON Data</h2>
+
+        <div>
+            <button class="ui clipboard button" :data-clipboard-text="resultsDataJson">Copy Data as JSON</button></div>
+        </div>
+
+        <pre><code x-text="resultsJson"></code></pre>
+    </div>
+
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+    var clipboard = new ClipboardJS('.clipboard');
+
+    clipboard.on('success', function(e) {
+
+        $.toast({
+            class: 'success',
+            message: 'Successfully copied to clipboard'
+        });
+        // console.info('Action:', e.action);
+        // console.info('Text:', e.text);
+        // console.info('Trigger:', e.trigger);
+
+        e.clearSelection();
+    });
+</script>
+<script>
+    const API_FETCH_AMADEUS_CITY_SEARCH = '/modules/amadeus/api/hotels/list/search_hotels_by_city.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            rows: [],
+            resultsJson: '',
+            resultsDataJson: '',
+            input: {
+                keywords: 'NYC'
+            },
+            init() {
+                
+            },
+            async startSearch() {
+
+                $.toast({ message: 'Submitting data..' });
+
+                let fd = new FormData()
+                fd.append('keywords', this.input.keywords)
+
+                let r = await axios.post(API_FETCH_AMADEUS_CITY_SEARCH, fd)
+
+                if (r.data.message == 'success') {
+                    this.resultsJson = JSON.stringify(r.data, null, 2);
+                    this.resultsDataJson = JSON.stringify(r.data.results.data, null, 2);
+                    $.toast({ class: 'success', message: `Data fetched` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

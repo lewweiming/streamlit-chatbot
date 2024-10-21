@@ -1,0 +1,75 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    <h2 class="ui header">Shopping Cart</h2>
+
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if rows is not empty %}
+                {% for key,row in rows %}
+                <tr>
+                    <td>{{ row.name }}</td>
+                    <td>{{ row.quantity }}</td>
+                    <td>{{ row.price | number_format(2, '.', ',') }}</td>
+                    <td>{{ (row.price * row.quantity) | number_format(2, '.', ',') }}</td>
+                    <td>
+                        <a href="/modules/shop/remove-from-cart?id={{ key }}" class="ui button">Remove</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5" class="center aligned">Your cart is empty.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+        <tfoot class="full-width">
+            <tr>
+                <th colspan="3" class="right aligned"><h3>Total</h3></th>
+                <th colspan=2>
+                    <h3>{{ total | number_format(2, '.', ',') }}</h3>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="ui right aligned container">
+        <a href="/modules/shop" class="ui button">Back to shop</a>
+        <a href="/modules/shop/checkout/personal-details" class="ui positive button">Checkout</a>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    const API_LIST = '/api/list.php'
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            async list() {
+                $.toast({ message: 'Fetching list..' });
+
+                let r = await axios.get(API_LIST)
+
+                if (r.data.message == 'success') {
+                    this.rows = r.data.rows
+                    $.toast({ class: 'success', message: `${r.data.rows.length} row(s) found` });
+                }
+            },
+        }))
+    })
+
+</script>
+{% endblock %}

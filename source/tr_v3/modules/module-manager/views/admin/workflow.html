@@ -1,0 +1,24 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block head %}
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
+{% endblock %}
+
+{% block content %}
+<h2 class="ui header">Module Manager Installation Workflow</h2>
+
+<div>
+    <pre class="mermaid">
+        graph TD
+        A[Download Module via x2f] --> B[Unpack Zip into modules path]
+        B --> C[Update Core]
+        C --> D[Update Routes I.e index.php]
+        D --> E[Update module_manager table]
+        E --> F[Run installer.php]
+        F --> G[Delete module.zip]
+  </pre>    
+</div>
+{% endblock %}

@@ -1,0 +1,168 @@
+{% extends "_layout_admin.html" %}
+
+{% set title = 'Edit Article' %}
+
+{% block head %}
+<link rel="stylesheet" href="/vendor/easymde/easymde.min.css">
+{% endblock %}
+
+{% block content %}
+
+<!-- FAB -->
+<!-- <div style="position: fixed; right: 120px; bottom: 70px; z-index:2;">
+  
+  <a href="/framework/admin/main" class="rounded-full">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="white" viewBox="0 0 24 24" stroke="black" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+    </svg>
+  </a>
+  <button onclick="update()" type="button" class="rounded-full">
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" viewBox="0 0 20 20" fill="#3B82F6">
+      <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+      <path fillRule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clipRule="evenodd" />
+    </svg>
+  </button>
+</div> -->
+
+<!-- BREADCRUMBS -->
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="/framework">Home</a></li>
+    <li><a href="/framework/admin/main">Admin</a></li>
+    <li class="is-active"><a href="#" aria-current="page">Editing {{ article.title }}</a></li>
+  </ul>
+</nav>
+
+<main x-data="main" data-article="{{ article|json_encode|e }}" data-images="{{ images|json_encode|e }}">
+
+  <!-- FORM -->
+  <form name="save" method="post" action="/framework/admin/article/{{ article.id }}">
+
+
+    <div class="field">
+      <label class="label">Article Title</label>
+      <div class="control">
+        <input class="input" type="text" name="title" value="{{ article.title|e }}" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Thumbnail Path</label>
+      <div class="control">
+        <input x-ref="thumbnailInput" class="input" type="text" name="thumbnail_path" value="{{ article.thumbnail_path|e }}" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Article Source URL</label>
+      <div class="control">
+        <input class="input" type="text" name="source_url" value="{{ article.source_url|e }}" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Article Tags (Comma separated tags)</label>
+      <div class="control">
+        <input class="input" type="text" name="tags" value="{{ article.tags|e }}" />
+      </div>
+    </div>
+
+    <div class="my-3">
+      <label class="label">Images</label>
+      <div class="is-flex">
+        <table class="table">
+          <template x-for="i in images">
+            
+          <tr>
+            <td>
+              <img @click="insertImage(i)" width="100" class="is-clickable" :src="getImageAssetPath(i)" />
+            </td>
+            <td>
+              <a @click="setImageAsThumbnail(i)">Set as thumbnail</a>
+            </td>
+          </tr>
+          
+          </template>
+        </table>
+        
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Markdown Content</label>
+      <div class="control">
+        <textarea id="markdown-editor" name="markdown_content">{{ article.markdown_content|e }}</textarea>
+      </div>
+
+      <p>Powered by <a target=blank href="https://easy-markdown-editor.tk"
+          class="text-blue-600 dark:text-blue-500 hover:underline">Easy MDE</a></p>
+    </div>
+
+
+
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button type="submit" class="button is-link">Update</button>
+      </div>
+      <div class="control">
+        <a href="/framework/admin/main" class="button is-link is-light">Back</a>
+      </div>
+    </div>
+
+  </form>
+</main>
+{% endblock %}
+
+{% block script %}
+<script src="/vendor/easymde/easymde.min.js"></script>
+<script>
+  const easyMDE = new EasyMDE({
+    element: document.getElementById("markdown-editor"),
+  });
+
+  function update() {
+    document.forms["save"].submit();
+  }
+
+  function insertTextAtCursor(editor, text) {
+    var doc = editor.getDoc();
+    var cursor = doc.getCursor();
+    doc.replaceRange(text, cursor);
+  }
+</script>
+
+<script defer>
+  document.addEventListener('alpine:init', () => {
+
+    Alpine.data('main', () => ({
+      article: null,
+      images: [],
+      init() {
+        this.loadImages()
+        this.loadArticle()
+      },
+      getImageAssetPath(filename) {
+        return `/assets/x2f/articles/${this.article.id}/images/${filename}`;
+      },
+      setImageAsThumbnail(filename) {
+        this.$refs.thumbnailInput.value = this.getImageAssetPath(filename)
+      },
+      loadImages() {
+
+        let r = document.querySelector('[data-images]');
+        this.images = JSON.parse(r.dataset.images)
+      },
+      loadArticle() {
+
+        let r = document.querySelector('[data-article]');
+        this.article = JSON.parse(r.dataset.article)
+      },
+      insertImage(filename) {
+        let path = this.getImageAssetPath(filename);
+        insertTextAtCursor(easyMDE.codemirror, `![](${path})`)
+      }
+    }))
+  })
+</script>
+{% endblock %}

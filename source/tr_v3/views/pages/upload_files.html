@@ -1,0 +1,118 @@
+{% extends "_layout.html" %}
+
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/filesize/9.0.11/filesize.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<!-- BULMA TOAST -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/bulma-toast@2.4.1/dist/bulma-toast.min.js"></script>
+
+<style>
+
+.file-upload {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        position: absolute;
+    }    
+</style>
+{% endblock %}
+
+{% block content %}
+<main x-data="main" class="has-text-centered">
+    
+<div class="title">Uploads Files</div>
+<div class="subtitle">Drag and drop files.</div>
+<p>Upload now</p>
+
+    <!-- UPLOADER -->
+    <div class="my-3">
+
+        <div class="flex flex-col flex-grow mb-3">
+
+            <div id="FileUpload"
+                class="is-relative p-6 has-background-grey-lighter" style="border: 3px dashed #ddd;">
+
+                <input type="file" multiple
+                    class="file-upload"
+                    x-on:change="files = $event.target.files; uploadAll($event.target.files);"
+                    x-on:dragover="$el.classList.add('active')" x-on:dragleave="$el.classList.remove('active')"
+                    x-on:drop="$el.classList.remove('active')">
+                <template x-if="files !== null">
+                    <div class="flex flex-col space-y-1">
+                        <template x-for="(_,index) in Array.from({ length: files.length })">
+                            <div class="flex flex-row items-center space-x-2">
+                                <template x-if="files[index].type.includes('audio/')"><i
+                                        class="far fa-file-audio fa-fw"></i></template>
+                                <template x-if="files[index].type.includes('application/')"><i
+                                        class="far fa-file-alt fa-fw"></i></template>
+                                <template x-if="files[index].type.includes('image/')"><i
+                                        class="far fa-file-image fa-fw"></i></template>
+                                <template x-if="files[index].type.includes('video/')"><i
+                                        class="far fa-file-video fa-fw"></i></template>
+                                <span class="font-medium text-gray-900"
+                                    x-text="files[index].name">Uploading</span>
+                                <span class="text-xs self-end text-gray-500"
+                                    x-text="filesize(files[index].size)">...</span>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+                <template x-if="files === null">
+                    <div class="is-flex is-flex-direction-column space-y-2 items-center justify-center">
+                        <i class="fas fa-cloud-upload-alt fa-3x text-currentColor"></i>
+                        <p class="has-text-centered my-2 has-text-black">Drag your files here or click in this
+                            area.</p>
+                            <div class="has-text-centered">
+                        <a href="javascript:void(0)" class="button is-primary">Select
+                            a file</a>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+
+    </div>
+
+</main>
+{% endblock %}
+
+{% block script %}
+<script defer>
+
+    document.addEventListener('alpine:init', () => {
+
+        Alpine.data('main', () => ({
+            files: null,
+            /* Uploads multiple files determined by PHP Max Upload Size Per Post */
+            async uploadAll(files) {
+
+                let filesArray = Array.from(files);
+                filesArray.forEach((file) => {
+                    // toaster.pop({ message: `Uploading ${file.name} ..`, class: 'blue' })
+                    bulmaToast.toast({ message: `Uploading ${file.name} ..`, class: 'blue' })
+                })
+                
+                let formData = new FormData()
+
+                filesArray.forEach((file, index) => {
+                    formData.append('file[]', file, file.name)
+                })
+
+                let r = await axios.post('/x2-file-uploads/upload', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+            }
+        }))
+
+    })
+</script>
+{% endblock %}

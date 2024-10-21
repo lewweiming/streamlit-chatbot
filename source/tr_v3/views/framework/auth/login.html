@@ -1,0 +1,60 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block head %}
+<script src="https://accounts.google.com/gsi/client" async></script>
+{% endblock %}
+
+{% block content %}
+<div class="ui segment">
+  <h1>Login</h1>
+
+  <form class="ui form" method="post" action="/login">
+
+    {% if page %}
+    <input type="hidden" name="page" value="{{ page }}" />
+    {% endif %}
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="Email" />
+    </div>
+
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" placeholder="Password" />
+    </div>
+
+    <div class="field">
+      <div class="ui checkbox">
+        <input value="1" name="remember" type="checkbox">
+        <label>Remember me</label>
+      </div>
+    </div>
+
+
+    <div class="field">
+      <a href="/password/forgot">Forgot password</a>
+    </div>
+
+
+    <div id="g_id_onload" data-client_id="{{ g_oauth_client_id }}"
+      data-context="signin" data-ux_mode="redirect" 
+      data-login_uri="{{ g_oauth_redirect_uri }}" data-auto_prompt="false">
+    </div>
+
+    <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with"
+      data-size="large" data-logo_alignment="left">
+    </div>
+
+    <button class="ui button" type="submit">Submit</button>
+
+
+  </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+  $('.ui.checkbox').checkbox();
+</script>
+{% endblock %}

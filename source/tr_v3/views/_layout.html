@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bulma</title>
+  <link rel="stylesheet" href="/css/bulma.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> -->
+  <link rel="stylesheet" href="/css/main.css">
+
+  <!-- BULMA TOAST -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/bulma-toast@2.4.1/dist/bulma-toast.min.js"></script>
+
+  <!-- BULMA TOOLTIP -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-tooltip@1.2.0/dist/bulma-tooltip.min.css" />
+
+  <!-- ALPINEJS -->
+  <script src="//unpkg.com/alpinejs" defer></script>
+
+  <!-- AXIOS -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <!-- LAZY LOADING -->
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.0.1/dist/lazyload.min.js"></script>
+
+  <!-- Additional Headers / Styles -->
+  {% block head %}{% endblock %}
+  {% stack head %}
+</head>
+
+<body>
+  <!-- MODAL: AJAX LOGIN -->
+  {% include '/parts/modal_ajax_login.html' %}
+  
+  <!-- NAVBAR -->
+  {% include '_navbar.html' %}
+
+  {% block unwrapped_content %}{% endblock %}
+
+  <section class="section">
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  {% include '_footer.html' %}
+  <!-- Additional Scripts -->
+  <!-- MOBILE BURGER -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // Get all "navbar-burger" elements
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      // Add a click event on each of them
+      $navbarBurgers.forEach(el => {
+        el.addEventListener('click', () => {
+
+          // Get the target from the "data-target" attribute
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+
+        });
+      });
+
+    });
+  </script>
+  <script>
+    let defaultAuthUser = {
+      'user': null
+    }
+
+    document.addEventListener('alpine:init', () => {
+
+      Alpine.store('authUser', defaultAuthUser);
+
+      /* LOGOUT */
+      Alpine.data('authMain', () => ({
+        init() {
+          /* INTERFACE WITH SESSION STORAGE INSTEAD OF USING ALPINE PERSIST FOR SIMPLICITY */
+          let sessionDataAuthUser = sessionStorage.getItem("authUser");
+
+          if (sessionDataAuthUser) {
+            defaultAuthUser = JSON.parse(sessionDataAuthUser)
+          }
+
+          Alpine.store('authUser', defaultAuthUser)
+
+          this.ajaxCheckAuthStatus()
+
+        },
+        resetUser() {
+
+          defaultAuthUser = {
+            user: null
+          }
+
+          return defaultAuthUser;
+
+        },
+        async attemptLogout() {
+
+          let r = await axios.post('/api/x2-framework/auth/ajax_logout.php');
+
+          this.$store.authUser = this.resetUser();
+          sessionStorage.setItem("authUser", JSON.stringify(defaultAuthUser));
+          bulmaToast.toast({ message: 'Logout successful!' })
+        },
+        async ajaxCheckAuthStatus() {
+
+          let r = await axios.get('/api/x2-framework/auth/is_authenticated_ajax.php');
+
+          if (r.data.login_status == true) {
+
+            let defaultAuthUser = {
+              'user': 'Developer'
+            }
+
+            this.$store.authUser = defaultAuthUser;
+          }
+        }
+      }))
+    });
+  </script>
+  {% block script %}{% endblock %}
+  {% stack script %}
+</body>
+
+</html>

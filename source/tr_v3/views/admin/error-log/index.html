@@ -1,0 +1,21 @@
+{% extends "_layout_admin_fomantic.html" %}
+
+{% block content %}
+<div class="ui container">
+    <h1>Error Log (Private)</h1>
+
+    <div class="ui secondary  menu">
+        <a class="active item">
+          Error Log (Private)
+        </a>
+        <a href="/framework/admin/error-log-apache" class="item">
+        Error Log (Apache)
+        </a>
+    </div>
+
+<div class="content">
+{{ content|nl2br }}
+</div>
+
+</div>
+{% endblock %}

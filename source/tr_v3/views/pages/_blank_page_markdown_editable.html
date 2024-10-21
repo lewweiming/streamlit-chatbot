@@ -1,0 +1,37 @@
+{% extends "_layout.html" %}
+
+{% block head %}
+<script src="/web-components/edit-page/edit-page.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="stylesheet" href="/css/markdown.css" />
+{% endblock %}
+
+{% block content %}
+
+<!-- FAB - AS A JS COMPONENT, SHOW ONLY IF ADMIN -->
+{% if session.is_logged_in == true %}
+<edit-page-component data-path="views/pages" data-filename="filename.html"></edit-page-component>
+{% endif %}
+
+<!-- UNCOMMENT THIS LINE IF AJAX LOGIN FOR DEVELOPER IS SUPPORTED, USE ONLY ONE -->
+<!-- <edit-page-component x-data x-cloak x-show="$store.authUser.user" data-path="views/pages" data-filename="projects_client_apps.html"></edit-page-component> -->
+
+
+<section class="container my-4">
+<div class="markdown markdown-body">
+# I'm a markdown page
+
+</div>
+
+</section>
+{% endblock %}
+
+{% block script %}
+<script>
+let collection = document.getElementsByClassName('markdown')
+let nodes = Array.from(collection)
+nodes.forEach(el => {
+    el.innerHTML = marked.parse(el.innerHTML)
+})
+</script>
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends "_layout_fomantic.html" %}
+
+{% block head %}
+<style>
+  #myBanner.banner {
+    height: 500px;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url('/assets/images/background-autumn.jpg');
+    /* background-position: top, bottom; */
+    background-size: cover;
+    /* background-blend-mode: overlay; */
+  }
+</style>
+{% endblock %}
+
+{% block unwrapped_content %}
+<!-- MAST HEADER -->
+<div class="ui very padded vertical masthead center aligned basic segment">
+
+  <h1 class="ui header">What can we you help with?</h1>
+
+  <!-- Input Field -->
+  <div class="ui basic segment">
+    <div class="ui action input">
+      <input type="text" placeholder="Type your query...">
+      <button class="ui button">Search</button>
+    </div>
+  </div>
+</div>
+
+<!-- BANNER -->
+<div id="myBanner" class="ui very padded inverted vertical masthead center aligned banner segment">
+
+  <div class="ui very padded vertical masthead center aligned segment banner">
+    <div class="ui text container">
+      <h1 class="ui inverted massive header">The <u><em>Social</em></u> Travel Platform</h1>
+      <h2 class="ui small inverted large header">Never Stop Exploring</h2>
+      <div class="ui spaced buttons">
+        <a href="/modules/car-rentals" class="ui basic large inverted button">Car Rentals</a>
+        <a href="/modules/flight-bookings" class="ui basic large inverted button">Flight Bookings</a>
+        <a href="/modules/trip-bookings" class="ui basic large inverted button">Trip Bookings</a>
+        <a href="/modules/hotel-bookings" class="ui basic large inverted button">Hotel Bookings</a>
+        <a href="/modules/shop" class="ui basic large inverted button">Shop</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="ui top attached tabular menu">
+  <a class="active item" data-tab="car-rentals">Car Rentals</a>
+  <a class="item" data-tab="flight-bookings">Flight Bookings</a>
+  <a class="item" data-tab="hotel-bookings">Hotel Bookings</a>
+  <a class="item" data-tab="trip-bookings">Trip Bookings</a>
+</div>
+
+<div class="ui bottom attached active tab segment" data-tab="car-rentals">
+  <h3>Car Rentals</h3>
+  <form class="ui form">
+    <div class="field">
+      <label>Pick-up Location</label>
+      <input type="text" placeholder="Enter pick-up location">
+    </div>
+    <div class="field">
+      <label>Pick-up Date</label>
+      <input type="date">
+    </div>
+    <div class="field">
+      <label>Drop-off Date</label>
+      <input type="date">
+    </div>
+    <button class="ui primary button" type="submit">Search</button>
+  </form>
+</div>
+
+<div class="ui bottom attached tab segment" data-tab="flight-bookings">
+  <h3>Flight Bookings</h3>
+  <form class="ui form">
+    <div class="field">
+      <label>Departure Airport</label>
+      <input type="text" placeholder="Enter departure airport">
+    </div>
+    <div class="field">
+      <label>Arrival Airport</label>
+      <input type="text" placeholder="Enter arrival airport">
+    </div>
+    <div class="field">
+      <label>Departure Date</label>
+      <input type="date">
+    </div>
+    <div class="field">
+      <label>Return Date</label>
+      <input type="date">
+    </div>
+    <button class="ui primary button" type="submit">Search Flights</button>
+  </form>
+</div>
+
+<div class="ui bottom attached tab segment" data-tab="hotel-bookings">
+  <h3>Hotel Bookings</h3>
+  <form class="ui form">
+    <div class="field">
+      <label>Destination</label>
+      <input type="text" placeholder="Enter destination">
+    </div>
+    <div class="field">
+      <label>Check-in Date</label>
+      <input type="date">
+    </div>
+    <div class="field">
+      <label>Check-out Date</label>
+      <input type="date">
+    </div>
+    <button class="ui primary button" type="submit">Search Hotels</button>
+  </form>
+</div>
+
+<div class="ui bottom attached tab segment" data-tab="trip-bookings">
+  <h3>Trip Bookings</h3>
+  <form class="ui form">
+    <div class="field">
+      <label>Destination</label>
+      <input type="text" placeholder="Enter destination">
+    </div>
+    <div class="field">
+      <label>Start Date</label>
+      <input type="date">
+    </div>
+    <div class="field">
+      <label>End Date</label>
+      <input type="date">
+    </div>
+    <button class="ui primary button" type="submit">Search Trips</button>
+  </form>
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+<script>
+  $('.menu .item').tab();
+</script>
+{% endblock %}
