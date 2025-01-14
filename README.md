@@ -16,3 +16,19 @@
 ```
 streamlit run streamlit.py
 ```
+
+## Chat With TR V3 Vector Store
+
+```
+streamlit run streamlit_tr_v3_chat.py
+```
+
+## RAG
+
+- Different chunking methods can be employed.
+
+## FAISS Project
+
+**langchain_rag_faiss_mixed_tr_v3.py**
+
+- langchain_rag_faiss_mixed_tr_v3.py is the culmination of days spent understanding what RAG via FAISS does. It trains and creates a vector store of embeddings based on source code from TR.
